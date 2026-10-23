@@ -5,6 +5,7 @@
 
 # Downloaded catalog, exports and generated viewer
 /data/catalog/
+/data/.catalog-*
 /app/viewer.html
 /recipes.xlsx
 

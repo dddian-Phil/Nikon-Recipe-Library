@@ -2,7 +2,11 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>使用说明 · 尼康云创资料库</title><style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#191919;color:#dedede;font:16px/1.85 system-ui,"Microsoft YaHei",sans-serif}main{max-width:880px;margin:36px auto;padding:32px 44px 48px;background:#242424;border:1px solid #383838;border-radius:12px}h1{margin:0 0 24px;color:#fff;font-size:30px;line-height:1.4}h2{margin:34px 0 12px;padding-top:20px;border-top:1px solid #404040;color:#fff;font-size:21px;line-height:1.5}strong{color:#fff}p{margin:12px 0}li{margin:8px 0}ul,ol{padding-left:25px}code{padding:3px 6px;background:#333;border-radius:4px;color:#fff}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #414141}th{background:#333;color:#fff}.table-wrap{overflow:auto;margin:18px 0}@media(max-width:640px){main{margin:0;padding:24px 20px;border:0;border-radius:0}h1{font-size:26px}}
 </style></head><body><main><h1>尼康云创资料库</h1>
-<p>双击同一层的 <strong>open-library.cmd</strong>，即可在浏览器使用。资料与照片都在本机，无需登录或联网。</p>
+<p>双击同一层的 <strong>open-library.cmd</strong>，即可在浏览器使用。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。</p>
+<h2>网页手动同步云创</h2>
+<p>点击顶部的 <strong>同步云创</strong>，更新新增或变化的官方方案、介绍、参数、样片和作者资料。页面显示进度，以及完成后的新增、更新数量。打开网页、刷新页面和重启服务不会自动联系官方，也不增加任何官方同步定时任务。</p>
+<p>更新先下载到独立目录，验证通过后整体切换。失败时保留原目录并显示原因；重启时会恢复被中断的文件事务。同步不会覆盖 photos、收藏、喜欢、手动关联或个人记录。已从官方列表消失的旧方案保留，避免原来的关联失效。</p>
+<p>方案卡片的 <strong>新增</strong> 标记和 <strong>本次同步新增</strong> 筛选表示最近一次成功同步增加的方案，下一次成功同步时重置；失败时不会清除。排序支持 <strong>最新发布</strong>、<strong>新增优先</strong> 和 <strong>官网顺序</strong>。Excel 总表仍是原有静态导出，不随网页同步重写。</p>
 <h2>添加照片与持续更新</h2>
 <ol>
 <li>把新照片复制到 <strong>photos</strong> 文件夹，可以按日期或拍摄主题建立子文件夹。</li>
@@ -21,7 +25,10 @@
 <p>收藏方案和喜欢照片分别记录。喜欢一张照片不会自动收藏某个方案。</p>
 <h2>自动识别与手动关联</h2>
 <p>目前已验证这台 Z50II 写入的优化校准格式。按机内名称与公开目录唯一匹配时自动关联；名称被截短、有多个候选、元数据缺失或同组记录不一致时，不会猜测。</p>
-<p>在照片详情里的 <strong>关联方案</strong> 下拉框可以手动选择方案，后续更新会保留。选择 <strong>按相机记录自动识别</strong> 可以恢复自动关联；也可以选择暂不关联。</p>
+<p>在照片详情里的 <strong>搜索方案并手动关联</strong> 输入方案名称、作者或优化校准名称，即可查看候选。相机名称对应的候选优先显示，点击某个结果后才保存关联，后续扫描和官方同步会保留。通过 <strong>关联方式</strong> 选择 <strong>按相机记录自动识别</strong> 可以恢复自动关联；也可以选择暂不关联。</p>
+<h2>照片解析提示</h2>
+<p>有问题的照片会在卡片及详情里直接显示原因，页面顶部的 <strong>照片解析提示</strong> 列出受影响文件、处理建议，并提供可展开的技术详情。文件损坏或权限不足属于错误；未写入优化校准名称属于提示，仍可浏览并手动关联。</p>
+<p>正在复制或空文件会等下次扫描再解析。NEF 缺少内嵌预览时，可补充同组 JPG；无法读取的优化校准版本会显示版本号，不会猜测所用方案。程序不会修改原文件。</p>
 <p><code>AUTO</code> 表示相机记录为自动优化校准，不会自动指向具体云创。名称匹配也不保证所有参数与官网完全一致。</p>
 <h2>保存和备份</h2>
 <p>收藏与手动关联保存在 <strong>local/personal-records.json</strong>，关闭网页、重启或增加照片后仍然保留。程序还会保存上一份记录作为备份。</p>

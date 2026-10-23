@@ -28,7 +28,7 @@ try {
         $logPath = Join-Path $localPath 'runtime.log'
         if (-not (Test-Path -LiteralPath (Join-Path $programPath 'viewer.html'))) {
             & $pythonPath (Join-Path $programPath 'build_viewer.py')
-            if ($LASTEXITCODE -ne 0) { throw 'Build the catalog with python app/collect_nikon.py first.' }
+            if ($LASTEXITCODE -ne 0) { throw 'Viewer generation failed. See local/runtime.log.' }
         }
         Start-Process -FilePath $pythonPath -ArgumentList @(('"' + $serverPath + '"'),'--port',"$portNumber") -WorkingDirectory $workspacePath -WindowStyle Hidden -RedirectStandardError $logPath | Out-Null
         $ready = $false

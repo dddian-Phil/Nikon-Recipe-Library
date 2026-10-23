@@ -9,8 +9,10 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, quote, unquote, urlparse
 from photo_library import PhotoLibrary, WORKSPACE, INTERNAL, PHOTO_ROOT, CATALOG_ROOT, PREVIEWS
+from catalog_sync import CatalogSync
 
 LIBRARY = None
+CATALOG = None
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -52,7 +54,13 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/health':
                 self.send_json({'service': 'nikon-local-library', 'workspace': hashlib.sha256(str(WORKSPACE).encode()).hexdigest(), 'port': self.server.server_port})
             elif path == '/api/state':
-                self.send_json(LIBRARY.state())
+                state = LIBRARY.state()
+                state['catalogSync'] = CATALOG.status()
+                self.send_json(state)
+            elif path == '/api/catalog':
+                self.send_json(CATALOG.payload())
+            elif path == '/api/catalog/sync':
+                self.send_json(CATALOG.status())
             elif path == '/api/backup':
                 with LIBRARY.lock:
                     self.send_json(LIBRARY.records, download='nikon-personal-records.json')
@@ -64,7 +72,8 @@ class Handler(BaseHTTPRequestHandler):
             elif path == '/app.js':
                 self.send_file(Path(__file__).parent / 'app.js', Path(__file__).parent)
             elif path.startswith('/catalog/'):
-                self.send_file(CATALOG_ROOT / path.removeprefix('/catalog/'), CATALOG_ROOT)
+                with CATALOG.lock:
+                    self.send_file(CATALOG_ROOT / path.removeprefix('/catalog/'), CATALOG_ROOT)
             elif path.startswith('/photo-previews/'):
                 self.send_file(PREVIEWS / path.removeprefix('/photo-previews/'), PREVIEWS)
             elif path == '/scheme-table.xlsx':
@@ -77,18 +86,29 @@ class Handler(BaseHTTPRequestHandler):
             pass
 
     def do_POST(self):
-        if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
-            self.send_json({'error': '不允许跨站写入'}, 403)
-            return
-        if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
-            self.send_json({'error': '需要 JSON 请求'}, 400)
-            return
         try:
             length = int(self.headers.get('Content-Length', '0'))
             if length < 0 or length > 8 * 1024 * 1024:
                 raise ValueError('请求过大')
-            incoming = json.loads(self.rfile.read(length) or b'{}')
-            if self.path == '/api/scan':
+            # Consume bounded bodies before rejection to avoid Windows TCP resets
+            # hiding the JSON error response when the connection closes.
+            body = self.rfile.read(length)
+            if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
+                self.send_json({'error': '不允许跨站写入'}, 403)
+                return
+            if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
+                self.send_json({'error': '需要 JSON 请求'}, 400)
+                return
+            incoming = json.loads(body or b'{}')
+            if not isinstance(incoming, dict):
+                raise ValueError('请求必须为 JSON 对象')
+            if self.path == '/api/catalog/sync':
+                started = CATALOG.start()
+                status = CATALOG.status()
+                if not started:
+                    status['error'] = '同步已在进行，请稍候'
+                self.send_json(status, 202 if started else 409)
+            elif self.path == '/api/scan':
                 LIBRARY.start_scan()
                 self.send_json(LIBRARY.state())
             elif self.path == '/api/records':
@@ -104,16 +124,23 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main():
-    global LIBRARY
+    global LIBRARY, CATALOG
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--scan', action='store_true')
     args = parser.parse_args()
+    # Recover interrupted file transactions before reading the local catalog.
+    CATALOG = CatalogSync(WORKSPACE)
     LIBRARY = PhotoLibrary()
+    CATALOG.on_reload = LIBRARY.reload_catalog
+    CATALOG.publication_guard = lambda: LIBRARY.catalog_gate
     if args.scan:
         LIBRARY.scan()
         print(json.dumps(LIBRARY.state()['summary'], ensure_ascii=True))
         return
+    if not (Path(__file__).parent / 'viewer.html').exists():
+        from build_viewer import build
+        build()
     server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
     LIBRARY.start_scan()
     def watch():

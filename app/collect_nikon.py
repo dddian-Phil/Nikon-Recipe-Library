@@ -94,9 +94,11 @@ def image_info(path):
     return info
 
 
-def download(url, path):
+def download(url, path, *, offline=False):
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
+        if offline:
+            raise FileNotFoundError(f'Offline archive is missing: {path.name}')
         data, mime = request(url)
         if not (mime.lower().startswith('image/') or mime.lower().split(';')[0] in ('binary/octet-stream', 'application/octet-stream')):
             raise ValueError(f'Unexpected image content type: {mime}')
@@ -134,12 +136,16 @@ def write_csv(path, fields, rows):
             writer.writerow(safe)
 
 
-def main():
+def main(argv=None, *, root=ROOT, quiet=False):
+    ROOT = Path(root)
+    emit = (lambda *args, **kwargs: None) if quiet else print
     parser = argparse.ArgumentParser()
     parser.add_argument('--refresh', action='store_true')
     parser.add_argument('--offline', action='store_true', help='Rebuild indexes from the completed local archive')
     parser.add_argument('--workers', type=int, default=4)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if not args.offline:
+        parser.error('Official sync is available only from the web UI. Use --offline to rebuild existing local files.')
     ROOT.mkdir(parents=True, exist_ok=True)
     previous_report = json.loads((ROOT / 'data/collection_report.json').read_text(encoding='utf-8')) if args.offline else {}
     previous_records = {r['id']: r for r in json.loads((ROOT / 'data/recipes.json').read_text(encoding='utf-8'))} if args.offline else {}
@@ -157,7 +163,7 @@ def main():
     for creator in creators['creators']:
         for recipe in creator.get('recipes', []):
             author_map[recipe['path'].rstrip('/').split('/')[-1]].append(creator)
-    print(json.dumps({'stage': 'catalog', 'recipes': len(listed), 'creators': len(creators['creators']), 'unmapped': [r['id'] for r in listed if r['id'] not in author_map]}), flush=True)
+    emit(json.dumps({'stage': 'catalog', 'recipes': len(listed), 'creators': len(creators['creators']), 'unmapped': [r['id'] for r in listed if r['id'] not in author_map]}), flush=True)
     records, failures, assets = [], [], []
 
     def fetch_recipe(item):
@@ -166,7 +172,7 @@ def main():
         folder = 'recipes/' + rid.lower()
         sample_path = ROOT / folder / 'sample.jpg'
         detail_url = IR + '/publicrecipe/0000000000000001/' + rid + '?sortType=0&isPagenation=false'
-        if detail_path.exists() and sample_path.exists() and not args.refresh:
+        if args.offline or (detail_path.exists() and sample_path.exists() and not args.refresh):
             detail = json.loads(detail_path.read_text(encoding='utf-8'))
         else:
             detail = get_json(detail_url)
@@ -188,7 +194,7 @@ def main():
                   'source': BASE + '/recipe/release/detail/?id=' + rid + '&sortType=0&recipe_lang=zh-cn',
                   'detailApi': detail_url, 'retrievedAt': previous_records.get(rid, {}).get('retrievedAt', now())}
         try:
-            info = download(detail['thumbnail'], sample_path)
+            info = download(detail['thumbnail'], sample_path, offline=args.offline)
             record['imageInfo'] = info
             asset = {'kind': 'sample', 'recipeId': rid, 'path': record['image'], 'url': detail['thumbnail'], **info}
         except Exception as exc:
@@ -209,7 +215,7 @@ def main():
             except Exception as exc:
                 failures.append({'kind': 'detail', 'recipeId': item['id'], 'error': str(exc)})
             if index % 12 == 0 or index == len(listed):
-                print(json.dumps({'stage': 'details_and_samples', 'done': index, 'total': len(listed), 'failures': len(failures)}), flush=True)
+                emit(json.dumps({'stage': 'details_and_samples', 'done': index, 'total': len(listed), 'failures': len(failures)}), flush=True)
     positions = {item['id']: n for n, item in enumerate(listed)}
     records.sort(key=lambda r: positions[r['id']])
     used_author_ids = {aid for r in records for aid in r['authorIds']}
@@ -218,7 +224,7 @@ def main():
         if not creator.get('thumbnail'):
             return None
         path = 'assets/creators/' + creator['id'] + '.png'
-        info = download(creator['thumbnail'], ROOT / path)
+        info = download(creator['thumbnail'], ROOT / path, offline=args.offline)
         creator['localPortrait'] = path
         return {'kind': 'creator', 'creatorId': creator['id'], 'path': path, 'url': creator['thumbnail'], **info}
 
@@ -341,7 +347,8 @@ def main():
                '本次采集没有登录，也没有访问私人账号内容。', '',
                f"采集结果：{len(records)}/{len(listed)} 个方案，{stats['sampleCount']} 张展示样片，{stats['portraitCount']} 张作者头像。", '']
     (ROOT / 'README.md').write_text('\n'.join(readme), encoding='utf-8')
-    print(json.dumps(stats, ensure_ascii=True), flush=True)
+    emit(json.dumps(stats, ensure_ascii=True), flush=True)
+    return stats
 
 
 if __name__ == '__main__':
