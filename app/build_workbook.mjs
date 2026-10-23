@@ -1,0 +1,78 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {Workbook, SpreadsheetFile} from '@oai/artifact-tool';
+
+const scripts=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(scripts,'../data/catalog');
+const workspace=path.resolve(scripts,'..');
+const qa=path.resolve(scripts,'../local/history/workbook-checks');
+await fs.mkdir(qa,{recursive:true});
+const input=JSON.parse(await fs.readFile(path.join(root,'data/workbook_input.json'),'utf8'));
+const recipes=JSON.parse(await fs.readFile(path.join(root,'data/recipes.json'),'utf8'));
+const creators=JSON.parse(await fs.readFile(path.join(root,'data/creators.json'),'utf8'));
+const stats=JSON.parse(await fs.readFile(path.join(root,'data/collection_report.json'),'utf8'));
+const wb=Workbook.create();
+const sheets=['方案总表','作者目录','全部参数'].map(n=>wb.worksheets.add(n));
+const numeric=x=>x===''||x===undefined||x===null?null:Number.isFinite(Number(x))?Number(x):String(x);
+const literal=x=>typeof x==='string'&&x.startsWith('=')?"'"+x:x;
+const col=n=>{let s='';for(n++;n;n=Math.floor((n-1)/26))s=String.fromCharCode(65+(n-1)%26)+s;return s};
+function setup(sheet,title,note,headers,rows,widths,tableName){
+ const last=col(headers.length-1),end=5+rows.length;
+ sheet.showGridLines=false;
+ sheet.getRange(`A1:${last}${end}`).format.font={name:'Arial',size:10,color:'#283026'};
+ sheet.getRange(`A1:${last}${end}`).format.verticalAlignment='center';
+ sheet.getRange('A2').values=[[title]];
+ sheet.getRange('A2').format.font={name:'Arial',size:15,bold:true,color:'#202B20'};
+ sheet.getRange('A3').values=[[note]];
+ sheet.getRange('A3').format.font={name:'Arial',size:10,color:'#68715D'};
+ sheet.getRange(`A5:${last}5`).values=[headers];
+ if(tableName==='ParametersTable')sheet.getRange(`E6:F${end}`).setNumberFormat('@');
+ if(rows.length)sheet.getRange(`A6:${last}${end}`).values=rows.map(r=>r.map(literal));
+ const table=sheet.tables.add(`A5:${last}${end}`,true,tableName);table.style='TableStyleMedium2';table.showFilterButton=true;
+ sheet.getRange(`A5:${last}5`).format={fill:'#344A36',font:{name:'Arial',size:10,bold:true,color:'#FFFFFF'},rowHeight:30,wrapText:false,horizontalAlignment:'center',verticalAlignment:'center'};
+ if(rows.length)sheet.getRange(`A6:${last}${end}`).format={rowHeight:44,wrapText:true,verticalAlignment:'center'};
+ widths.forEach((width,i)=>{sheet.getRange(`${col(i)}1:${col(i)}${end}`).format.columnWidth=width});
+ sheet.getRange('A1').format.rowHeight=12;
+ sheet.getRange('A2').format.rowHeight=27;
+ sheet.getRange('A3').format.rowHeight=25;
+ sheet.getRange('A4').format.rowHeight=10;
+ sheet.freezePanes.freezeRows(5);
+ sheet.freezePanes.freezeColumns(2);
+ return end;
+}
+const mainHeaders=['方案名称','作者','相机型号','镜头型号','发布日期','焦距','光圈 F 值','快门（秒）','ISO','曝光补偿 EV','白平衡','基础优化校准','优化校准名称','本地详情路径','原始数据路径','官网来源','方案 ID'];
+const mainRows=recipes.map(r=>[r.name,r.authors.join(' / '),r.camera,r.lens,new Date(r.publicDate.slice(0,10)+'T00:00:00Z'),r.exif.focalLength||'',numeric(r.exif.fNumber),r.exif.exposureTime||'',numeric(r.exif.iso),numeric(r.exif.exposureBiasValue),r.exif.whiteBalance||'',r.pictureControl.baseName||'',r.pictureControlName,'双击最外层的 open-library.cmd','data/catalog/raw/details/'+r.id+'.json',r.source,r.id]);
+const end=setup(sheets[0],'尼康云创公开色彩方案',`${stats.recipeCount} 个方案 · ${stats.authorCount} 位作者 · 中国站 · 2026-10-24。从「打开资料库」查看介绍、样片与我的实拍。`,mainHeaders,mainRows,[45,24,20,44,15,13,14,16,12,16,18,25,34,46,70,80,31],'RecipesTable');
+sheets[0].tabColor='#344A36';
+sheets[0].getRange(`E6:E${end}`).setNumberFormat('yyyy-mm-dd');
+sheets[0].getRange(`G6:G${end}`).setNumberFormat('0.0#');
+sheets[0].getRange(`I6:I${end}`).setNumberFormat('#,##0');
+sheets[0].getRange(`J6:J${end}`).setNumberFormat('0.0');
+const authorHeaders=['作者','身份','方案数','相机型号','镜头型号','本地简介路径','作者 ID'];
+const authorRows=input.authors.map(a=>[a['作者'],a['身份'],a['方案数'],a['相机型号'],a['镜头型号'],'data/catalog/'+creators.find(c=>c.id===a['作者ID']).document,a['作者ID']]);
+const authorEnd=setup(sheets[1],'作者目录','作者与方案通过官方作者目录的方案 ID 关联。简介与头像保存在资料库。',authorHeaders,authorRows,[28,36,12,42,65,55,31],'CreatorsTable');
+input.authors.forEach((a,i)=>{
+ const row=i+6;
+ const wrapped=Math.max(Math.ceil(String(a['相机型号']).length/26),Math.ceil(String(a['镜头型号']).length/48),Math.ceil(String(a['身份']).length/18),2);
+ sheets[1].getRange(`A${row}:G${row}`).format.rowHeight=wrapped*15+12;
+});
+sheets[1].getRange(`C6:C${authorEnd}`).setNumberFormat('0');
+const paramHeaders=['方案名称','作者','类别','参数名称','原始值','显示值','接口字段','方案 ID'];
+const paramRows=input.parameters.map(p=>[p['方案名称'],p['作者'],p['类别'],p['参数名称'],p['原始值'],p['显示值'],p['字段'],p['方案ID']]);
+const paramEnd=setup(sheets[2],'完整公开参数','包含优化校准、拍摄参数和公开字段设定。未知枚举保留原始编码；gamma 为自定义曲线标记，未公开曲线采样点。',paramHeaders,paramRows,[48,25,20,28,38,65,32,31],'ParametersTable');
+sheets[2].getRange(`A6:H${paramEnd}`).format.rowHeight=38;
+wb.recalculate();
+const checks=await wb.inspect({kind:'table',range:'方案总表!A5:J9',include:'values,formulas',tableMaxRows:5,tableMaxCols:10,maxChars:2200});
+console.log(checks.ndjson);
+const errors=await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:20},maxChars:2000});
+console.log(errors.ndjson);
+await fs.writeFile(path.join(qa,'workbook_inspection.json'),JSON.stringify({check:checks.ndjson,errors:errors.ndjson,rows:{recipes:mainRows.length,authors:authorRows.length,parameters:paramRows.length}},null,2));
+const exported=await SpreadsheetFile.exportXlsx(wb);
+await exported.save(path.join(workspace,'recipes.xlsx'));
+console.log('EXPORTED '+path.join(workspace,'recipes.xlsx'));
+for(const [i,name,range]of [[0,'recipes','A1:F12'],[1,'authors','A1:D12'],[2,'parameters','A1:F12']]){
+ const png=await wb.render({sheetName:sheets[i].name,range,scale:1.3,format:'png'});
+ await fs.writeFile(path.join(qa,name+'.png'),new Uint8Array(await png.arrayBuffer()));
+ console.log('RENDERED '+name);
+}

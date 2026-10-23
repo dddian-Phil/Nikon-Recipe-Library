@@ -1,0 +1,31 @@
+# Private photos and local user state
+/photos/*
+!/photos/.gitkeep
+/local/
+
+# Downloaded catalog, exports and generated viewer
+/data/catalog/
+/app/viewer.html
+/recipes.xlsx
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials, editor settings and automation artifacts
+.env
+.env.*
+!.env.example
+.codex/
+.agents/
+.aws/
+.playwright-mcp/
+.vscode/
+.idea/
+*.log
+*.tmp
+*.part
+Thumbs.db
+.DS_Store

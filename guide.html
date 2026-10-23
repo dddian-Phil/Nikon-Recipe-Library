@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>使用说明 · 尼康云创资料库</title><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#191919;color:#dedede;font:16px/1.85 system-ui,"Microsoft YaHei",sans-serif}main{max-width:880px;margin:36px auto;padding:32px 44px 48px;background:#242424;border:1px solid #383838;border-radius:12px}h1{margin:0 0 24px;color:#fff;font-size:30px;line-height:1.4}h2{margin:34px 0 12px;padding-top:20px;border-top:1px solid #404040;color:#fff;font-size:21px;line-height:1.5}strong{color:#fff}p{margin:12px 0}li{margin:8px 0}ul,ol{padding-left:25px}code{padding:3px 6px;background:#333;border-radius:4px;color:#fff}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #414141}th{background:#333;color:#fff}.table-wrap{overflow:auto;margin:18px 0}@media(max-width:640px){main{margin:0;padding:24px 20px;border:0;border-radius:0}h1{font-size:26px}}
+</style></head><body><main><h1>尼康云创资料库</h1>
+<p>双击同一层的 <strong>open-library.cmd</strong>，即可在浏览器使用。资料与照片都在本机，无需登录或联网。</p>
+<h2>添加照片与持续更新</h2>
+<ol>
+<li>把新照片复制到 <strong>photos</strong> 文件夹，可以按日期或拍摄主题建立子文件夹。</li>
+<li>资料库打开后每 8 秒检查一次变化，新照片会自动出现。也可以点击页面上的 <strong>更新照片库</strong>，或双击最外层的 <strong>update-photos.cmd</strong>。</li>
+<li>打开 <strong>我的实拍</strong> 查看照片。能够读出优化校准名称时，会按名称关联云创方案。首次导入需要读取文件并生成预览，数量多时请稍等。</li>
+</ol>
+<p>JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增加拍摄张数。更新会跳过未变化的文件，不会修改原照片。正在复制的文件会留到后续检查。</p>
+<p>新照片直接放入 <strong>photos</strong> 即可；原有示例保留在 <strong>photos/examples</strong>。原始照片文件名保持原样。</p>
+<h2>收藏方案与喜欢的照片</h2>
+<ul>
+<li>在方案卡片上点击 <strong>收藏方案</strong>，勾选 <strong>只看收藏方案</strong> 可以快速找回。</li>
+<li>点击 <strong>我的实拍</strong>，在照片卡片上点 <strong>喜欢</strong>，再勾选 <strong>只看喜欢的照片</strong>。</li>
+<li>点开云创方案，里面的 <strong>我的实拍</strong> 展示使用该方案拍摄的照片。</li>
+<li>点开自己的照片，可以反查所用方案并打开 JPG 或 NEF 原文件。</li>
+</ul>
+<p>收藏方案和喜欢照片分别记录。喜欢一张照片不会自动收藏某个方案。</p>
+<h2>自动识别与手动关联</h2>
+<p>目前已验证这台 Z50II 写入的优化校准格式。按机内名称与公开目录唯一匹配时自动关联；名称被截短、有多个候选、元数据缺失或同组记录不一致时，不会猜测。</p>
+<p>在照片详情里的 <strong>关联方案</strong> 下拉框可以手动选择方案，后续更新会保留。选择 <strong>按相机记录自动识别</strong> 可以恢复自动关联；也可以选择暂不关联。</p>
+<p><code>AUTO</code> 表示相机记录为自动优化校准，不会自动指向具体云创。名称匹配也不保证所有参数与官网完全一致。</p>
+<h2>保存和备份</h2>
+<p>收藏与手动关联保存在 <strong>local/personal-records.json</strong>，关闭网页、重启或增加照片后仍然保留。程序还会保存上一份记录作为备份。</p>
+<p>页面上可以 <strong>导出收藏与关联备份</strong>，得到 JSON 文件；换电脑或恢复记录时，用 <strong>导入记录备份</strong> 合并。程序不会清空现有收藏。</p>
+<p>移动整个资料库时，请保留这个文件夹的完整结构。原照片从「photos」移走后会从当前列表消失，但收藏和关联记录会保留；同一拍摄重新放回时可继续使用。</p>
+<h2>文件夹说明</h2>
+<div class="table-wrap"><table><thead><tr><th>最外层入口</th><th>用途</th></tr></thead><tbody>
+<tr><td>open-library.cmd</td><td>日常浏览、收藏、反查和管理实拍</td></tr>
+<tr><td>photos</td><td>放入新照片，可自由建立子文件夹</td></tr>
+<tr><td>update-photos.cmd</td><td>立即检查新增、移动或移除的照片</td></tr>
+<tr><td>recipes.xlsx</td><td>直接用 Excel 查看公开方案总表</td></tr>
+<tr><td>guide.html</td><td>本说明，双击即可阅读</td></tr>
+<tr><td>README.md</td><td>项目介绍与安装说明</td></tr>
+<tr><td>app</td><td>程序与界面文件</td></tr>
+<tr><td>data/catalog</td><td>官方方案、样片与作者头像</td></tr>
+<tr><td>local</td><td>个人记录、照片索引、缩略图、配置及历史检查</td></tr>
+</tbody></table></div>
+<p>运行需要 Python 3.11 或更新版本、Pillow 和 tifffile。当前电脑已配置好。新电脑先按 README.md 安装并下载官方目录；日常浏览不依赖外部网络。</p>
+<p>Git 只管理程序和文档。photos、local、下载的官方目录、生成的浏览页面和 recipes.xlsx 均不提交到 GitHub。迁移个人照片和收藏时，请另行复制 photos 与 local。</p>
+<h2>浏览与快捷操作</h2>
+<p>界面采用接近尼康云创官网的黑白灰配色，以黄色标记主要操作与选中状态。顶部的「资料与备份」菜单包含总表与个人记录的导入导出。</p>
+<ul>
+<li><strong>舒展／紧凑</strong>：调整图片布局，选择会在本浏览器中保留。</li>
+<li>当前筛选会显示成可移除的标签，点击标签上的 × 即可单独取消。</li>
+<li>在详情中按 <strong>←／→</strong> 连续浏览，顺序遵循当前筛选；从某个方案进入「我的实拍」时，只浏览该方案下的照片。</li>
+<li>按 <strong>F</strong> 或点击详情里的大图切换专注看图，底部缩略图可直接跳转；再次按 F 回到资料阅读区。</li>
+<li><strong>Esc</strong> 关闭当前窗口，回到之前的位置；<strong>/</strong> 聚焦搜索，<strong>?</strong> 打开快捷操作提示。输入文字时不会触发看图快捷键。</li>
+</ul>
+<h2>无法打开时</h2>
+<p>请再次双击 <strong>open-library.cmd</strong>。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。</p></main></body></html>
