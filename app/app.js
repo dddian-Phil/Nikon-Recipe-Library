@@ -5,6 +5,8 @@ let library={captures:[],records:{recipeFavorites:[],photoFavorites:[],photoAssi
 let visibleRecipeIds=[],visiblePhotoIds=[];
 let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false;
 const assignmentQueries=new Map();
+let keyboardNavigation=false;
+for(const type of ['pointerdown','keydown'])document.addEventListener(type,event=>{keyboardNavigation=event.type==='keydown';document.activeElement?.classList.remove('pointer-focus-return')},true);
 const viewers={recipe:{queue:[],id:null,focus:false,origin:null},photo:{queue:[],id:null,focus:false,origin:null}};
 const controls=['q','author','camera','lens','base'];
 const fmt=(key,value)=>value==='gamma'?'自定义曲线（未公开曲线数值）':(data.values[key]||{})[String(value)]??(value!==null&&typeof value==='object'?JSON.stringify(value):String(value??''));
@@ -121,7 +123,7 @@ function setDensity(value){value=value==='compact'?'compact':'comfort';document.
 function viewerDialog(kind){return $(kind==='photo'?'photo-modal':'modal')}
 function prepareViewer(kind,id,queue){
  const v=viewers[kind],dialog=viewerDialog(kind),all=kind==='photo'?library.captures.map(p=>p.id):rs.map(r=>r.id),visible=kind==='photo'?visiblePhotoIds:visibleRecipeIds;
- if(!dialog.open){v.origin={x:scrollX,y:scrollY,element:document.activeElement,parent:[...document.querySelectorAll('dialog[open]')].map(n=>({node:n,top:n.scrollTop}))};v.focus=false}
+ if(!dialog.open){const element=document.activeElement;element?.classList.toggle('pointer-focus-return',!keyboardNavigation);v.origin={x:scrollX,y:scrollY,element,keyboard:keyboardNavigation,parent:[...document.querySelectorAll('dialog[open]')].map(n=>({node:n,top:n.scrollTop}))};v.focus=false}
  const source=queue||(dialog.open?v.queue:(visible.includes(id)?visible:all));v.queue=[...new Set(source.filter(key=>all.includes(key)))];if(!v.queue.includes(id))v.queue.unshift(id);v.id=id;
 }
 function syncViewer(kind){
@@ -134,7 +136,7 @@ function toggleFocus(kind){const v=viewers[kind];v.focus=!v.focus;syncViewer(kin
 function navigateViewer(kind,delta){const v=viewers[kind],index=v.queue.indexOf(v.id)+delta;if(index<0||index>=v.queue.length)return;const id=v.queue[index];kind==='photo'?openPhoto(id,v.queue):openRecipe(recipeById.get(id),v.queue);viewerDialog(kind).scrollTop=0}
 for(const kind of['recipe','photo']){
  $(kind+'-prev').onclick=()=>navigateViewer(kind,-1);$(kind+'-next').onclick=()=>navigateViewer(kind,1);$(kind+'-focus').onclick=()=>toggleFocus(kind);
- viewerDialog(kind).addEventListener('close',()=>{const v=viewers[kind],origin=v.origin;v.focus=false;viewerDialog(kind).classList.remove('is-focused');requestAnimationFrame(()=>{if(origin){for(const parent of origin.parent)if(parent.node.open)parent.node.scrollTop=parent.top;if(origin.element?.isConnected)origin.element.focus({preventScroll:true});window.scrollTo(origin.x,origin.y)}})});
+ viewerDialog(kind).addEventListener('close',()=>{const v=viewers[kind],origin=v.origin;v.focus=false;viewerDialog(kind).classList.remove('is-focused');requestAnimationFrame(()=>{if(origin){for(const parent of origin.parent)if(parent.node.open)parent.node.scrollTop=parent.top;if(origin.element?.isConnected){origin.element.classList.toggle('pointer-focus-return',!origin.keyboard);origin.element.focus({preventScroll:true})}window.scrollTo(origin.x,origin.y)}})});
 }
 $('density-comfort').onclick=()=>setDensity('comfort');$('density-compact').onclick=()=>setDensity('compact');try{setDensity(localStorage.getItem('nikon-library-density'))}catch{setDensity('comfort')}
 $('shortcut-help').onclick=()=>$('shortcuts').showModal();$('shortcuts-close').onclick=()=>$('shortcuts').close();

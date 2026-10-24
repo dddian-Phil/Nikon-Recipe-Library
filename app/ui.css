@@ -43,3 +43,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:750px){.countbar{flex-wrap:wrap}.recipe-sort{margin-left:0}}
 
 .tile-actions .photo-association{margin-left:auto;text-align:right}.tile-actions .photo-association.is-unmatched{color:#fff700}
+
+/* Keep pointer returns quiet and keyboard focus fully inside clipped cards. */
+.pointer-focus-return:focus-visible{outline:none}
+.card:focus-visible{outline-offset:-3px}
