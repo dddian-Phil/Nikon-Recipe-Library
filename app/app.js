@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id),el=(tag,text,cls)=>{const n=document.cre
 const recipeById=new Map(rs.map(r=>[r.id,r]));
 let library={captures:[],records:{recipeFavorites:[],photoFavorites:[],photoAssignments:{}},summary:{files:0,photos:0,matched:0,favoritePhotos:0},revision:[-1,-1]},pane='recipes',activePhoto=null,activeRecipe=null,writeQueue=Promise.resolve(),toastTimer,connectionFailures=0;
 let visibleRecipeIds=[],visiblePhotoIds=[];
-let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false,issueSignature='';
+let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false;
 const assignmentQueries=new Map();
 const viewers={recipe:{queue:[],id:null,focus:false,origin:null},photo:{queue:[],id:null,focus:false,origin:null}};
 const controls=['q','author','camera','lens','base'];
@@ -51,7 +51,28 @@ function update(){
  $('grid').replaceChildren(fragment);$('count').textContent=`${count} / ${total} ${pane==='recipes'?'个方案':'张实拍'}`;$('empty').hidden=!!count;$('empty').textContent=pane==='photos'&&total===0?'把 JPG 或 NEF 放入最外层「photos」文件夹，稍等片刻即可在这里查看。':'没有符合条件的内容，请调整筛选。';
  renderFilterChips();
 }
-function photoTile(p){const tile=el('article',undefined,'recipe-tile photo-tile');tile.dataset.photoId=p.id;const card=button('',()=>openPhoto(p.id),'card');card.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src='/'+p.preview;img.alt=p.name;img.loading='lazy';card.append(img)}else card.append(el('div','暂无预览，可打开原文件','placeholder'));const body=el('div',undefined,'text'),r=recipeById.get(p.recipeId);body.append(el('h3',p.name),el('div',r?r.name:(p.pictureControlName==='AUTO'?'自动优化校准（AUTO）':p.pictureControlName||'待手动关联'),'author'),el('div',p.camera+' · '+p.lens,'gear'),el('div',p.takenAt||'未提供拍摄时间','date'));if(p.issues?.length)body.append(el('p',p.issues[0].message,'photo-warning'));card.append(body);const actions=el('div',undefined,'tile-actions');actions.append(photoLikeButton(p),el('span',p.association==='manual'?'手动关联':r?'名称匹配':p.metadataConflict?'记录有差异':'未关联云创','muted'));tile.append(card,actions);return tile}
+function photoAssociationStatus(p){
+ const matched=recipeById.has(p.recipeId),name=String(p.pictureControlName||'').trim();
+ if(matched)return {text:p.association==='manual'?'手动关联':'名称匹配',warning:false};
+ if(p.association==='manual'&&!p.recipeId)return {text:'暂不关联',warning:false};
+ if(p.metadataConflict)return {text:'记录有差异',warning:true};
+ if(name.toUpperCase()==='AUTO')return {text:'自动优化校准',warning:false};
+ if(!name)return {text:p.metadataIssueCode&&p.metadataIssueCode!=='missing_picture_control'?'未识别优化校准':'未提供优化校准',warning:true};
+ return {text:'未匹配云创',warning:true};
+}
+function photoTile(p){
+ const tile=el('article',undefined,'recipe-tile photo-tile');tile.dataset.photoId=p.id;
+ const card=button('',()=>openPhoto(p.id),'card');card.setAttribute('aria-label','查看实拍 '+p.name);
+ if(p.preview){const img=el('img');img.src='/'+p.preview;img.alt=p.name;img.loading='lazy';card.append(img)}else card.append(el('div','暂无预览，可打开原文件','placeholder'));
+ const body=el('div',undefined,'text'),r=recipeById.get(p.recipeId),automatic=String(p.pictureControlName||'').trim().toUpperCase()==='AUTO';
+ body.append(el('h3',p.name));
+ const scheme=r?r.name:automatic?'自动优化校准（AUTO）':p.pictureControlName;
+ if(scheme)body.append(el('div',scheme,'author'));
+ body.append(el('div',p.camera+' · '+p.lens,'gear'),el('div',p.takenAt||'未提供拍摄时间','date'));card.append(body);
+ const actions=el('div',undefined,'tile-actions'),status=photoAssociationStatus(p);
+ actions.append(photoLikeButton(p),el('span',status.text,'muted photo-association'+(status.warning?' is-unmatched':'')));
+ tile.append(card,actions);return tile;
+}
 function parameterTable(title,obj){const section=el('section',undefined,'section');section.append(el('h3',title));const table=el('table');for(const[key,value]of Object.entries(obj)){const tr=el('tr');tr.append(el('th',data.labels[key]||key),el('td',fmt(key,value)));table.append(tr)}section.append(table);return section}
 function miniPhotos(photos){const grid=el('div',undefined,'photo-grid');for(const p of photos){const b=button('',()=>openPhoto(p.id,photos.map(p=>p.id)),'photo-mini');b.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src='/'+p.preview;img.alt=p.name;img.loading='lazy';b.append(img)}else b.append(el('div','无预览','placeholder'));b.append(el('span',(p.favorite?'♥ ':'')+p.name));grid.append(b)}return grid}
 function renderRecipePhotos(r){const target=$('recipe-my-photos');if(!target)return;const own=myPhotos(r.id);target.replaceChildren(el('h3','我的实拍（'+own.length+' 张）'));if(own.length)target.append(miniPhotos(own));else target.append(el('p','把使用这个方案拍摄的照片放进「photos」，识别后会出现在这里。也可以在照片详情里手动关联。','muted'));const favorite=$('recipe-detail-favorite');if(favorite){favorite.replaceChildren(favoriteButton(r.id))}}
@@ -68,14 +89,15 @@ function openPhoto(id,queue=null){
  const info=el('div'),title=el('h2',p.name);title.id='photo-title';info.append(title,el('p',p.camera+' / '+p.lens,'muted'));const r=recipeById.get(p.recipeId);info.append(el('h3','这张照片使用的方案'));
  if(r){info.append(el('p',r.name));info.append(el('p','作者：'+r.authors.join(' / '),'muted'));info.append(button('查看这个云创方案',()=>{$('photo-modal').close();openRecipe(r)}))}else info.append(el('p',p.pictureControlName==='AUTO'?'相机记录为 AUTO（自动优化校准），未关联具体云创。':'尚未关联到具体云创方案。'));
  info.append(el('p','相机记录：'+(p.pictureControlName||'未提供')+' / '+(p.pictureControlBase||'未提供'),'muted'));
- if(p.issues?.length){const warnings=el('section',undefined,'photo-problems');warnings.append(el('h3','照片解析提示'));for(const issue of p.issues)warnings.append(problemItem(issue));info.append(warnings)}else if(p.metadataIssue||p.metadataConflict)info.append(el('p',p.metadataConflict?'同组文件的优化校准名称不一致，请手动确认。':p.metadataIssue,'muted'));
+ const fileIssues=(p.issues||[]).filter(issue=>!['missing_picture_control','picture_control_unavailable','picture_control_encoding','incomplete_picture_control','unsupported_picture_control','conflicting_picture_control'].includes(issue.code));
+ if(fileIssues.length){const warnings=el('section',undefined,'photo-problems');warnings.append(el('h3','文件读取提示'));for(const issue of fileIssues)warnings.append(problemItem(issue));info.append(warnings)}
  info.append(assignmentEditor(p));
  info.append(parameterTable('我的拍摄信息',{拍摄时间:p.takenAt,相机:p.camera,镜头:p.lens,ISO:p.iso||'',光圈:p.fNumber||'',快门秒:p.exposureTime||'',焦距:p.focalLength||''}));const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件（JPG＋NEF 归为一次拍摄）'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources);content.append(photo,info);$('photo-like').textContent=p.favorite?'♥ 已喜欢':'♡ 喜欢这张';$('photo-like').setAttribute('aria-pressed',String(p.favorite));photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
 }
 async function api(path,body){const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 function acceptState(next){
  const changed=JSON.stringify(next.revision)!==JSON.stringify(library.revision);library=next;const s=next.summary;$('summary').textContent=`${rs.length} 个公开方案 · ${availableCreators.length} 位作者 · 我的实拍 ${s.photos} 张（${s.files} 个文件） · 已关联 ${s.matched} 张`;$('view-photos').textContent='我的实拍（'+s.photos+'）';$('library-status').textContent=next.scanning?'正在扫描新照片…':'自动检查已开启 · 将新照片放入「photos」即可 · 收藏已保存到本地';$('scan-photos').disabled=next.scanning;
- $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';renderProblems(next.scanReport?.issues||[]);if(next.catalogSync)renderCatalogStatus(next.catalogSync);
+ $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);
  if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open)openPhoto(activePhoto)}
 }
 async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请重新双击最外层的 open-library.cmd。收藏记录仍保存在本地文件中。'}}}
@@ -125,12 +147,28 @@ document.addEventListener('keydown',event=>{
 });
 document.addEventListener('click',event=>{if(!event.target.closest('#utility-menu'))$('utility-menu').open=false});
 function problemItem(issue){const item=el('div',undefined,'problem-item');item.append(el('strong',issue.file||'照片'),el('p',issue.message),el('p',issue.action,'muted'));if(issue.detail){const details=el('details');details.append(el('summary','技术详情'),el('p',issue.detail));item.append(details)}return item}
-function renderProblems(issues){const signature=JSON.stringify(issues);if(signature===issueSignature)return;issueSignature=signature;$('photo-issues').hidden=!issues.length;$('photo-issues-summary').textContent=`照片解析提示（${issues.length}）：${issues[0]?.message||''}`;$('photo-issue-list').replaceChildren();for(const issue of issues){const li=el('li');li.append(problemItem(issue));$('photo-issue-list').append(li)}if(issues.some(issue=>issue.severity==='error'))$('photo-issues').open=true}
 function assignmentEditor(photo){
- const section=el('section',undefined,'assignment'),label=el('label','关联方式');label.htmlFor='photo-assignment';const select=el('select');select.id='photo-assignment';const options=[['__auto__','按相机记录自动识别'],['__none__','暂不关联任何方案']];const current=recipeById.get(photo.recipeId);if(photo.association==='manual'&&current)options.push([current.id,'手动关联：'+current.name]);for(const[value,text]of options){const option=el('option',text);option.value=value;select.append(option)}select.value=photo.association==='manual'?(photo.recipeId||'__none__'):'__auto__';select.onchange=()=>mutate(select.value==='__auto__'?{action:'reset_assignment',id:photo.id}:{action:'assign_photo',id:photo.id,recipeId:select.value==='__none__'?null:select.value});
- const searchLabel=el('label','搜索方案并手动关联');searchLabel.htmlFor='photo-assignment-search';const search=el('input');search.id='photo-assignment-search';search.type='search';search.placeholder='方案名称、作者或优化校准名称…';search.value=assignmentQueries.get(photo.id)||'';const result=el('div',undefined,'assignment-results');result.setAttribute('aria-label','方案候选');const status=el('p',undefined,'muted');status.setAttribute('aria-live','polite');
- function render(){const query=search.value.trim().toLocaleLowerCase(),terms=query.split(/\s+/).filter(Boolean),candidates=new Set(photo.candidateRecipeIds||[]);for(const r of rs)if(photo.pictureControlName&&photo.pictureControlName!=='AUTO'&&(r.pictureControlName===photo.pictureControlName||(photo.pictureControlName.length===20&&r.pictureControlName.startsWith(photo.pictureControlName))))candidates.add(r.id);const matches=rs.filter(r=>terms.every(term=>[r.name,...r.authors,r.pictureControlName].join(' ').toLocaleLowerCase().includes(term))).sort((a,b)=>Number(candidates.has(b.id))-Number(candidates.has(a.id))||(Date.parse(b.publicDate)||0)-(Date.parse(a.publicDate)||0));result.replaceChildren();for(const r of matches.slice(0,12)){const choice=button('',()=>mutate({action:'assign_photo',id:photo.id,recipeId:r.id}),'assignment-choice');choice.setAttribute('aria-label','关联到 '+r.name+' · '+r.authors.join(' / '));choice.setAttribute('aria-pressed',String(photo.recipeId===r.id));choice.append(el('span',r.name),el('small',r.authors.join(' / ')+(candidates.has(r.id)?' · 相机名称候选':'')+(photo.recipeId===r.id?' · 当前关联':'')));result.append(choice)}status.textContent=query?(matches.length?`找到 ${matches.length} 个方案，显示前 ${Math.min(matches.length,12)} 个；点击即可关联。`:'没有符合条件的方案，请尝试作者或部分名称。'):(candidates.size?`找到 ${candidates.size} 个相机名称候选，已优先显示；请确认后点击关联。`:'没有可确认的相机名称候选。可搜索全部方案，或从下方最近发布的方案中选择。')}
- search.addEventListener('input',()=>{assignmentQueries.set(photo.id,search.value);render()});section.append(label,select,el('p',photo.association==='manual'?'手动关联会保留，扫描和官方同步不会覆盖。':'自动识别仅按名称匹配；下方候选需点击确认。','muted'),searchLabel,search,status,result);render();return section;
+ const section=el('details',undefined,'assignment');section.open=!photo.recipeId;
+ section.append(el('summary',photo.recipeId?'手动修改关联':'手动关联方案'));
+ const searchLabel=el('label','搜索方案');searchLabel.htmlFor='photo-assignment-search';
+ const search=el('input');search.id='photo-assignment-search';search.type='search';search.placeholder='方案名称或作者…';search.value=assignmentQueries.get(photo.id)||'';
+ const label=el('label','选择方案');label.htmlFor='photo-assignment';const select=el('select');select.id='photo-assignment';
+ const status=el('p','没有找到符合条件的方案，请换个关键词。','muted');status.setAttribute('aria-live','polite');
+ const current=recipeById.get(photo.recipeId),automatic=recipeById.get(photo.autoRecipeId),selected=photo.association==='manual'?(photo.recipeId||'__none__'):'__auto__';
+ function addOption(value,text,disabled=false){const option=el('option',text);option.value=value;option.disabled=disabled;select.append(option)}
+ function render(){
+  const terms=search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const matches=rs.filter(r=>terms.every(term=>[r.name,...r.authors,r.pictureControlName].join(' ').toLocaleLowerCase().includes(term)));
+  select.replaceChildren();
+  addOption('__auto__',automatic?'自动匹配：'+automatic.name:photo.association==='manual'?'恢复自动识别':'未自动匹配，请选择方案');
+  addOption('__none__','暂不关联');
+  if(current&&!matches.some(r=>r.id===current.id))addOption(current.id,'当前关联：'+current.name+' · '+current.authors.join(' / '));
+  for(const r of matches)addOption(r.id,r.name+' · '+r.authors.join(' / '));
+  select.value=selected;status.hidden=matches.length>0;
+ }
+ search.addEventListener('input',()=>{assignmentQueries.set(photo.id,search.value);render()});
+ select.addEventListener('change',()=>{assignmentQueries.delete(photo.id);mutate(select.value==='__auto__'?{action:'reset_assignment',id:photo.id}:{action:'assign_photo',id:photo.id,recipeId:select.value==='__none__'?null:select.value})});
+ section.append(searchLabel,search,label,select,status);render();return section;
 }
 function renderCatalogStatus(status){$('sync-catalog').disabled=!!status.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').textContent=status.state==='idle'?'官方方案仅在点击「同步云创」后更新':status.message;$('catalog-sync-error').hidden=!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
 async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent='官方目录时间：'+(next.syncMetadata?.syncedAt||next.report.finishedAt||'尚未同步');acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
