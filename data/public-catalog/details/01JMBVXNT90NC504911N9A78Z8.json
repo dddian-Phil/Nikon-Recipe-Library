@@ -1,0 +1,64 @@
+{
+  "name": "Midnight Blush by Preston Luke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-02-19T10:20:12+08:00",
+  "shootingDate": "2024-09-30T18:39:47",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案巧妙运用略带粉色调的深黒色，展现出忧郁而强烈的氛围，非常适合用来突出照片效果。",
+  "memo": "",
+  "pictureControlName": "MNightBlush_Preston",
+  "shootingLocation": "",
+  "id": "01JMBVXNT90NC504911N9A78Z8",
+  "authors": [
+    "Preston Luke"
+  ],
+  "authorIds": [
+    "01M3NKRYZW94GPDXBENTM2KE5P"
+  ],
+  "pictureControl": {
+    "settingName": "MNightBlush_Preston",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.25",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "-74",
+    "saturation": "+1",
+    "highlight": "+11",
+    "shadow": "-30",
+    "whiteLevel": "-5",
+    "blackLevel": "-60"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727721587000",
+    "exposureTime": "1/500",
+    "fNumber": "1.4",
+    "exposureProgram": "1",
+    "iso": "125",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvxnt90nc504911n9a78z8/sample.jpg",
+  "imageInfo": {
+    "bytes": 65356,
+    "sha256": "f3ca65f581156e484d71658bcc0de8dd9673f93c8538e0cb45d0fc12aac99fe7",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVXNT90NC504911N9A78Z8&sortType=0&recipe_lang=zh-cn"
+}

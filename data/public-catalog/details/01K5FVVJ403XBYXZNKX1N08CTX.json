@@ -1,0 +1,64 @@
+{
+  "name": "Cinematic Night-Red by Kazu Fujisawa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-09-25T09:24:01+08:00",
+  "shootingDate": "2025-06-01T19:41:59",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案专门为使用红色光线进行夜间肖像摄影而制作。它给夜间人像带来电影般的观感。因为红色会变得更像橙色，因此在红色灯光下捕获的肤色具有更自然的泛橙红色。阴影向绿色过渡，使红色更加突出。在拍摄前手动将白平衡调整为更凉爽的色彩，以达到理想的外观。在红色光线下拍摄夜间人像时可尝试一下。",
+  "memo": "",
+  "pictureControlName": "CINENigRed_Fuji",
+  "shootingLocation": "",
+  "id": "01K5FVVJ403XBYXZNKX1N08CTX",
+  "authors": [
+    "Kazu Fujisawa"
+  ],
+  "authorIds": [
+    "01M3NKWBEM2J3K4D47SFD3JJYN"
+  ],
+  "pictureControl": {
+    "settingName": "CINENigRed_Fuji",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "0",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1748806919000",
+    "exposureTime": "1/125",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "800",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "4550K",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "01_c1"
+  },
+  "image": "catalog/recipes/01k5fvvj403xbyxznkx1n08ctx/sample.jpg",
+  "imageInfo": {
+    "bytes": 25345,
+    "sha256": "e4ea70f2c2b11a52f895ef3dacc550ce5cf17c4c15a5d6a076af6f719f50a6de",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVJ403XBYXZNKX1N08CTX&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Moody Shadows by Gilmar Smith",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 85mm f/1.8 S",
+  "publicDate": "2024-11-21T14:26:12+08:00",
+  "shootingDate": "2024-07-14T17:06:56",
+  "outline": "",
+  "description": "创作者的说明\nMoody Shadows旨在为您的图像注入一种丰富、深沉的氛围，让人联想到经典画作。此预设保护并改善阴影，引入哑光效果，添加深度和质感。通过降低亮部和白点，同时提高黒点，它创造出一种柔和、丝滑、绘画般的质感。将柔和的暖色调添加至阴影、中间色调和亮部，给人一种整体协调而迷人的感觉。使用Moody Shadows，您的照片将精致并具有氛围感，通过结合对比度和微妙的暖意，营造出一种优美均衡且引发情感共鸣的美感。\n注意：当在尼康工坊而非照相机内应用Moody Shadows时，建议您将曝光补偿提高+0.50EV。此预设设定会使图像自然变暗，因此这样调整曝光补偿可确保获得均衡的最终效果。",
+  "memo": "",
+  "pictureControlName": "MoodyShadows_Gilmar",
+  "shootingLocation": "",
+  "id": "01JD6GCB7ZHN2DE87811E7GDAE",
+  "authors": [
+    "Gilmar Smith"
+  ],
+  "authorIds": [
+    "01M3NKND6AXR6TKTT15CRKEJVJ"
+  ],
+  "pictureControl": {
+    "settingName": "Moody Shadows",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+50",
+    "saturation": "-5",
+    "highlight": "-30",
+    "shadow": "-30",
+    "whiteLevel": "-40",
+    "blackLevel": "+10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1720976816000",
+    "exposureTime": "1/200",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "125",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "85mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 85mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "3",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcb7zhn2de87811e7gdae/sample.jpg",
+  "imageInfo": {
+    "bytes": 45505,
+    "sha256": "cdae40a0100d2084bd3a455b3065f165f7d6d5f46acfd99b3e794d78cd3a4145",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCB7ZHN2DE87811E7GDAE&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Hidamari Color by Haruka Koharu",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T14:28:11+08:00",
+  "shootingDate": "2024-09-20T14:19:48",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案旨在营造出一种被柔和、温暖阳光包围的感觉。创建时，我希望让这一色彩方案可以应对各种场景，比如蓝天、阴天和日落。它特别适合用来拍摄花卉、自然风光和多彩的建筑。色彩已经过微调，让您从通过取景器查看的那一刻起，就能享受到一个独特的世界。请根据您的喜好调整曝光和白平衡，并探索您喜爱的表现方式。",
+  "memo": "",
+  "pictureControlName": "Hidamari_Haruka",
+  "shootingLocation": "",
+  "id": "01JD6GCBR5R4GYSQW0CWSGBEYK",
+  "authors": [
+    "Haruka Koharu"
+  ],
+  "authorIds": [
+    "01M3NKP0EC5N2XQZ2XYQ68J9SD"
+  ],
+  "pictureControl": {
+    "settingName": "Hidamari_Haruka",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+50",
+    "saturation": "+10",
+    "highlight": "-5",
+    "shadow": "+90",
+    "whiteLevel": "-5",
+    "blackLevel": "+30"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1726841988000",
+    "exposureTime": "1/400",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "16mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jd6gcbr5r4gysqw0cwsgbeyk/sample.jpg",
+  "imageInfo": {
+    "bytes": 88296,
+    "sha256": "d4ca8c8ae9a80fcac17c3b0e5dfde79a43b978453e13a06e3a8a1fe4f580909b",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCBR5R4GYSQW0CWSGBEYK&sortType=0&recipe_lang=zh-cn"
+}

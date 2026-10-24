@@ -1,0 +1,64 @@
+{
+  "name": "Vintage Autumn by Brittany Eliza Kunkel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-02-19T10:18:10+08:00",
+  "shootingDate": "2024-09-29T08:24:26",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案唤起秋日的怀旧感，赋予照片一种温暖、永恒的效果。它降低对比度，同时减弱绿色，突出柔和的橙色、棕色和黄色等秋日大地色。非常适合营造梦幻和电影般的氛围，捕捉逝去的秋日风情。",
+  "memo": "",
+  "pictureControlName": "VintageA_BrittanyK",
+  "shootingLocation": "",
+  "id": "01JMBVA1316K97WJ335HP64DNG",
+  "authors": [
+    "Brittany Eliza Kunkel"
+  ],
+  "authorIds": [
+    "01M3NKRKMYYF0QYFC0RARFB30Y"
+  ],
+  "pictureControl": {
+    "settingName": "VintageA_BrittanyK",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.25",
+    "middleRangeSharp": "+1.25",
+    "clarity": "-0.25",
+    "contrast": "-9",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727598266000",
+    "exposureTime": "1/1600",
+    "fNumber": "1.4",
+    "exposureProgram": "3",
+    "iso": "2500",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "4",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jmbva1316k97wj335hp64dng/sample.jpg",
+  "imageInfo": {
+    "bytes": 103023,
+    "sha256": "51fde12a5566aabfed6d84dff62b59b1846c7d0be9451c8263a268ba44467639",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVA1316K97WJ335HP64DNG&sortType=0&recipe_lang=zh-cn"
+}

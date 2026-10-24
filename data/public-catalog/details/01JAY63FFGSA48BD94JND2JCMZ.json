@@ -1,0 +1,62 @@
+{
+  "name": "NegativeFilm Cyan&Blue 01b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-10-24T09:37:03+08:00",
+  "shootingDate": "2023-12-19T15:17:25",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以青色和蓝色为特征的彩色负片。它可产生一种强调光线的穿透感的通透氛围。\n该“色彩方案”是“NegativeFilm Cyan&Blue 01a”“色彩方案”的变体，其特点是增加了对比度和饱和度。",
+  "memo": "",
+  "pictureControlName": "Negative_CyBu_01b",
+  "shootingLocation": "",
+  "id": "01JAY63FFGSA48BD94JND2JCMZ",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Kodak_PORTRA400_ed",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "+40",
+    "saturation": "+20",
+    "highlight": "+20",
+    "shadow": "-20",
+    "whiteLevel": "+10",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1703024245000",
+    "exposureTime": "1/250",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "5000",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay63ffgsa48bd94jnd2jcmz/sample.jpg",
+  "imageInfo": {
+    "bytes": 194693,
+    "sha256": "f5fdc3ae8a98f968699c642b77c4b615275abc96afb1bc4531c305ccc469ce8f",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY63FFGSA48BD94JND2JCMZ&sortType=0&recipe_lang=zh-cn"
+}

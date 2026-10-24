@@ -1,0 +1,65 @@
+{
+  "name": "CineBias Achromic by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 35mm f/1.4",
+  "publicDate": "2025-12-10T09:13:42+08:00",
+  "shootingDate": "2025-11-07T10:15:41",
+  "outline": "",
+  "description": "创作者的说明\n“CineBias Achromic”剥离画面色彩，呈现纯粹的黒白美学。灰度色调平衡得当，深邃的黒色、柔和的中间色调与明亮的高光共同营造出强烈的对比，且削弱生硬之感。这种风格着重突出纹理、面部特征与光影效果，将观众的注意力聚焦于可能被色彩分散的细节之上。它能唤起永恒感和情感共鸣，尤其适合用于旨在讲述真实、质朴故事的人像摄影。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineAchromic",
+  "shootingLocation": "",
+  "id": "01KBXVVBBYAZ7829PGCZ9J3T92",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineAchromic",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "-55",
+    "saturation": "-20",
+    "highlight": "-25",
+    "shadow": "-20",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762510541000",
+    "exposureTime": "1/250",
+    "fNumber": "2",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "35mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 35mm f/1.4",
+    "focusMode": "AF-S",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01kbxvvbbyaz7829pgcz9j3t92/sample.jpg",
+  "imageInfo": {
+    "bytes": 103664,
+    "sha256": "467d82d4f5901c273a279d5615456f15a31bbbb5651dd8ec87eba389c47c9fdc",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVBBYAZ7829PGCZ9J3T92&sortType=0&recipe_lang=zh-cn"
+}

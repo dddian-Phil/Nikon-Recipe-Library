@@ -1,0 +1,62 @@
+{
+  "name": "Movie Green Orange by Noise Woo",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2025-02-19T10:16:09+08:00",
+  "shootingDate": "2024-11-15T08:51:23",
+  "outline": "",
+  "description": "创作者的说明\n蓝色向青色偏移，黄色向橙色偏移，冷暖对比，突出反差吸引眼球。适合城市蓝调时刻拍的风景照。",
+  "memo": "",
+  "pictureControlName": "MV Green Orange_Woo",
+  "shootingLocation": "",
+  "id": "01JMBTJ4VCK77QJAH5C14HVJ9H",
+  "authors": [
+    "吴噪音"
+  ],
+  "authorIds": [
+    "01M3NKR8W78T1S8VT0NVY0BBCA"
+  ],
+  "pictureControl": {
+    "settingName": "MV Green Orange_Woo",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.75",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.75",
+    "contrast": "+30",
+    "saturation": "+21",
+    "highlight": "+52",
+    "shadow": "0",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1731660683000",
+    "exposureTime": "1/60",
+    "fNumber": "8",
+    "exposureProgram": "3",
+    "iso": "250",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "88mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "8",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "1,M1.0,+2.0",
+    "afAreaMode": "02_cc"
+  },
+  "image": "catalog/recipes/01jmbtj4vck77qjah5c14hvj9h/sample.jpg",
+  "imageInfo": {
+    "bytes": 73205,
+    "sha256": "03192d824940dda0b4b959525af3bfed2953f57a77f2d2a160a9f90cfebe3882",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTJ4VCK77QJAH5C14HVJ9H&sortType=0&recipe_lang=zh-cn"
+}

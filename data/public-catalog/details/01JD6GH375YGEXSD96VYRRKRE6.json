@@ -1,0 +1,64 @@
+{
+  "name": "Nights Like This  by Dondre Green",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 24mm f/1.7",
+  "publicDate": "2024-11-21T13:35:55+08:00",
+  "shootingDate": "2024-08-04T20:01:02",
+  "outline": "",
+  "description": "创作者的说明\nNights Like This色彩方案专为记录那些我们不愿忘记的夜间场景而制作。它在低光环境和夜景中突出图像被照亮的部分，同时使阴影区域更暗，让图像具有良好的对比度。该色彩方案可为夜景人像赋予电影感，并在带有彩色光源的夜色中也能大显身手。",
+  "memo": "",
+  "pictureControlName": "NightsLike_Dondre",
+  "shootingLocation": "",
+  "id": "01JD6GH375YGEXSD96VYRRKRE6",
+  "authors": [
+    "Dondre Green"
+  ],
+  "authorIds": [
+    "01M3NKMK4T6KH9SWK69ZV2T6B2"
+  ],
+  "pictureControl": {
+    "settingName": "NightsLike_Dondre",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+67",
+    "saturation": "+17",
+    "highlight": "-15",
+    "shadow": "+20",
+    "whiteLevel": "-13",
+    "blackLevel": "-52"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722801662000",
+    "exposureTime": "1/100",
+    "fNumber": "1.7",
+    "exposureProgram": "1",
+    "iso": "1600",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 24mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gh375ygexsd96vyrrkre6/sample.jpg",
+  "imageInfo": {
+    "bytes": 77198,
+    "sha256": "116c5841d3ff2dc78775752c9759eb010787ae1d1a38b3beb91fc2b074d5e6d8",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH375YGEXSD96VYRRKRE6&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Cloudy Forest by Y2",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T13:19:17+08:00",
+  "shootingDate": "2024-04-22T15:17:00",
+  "outline": "",
+  "description": "创作者的说明\n这是一个电影风格的色彩方案，特别为阴天或森林中等户外场景设计。它为暗淡区域增添了些许蓝色，使森林和树木的绿色脱颖而出。它也适用于人像，因此可以完好地保持人物皮肤和其他区域的颜色。此色彩方案给人带来的印象因视频或照片亮度的而异，所以建议您在拍摄时更改曝光以获取您钟爱的氛围感。",
+  "memo": "",
+  "pictureControlName": "CloudyForest_Y2",
+  "shootingLocation": "",
+  "id": "01JAYB3A2BA0S53SYKA0QGKQZ1",
+  "authors": [
+    "Y2"
+  ],
+  "authorIds": [
+    "01M3NKK7W2GXBVZX53AQ9WWYBK"
+  ],
+  "pictureControl": {
+    "settingName": "CloudyForest_Y2",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "-1.00",
+    "clarity": "+1.25",
+    "contrast": "+28",
+    "saturation": "+11",
+    "highlight": "+38",
+    "shadow": "-15",
+    "whiteLevel": "0",
+    "blackLevel": "+8"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1704067766000",
+    "exposureTime": "1/320",
+    "fNumber": "1.3",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "5000K",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jayb3a2ba0s53syka0qgkqz1/sample.jpg",
+  "imageInfo": {
+    "bytes": 281219,
+    "sha256": "7c67928c7ac5e51a4c6e9de7436a3abf6a477ac75574351f346cd7368b82216b",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYB3A2BA0S53SYKA0QGKQZ1&sortType=0&recipe_lang=zh-cn"
+}

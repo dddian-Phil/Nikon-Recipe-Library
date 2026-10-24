@@ -1,0 +1,64 @@
+{
+  "name": "Setouchi Blue by Noci Kosho",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2024-10-24T13:17:45+08:00",
+  "shootingDate": "2024-04-14T11:02:25",
+  "outline": "",
+  "description": "创作者的说明\n创建此色彩方案时，我希望它能充分体现“如濑户内海*般的平静柔和”，充分诠释了我的个人喜好。它呈现一种浅淡和略带怀旧的氛围，因此相比色彩缤纷的照片，更适用于色彩较少的照片。正如名称中“濑户内海蓝(Setouchi Blue)”所示，我会很高兴如果您将其与天空和大海等蓝色搭配使用。在拍摄过程中稍微增加曝光将带来更丰富、更微妙的色彩。\n*日本最大的内海，位于日本西部。这片封闭的海洋得天独厚，气候温和宜人。",
+  "memo": "",
+  "pictureControlName": "SetouchiBlue_Noci",
+  "shootingLocation": "",
+  "id": "01JAYAQM210MP27AXYSJKK00R6",
+  "authors": [
+    "Noci Kosho"
+  ],
+  "authorIds": [
+    "01M3NKJX83AZ2SXJB0JDW1PRYK"
+  ],
+  "pictureControl": {
+    "settingName": "SetouchiBlue_Noci",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "+0.50",
+    "contrast": "0",
+    "saturation": "-13",
+    "highlight": "-35",
+    "shadow": "0",
+    "whiteLevel": "+9",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1713092545000",
+    "exposureTime": "1/4000",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "125",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "2,0.0,0.0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jayaqm210mp27axysjkk00r6/sample.jpg",
+  "imageInfo": {
+    "bytes": 94107,
+    "sha256": "70cdf66f18056cd78d0c65b708bf4803bff17dc817261610fb9958c8da0933aa",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYAQM210MP27AXYSJKK00R6&sortType=0&recipe_lang=zh-cn"
+}

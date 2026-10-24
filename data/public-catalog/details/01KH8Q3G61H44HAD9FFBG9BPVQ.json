@@ -1,0 +1,64 @@
+{
+  "name": "MOSS by Nagisa Ichikawa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2026-02-25T09:07:50+08:00",
+  "shootingDate": "2025-11-01T15:50:50",
+  "outline": "",
+  "description": "创作者的说明\nMOSS是一款适合旅行摄影的色彩方案，能以沉稳柔和的色调，定格浓郁的绿意与柔滑的阴影。它将色彩与色调相结合，无论是树荫或桥下，还是砖块和混凝土这类无机材料表面，都能展现场景的“湿润感”。\n\n这款色彩方案通过让绿色偏蓝并剔除黄色以打造柔和感，即便在低光度条件下也能保持清晰，获得润泽沉稳的色调。同时，在亮部加入些许红色，利用其与冷绿色的互补关系，营造出一种微妙的通透感——在湿润的阴影中，一丝淡淡的透明质感若隐若现。\n\n都市里繁杂的色彩归于平静；贯穿的阴影以柔和的内聚力融合整个画面。这种风格与云层渐厚的午后以及影子缓缓拉长的时段尤为契合。",
+  "memo": "",
+  "pictureControlName": "MOSS_Nagisa",
+  "shootingLocation": "",
+  "id": "01KH8Q3G61H44HAD9FFBG9BPVQ",
+  "authors": [
+    "Nagisa Ichikawa"
+  ],
+  "authorIds": [
+    "01M3NKZD05Y65F6ZJCRH1QE0HM"
+  ],
+  "pictureControl": {
+    "settingName": "MOSS_Nagisa",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.25",
+    "middleRangeSharp": "+1.25",
+    "clarity": "0.00",
+    "contrast": "gamma",
+    "saturation": "+10",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1762012250000",
+    "exposureTime": "1/2000",
+    "fNumber": "2",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "65535",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01kh8q3g61h44had9ffbg9bpvq/sample.jpg",
+  "imageInfo": {
+    "bytes": 229725,
+    "sha256": "82549e3513326f7fd040cce9616203d236f8ad432d9e4d4f3ce692601871c3ba",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KH8Q3G61H44HAD9FFBG9BPVQ&sortType=0&recipe_lang=zh-cn"
+}

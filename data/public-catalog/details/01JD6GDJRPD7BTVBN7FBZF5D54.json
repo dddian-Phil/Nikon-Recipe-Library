@@ -1,0 +1,65 @@
+{
+  "name": "Hazy Memories by Julia Nimke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+  "publicDate": "2024-11-21T13:34:42+08:00",
+  "shootingDate": "2024-08-05T13:23:31",
+  "outline": "",
+  "description": "创作者的说明\nHazy Memories色彩方案是对Sunkissed Warmth的重要补充，专为阴天拍摄量身定制。它可为照片添加暖意，减少数码清晰质感，带来一种情绪充沛且复古的氛围。由于非常适用于平缓、阴天光线下，该色彩方案也适合拍摄城市景观和建筑，尤其是当画面内有光影对比时。",
+  "memo": "",
+  "pictureControlName": "HazyMemories_Julia",
+  "shootingLocation": "",
+  "id": "01JD6GDJRPD7BTVBN7FBZF5D54",
+  "authors": [
+    "Julia Nimke"
+  ],
+  "authorIds": [
+    "01M3NKMAVAZ9TFRR8S491QM6VE"
+  ],
+  "pictureControl": {
+    "settingName": "HazyMemories_Julia",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.75",
+    "contrast": "-10",
+    "saturation": "0",
+    "highlight": "-35",
+    "shadow": "-79",
+    "whiteLevel": "-41",
+    "blackLevel": "-18"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722864211000",
+    "exposureTime": "1/200",
+    "fNumber": "13",
+    "exposureProgram": "1",
+    "iso": "125",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "93mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6gdjrpd7btvbn7fbzf5d54/sample.jpg",
+  "imageInfo": {
+    "bytes": 54853,
+    "sha256": "3f512d8993802789664f92b8c9fcb5ce5b18c11fd2f165d4d42e37d60eff0894",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GDJRPD7BTVBN7FBZF5D54&sortType=0&recipe_lang=zh-cn"
+}

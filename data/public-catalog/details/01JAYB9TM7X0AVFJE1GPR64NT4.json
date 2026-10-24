@@ -1,0 +1,64 @@
+{
+  "name": "Moisture Green by Hiroki Nose",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2024-10-24T13:18:11+08:00",
+  "shootingDate": "2024-04-09T10:00:00",
+  "outline": "",
+  "description": "创作者的说明\n除了深色调外，这一色彩方案在柔和度上的变化也能清晰体现。它注重于绿色调，非常适合拍摄森林景观和被青枝绿叶包围的动物。与光线较强的白天相比，它更适合清晨和傍晚等光线自然的场景。您可在雨天或阴天使用此色彩方案享受拍摄的乐趣。",
+  "memo": "",
+  "pictureControlName": "MoistureGn_HirokiN",
+  "shootingLocation": "",
+  "id": "01JAYB9TM7X0AVFJE1GPR64NT4",
+  "authors": [
+    "Hiroki Nose"
+  ],
+  "authorIds": [
+    "01M3NKK33QB14N654972JC4YA3"
+  ],
+  "pictureControl": {
+    "settingName": "Moisture green",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.50",
+    "middleRangeSharp": "+1.50",
+    "clarity": "+1.25",
+    "contrast": "gamma",
+    "saturation": "-8",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1704067221000",
+    "exposureTime": "1/250",
+    "fNumber": "8",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "110mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "MANUAL",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jayb9tm7x0avfje1gpr64nt4/sample.jpg",
+  "imageInfo": {
+    "bytes": 259854,
+    "sha256": "cd5ee8133bbac13e9c7f0b6e36ad1f6738ad47189c68fba7c50060a6b9950c55",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYB9TM7X0AVFJE1GPR64NT4&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Fern by Ian Harland",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
+  "publicDate": "2025-02-19T10:19:04+08:00",
+  "shootingDate": "2024-10-02T17:49:02",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案可为富含冷色调、自然色调的场景添加一种忧郁的电影感。通过加深绿色并强化蓝色，突显原本较为暗淡或压抑环境中的戏剧性情境。在阴影中添加对比度，加强氛围，同时柔化白色，营造出一种朦胧、空灵的效果。非常适合拍摄以冷色调为主的各多种户外场景，为阴影或寒冷环境添加深度和神秘感。",
+  "memo": "",
+  "pictureControlName": "Fern_IanHarland",
+  "shootingLocation": "",
+  "id": "01JMBVH4A8FS1M7W98QGWVXC6E",
+  "authors": [
+    "Ian Harland"
+  ],
+  "authorIds": [
+    "01M3NKRSFASB7WMK454J1ZSJ5C"
+  ],
+  "pictureControl": {
+    "settingName": "Fern_IanHarland",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.75",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727891342000",
+    "exposureTime": "1/500",
+    "fNumber": "6.3",
+    "exposureProgram": "3",
+    "iso": "320",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "12mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvh4a8fs1m7w98qgwvxc6e/sample.jpg",
+  "imageInfo": {
+    "bytes": 360013,
+    "sha256": "c13adfc33792348852cb75d804598bcaa15d56178079fdd3423e4c5f98aee897",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVH4A8FS1M7W98QGWVXC6E&sortType=0&recipe_lang=zh-cn"
+}

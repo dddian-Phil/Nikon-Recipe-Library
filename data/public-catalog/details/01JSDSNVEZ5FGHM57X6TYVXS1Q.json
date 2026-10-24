@@ -1,0 +1,64 @@
+{
+  "name": "Heartwarming by Yohei Sawamura",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 35mm f/1.4",
+  "publicDate": "2025-04-24T09:06:44+08:00",
+  "shootingDate": "2025-01-09T16:20:54",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案的创作灵感来自于对日常生活中温暖与善意的感悟。我喜欢简单行事，所以创建了一种通用性很强的色彩方案，适用于任何拍摄对象或场景。它非常适合日常抓拍，比如在咖啡馆拍摄美食照片以及拍摄自然风景等。在拍摄人像时，它能让肤色显得柔和而美丽。\n此色彩方案在晴天和阴天都很有效，但稍微提高曝光会更接近理想的效果。它适用于多种场景，我希望用户们能够随身携带照相机，使用此色彩方案来捕捉日常生活中遇到的美好。",
+  "memo": "",
+  "pictureControlName": "Heartwarming_YoheiS",
+  "shootingLocation": "",
+  "id": "01JSDSNVEZ5FGHM57X6TYVXS1Q",
+  "authors": [
+    "Yohei Sawamura"
+  ],
+  "authorIds": [
+    "01M3NKSREKMM2JC6C4CH4YJ1Z1"
+  ],
+  "pictureControl": {
+    "settingName": "Heartwarming_YoheiS",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+5.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.25",
+    "contrast": "gamma",
+    "saturation": "+25",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1736439654000",
+    "exposureTime": "1/100",
+    "fNumber": "1.4",
+    "exposureProgram": "3",
+    "iso": "180",
+    "exposureBiasValue": "+0.7",
+    "meteringMode": "5",
+    "focalLength": "35mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 35mm f/1.4",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jsdsnvez5fghm57x6tyvxs1q/sample.jpg",
+  "imageInfo": {
+    "bytes": 143636,
+    "sha256": "0f76d019a801dd7c06f8e803bc7102ede2a1e0e2f377808e960698dab84a3501",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDSNVEZ5FGHM57X6TYVXS1Q&sortType=0&recipe_lang=zh-cn"
+}

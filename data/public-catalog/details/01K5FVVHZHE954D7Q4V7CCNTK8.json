@@ -1,0 +1,64 @@
+{
+  "name": "Vintage Flash by Kazu Fujisawa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-09-25T09:23:41+08:00",
+  "shootingDate": "2025-05-30T20:55:33",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案提供了一种复古风格，有低调的色彩和略低的对比度。它非常适合在倾向于表现强烈对比度的情形下拍摄，例如在强自然光下或使用闪光灯和RGB灯照明时进行肖像摄影。即使在多种照明环境下，它也能将气氛融合在一起，让摄影师有机会尝试不同的表现方式。",
+  "memo": "",
+  "pictureControlName": "VINTAGEFla_Fuji",
+  "shootingLocation": "",
+  "id": "01K5FVVHZHE954D7Q4V7CCNTK8",
+  "authors": [
+    "Kazu Fujisawa"
+  ],
+  "authorIds": [
+    "01M3NKWBEM2J3K4D47SFD3JJYN"
+  ],
+  "pictureControl": {
+    "settingName": "VINTAGEFla_Fuji",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.50",
+    "clarity": "0.00",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1748638533000",
+    "exposureTime": "1/125",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "5260K",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k5fvvhzhe954d7q4v7ccntk8/sample.jpg",
+  "imageInfo": {
+    "bytes": 230605,
+    "sha256": "678faf6071a6f5d4f39d9319631645618f3efdc04588a6261ecec794eab8eff8",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVHZHE954D7Q4V7CCNTK8&sortType=0&recipe_lang=zh-cn"
+}

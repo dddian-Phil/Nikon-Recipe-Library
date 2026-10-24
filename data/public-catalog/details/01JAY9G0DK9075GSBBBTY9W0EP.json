@@ -1,0 +1,62 @@
+{
+  "name": "Bleach Bypass 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:36:22+08:00",
+  "shootingDate": "2023-12-08T10:12:09",
+  "outline": "",
+  "description": "该“色彩方案”赋予照片一种肃穆感，让人联想到漂白旁路胶片显影技术。\n该“色彩方案”以适度减少阴影并抑制整体颜色的方式对图像进行调整。",
+  "memo": "",
+  "pictureControlName": "BleachBypass_01a",
+  "shootingLocation": "",
+  "id": "01JAY9G0DK9075GSBBBTY9W0EP",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Fuji_ETERNA",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+40",
+    "saturation": "-50",
+    "highlight": "-20",
+    "shadow": "-55",
+    "whiteLevel": "0",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702030329000",
+    "exposureTime": "1/250",
+    "fNumber": "8",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "38mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jay9g0dk9075gsbbbty9w0ep/sample.jpg",
+  "imageInfo": {
+    "bytes": 228059,
+    "sha256": "1db7a106b757b56716c57bbc522e6022bf675c726743abaeae957098336a8a0a",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9G0DK9075GSBBBTY9W0EP&sortType=0&recipe_lang=zh-cn"
+}

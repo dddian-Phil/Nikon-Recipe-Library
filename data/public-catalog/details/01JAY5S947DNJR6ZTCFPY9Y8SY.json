@@ -1,0 +1,62 @@
+{
+  "name": "NegativeFilm Green&Cyan 01b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T09:31:39+08:00",
+  "shootingDate": "2023-12-08T11:07:13",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以绿色和青色着色为特征的彩色负片。透明蓝色彩营造出一种通透感。\n该“色彩方案”是“Negative Film Green&Cyan 01a”“色彩方案”的变体，其特点是增加了对比度和饱和度。",
+  "memo": "",
+  "pictureControlName": "Negative_GnCy_01b",
+  "shootingLocation": "",
+  "id": "01JAY5S947DNJR6ZTCFPY9Y8SY",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Kodak_Ektar_re_ed",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "+40",
+    "saturation": "+30",
+    "highlight": "+20",
+    "shadow": "-20",
+    "whiteLevel": "+10",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702033633000",
+    "exposureTime": "1/500",
+    "fNumber": "8",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jay5s947dnjr6ztcfpy9y8sy/sample.jpg",
+  "imageInfo": {
+    "bytes": 71827,
+    "sha256": "cfe885c4d6f1ee5005a3432bebf440c6d67cd17fdf1b82dc766316512c5d39a6",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY5S947DNJR6ZTCFPY9Y8SY&sortType=0&recipe_lang=zh-cn"
+}

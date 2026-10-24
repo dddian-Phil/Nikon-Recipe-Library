@@ -1,0 +1,65 @@
+{
+  "name": "Purple Mood by LUIZCLAS",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T11:21:22+08:00",
+  "shootingDate": "2024-01-21T10:33:28",
+  "outline": "",
+  "description": "创作者的说明\nPurple Mood色彩方案营造出梦幻般的视觉体验，具有强烈的紫色调阴影和黄色亮部。高对比度强调阴影，使其最适合黑暗情形，突显图像的神秘感。\n该色彩方案在人工照明下效果最好，且同时适用于室内和室外摄影。",
+  "memo": "",
+  "pictureControlName": "PurpleM_LUIZCLAS",
+  "shootingLocation": "",
+  "id": "01JAY8KW01SHM1ZQCC2FYEWG45",
+  "authors": [
+    "LUIZCLAS"
+  ],
+  "authorIds": [
+    "01M3NKJ8DJAEP5XCV418AERF2Z"
+  ],
+  "pictureControl": {
+    "settingName": "Purple Mood",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+5.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1705833208000",
+    "exposureTime": "1/250",
+    "fNumber": "1.2",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay8kw01shm1zqcc2fyewg45/sample.jpg",
+  "imageInfo": {
+    "bytes": 58133,
+    "sha256": "7fb08ba5b2440fe3ad3f455ff505dff8082f4906fface6cf6742ffda75bbb0ec",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8KW01SHM1ZQCC2FYEWG45&sortType=0&recipe_lang=zh-cn"
+}

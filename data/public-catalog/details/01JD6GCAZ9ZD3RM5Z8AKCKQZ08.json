@@ -1,0 +1,63 @@
+{
+  "name": "Painterly Light by D'Ann Boal",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 85mm f/1.2 S",
+  "publicDate": "2024-11-21T14:21:03+08:00",
+  "shootingDate": "2024-03-20T17:12:37",
+  "outline": "",
+  "description": "创作者的说明\nPainterly Light色彩方案的灵感来自17世纪的荷兰大师级画家们，他们用像明暗对比这样的技术彻底改变了艺术。尤其是伦勃朗，他完美地运用光影，创作出美丽且情感丰富的艺术作品。\n该色彩方案着重于光影的运用，旨在拍摄出具有这些艺术大师风格的照片。它加深蓝色调和阴影，以加强明暗对比，展现了在经典绘画中那些令人印象深刻的效果。还提升了金色调和亮部，为画面中较亮的区域带来暖意。该色彩方案能够改善使用定向光拍摄的图像，让照片更具深度并提升饱和度和对比度。",
+  "memo": "",
+  "pictureControlName": "PainterlyLight_DAnn",
+  "shootingLocation": "",
+  "id": "01JD6GCAZ9ZD3RM5Z8AKCKQZ08",
+  "authors": [
+    "D’Ann Boal"
+  ],
+  "authorIds": [
+    "01M3NKN7AMXD9MGYNGRMQSJ0FR"
+  ],
+  "pictureControl": {
+    "settingName": "Rembrandt Romance1.",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+51",
+    "saturation": "+21",
+    "highlight": "+40",
+    "shadow": "+12",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1710954757000",
+    "exposureTime": "1/250",
+    "fNumber": "9",
+    "exposureProgram": "1",
+    "iso": "64",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "SPEEDLIGHT",
+    "focalLength": "85mm",
+    "exposureMode": "1",
+    "whiteBalance": "6250K",
+    "lensModel": "NIKKOR Z 85mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcaz9zd3rm5z8akckqz08/sample.jpg",
+  "imageInfo": {
+    "bytes": 84078,
+    "sha256": "a671d176450345dac63b0fa0547c6e887bd379554ef600717b9bc4d3f670caef",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCAZ9ZD3RM5Z8AKCKQZ08&sortType=0&recipe_lang=zh-cn"
+}

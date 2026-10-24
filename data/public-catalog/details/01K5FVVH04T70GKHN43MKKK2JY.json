@@ -1,0 +1,62 @@
+{
+  "name": "Winter Hues by Eeva",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 70-200mm f/2.8 VR S",
+  "publicDate": "2025-09-25T09:21:49+08:00",
+  "shootingDate": "2024-01-25T09:25:56",
+  "outline": "",
+  "description": "创作者的说明\n一种旨在加强柔和冬日色调的预设。此预设是为突显粉色天空和北极光的照片而专门设计的，以展现极光那神奇、梦幻般的质感。用于黎明时的雪树或极光，以营造独特的触感。",
+  "memo": "",
+  "pictureControlName": "Winter Hues_Eeva",
+  "shootingLocation": "",
+  "id": "01K5FVVH04T70GKHN43MKKK2JY",
+  "authors": [
+    "Eeva Makinen"
+  ],
+  "authorIds": [
+    "01M3NKWQ32DH3HYV5ZWYG9N7TP"
+  ],
+  "pictureControl": {
+    "settingName": "Winter Hues_Eeva",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.25",
+    "contrast": "gamma",
+    "saturation": "+20",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1706174756000",
+    "exposureTime": "1/250",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "160",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "200mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 70-200mm f/2.8 VR S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k5fvvh04t70gkhn43mkkk2jy/sample.jpg",
+  "imageInfo": {
+    "bytes": 30024,
+    "sha256": "a544726b305ffa7d0f0c56d5d8f3e94dee903ba6c1cf8000d587426372478cb2",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVH04T70GKHN43MKKK2JY&sortType=0&recipe_lang=zh-cn"
+}

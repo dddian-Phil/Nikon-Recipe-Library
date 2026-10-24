@@ -1,0 +1,64 @@
+{
+  "name": "Cyanora by Eyes Of Belga",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2025-09-25T09:22:12+08:00",
+  "shootingDate": "2025-01-21T19:26:33",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案融合了互补色，展现一种平衡、现代的风格。蓝色以青色调突出显示，增强了现代清新感和少量对比度，同时在整个图像中保持柔和。",
+  "memo": "",
+  "pictureControlName": "Cyanora_EyesOfBelga",
+  "shootingLocation": "",
+  "id": "01K5FVVH7FXXB79DZBVP4GF2HV",
+  "authors": [
+    "Eyes Of Belga"
+  ],
+  "authorIds": [
+    "01M3NKWXSSPS8JFTTYAET5CXK9"
+  ],
+  "pictureControl": {
+    "settingName": "Cyanora_EyesOfBelga",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.25",
+    "middleRangeSharp": "+1.25",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+52",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1737487593000",
+    "exposureTime": "1/320",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "1000",
+    "exposureBiasValue": "-0.7",
+    "meteringMode": "2",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "CLOUDY",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "1",
+    "portraitImpressionBalance": "1,M1.0,+1.0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01k5fvvh7fxxb79dzbvp4gf2hv/sample.jpg",
+  "imageInfo": {
+    "bytes": 68626,
+    "sha256": "8963aa8f1d4cd652bde7491655af8a02a9a3ea537a2a5b6c3b900315e88f0ed9",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVH7FXXB79DZBVP4GF2HV&sortType=0&recipe_lang=zh-cn"
+}

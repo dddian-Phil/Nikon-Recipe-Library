@@ -1,0 +1,62 @@
+{
+  "name": "Pastel Nostalgia by Takahiro Sakai",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2024-10-24T11:16:22+08:00",
+  "shootingDate": "2024-01-25T14:12:38",
+  "outline": "",
+  "description": "创作者的说明\nPastel Nostalgia色彩方案为您的图像披上一层浅黄色调的面纱，引发一种微妙的怀旧和温暖感。这个色彩方案非常适合蓝色、黄色或其他色彩鲜艳的照片，以及那些带有微妙复古魅力的照片。\n为了最大限度地展现出该色彩方案的效果，请考虑在拍摄照片时稍微增加曝光，它对偏亮的图像效果特别好。这种诱人的魅力元素可为您的图像赋予怀旧之美和令人回味的情感。",
+  "memo": "",
+  "pictureControlName": "PastelNos_TSakai",
+  "shootingLocation": "",
+  "id": "01JAY8AXSAZGV4ZC2DZ8B6KHYR",
+  "authors": [
+    "Takahiro Sakai"
+  ],
+  "authorIds": [
+    "01M3NKG9028VQB6Q7MCX2HW5NG"
+  ],
+  "pictureControl": {
+    "settingName": "Pastel Nostalgia",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+35",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1706191958000",
+    "exposureTime": "1/8000",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "48mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "65535",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jay8axsazgv4zc2dz8b6khyr/sample.jpg",
+  "imageInfo": {
+    "bytes": 120850,
+    "sha256": "8c46875949c7df17a3c15fd53afadfbf2bc65939a4cdd0d94b89cf07a876ff70",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8AXSAZGV4ZC2DZ8B6KHYR&sortType=0&recipe_lang=zh-cn"
+}

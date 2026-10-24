@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Yellow&Cyan 02a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:42:01+08:00",
+  "shootingDate": "2023-12-09T17:39:31",
+  "outline": "",
+  "description": "该“色彩方案”产生庄严肃穆的色彩，让人感叹时间的流逝。\n它减少并加浓了阴影并使蓝色略带青色色调。因此，蓝色天空被赋予独特的色彩。",
+  "memo": "",
+  "pictureControlName": "Negative_YeCy_02a",
+  "shootingLocation": "",
+  "id": "01JAY9SDVEPHZGGW9Q7DATAB7Y",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Fuji_ClassicChrome",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "0",
+    "saturation": "-15",
+    "highlight": "-8",
+    "shadow": "-12",
+    "whiteLevel": "-10",
+    "blackLevel": "-40"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702168771000",
+    "exposureTime": "1/30",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "3200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jay9sdvephzggw9q7datab7y/sample.jpg",
+  "imageInfo": {
+    "bytes": 76068,
+    "sha256": "9296f5f0c38c99c03aace53af83fc91f18960114cbb9e949ac01ce49ce3e51ab",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9SDVEPHZGGW9Q7DATAB7Y&sortType=0&recipe_lang=zh-cn"
+}

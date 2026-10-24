@@ -1,0 +1,60 @@
+{
+  "name": "Bleach Blue by Aparupa Dey",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 9",
+  "lens": "VR 400mm f/2.8E",
+  "publicDate": "2024-10-24T11:41:58+08:00",
+  "shootingDate": "2023-06-25T16:16:52",
+  "outline": "",
+  "description": "创作者的说明\nBleach Blue色彩方案的灵感来自宁静的荒野。它旨在赋予图像一种震撼力和清晰度，让人感受到充满魅力的大自然宁静的氛围。它增强了蓝色调，同时保持清爽明快的整体印象，但保留了环境中的暗调，从而让观众沉浸在自然界的神秘和平静中。\n该色彩方案针对自然光下的场景最有效，特别是对于丛林、水体附近或以蓝色调为主的风景中的拍摄对象。它用各种蓝色调或中性色（如白色、棕色和米色）使拍摄对象更加完美。",
+  "memo": "",
+  "pictureControlName": "BleachBlue_Aparupa",
+  "shootingLocation": "",
+  "id": "01JAY9THM5HRS3MT1VGKNZ04TD",
+  "authors": [
+    "Aparupa Dey"
+  ],
+  "authorIds": [
+    "01M3NKJGEA4KVG9CD7APBWAAJF"
+  ],
+  "pictureControl": {
+    "settingName": "Bleach Blue",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+0.75",
+    "clarity": "+2.50",
+    "contrast": "+69",
+    "saturation": "-43",
+    "highlight": "-27",
+    "shadow": "+10",
+    "whiteLevel": "+13",
+    "blackLevel": "-16"
+  },
+  "exif": {
+    "model": "NIKON Z 9",
+    "dateTimeOriginal": "1687709812000",
+    "exposureTime": "1/800",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "1000",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "3",
+    "focalLength": "400mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "VR 400mm f/2.8E",
+    "focusMode": "AF-C",
+    "activeDLighting": "3",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jay9thm5hrs3mt1vgknz04td/sample.jpg",
+  "imageInfo": {
+    "bytes": 80540,
+    "sha256": "63f1e9e3e3b44ee93c32f9d4c4d8ae62ed9f8f42f0f1e2d6fd3e78b611411124",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9THM5HRS3MT1VGKNZ04TD&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,5 +1,11 @@
 # Catalog data
 
+`public-catalog/` is the intentionally committed public-only snapshot for GitHub
+Pages. Export it explicitly with `app/build_static.py --export`; regular builds
+read that snapshot offline. Only allowlisted official fields, sample images and
+creator portraits are included. Temporary signed image URLs, private photos,
+personal records and local exports are excluded. See `docs/deployment.md`.
+
 `catalog/` stores the downloaded public Nikon recipe archive, creator portraits,
 sample images and generated JSON/CSV files. It is generated locally and excluded
 from Git.

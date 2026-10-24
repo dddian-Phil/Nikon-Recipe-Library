@@ -1,0 +1,64 @@
+{
+  "name": "Pastelpink Portrait by Yuki Hirotani",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2025-02-19T10:15:53+08:00",
+  "shootingDate": "2024-09-19T11:12:46",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案加入了淡粉色和适量的紫色，特别适合人像摄影。因为皮肤和光线中加入的粉色调，可营造出美丽而又略带怀旧的氛围。在清晨或阳光强烈的白天等自然光下拍摄时效果非常理想。光线不足的场景下拍摄出的图像往往较暗，因此在这些情况下使用更亮的曝光设定可能会获得更好效果。",
+  "memo": "",
+  "pictureControlName": "Pastelpink_Yuki",
+  "shootingLocation": "",
+  "id": "01JMBTEMB7XCZ58CBRQ7WCEMGA",
+  "authors": [
+    "Yuki Hirotani"
+  ],
+  "authorIds": [
+    "01M3NKPWHRVS92ABQ39RTPCAF6"
+  ],
+  "pictureControl": {
+    "settingName": "Pastelpink_Yuki",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "gamma",
+    "saturation": "+5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1726744366000",
+    "exposureTime": "1/4000",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "16mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jmbtemb7xcz58cbrq7wcemga/sample.jpg",
+  "imageInfo": {
+    "bytes": 124780,
+    "sha256": "d06400ea520b79860caa7341c9f1218709e31949a1f9e00450552342adac3525",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTEMB7XCZ58CBRQ7WCEMGA&sortType=0&recipe_lang=zh-cn"
+}

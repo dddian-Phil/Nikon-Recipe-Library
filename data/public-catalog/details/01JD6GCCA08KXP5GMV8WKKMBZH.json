@@ -1,0 +1,65 @@
+{
+  "name": "Tender Clear by Fuka Kamata",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T14:33:22+08:00",
+  "shootingDate": "2024-09-30T13:44:36",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案是基于我自己柔和而具透明感的摄影风格而创建的。以强调蓝色和绿色的色彩为基础，阴影略带蓝色调。它提供的色调整体更柔和，而清晰度有所降低。推荐在半背光条件下拍摄时使用该色彩方案，因为这样可以摄入更多的光线，展现出更具透明感的效果。它在拍摄植物和风景时效果较佳，同时也能为室内照片表现出柔和、宁静的氛围。\n如果您觉得蓝色太强烈，可以调整白平衡以达到您喜欢的平衡。",
+  "memo": "",
+  "pictureControlName": "TenderClear_FukaK",
+  "shootingLocation": "",
+  "id": "01JD6GCCA08KXP5GMV8WKKMBZH",
+  "authors": [
+    "Fuka Kamata"
+  ],
+  "authorIds": [
+    "01M3NKPNVAH8VQHWZAGWP41TEZ"
+  ],
+  "pictureControl": {
+    "settingName": "TenderClear_FukaK",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "-1.25",
+    "contrast": "gamma",
+    "saturation": "+15",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727703876000",
+    "exposureTime": "1/40",
+    "fNumber": "6.3",
+    "exposureProgram": "1",
+    "iso": "160",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "140mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcca08kxp5gmv8wkkmbzh/sample.jpg",
+  "imageInfo": {
+    "bytes": 37272,
+    "sha256": "b9f1024c5bfb41607ba89ec06d5b1cafbc07c01590e0bc4621d4e99180ee05a5",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCCA08KXP5GMV8WKKMBZH&sortType=0&recipe_lang=zh-cn"
+}

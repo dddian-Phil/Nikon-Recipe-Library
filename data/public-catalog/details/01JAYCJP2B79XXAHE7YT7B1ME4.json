@@ -1,0 +1,64 @@
+{
+  "name": "Blue Hour by Luna",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2024-10-24T13:21:31+08:00",
+  "shootingDate": "2024-07-23T18:50:00",
+  "outline": "",
+  "description": "创作者的说明\n蓝调时刻\n高对比和高饱和度，适合晴天外景海边或者蓝调时刻的调色。",
+  "memo": "",
+  "pictureControlName": "BlueHour_Luna",
+  "shootingLocation": "",
+  "id": "01JAYCJP2B79XXAHE7YT7B1ME4",
+  "authors": [
+    "Luna Atlantis"
+  ],
+  "authorIds": [
+    "01M3NKM3DXJ5RBJVWK9BP09PNE"
+  ],
+  "pictureControl": {
+    "settingName": "FLEXIBLE_COLOR",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+10",
+    "saturation": "+20",
+    "highlight": "-10",
+    "shadow": "-20",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1704096213000",
+    "exposureTime": "1/250",
+    "fNumber": "2.8",
+    "exposureProgram": "3",
+    "iso": "160",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cc"
+  },
+  "image": "catalog/recipes/01jaycjp2b79xxahe7yt7b1me4/sample.jpg",
+  "imageInfo": {
+    "bytes": 79830,
+    "sha256": "a15679d6740c7dcd9dbfb3bca4e2b97770c16f2e194a2195bc6ccba81e09741c",
+    "width": 810,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYCJP2B79XXAHE7YT7B1ME4&sortType=0&recipe_lang=zh-cn"
+}

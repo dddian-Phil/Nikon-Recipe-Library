@@ -1,0 +1,64 @@
+{
+  "name": "Nature by Links",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2024-10-24T13:20:44+08:00",
+  "shootingDate": "2024-07-20T14:52:46",
+  "outline": "",
+  "description": "创作者的说明\n非常适合自然光下的日常生活场景，不论是阴天，晴天，还是雾天，具体场景如绿草，蓝天，木头等场景。非常好的控制了色彩的饱和度，以及照片的对比度，会呈现出柔和的，自然的感觉。",
+  "memo": "",
+  "pictureControlName": "Nature_Links",
+  "shootingLocation": "",
+  "id": "01JAYCCCHHNG6AWXA2MF43C9ZF",
+  "authors": [
+    "Links"
+  ],
+  "authorIds": [
+    "01M3NKKKY7R7VB22G3H9DESZER"
+  ],
+  "pictureControl": {
+    "settingName": "FLEXIBLE_COLOR",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+18",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1721487166000",
+    "exposureTime": "1/2000",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "31mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jayccchhng6awxa2mf43c9zf/sample.jpg",
+  "imageInfo": {
+    "bytes": 172437,
+    "sha256": "b4c968e5e8b1fb3f140ceecce696460e8c8085d288a911efd46a74970528917e",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYCCCHHNG6AWXA2MF43C9ZF&sortType=0&recipe_lang=zh-cn"
+}

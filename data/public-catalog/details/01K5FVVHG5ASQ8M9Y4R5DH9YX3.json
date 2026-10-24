@@ -1,0 +1,64 @@
+{
+  "name": "Vibrant 2383 by Francois Lamoureux",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 26mm f/2.8",
+  "publicDate": "2025-09-25T09:22:51+08:00",
+  "shootingDate": "2024-07-11T18:59:07",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案专为寻求充满力量与生机的电影观感的创作者而设计，灵感来自电影中使用的复古胶片卷的色调。它提供深邃的颜色、柔和的亮部和平衡的对比度，同时保持丰富自然的肤色。该色彩方案最初是为摄影而创建的，能够立即赋予图像强烈的视觉识别，而不会扭曲自然色彩。但它同样适用于视频：应用于曝光良好的视频片段，它会很快唤起模拟胶片的美感。无论是拍摄私人写真还是更注重叙事的场景，该色彩方案都能成为支持视觉叙事的多功能工具。",
+  "memo": "",
+  "pictureControlName": "Vibrant_Lamoureux",
+  "shootingLocation": "",
+  "id": "01K5FVVHG5ASQ8M9Y4R5DH9YX3",
+  "authors": [
+    "Francois Lamoureux"
+  ],
+  "authorIds": [
+    "01M3NKX96E4Q98HR8BY6EQG415"
+  ],
+  "pictureControl": {
+    "settingName": "Vibrant_Lamoureux",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.50",
+    "middleRangeSharp": "-0.25",
+    "clarity": "-0.25",
+    "contrast": "+35",
+    "saturation": "+18",
+    "highlight": "+11",
+    "shadow": "-44",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1720724347000",
+    "exposureTime": "1/200",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "-1.0",
+    "meteringMode": "5",
+    "focalLength": "26mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 26mm f/2.8",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01k5fvvhg5asq8m9y4r5dh9yx3/sample.jpg",
+  "imageInfo": {
+    "bytes": 57792,
+    "sha256": "8aed61aeb2751ccb29c13acd53c9b1ba09c8435f3be147ae362fb73dc5768b5a",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVHG5ASQ8M9Y4R5DH9YX3&sortType=0&recipe_lang=zh-cn"
+}

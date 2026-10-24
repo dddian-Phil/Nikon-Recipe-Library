@@ -1,0 +1,64 @@
+{
+  "name": "Warm Portrait by Y2",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 85mm f/1.2 S",
+  "publicDate": "2024-10-24T13:19:47+08:00",
+  "shootingDate": "2024-04-22T09:52:00",
+  "outline": "",
+  "description": "创作者的说明\n这是一种用于人像拍摄的色彩方案。它不具有强烈的特应性，通用于多种户外环境，可营造出暖色调的氛围。考虑到视频层面的应用，整体对比度保持在较低水平。若您想加强视频中的氛围，请以10位录制以利用其丰富的色彩层次，并使用编辑软件增加对比度。",
+  "memo": "",
+  "pictureControlName": "WarmPortrait_Y2",
+  "shootingLocation": "",
+  "id": "01JAYAZMJXN3MCG7GV877PYY52",
+  "authors": [
+    "Y2"
+  ],
+  "authorIds": [
+    "01M3NKK7W2GXBVZX53AQ9WWYBK"
+  ],
+  "pictureControl": {
+    "settingName": "WarmPortrait_Y2",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.75",
+    "middleRangeSharp": "+2.00",
+    "clarity": "-0.25",
+    "contrast": "gamma",
+    "saturation": "+8",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1704067249000",
+    "exposureTime": "1/500",
+    "fNumber": "2.5",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "85mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 85mm f/1.2 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jayazmjxn3mcg7gv877pyy52/sample.jpg",
+  "imageInfo": {
+    "bytes": 120898,
+    "sha256": "7b1567b0b4501601919b9ed0a890d007badd7477f33ef0be6df0039de97b5516",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYAZMJXN3MCG7GV877PYY52&sortType=0&recipe_lang=zh-cn"
+}

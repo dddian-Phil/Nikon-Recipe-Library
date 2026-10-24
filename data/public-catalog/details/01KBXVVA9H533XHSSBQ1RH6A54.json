@@ -1,0 +1,65 @@
+{
+  "name": "CineBias-CC - Noir Vibes by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S II",
+  "publicDate": "2025-12-10T09:12:36+08:00",
+  "shootingDate": "2025-11-08T12:22:01",
+  "outline": "",
+  "description": "创作者的说明\n“Noir Vibes”让画面沉浸在具有氛围感的青色调中，营造出一种忧郁且近乎超现实的美感。绿色和蓝色脱颖而出，而红色和橙色等暖色调则被减弱，进一步强化了冷调氛围。肤色呈现冷调，带有柔和且不饱和的效果，与整体色调融为一体。阴影浓郁且深邃，更添戏剧性和神秘感。这种风格大胆且极具电影质感，非常适合用于反乌托邦或戏剧性叙事场景，旨在营造出冷峻神秘的氛围。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-CC",
+  "shootingLocation": "",
+  "id": "01KBXVVA9H533XHSSBQ1RH6A54",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-CC",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-1.00",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762604521000",
+    "exposureTime": "1/800",
+    "fNumber": "2.8",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "48mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S II",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvva9h533xhssbq1rh6a54/sample.jpg",
+  "imageInfo": {
+    "bytes": 135662,
+    "sha256": "b2742983a1cb303b357e044a46c37497d0911d548cdd31647ae0e6cf5dc11ea7",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVA9H533XHSSBQ1RH6A54&sortType=0&recipe_lang=zh-cn"
+}

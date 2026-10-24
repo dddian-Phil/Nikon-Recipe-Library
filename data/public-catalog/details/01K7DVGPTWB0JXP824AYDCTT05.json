@@ -1,0 +1,64 @@
+{
+  "name": "Café Cat by yomowasa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-10-16T10:00:46+08:00",
+  "shootingDate": "2025-06-28T06:55:40",
+  "outline": "",
+  "description": "创作者的说明\n创作这款柔和、棕褐色胶片风的色彩方案时，我脑海中浮现的是一幅一只猫咪被咖啡的蒸汽笼罩着的画面。在中间色调中加入了橙黄色，自然地衬托出木质与毛发元素的温暖感。亮部带有红橙色层次感，阴影部分也包含暖色。这样可以防止暗部过暗，同时保留猫咪白色毛发的美感。轮廓部分稍作加强，保留细节的同时又不失柔和。色度被整体降低以达到平衡，柔化背景的同时保留红橙色色调中的暖意。稍微降低曝光可以加强怀旧感，而提高曝光则营造出温柔的咖啡馆般的氛围。在柔和的室内光线下，想要捕捉猫咪的宁静瞬间时，推荐使用这款色彩方案。",
+  "memo": "",
+  "pictureControlName": "CafeCat_yw",
+  "shootingLocation": "",
+  "id": "01K7DVGPTWB0JXP824AYDCTT05",
+  "authors": [
+    "yomowasa"
+  ],
+  "authorIds": [
+    "01M3NKXEKRSX2ADP9959Q9YDBD"
+  ],
+  "pictureControl": {
+    "settingName": "CafeCat_yw",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-24",
+    "saturation": "-14",
+    "highlight": "-11",
+    "shadow": "+33",
+    "whiteLevel": "+28",
+    "blackLevel": "-25"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1751093740000",
+    "exposureTime": "1/100",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "1000",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "4",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01k7dvgptwb0jxp824aydctt05/sample.jpg",
+  "imageInfo": {
+    "bytes": 110123,
+    "sha256": "1c3a90098df0f1c16ba53799a417814d31a2b92769907e3b1cd9ef520bfbff5c",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K7DVGPTWB0JXP824AYDCTT05&sortType=0&recipe_lang=zh-cn"
+}

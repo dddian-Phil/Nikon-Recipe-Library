@@ -1,0 +1,62 @@
+{
+  "name": "Color Mode Teal&Orange 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:10:45+08:00",
+  "shootingDate": "2023-11-23T16:32:24",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自“橙色和深青色”的外观，这是电影中常用的一种颜色分级技术。\n它强调了橙色及其青色互补色，稍微增加了对比度以强调界定该外观的色彩。",
+  "memo": "",
+  "pictureControlName": "ClrMode_TealOr_01a",
+  "shootingLocation": "",
+  "id": "01JAY807NXFMV2HZEGJ1TYKTFE",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Si_TealOrange0",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+80",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "+3",
+    "blackLevel": "-12"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1700699544000",
+    "exposureTime": "1/4000",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay807nxfmv2hzegj1tyktfe/sample.jpg",
+  "imageInfo": {
+    "bytes": 234091,
+    "sha256": "19059194d4c1a5d0ea1fb6dceb91175d35474e3cc6533fc0b418ff7262384925",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY807NXFMV2HZEGJ1TYKTFE&sortType=0&recipe_lang=zh-cn"
+}

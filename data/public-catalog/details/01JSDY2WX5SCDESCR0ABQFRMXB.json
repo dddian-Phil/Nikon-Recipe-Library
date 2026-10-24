@@ -1,0 +1,64 @@
+{
+  "name": "Call It Love by Faloo Mi",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 28-75mm f/2.8",
+  "publicDate": "2025-04-24T09:07:20+08:00",
+  "shootingDate": "2025-02-14T08:22:38",
+  "outline": "",
+  "description": "创作者的说明\n我们每天所遇见并存留心间的一切内容，无论是天空、树木、花朵，还是珍视的人，全都充满着爱。我喜爱色调鲜明的影像，因此以这种风格为基调制作了该色彩方案。推荐将其用于晴天时的拍摄，它能很好地呈现天空之蓝、大自然之绿、还有花朵的洋红与黄色。您将收获鲜艳而生动的影像，让人百看不厌。为了获得良好效果，建议您使用“动态D-Lighting高+”。这样创建的影像将鲜艳夺目、栩栩如生且充满魅力。",
+  "memo": "",
+  "pictureControlName": "CallItLove_Faloo Mi",
+  "shootingLocation": "",
+  "id": "01JSDY2WX5SCDESCR0ABQFRMXB",
+  "authors": [
+    "Faloo Mi"
+  ],
+  "authorIds": [
+    "01M3NKT7JRJDW9T7A43EKGEH6S"
+  ],
+  "pictureControl": {
+    "settingName": "CallItLove_Faloo Mi",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.25",
+    "contrast": "gamma",
+    "saturation": "+30",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1739521358000",
+    "exposureTime": "1/3200",
+    "fNumber": "5.6",
+    "exposureProgram": "3",
+    "iso": "320",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "48mm",
+    "exposureMode": "0",
+    "whiteBalance": "5560K",
+    "lensModel": "NIKKOR Z 28-75mm f/2.8",
+    "focusMode": "AF-C",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jsdy2wx5scdescr0abqfrmxb/sample.jpg",
+  "imageInfo": {
+    "bytes": 274347,
+    "sha256": "171541ed813443698d8253fc4a4cdc7a8a07616552c8992d9c9f6d52ac35d8de",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY2WX5SCDESCR0ABQFRMXB&sortType=0&recipe_lang=zh-cn"
+}

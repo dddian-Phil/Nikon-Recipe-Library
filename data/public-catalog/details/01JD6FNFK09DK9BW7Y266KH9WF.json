@@ -1,0 +1,65 @@
+{
+  "name": "Sunkissed Cool by Julia Nimke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 24mm f/1.7",
+  "publicDate": "2024-11-21T13:34:14+08:00",
+  "shootingDate": "2024-08-06T11:24:18",
+  "outline": "",
+  "description": "创作者的说明\nSunkissed Cool色彩方案是Sunkissed Warmth的一种变体。它通过将中间色调和亮部转化为蓝色调，同时保留阴影的暖色调来创造出绝妙的平衡，为您的图像添加一种复古感。非常适合在白天明亮的场景下拍摄，尤其是当您想要突显蓝天的颜色时。该色彩方案可将人像、静物或街景风貌等各种场景转化为既怀旧又让人记忆犹新的画面。",
+  "memo": "",
+  "pictureControlName": "SunkissedCool_Julia",
+  "shootingLocation": "",
+  "id": "01JD6FNFK09DK9BW7Y266KH9WF",
+  "authors": [
+    "Julia Nimke"
+  ],
+  "authorIds": [
+    "01M3NKMAVAZ9TFRR8S491QM6VE"
+  ],
+  "pictureControl": {
+    "settingName": "SunkissedCool_Julia",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+0.25",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-2.25",
+    "contrast": "-10",
+    "saturation": "0",
+    "highlight": "-76",
+    "shadow": "-79",
+    "whiteLevel": "-83",
+    "blackLevel": "+17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722943458000",
+    "exposureTime": "1/2500",
+    "fNumber": "6.3",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 24mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6fnfk09dk9bw7y266kh9wf/sample.jpg",
+  "imageInfo": {
+    "bytes": 54457,
+    "sha256": "720b83a2b153c657f87585d223147575a441cf00a4b96bf6972756979561e890",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6FNFK09DK9BW7Y266KH9WF&sortType=0&recipe_lang=zh-cn"
+}

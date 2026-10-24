@@ -1,0 +1,64 @@
+{
+  "name": "USA Film Black and White by Vincent Versace",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2025-02-19T10:14:59+08:00",
+  "shootingDate": "2024-07-24T18:35:23",
+  "outline": "",
+  "description": "创作者的说明\n黒白摄影一直是我的最爱。当我使用黒白胶片拍摄时，没有“万能”的解决方案。不同的胶片乳剂对光线和色调的反应各不相同，因此我着手创作灵活优化校准系列色彩方案，以再现我喜欢的胶片所营造的独特氛围。该色彩方案旨在模拟经典美国ISO 25黒白胶片乳剂在精细颗粒显影剂中显影时的色调还原曲线。它是为展现精细细节、高对比度以及VII-IX区域中的平滑色调范围而进行的优化。",
+  "memo": "",
+  "pictureControlName": "USAFilmBW_Vincent",
+  "shootingLocation": "",
+  "id": "01JMBT6RRV2XNM0DMAVFY961J5",
+  "authors": [
+    "Vincent Versace"
+  ],
+  "authorIds": [
+    "01M3NKNKY3BFM2VN8VC6W2JVQX"
+  ],
+  "pictureControl": {
+    "settingName": "USAFilmBW_Vincent",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.50",
+    "middleRangeSharp": "+3.75",
+    "clarity": "+2.75",
+    "contrast": "+44",
+    "saturation": "-100",
+    "highlight": "-60",
+    "shadow": "-43",
+    "whiteLevel": "+100",
+    "blackLevel": "-14"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1721846123000",
+    "exposureTime": "1/1250",
+    "fNumber": "1.8",
+    "exposureProgram": "3",
+    "iso": "160",
+    "exposureBiasValue": "-0.7",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jmbt6rrv2xnm0dmavfy961j5/sample.jpg",
+  "imageInfo": {
+    "bytes": 77527,
+    "sha256": "a3f1c40563811cb1adbf49ac2eb436e34de12972864c38b69b66f2c4ea0fd6cf",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBT6RRV2XNM0DMAVFY961J5&sortType=0&recipe_lang=zh-cn"
+}

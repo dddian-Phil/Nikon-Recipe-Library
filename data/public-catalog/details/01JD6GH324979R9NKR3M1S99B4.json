@@ -1,0 +1,64 @@
+{
+  "name": "Calm Breeze by Dondre Green",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T13:35:36+08:00",
+  "shootingDate": "2024-08-02T18:35:38",
+  "outline": "",
+  "description": "创作者的说明\nCalm Breeze色彩方案通过其绿色和黄色调，为您的图像添加一种柔和、历久弥新的质感，强化画面定格时的情感深度。它广泛适用于从明亮的日间到低光环境等各种光线条件。该色彩方案非常适合为您的人像打造现代、时尚的美感，完美捕捉白色背景下的拍摄对象，突出鲜活的绿植，或为夜景快照带来温暖。",
+  "memo": "",
+  "pictureControlName": "CalmBreeze_Dondre",
+  "shootingLocation": "",
+  "id": "01JD6GH324979R9NKR3M1S99B4",
+  "authors": [
+    "Dondre Green"
+  ],
+  "authorIds": [
+    "01M3NKMK4T6KH9SWK69ZV2T6B2"
+  ],
+  "pictureControl": {
+    "settingName": "CalmBreeze_Dondre",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+18",
+    "saturation": "+7",
+    "highlight": "+31",
+    "shadow": "-20",
+    "whiteLevel": "-27",
+    "blackLevel": "+5"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722623738000",
+    "exposureTime": "1/200",
+    "fNumber": "4.2",
+    "exposureProgram": "1",
+    "iso": "1000",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "25mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gh324979r9nkr3m1s99b4/sample.jpg",
+  "imageInfo": {
+    "bytes": 150332,
+    "sha256": "2de5a5d3e1dec2dc4a22715fda65269110b8400532e6ccb9d99d1460fc5ada1e",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH324979R9NKR3M1S99B4&sortType=0&recipe_lang=zh-cn"
+}

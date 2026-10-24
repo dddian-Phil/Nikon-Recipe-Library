@@ -1,0 +1,65 @@
+{
+  "name": "CineBias by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-12-10T09:11:37+08:00",
+  "shootingDate": "2025-11-08T11:08:50",
+  "outline": "",
+  "description": "创作者的说明\n“CineBias”为您呈现一种纯净的冷色调美学风格，带有柔和的电影质感。蓝色和绿色得到巧妙加强，同时肤色保持自然而又略带冷调的视觉效果。阴影深邃却细腻平滑，添加画面层次感且不显生硬。对比度适中，既赋予画面清晰质感与深度，又保留了柔和的氛围感。这种风格非常适合主打现代电影感叙事的场景。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias_RED",
+  "shootingLocation": "",
+  "id": "01KBXVV95S83XYQC61W1Z5XHFB",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias_RED",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "-50",
+    "saturation": "-40",
+    "highlight": "-15",
+    "shadow": "-15",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762600130000",
+    "exposureTime": "1/6400",
+    "fNumber": "4",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "40mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvv95s83xyqc61w1z5xhfb/sample.jpg",
+  "imageInfo": {
+    "bytes": 93100,
+    "sha256": "4786f74dbad336f4168cb51fe7d3634b1b87f806f38a13c957c50f3ab35461dd",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVV95S83XYQC61W1Z5XHFB&sortType=0&recipe_lang=zh-cn"
+}

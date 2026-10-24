@@ -1,0 +1,64 @@
+{
+  "name": "VINTAGE FILM by Ludwig Favre",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2025-12-10T09:10:38+08:00",
+  "shootingDate": "2025-07-03T14:13:13",
+  "outline": "",
+  "description": "创作者的说明\n这款色彩方案可为您的影像带来温暖、怀旧的复古效果，创作灵感源自经典胶片摄影的永恒质感。浓郁的金色调与柔和的高光唤起如沐阳光般的记忆，而细腻的颗粒与轻柔的对比则赋予照片一种复古韵味，让人联想到昔日的胶片照相机。色彩经过细致的平衡处理，强化红、黄、棕三色，营造出一种既梦幻又真实的令人向往的氛围。此预设与人像、风景或日常瞬间的拍摄完美契合，使数码照片蕴含充沛的情感，拾起旧日时光的灵魂。无论您是希望营造电影般的氛围，还是单纯想为作品添上一抹温暖与怀旧，此效果都会让影像穿越时光回到过去，赋予照片复古胶片般饱含情感的个性与深度。这款色彩方案适合所有追求创意、融合复古风和现代感的创作者，让每张照片都好似被珍藏的回忆。",
+  "memo": "",
+  "pictureControlName": "VINTAGE_FILM_Ludwig",
+  "shootingLocation": "",
+  "id": "01KBXTAMMGEXW6MNCWQ7D5RA0J",
+  "authors": [
+    "Ludwig Favre"
+  ],
+  "authorIds": [
+    "01M3NKY4N8P7DSB9PT0FW5BCBG"
+  ],
+  "pictureControl": {
+    "settingName": "VINTAGE_FILM_Ludwig",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.25",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.75",
+    "contrast": "-16",
+    "saturation": "+12",
+    "highlight": "+56",
+    "shadow": "-23",
+    "whiteLevel": "+45",
+    "blackLevel": "+6"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1751551993000",
+    "exposureTime": "1/640",
+    "fNumber": "8",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01kbxtammgexw6mncwq7d5ra0j/sample.jpg",
+  "imageInfo": {
+    "bytes": 114465,
+    "sha256": "1652a0ed96cd222e1ed6a1608f42b33121ad54684ee4474ae86c6fbb2add7564",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXTAMMGEXW6MNCWQ7D5RA0J&sortType=0&recipe_lang=zh-cn"
+}

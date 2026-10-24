@@ -1,0 +1,64 @@
+{
+  "name": "Warm Street by Ben",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 70-180mm f/2.8",
+  "publicDate": "2025-04-24T09:09:06+08:00",
+  "shootingDate": "2025-01-10T18:40:18",
+  "outline": "",
+  "description": "创作者的说明\n扫街光影暖调\n这个色彩方案非常适合色彩浓郁的风景画面以及日常光影的街头影像，是一种浓郁但不明艳，具有独特氛围感的暖蓝色，意在把平淡的色彩画面变得丰富，或者把光影街头的暗部赋予一定的质感。",
+  "memo": "",
+  "pictureControlName": "Warm Street_Ben",
+  "shootingLocation": "",
+  "id": "01JSDY4X8B3M55RV42J121ZAAR",
+  "authors": [
+    "包恩在拍照"
+  ],
+  "authorIds": [
+    "01M3NKV8RQVED9XC7BC3G9S9CM"
+  ],
+  "pictureControl": {
+    "settingName": "Warm Street_Ben",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+1.00",
+    "contrast": "+36",
+    "saturation": "+7",
+    "highlight": "-51",
+    "shadow": "+64",
+    "whiteLevel": "+33",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1736534418000",
+    "exposureTime": "1/250",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "4000",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "98mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 70-180mm f/2.8",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "1,0.0,+2.5",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jsdy4x8b3m55rv42j121zaar/sample.jpg",
+  "imageInfo": {
+    "bytes": 132516,
+    "sha256": "322caded0a1de965abab965734d8c23a953ee20fa519a60c5cd94888f14ab7bc",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY4X8B3M55RV42J121ZAAR&sortType=0&recipe_lang=zh-cn"
+}

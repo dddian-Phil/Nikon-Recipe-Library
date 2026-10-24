@@ -1,0 +1,65 @@
+{
+  "name": "CineBias BleachBypass by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-12-10T09:13:57+08:00",
+  "shootingDate": "2025-11-07T13:16:36",
+  "outline": "",
+  "description": "创作者的说明\n“CineBias BleachBypass”引入高对比度、低饱和度的设计，让人联想到经典的胶片处理技术。色彩柔和，带有冷调且近乎金属质感的光泽，可强化戏剧氛围。肤色苍白透亮，带有不饱和的底色，而阴影深邃浓烈，赋予画面粗粝、前卫的质感。这种风格张力十足且夺人眼球，非常适合拍摄更具暗黒严肃基调的时尚大片或电影项目。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-BB",
+  "shootingLocation": "",
+  "id": "01KBXVVBGN0D5X8S4VKDFPKSQE",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-BB",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "0",
+    "saturation": "-45",
+    "highlight": "-30",
+    "shadow": "-50",
+    "whiteLevel": "0",
+    "blackLevel": "+10"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762521396000",
+    "exposureTime": "1/640",
+    "fNumber": "4",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvvbgn0d5x8s4vkdfpksqe/sample.jpg",
+  "imageInfo": {
+    "bytes": 118948,
+    "sha256": "68479ccb53a7b4de40be8306e8c1f894386aae7c208a5c73ab6551bbcfec4047",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVBGN0D5X8S4VKDFPKSQE&sortType=0&recipe_lang=zh-cn"
+}

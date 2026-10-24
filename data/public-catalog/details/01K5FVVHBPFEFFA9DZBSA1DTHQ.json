@@ -1,0 +1,62 @@
+{
+  "name": "Summertime by Marcello Zerletti",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2025-09-25T09:22:32+08:00",
+  "shootingDate": "2025-05-01T11:06:41",
+  "outline": "",
+  "description": "创作者的说明\n这种外观赋予图像略带柔和、梦幻般的风格，带有微妙的复古感。色彩柔和饱满，尤其是绿色和蓝色。对比度温和，光线看起来略微温暖散漫，几乎像童话一般。这种风格特别适合城市和大自然中阳光明媚的日子。",
+  "memo": "",
+  "pictureControlName": "Summertime_Zerletti",
+  "shootingLocation": "",
+  "id": "01K5FVVHBPFEFFA9DZBSA1DTHQ",
+  "authors": [
+    "Marcello Zerletti"
+  ],
+  "authorIds": [
+    "01M3NKX36N5S6C3TXKEPSM769W"
+  ],
+  "pictureControl": {
+    "settingName": "Summertime_Zerletti",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "0.00",
+    "contrast": "-23",
+    "saturation": "+44",
+    "highlight": "-49",
+    "shadow": "-30",
+    "whiteLevel": "+19",
+    "blackLevel": "+17"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1746097601000",
+    "exposureTime": "1/640",
+    "fNumber": "5",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "27.5mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01k5fvvhbpfeffa9dzbsa1dthq/sample.jpg",
+  "imageInfo": {
+    "bytes": 112533,
+    "sha256": "4c65d2f0d2c35442e627d5ed66e57f64cdadc0711c884b636f5d0cb0b2b167f1",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVHBPFEFFA9DZBSA1DTHQ&sortType=0&recipe_lang=zh-cn"
+}

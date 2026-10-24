@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Tungsten Color 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-10-24T10:04:45+08:00",
+  "shootingDate": "2023-11-05T22:40:37",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种钨金色彩的负片。使典型的夜景变得看似电影中的场景。\n请配合3200K左右的白平衡设定使用该“色彩方案”。该“色彩方案”降低了整体对比度和饱和度。通过添加黄色使阴影变浓，并给亮部添加了蓝色。将红色调整成洋红色调。",
+  "memo": "",
+  "pictureControlName": "Negative_T_01a",
+  "shootingLocation": "",
+  "id": "01JAY7NZPS06SK20VWV36ETR3S",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "MARIX_800T_ba",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-2.00",
+    "contrast": "-25",
+    "saturation": "+20",
+    "highlight": "-10",
+    "shadow": "-30",
+    "whiteLevel": "-5",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1699224037000",
+    "exposureTime": "1/200",
+    "fNumber": "2",
+    "exposureProgram": "3",
+    "iso": "1600",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "0",
+    "whiteBalance": "3000K",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay7nzps06sk20vwv36etr3s/sample.jpg",
+  "imageInfo": {
+    "bytes": 174159,
+    "sha256": "dce635a16707321dc2ef6383971d5e137410a337e5a416f10fd0005c26802d63",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY7NZPS06SK20VWV36ETR3S&sortType=0&recipe_lang=zh-cn"
+}

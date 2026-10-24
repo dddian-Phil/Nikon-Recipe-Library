@@ -1,0 +1,63 @@
+{
+  "name": "Golden Brown by Siinapse",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2025-12-10T09:10:20+08:00",
+  "shootingDate": "2024-04-26T12:49:21",
+  "outline": "",
+  "description": "创作者的说明\n这款色彩方案在户外使用效果尤佳，呈现出温暖的金色调，突显您的拍摄对象。",
+  "memo": "",
+  "pictureControlName": "GoldenBrownSiinapse",
+  "shootingLocation": "",
+  "id": "01KBXTAMXKCKAR7RQ7TY8H006B",
+  "authors": [
+    "Siinapse"
+  ],
+  "authorIds": [
+    "01M3NKYC4ACG780G23FST3HP89"
+  ],
+  "pictureControl": {
+    "settingName": "GoldenBrownSiinapse",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+2.25",
+    "clarity": "+1.00",
+    "contrast": "0",
+    "saturation": "+8",
+    "highlight": "+6",
+    "shadow": "-30",
+    "whiteLevel": "+4",
+    "blackLevel": "-32"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1714135761000",
+    "exposureTime": "1/5000",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "SPEEDLIGHT",
+    "focalLength": "25.5mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01kbxtamxkckar7rq7ty8h006b/sample.jpg",
+  "imageInfo": {
+    "bytes": 117357,
+    "sha256": "699361e72760f9c835d08a877cdf0c50ea2a0149975679955eda0c75891558a2",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXTAMXKCKAR7RQ7TY8H006B&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "CineBiasOffset by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S II",
+  "publicDate": "2025-12-10T09:13:28+08:00",
+  "shootingDate": "2025-11-08T15:37:18",
+  "outline": "",
+  "description": "创作者的说明\n“CineBiasOffset”采用一种细腻的电影感调色风格，呈现出柔和的冷色调。整体色调偏向柔和的蓝色与绿色，营造出宁静、内省的氛围。肤色保持自然感，但略带不饱和的暖调，与冷调环境完美融合。阴影细腻柔和，在添加画面层次感的同时又不会喧宾夺主。这种风格精致而含蓄，非常适合那些追求自然又不失电影质感的叙事作品。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBiasOffset",
+  "shootingLocation": "",
+  "id": "01KBXVVB5MCPQSTAM83NKMDPTG",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBiasOffset",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "0",
+    "saturation": "-30",
+    "highlight": "-60",
+    "shadow": "-15",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762616238000",
+    "exposureTime": "1/4000",
+    "fNumber": "2.8",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "70mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S II",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvvb5mcpqstam83nkmdptg/sample.jpg",
+  "imageInfo": {
+    "bytes": 60229,
+    "sha256": "8d4a35a20524f839e5272f43e55183d5b9152f44ba33755fca91521fc6b4c137",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVB5MCPQSTAM83NKMDPTG&sortType=0&recipe_lang=zh-cn"
+}

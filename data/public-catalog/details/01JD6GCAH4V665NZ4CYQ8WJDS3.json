@@ -1,0 +1,64 @@
+{
+  "name": "Dawn Hues by Leno Cainelli",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T13:42:16+08:00",
+  "shootingDate": "2024-08-12T06:03:54",
+  "outline": "",
+  "description": "创作者的说明\nDawn Hues色彩方案专是为了拍摄柔和的金色晨光而制作。它加强暖色调，并为您的照片赋予柔和的光晕，非常适合那些宁静平和的清晨时刻。无论是直接拍摄清晨的阳光，描绘清晨天空的美丽色彩，还是拍摄沐浴在柔和迷人光线中的人像，该色彩方案都能出色地充分利用黎明时分的自然光线。",
+  "memo": "",
+  "pictureControlName": "DawnHues_Leno",
+  "shootingLocation": "",
+  "id": "01JD6GCAH4V665NZ4CYQ8WJDS3",
+  "authors": [
+    "Leno Cainelli"
+  ],
+  "authorIds": [
+    "01M3NKMT6QRB531318T39JGZP4"
+  ],
+  "pictureControl": {
+    "settingName": "Sunrise",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.50",
+    "middleRangeSharp": "+0.75",
+    "clarity": "-2.00",
+    "contrast": "-23",
+    "saturation": "+8",
+    "highlight": "-29",
+    "shadow": "+19",
+    "whiteLevel": "+29",
+    "blackLevel": "-17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1723442634000",
+    "exposureTime": "1/1250",
+    "fNumber": "6",
+    "exposureProgram": "3",
+    "iso": "320",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "45mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-S",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcah4v665nz4cyq8wjds3/sample.jpg",
+  "imageInfo": {
+    "bytes": 121271,
+    "sha256": "f04bd2a245eef423ffe2faaf5adc7cefe41e940cbd43f52162cac480473f09b7",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCAH4V665NZ4CYQ8WJDS3&sortType=0&recipe_lang=zh-cn"
+}

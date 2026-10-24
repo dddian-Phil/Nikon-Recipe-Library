@@ -1,0 +1,64 @@
+{
+  "name": "Cozy Autumn by Leno Cainelli",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 24mm f/1.7",
+  "publicDate": "2024-11-21T13:41:41+08:00",
+  "shootingDate": "2024-08-10T05:41:29",
+  "outline": "",
+  "description": "创作者的说明\nCozy Autumn色彩方案是您拍摄温暖、自然秋色的首选。它突显深橙色、红色和棕色，这些色彩可让秋天变得如此温馨。它可柔和冷色调，让整体感觉温暖而迷人，最适合营造该季节的舒适感。当拍摄风景和大自然照片，以及在自然光下拍摄人像，尤其是在秋天的公园或者树林里时，该色彩方案非常出色。",
+  "memo": "",
+  "pictureControlName": "CozyAutumn_Leno",
+  "shootingLocation": "",
+  "id": "01JD6GCA9XZXQKAWFD0EP57Z81",
+  "authors": [
+    "Leno Cainelli"
+  ],
+  "authorIds": [
+    "01M3NKMT6QRB531318T39JGZP4"
+  ],
+  "pictureControl": {
+    "settingName": "Autumn",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-15",
+    "saturation": "-2",
+    "highlight": "-48",
+    "shadow": "+48",
+    "whiteLevel": "-31",
+    "blackLevel": "-17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1723297289000",
+    "exposureTime": "1/200",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 24mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6gca9xzxqkawfd0ep57z81/sample.jpg",
+  "imageInfo": {
+    "bytes": 128001,
+    "sha256": "47d10538c580bbd0ad8e197cbe925cc93d4a461ce1614390a8cdf918e1e28227",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCA9XZXQKAWFD0EP57Z81&sortType=0&recipe_lang=zh-cn"
+}

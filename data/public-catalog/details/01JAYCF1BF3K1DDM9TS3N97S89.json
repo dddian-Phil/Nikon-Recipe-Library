@@ -1,0 +1,64 @@
+{
+  "name": "Textured Documentary by MediaStorm",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 70-200mm f/2.8 VR S",
+  "publicDate": "2024-10-24T13:21:07+08:00",
+  "shootingDate": "2024-05-12T11:18:09",
+  "outline": "",
+  "description": "创作者的说明\n这种色彩配方适合旅游中的人文纪实拍摄，适用于颜色丰富的建筑物和街景人文等，它对于提升画面的反差和提高画面固有色的密度有些显著的效果。",
+  "memo": "",
+  "pictureControlName": "TexturedDocmntry_MS",
+  "shootingLocation": "",
+  "id": "01JAYCF1BF3K1DDM9TS3N97S89",
+  "authors": [
+    "影视飓风"
+  ],
+  "authorIds": [
+    "01M3NKKS5NFAD4J4XB7CQEDCB1"
+  ],
+  "pictureControl": {
+    "settingName": "FLEXIBLE_COLOR",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+100",
+    "saturation": "0",
+    "highlight": "+54",
+    "shadow": "+33",
+    "whiteLevel": "0",
+    "blackLevel": "-6"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1715512689000",
+    "exposureTime": "1/2500",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "200mm",
+    "exposureMode": "1",
+    "whiteBalance": "5600K",
+    "lensModel": "NIKKOR Z 70-200mm f/2.8 VR S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jaycf1bf3k1ddm9ts3n97s89/sample.jpg",
+  "imageInfo": {
+    "bytes": 154263,
+    "sha256": "38847ca8ed7d9c538007ed679efdba73eec142f54bb121f4a5ddb2b3e35f669c",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYCF1BF3K1DDM9TS3N97S89&sortType=0&recipe_lang=zh-cn"
+}

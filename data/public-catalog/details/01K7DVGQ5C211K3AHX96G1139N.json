@@ -1,0 +1,64 @@
+{
+  "name": "24Look by 24Frames",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2025-10-16T10:01:24+08:00",
+  "shootingDate": "2024-09-13T18:04:23",
+  "outline": "",
+  "description": "创作者的说明\n我们将 24Frames 的经典色调带入了尼康的优化校准。这款色彩方案经过多年实践验证，具有极高的通用性。它不仅能很好地保护肤色，还能精准控制互补色，实现恰到好处的对比，同时弱化其他容易造成视觉干扰的色相，最终呈现出自然且简洁的视觉观感。推荐将白平衡设置为[自动]或[自然光自动适应]以达到更理想的成片效果。",
+  "memo": "",
+  "pictureControlName": "24Look_24Frames",
+  "shootingLocation": "",
+  "id": "01K7DVGQ5C211K3AHX96G1139N",
+  "authors": [
+    "24Frames（24格）"
+  ],
+  "authorIds": [
+    "01M3NKXMFWN855QE6RSYHBSN78"
+  ],
+  "pictureControl": {
+    "settingName": "24Look_24Frames",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-1.00",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "0.00",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1726250663000",
+    "exposureTime": "1/3200",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01k7dvgq5c211k3ahx96g1139n/sample.jpg",
+  "imageInfo": {
+    "bytes": 61624,
+    "sha256": "0dc9cb67082a5157b0808e56d7d35bf9fce16f821ef5145c3ccf38317315f489",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K7DVGQ5C211K3AHX96G1139N&sortType=0&recipe_lang=zh-cn"
+}

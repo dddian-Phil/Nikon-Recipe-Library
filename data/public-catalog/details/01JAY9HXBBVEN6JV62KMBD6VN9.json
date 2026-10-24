@@ -1,0 +1,61 @@
+{
+  "name": "Neon Glow by Brandon Woelfel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 7_2",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T11:37:09+08:00",
+  "shootingDate": "2024-01-23T18:04:58",
+  "outline": "",
+  "description": "创作者的说明\nNeon Glow色彩方案旨在唤起您图像中的复古未来感。它具有亮粉中间色调和深蓝阴影，以及略微增强的饱和度和对比度，使其理想地展现赛博朋克梦幻效果的人像。\n该色彩方案适合拍摄对象已经被某种彩色光源（例如霓虹灯、彩色路灯或汽车前灯的光芒）照亮的夜间场景。它增强了鲜艳的色相和深邃的阴影。它包含饱和的粉蓝色调，当您拍摄已经被这些颜色笼罩的场景时，可达到极其逼真的效果，因此它成为捕捉街头风格人像或城市景观背景光芒的理想的选择。",
+  "memo": "",
+  "pictureControlName": "NeonGlow_BrandonW",
+  "shootingLocation": "",
+  "id": "01JAY9HXBBVEN6JV62KMBD6VN9",
+  "authors": [
+    "Brandon Woelfel"
+  ],
+  "authorIds": [
+    "01M3NKFYMSQV59QSJ4V72F8G7C"
+  ],
+  "pictureControl": {
+    "settingName": "Neon Glow",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+0.25",
+    "clarity": "+0.75",
+    "contrast": "gamma",
+    "saturation": "+8",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 7_2",
+    "dateTimeOriginal": "1706033098000",
+    "exposureTime": "1/250",
+    "fNumber": "1.2",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "255",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay9hxbbven6jv62kmbd6vn9/sample.jpg",
+  "imageInfo": {
+    "bytes": 109499,
+    "sha256": "ffb3674ec293351e2ed16714aaab84fdf6c5c278df6e4b2a1f8f05213d5f2344",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9HXBBVEN6JV62KMBD6VN9&sortType=0&recipe_lang=zh-cn"
+}

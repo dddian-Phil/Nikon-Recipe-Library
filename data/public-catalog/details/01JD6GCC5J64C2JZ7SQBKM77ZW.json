@@ -1,0 +1,64 @@
+{
+  "name": "Turquoise Blue by Yuki Hirotani",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-11-21T14:33:50+08:00",
+  "shootingDate": "2024-09-30T16:01:48",
+  "outline": "",
+  "description": "创作者的说明\nTurquoise Blue是一种多功能色彩方案，可以用于各种主题和场景，包括人像和快照街拍。实现一种清新而具透明感的效果。由于对比度稍低，它在白天光线明亮的时段以及天空蓝色突出的场景中效果显著。也适用于多云和雨天。诚邀希望您亲自体验一下。",
+  "memo": "",
+  "pictureControlName": "Turquoise_Blue_Yuki",
+  "shootingLocation": "",
+  "id": "01JD6GCC5J64C2JZ7SQBKM77ZW",
+  "authors": [
+    "Yuki Hirotani"
+  ],
+  "authorIds": [
+    "01M3NKPWHRVS92ABQ39RTPCAF6"
+  ],
+  "pictureControl": {
+    "settingName": "Turquoise_Blue_Yuki",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727712108000",
+    "exposureTime": "1/1600",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcc5j64c2jz7sqbkm77zw/sample.jpg",
+  "imageInfo": {
+    "bytes": 122921,
+    "sha256": "6965087a24874128fe976069f856741202bba6bfea66f6083ca897c9f1462065",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCC5J64C2JZ7SQBKM77ZW&sortType=0&recipe_lang=zh-cn"
+}

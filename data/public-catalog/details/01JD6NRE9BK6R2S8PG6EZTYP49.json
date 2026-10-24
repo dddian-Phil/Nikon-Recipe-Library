@@ -1,0 +1,62 @@
+{
+  "name": "Sunlight & Happiness by D'Ann Boal",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 135mm f/1.8 S Plena",
+  "publicDate": "2024-11-21T14:21:38+08:00",
+  "shootingDate": "2023-11-05T16:06:22",
+  "outline": "",
+  "description": "创作者的说明\nSunlight & Happiness色彩方案旨在为您的照片注入柔和而明亮的光芒。该色彩方案通过柔化阴影和提升亮部来强调自然阳光。非常适合捕捉阳光下各种各样的瞬间，它使绿色更鲜亮，让黄色更具暖意，优化色彩和色调。亮部、绿色和黄色调更鲜艳，同时图像中的对比度略微提升，色彩饱和度加强。\n无论您是提升户外人像、风景，还是日常场景的拍摄效果，Sunlight & Happiness都将为您的图像添加光彩和暖意。",
+  "memo": "",
+  "pictureControlName": "SunlightHappy_DAnn",
+  "shootingLocation": "",
+  "id": "01JD6NRE9BK6R2S8PG6EZTYP49",
+  "authors": [
+    "D’Ann Boal"
+  ],
+  "authorIds": [
+    "01M3NKN7AMXD9MGYNGRMQSJ0FR"
+  ],
+  "pictureControl": {
+    "settingName": "Sunshine+Happiness",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+32",
+    "saturation": "+17",
+    "highlight": "+24",
+    "shadow": "+15",
+    "whiteLevel": "+42",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1699200382000",
+    "exposureTime": "1/3200",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "64",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "1",
+    "whiteBalance": "5560K",
+    "lensModel": "NIKKOR Z 135mm f/1.8 S Plena",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jd6nre9bk6r2s8pg6eztyp49/sample.jpg",
+  "imageInfo": {
+    "bytes": 157945,
+    "sha256": "753e29453119eada551b3c6ce688ca32f86d2f64f61d09a82c6bfe2449e9a8a0",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6NRE9BK6R2S8PG6EZTYP49&sortType=0&recipe_lang=zh-cn"
+}

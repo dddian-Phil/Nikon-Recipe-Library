@@ -1,0 +1,65 @@
+{
+  "name": "Cine Mood by LUIZCLAS",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T11:23:19+08:00",
+  "shootingDate": "2024-01-20T16:24:57",
+  "outline": "",
+  "description": "创作者的说明\nCine Mood色彩方案使用广受欢迎的橙青色调，将您的普通图像转换为流行的电影质感。非常适合为任何场景营造温暖、温馨的氛围，引起观众共鸣。\n无论是在室内还是室外，这种百搭的风格都能满足您的需求。通过降低对比度，无论是在阳光下、黄金时段、夜间，还是使用人工照明，您都可以利用它。",
+  "memo": "",
+  "pictureControlName": "CineM_LUIZCLAS",
+  "shootingLocation": "",
+  "id": "01JAY8RGR4X7W9JPY511DZ2E00",
+  "authors": [
+    "LUIZCLAS"
+  ],
+  "authorIds": [
+    "01M3NKJ8DJAEP5XCV418AERF2Z"
+  ],
+  "pictureControl": {
+    "settingName": "Cine Mood",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1705767897000",
+    "exposureTime": "1/1000",
+    "fNumber": "1.2",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay8rgr4x7w9jpy511dz2e00/sample.jpg",
+  "imageInfo": {
+    "bytes": 74013,
+    "sha256": "650adedc473597757e168eed6463be537e52552c92155feb002a308f6febe7c9",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8RGR4X7W9JPY511DZ2E00&sortType=0&recipe_lang=zh-cn"
+}

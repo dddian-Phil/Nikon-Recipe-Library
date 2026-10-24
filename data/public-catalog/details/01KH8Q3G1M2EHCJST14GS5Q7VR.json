@@ -1,0 +1,66 @@
+{
+  "name": "Bluegrain by jyota tomonori",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+  "publicDate": "2026-02-25T09:07:31+08:00",
+  "shootingDate": "2024-12-23T16:16:46",
+  "outline": "",
+  "description": "创作者的说明\nBluegrain色彩方案将蓝色的静谧与胶片的暖意交融在一起。它以细腻的蓝调拾起日常里的沉寂与余韵，在淡雅的蓝色中融入些许灰色，最终晕染出通透澄澈而带有几分怀旧感的色调：并非冷冽的蓝，而是一种能温柔拥住光线的柔和蓝调。无论是阴天的天空、海边的风景，还是窗边的晨光，它都能将这些宁静瞬间展现得愈发动人。",
+  "memo": "",
+  "pictureControlName": "Bluegrain_jyota",
+  "shootingLocation": "",
+  "id": "01KH8Q3G1M2EHCJST14GS5Q7VR",
+  "authors": [
+    "jyota tomonori"
+  ],
+  "authorIds": [
+    "01M3NKZ7QXZX4PHCW7T5W91RQA"
+  ],
+  "pictureControl": {
+    "settingName": "Bluegrain_jyota",
+    "baseName": "MORNING",
+    "quickSharp": "-",
+    "effectLevel": "50",
+    "sharpening": "+2.75",
+    "middleRangeSharp": "+0.50",
+    "clarity": "+0.75",
+    "contrast": "0.00",
+    "brightness": "-",
+    "saturation": "+3.00",
+    "hue": "-3.00",
+    "filterEffect": "-",
+    "toning": "-",
+    "toningSaturation": "-"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1734970606000",
+    "exposureTime": "1/125",
+    "fNumber": "3.8",
+    "exposureProgram": "1",
+    "iso": "1600",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "26.5mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01kh8q3g1m2ehcjst14gs5q7vr/sample.jpg",
+  "imageInfo": {
+    "bytes": 120384,
+    "sha256": "0e92aef663c679cd7105e6b13b3c4c2a4361cc03638941f90df2451db01c43fa",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KH8Q3G1M2EHCJST14GS5Q7VR&sortType=0&recipe_lang=zh-cn"
+}

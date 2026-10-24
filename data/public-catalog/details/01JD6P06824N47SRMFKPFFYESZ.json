@@ -1,0 +1,61 @@
+{
+  "name": "Golden Hour Glow by D'Ann Boal",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 9",
+  "lens": "NIKKOR Z 135mm f/1.8 S Plena",
+  "publicDate": "2024-11-21T14:20:02+08:00",
+  "shootingDate": "2024-06-25T18:57:06",
+  "outline": "",
+  "description": "创作者的说明\nGolden Hour Glow色彩方案可在加强对比度的同时，为整个画面带来一抹金色的暖意。它适用于在黄金时段拍摄的暖色调照片，或是您想要添加暖意的主色调为黄色的环境人像。黄色调将变为黄褐色，同时绿色变得更深且具有暖意。饱和度和亮部都得到提升，使画面中闪耀着琥珀色鲜艳的光芒。\n在黄金时段使用偏暖色调进行拍摄时，虽然可以使图像获得丰富的光线和鲜艳的色彩，但同时也会遇到一些摄影上的挑战。肤色可能会暗沉，图像可能显得色彩单调，并且色偏可能过于明显。",
+  "memo": "",
+  "pictureControlName": "GoldenHourGlow_DAnn",
+  "shootingLocation": "",
+  "id": "01JD6P06824N47SRMFKPFFYESZ",
+  "authors": [
+    "D’Ann Boal"
+  ],
+  "authorIds": [
+    "01M3NKN7AMXD9MGYNGRMQSJ0FR"
+  ],
+  "pictureControl": {
+    "settingName": "Golden Hour Glow",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "gamma",
+    "saturation": "+26",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 9",
+    "dateTimeOriginal": "1719341826000",
+    "exposureTime": "1/200",
+    "fNumber": "2.2",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "3",
+    "flash": "SPEEDLIGHT",
+    "focalLength": "135mm",
+    "exposureMode": "1",
+    "whiteBalance": "6670K",
+    "lensModel": "NIKKOR Z 135mm f/1.8 S Plena",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6p06824n47srmfkpffyesz/sample.jpg",
+  "imageInfo": {
+    "bytes": 214871,
+    "sha256": "ea7cf00fe322faf743f2f8dd75ce837e2c184f56e9823beeb509289ff81c9f86",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6P06824N47SRMFKPFFYESZ&sortType=0&recipe_lang=zh-cn"
+}

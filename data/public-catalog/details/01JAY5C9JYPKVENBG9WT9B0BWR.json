@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Blue 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T09:25:15+08:00",
+  "shootingDate": "2023-12-16T23:10:26",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以蓝色着色为特征的彩色负片。当您想要突出天空的深蓝色时，请尝试这一“色彩方案”。\n该“色彩方案”降低了整体对比度和饱和度，并给亮部添加了洋红色。",
+  "memo": "",
+  "pictureControlName": "Negative_Bu_01a",
+  "shootingLocation": "",
+  "id": "01JAY5C9JYPKVENBG9WT9B0BWR",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Kodak_UltraMAX_ba",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-2.00",
+    "contrast": "0",
+    "saturation": "+10",
+    "highlight": "-30",
+    "shadow": "-5",
+    "whiteLevel": "+10",
+    "blackLevel": "-15"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702768226000",
+    "exposureTime": "1/500",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "31mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jay5c9jypkvenbg9wt9b0bwr/sample.jpg",
+  "imageInfo": {
+    "bytes": 222674,
+    "sha256": "c91b620716129dc5b494de2ffa36651646aa1f7f36adbf45e2e4162e2274b97a",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY5C9JYPKVENBG9WT9B0BWR&sortType=0&recipe_lang=zh-cn"
+}

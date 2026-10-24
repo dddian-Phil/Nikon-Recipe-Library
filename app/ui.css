@@ -43,3 +43,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:750px){.countbar{flex-wrap:wrap}.recipe-sort{margin-left:0}}
 
 .tile-actions .photo-association{margin-left:auto;text-align:right}.tile-actions .photo-association.is-unmatched{color:#fff700}
+
+/* Public Pages mode shares the local UI but exposes only public browsing. */
+html[data-mode="static"] [data-local-only]{display:none!important}
+html[data-mode="static"] .tile-actions:empty{display:none}
+@media(max-width:750px){html[data-mode="static"] input,html[data-mode="static"] select{font-size:16px}html[data-mode="static"] .density-switch{flex-direction:row}}

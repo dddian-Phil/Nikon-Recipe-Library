@@ -1,0 +1,64 @@
+{
+  "name": "Yuragi by Kimura Hinami",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-10-16T10:00:27+08:00",
+  "shootingDate": "2025-06-15T17:23:05",
+  "outline": "",
+  "description": "创作者的说明\n树叶随风轻舞，阳光穿过枝叶洒下点点光斑，还有那一朵朵令人忍不住想触碰的小花——Yuragi正是一款可将这些日常风景与稍纵即逝的美好瞬间悄然定格的色彩方案。略微明亮的曝光和适宜的对比度营造出整体柔和、轻盈的感觉。色调稍偏向蓝色，旨在唤起一种凉爽、洁净的氛围。这款色彩方案非常适合林间小径的随拍，让花朵与绿意更显生动。它也尤其适合在自然光下拍摄人像，让肤色显得真实且动人。",
+  "memo": "",
+  "pictureControlName": "Yuragi_Hinami",
+  "shootingLocation": "",
+  "id": "01K7DVGPJQ432W251WK35W8B2K",
+  "authors": [
+    "Kimura Hinami"
+  ],
+  "authorIds": [
+    "01M3NKW4WGBDZ06KZMB4ETC0FR"
+  ],
+  "pictureControl": {
+    "settingName": "Yuragi_Hinami",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "-6",
+    "saturation": "+11",
+    "highlight": "-15",
+    "shadow": "-15",
+    "whiteLevel": "-14",
+    "blackLevel": "-33"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1750008185000",
+    "exposureTime": "1/1000",
+    "fNumber": "2.5",
+    "exposureProgram": "1",
+    "iso": "125",
+    "exposureBiasValue": "-1.7",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k7dvgpjq432w251wk35w8b2k/sample.jpg",
+  "imageInfo": {
+    "bytes": 97653,
+    "sha256": "ea83bf1709b0c333303666428d73e96077ef2e5c9e329e7dc4de6a6aba860a56",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K7DVGPJQ432W251WK35W8B2K&sortType=0&recipe_lang=zh-cn"
+}

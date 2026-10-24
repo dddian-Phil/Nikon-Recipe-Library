@@ -1,0 +1,62 @@
+{
+  "name": "British Film Black and White by Vincent Versace",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 135mm f/1.8 S Plena",
+  "publicDate": "2025-02-19T10:14:25+08:00",
+  "shootingDate": "2024-03-09T08:10:06",
+  "outline": "",
+  "description": "创作者的说明\n黒白摄影一直是我的最爱。当我使用黒白胶片拍摄时，没有放之四海而皆准的解决方案。不同的胶片乳剂对光线和色调的反应各不相同，因此我着手创作灵活优化校准系列色彩方案，以再现我喜欢的胶片所营造的独特氛围。该色彩方案旨在模拟经典的英国ISO 400黒白胶片乳剂在ISO 200下进行曝光以及“拉片”处理时的色调还原曲线，营造出良好的肤色和平滑的过渡效果。",
+  "memo": "",
+  "pictureControlName": "BritFilmBW_Vincent",
+  "shootingLocation": "",
+  "id": "01JMBSEGNH7FWEJPA5FSEZFC82",
+  "authors": [
+    "Vincent Versace"
+  ],
+  "authorIds": [
+    "01M3NKNKY3BFM2VN8VC6W2JVQX"
+  ],
+  "pictureControl": {
+    "settingName": "BritFilmBW_Vincent",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+1.50",
+    "contrast": "+3",
+    "saturation": "-98",
+    "highlight": "-20",
+    "shadow": "+31",
+    "whiteLevel": "-34",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1709971806000",
+    "exposureTime": "1/1600",
+    "fNumber": "1.8",
+    "exposureProgram": "4",
+    "iso": "2000",
+    "exposureBiasValue": "+1.0",
+    "meteringMode": "2",
+    "focalLength": "135mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 135mm f/1.8 S Plena",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jmbsegnh7fwejpa5fsezfc82/sample.jpg",
+  "imageInfo": {
+    "bytes": 82665,
+    "sha256": "7463fd981b428ff49372d6b8d8cf6c4bb37ba6923d04f3fd1b0de209afee2794",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBSEGNH7FWEJPA5FSEZFC82&sortType=0&recipe_lang=zh-cn"
+}

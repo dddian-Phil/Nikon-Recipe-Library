@@ -1,0 +1,64 @@
+{
+  "name": "Air Green by Takumi Gunji",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-02-19T10:15:35+08:00",
+  "shootingDate": "2024-07-22T14:28:23",
+  "outline": "",
+  "description": "创作者的说明\n我创建了该色彩方案，旨在为图像捕捉那一刻轻松愉快的氛围。它整体呈现出带蓝色和绿色调的清新感，尽可能保持了日常场景图像的自然感，因为颜色和质感的平衡使人物看起来更健康，推荐用于人像摄影。同时该方案也适合拍摄包含植物、树木、水体等自然景观丰富的图像。由于图像略微容易过曝，因此应用稍暗的曝光设定，降低色温，使颜色偏向绿色，能更好地发挥该色彩方案的特性。",
+  "memo": "",
+  "pictureControlName": "AirGreen_Gunji",
+  "shootingLocation": "",
+  "id": "01JMBTAMA6QE5ERWS9ES2KJMV6",
+  "authors": [
+    "Takumi Gunji"
+  ],
+  "authorIds": [
+    "01M3NKR2VPPFQWTBGXP98PMENR"
+  ],
+  "pictureControl": {
+    "settingName": "AirGreen_Gunji",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.75",
+    "middleRangeSharp": "-0.50",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+75",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1721658503000",
+    "exposureTime": "1/8000",
+    "fNumber": "1.4",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "-1.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "6000K",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cd"
+  },
+  "image": "catalog/recipes/01jmbtama6qe5erws9es2kjmv6/sample.jpg",
+  "imageInfo": {
+    "bytes": 101150,
+    "sha256": "99fb4cd9bf6ea01f9c1e337065de2cfe34951dcbe1a27d680f73970ef1e18bbd",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTAMA6QE5ERWS9ES2KJMV6&sortType=0&recipe_lang=zh-cn"
+}

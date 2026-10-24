@@ -1,0 +1,62 @@
+{
+  "name": "HT Harmony by Hanaa Turkistani",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "16mm f/2.8D",
+  "publicDate": "2024-10-24T13:20:12+08:00",
+  "shootingDate": "2024-02-29T18:40:00",
+  "outline": "",
+  "description": "创作者的说明\n为了以艺术的手法展现色彩的和谐，我选择使绿色和红色相得益彰，来描绘一种蓝色时刻。青绿色增添了艺术气息，也为您展现迪拜充满活力的氛围。\n该色彩方案适合拍摄黄昏美景，彩色路灯或车灯能照亮周围环境，呈现出蓝色调。它柔化了红色，同时增强了青绿色，以达到融洽和谐且具艺术感的图像效果。",
+  "memo": "",
+  "pictureControlName": "HT Harmony_HanaaT",
+  "shootingLocation": "",
+  "id": "01JAYC9MAHMPG3SR8ERCXS2620",
+  "authors": [
+    "Hanaa Turkistani"
+  ],
+  "authorIds": [
+    "01M3NKKD97FAR7KGN0Y8J3Q509"
+  ],
+  "pictureControl": {
+    "settingName": "HT Harmony Mood",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+8",
+    "saturation": "+10",
+    "highlight": "-27",
+    "shadow": "+13",
+    "whiteLevel": "+9",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1672531405000",
+    "exposureTime": "25",
+    "fNumber": "18",
+    "exposureProgram": "1",
+    "iso": "Lo 1",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "16mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "16mm f/2.8D",
+    "focusMode": "MANUAL",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jayc9mahmpg3sr8ercxs2620/sample.jpg",
+  "imageInfo": {
+    "bytes": 282651,
+    "sha256": "962a6e6291198d0f852b13e71d91e2cef0621d5957f201a5a1598e77da877dc2",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYC9MAHMPG3SR8ERCXS2620&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Color Mode Yellow 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:31:17+08:00",
+  "shootingDate": "2023-12-17T17:23:06",
+  "outline": "",
+  "description": "该“色彩方案”能产生更暖的色彩。它能使傍晚的景色比肉眼所见的更加鲜艳。\n整体对比度适中，并稍微减少了阴影。该“色彩方案”调整了色彩并提高了饱和度，以突出黄色和橙色。",
+  "memo": "",
+  "pictureControlName": "ClrMode_Ye_01a",
+  "shootingLocation": "",
+  "id": "01JAY955BMSQ74WVSMRK8BC7BA",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Si_ClassicYellow0",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+60",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "-8",
+    "whiteLevel": "+8",
+    "blackLevel": "-13"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702858986000",
+    "exposureTime": "1/100",
+    "fNumber": "6.3",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jay955bmsq74wvsmrk8bc7ba/sample.jpg",
+  "imageInfo": {
+    "bytes": 181647,
+    "sha256": "22b5dfb2a03c915545a2d53a9e8b2f0bb34c16ed52a929287dbd9660afd9ffa2",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY955BMSQ74WVSMRK8BC7BA&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Pale Tale by Yuri",
+  "publisher": "Nikon",
+  "camera": "NIKON Z5_2",
+  "lens": "NIKKOR Z 24-200mm f/4-6.3 VR",
+  "publicDate": "2025-07-09T09:14:53+08:00",
+  "shootingDate": "2025-02-18T09:16:47",
+  "outline": "",
+  "description": "创作者的说明\n我创建此色彩方案旨在提供一种柔和而温馨的视角，观众仿佛正凝视着梦中仙境。柔和淡雅的色调特别适合风景和花卉摄影，同时也略微调整了对比度，以便在人像摄影和桌面摄影中也能使用。该色彩方案能让用户在旅行中享受拍摄多种场景的乐趣。您可尝试调整曝光和白平衡，实现更具个性的表达。",
+  "memo": "",
+  "pictureControlName": "Pale Tale_Yuri",
+  "shootingLocation": "",
+  "id": "01JZ9Z8E65TVX23WQ9D2W9TCPN",
+  "authors": [
+    "Yuri"
+  ],
+  "authorIds": [
+    "01M3NKVYYW5371MHS88HHQKPYK"
+  ],
+  "pictureControl": {
+    "settingName": "Pale Tale_Yuri",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.75",
+    "middleRangeSharp": "+1.75",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+30",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z5_2",
+    "dateTimeOriginal": "1739870207000",
+    "exposureTime": "1/640",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "51mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-200mm f/4-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jz9z8e65tvx23wq9d2w9tcpn/sample.jpg",
+  "imageInfo": {
+    "bytes": 181044,
+    "sha256": "ec4d1485a15cd7d051771dbce31dd758f11854496369007f333e1eab89262a18",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JZ9Z8E65TVX23WQ9D2W9TCPN&sortType=0&recipe_lang=zh-cn"
+}

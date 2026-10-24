@@ -1,0 +1,65 @@
+{
+  "name": "Red Mood by LUIZCLAS",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 35mm f/1.8 S",
+  "publicDate": "2024-10-24T11:18:34+08:00",
+  "shootingDate": "2024-01-20T09:45:30",
+  "outline": "",
+  "description": "创作者的说明\nRed Mood色彩方案的灵感来源于香港电影美学，利用红色的基调，构建一种忧郁且浪漫的情感，展现20世纪60年代的氛围。Red Mood给人一种怀旧和复古的魅力，与电影的标志性视觉效果产生共鸣，可增强图像中的情感强度和张力。这种极具影响力的红色之美必定令人难忘。\n该色彩方案最推荐用于夜间室内人工照明下。",
+  "memo": "",
+  "pictureControlName": "RedM_LUIZCLAS",
+  "shootingLocation": "",
+  "id": "01JAY8FQEE201QX5BGSZCSQHSG",
+  "authors": [
+    "LUIZCLAS"
+  ],
+  "authorIds": [
+    "01M3NKJ8DJAEP5XCV418AERF2Z"
+  ],
+  "pictureControl": {
+    "settingName": "Red Mood",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1705743930000",
+    "exposureTime": "1/320",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "35mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 35mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay8fqee201qx5bgszcsqhsg/sample.jpg",
+  "imageInfo": {
+    "bytes": 84627,
+    "sha256": "abbd6613ccafddeedd0497930eb762a3c43de3adee1635d6caa5eaebf8030100",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8FQEE201QX5BGSZCSQHSG&sortType=0&recipe_lang=zh-cn"
+}

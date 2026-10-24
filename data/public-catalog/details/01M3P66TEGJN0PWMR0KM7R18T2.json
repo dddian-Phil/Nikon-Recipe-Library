@@ -1,0 +1,64 @@
+{
+  "name": "Mid-Spring by Yinukhi",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 85mm f/1.8 S",
+  "publicDate": "2026-10-14T09:54:29+08:00",
+  "shootingDate": "2026-03-12T14:43:02",
+  "outline": "",
+  "description": "创作者的说明\n更具摄影质感与美感的色调——可使用此色彩方案在晴空下拍摄人像，定格春日里温柔梦幻的氛围感。整体色彩透出一丝陌生但唯美的淡淡忧愁。春天向来被视作万物新生的伊始，于我而言，它却总带着几分疏离——弥漫着些许拘谨的气息。万象初新与未雨绸缪并存。这款色彩方案，以温柔又带一丝忧郁的氛围，诠释春日鲜活的色彩，捕捉这个季节独有的情绪温度。",
+  "memo": "",
+  "pictureControlName": "Mid-Spring_Yinukhi",
+  "shootingLocation": "",
+  "id": "01M3P66TEGJN0PWMR0KM7R18T2",
+  "authors": [
+    "Yinukhi"
+  ],
+  "authorIds": [
+    "01M3NM14MMPTPHBDQRC5S71566"
+  ],
+  "pictureControl": {
+    "settingName": "Mid-Spring_Yinukhi",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.25",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+1.25",
+    "contrast": "gamma",
+    "saturation": "+9",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1773326582000",
+    "exposureTime": "1/250",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "85mm",
+    "exposureMode": "1",
+    "whiteBalance": "5550K",
+    "lensModel": "NIKKOR Z 85mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "1,0.0,0.0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "4",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01m3p66tegjn0pwmr0km7r18t2/sample.jpg",
+  "imageInfo": {
+    "bytes": 100939,
+    "sha256": "ce409aa18b4e935f3d08f90a7c33c1e6c713c766ea657123b01b6a26bd9f30d1",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01M3P66TEGJN0PWMR0KM7R18T2&sortType=0&recipe_lang=zh-cn"
+}

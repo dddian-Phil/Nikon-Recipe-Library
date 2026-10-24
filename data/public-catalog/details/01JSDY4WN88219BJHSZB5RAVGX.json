@@ -1,0 +1,63 @@
+{
+  "name": "Sunset Film Portrait by Jatenipat Ketpradit (JKBoy)",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2025-04-24T09:08:22+08:00",
+  "shootingDate": "2024-08-25T18:28:04",
+  "outline": "",
+  "description": "创作者的说明\n这种优化校准非常适合日落时分的人像拍摄，能加强暖橙色调，同时弱化不必要的色彩，并添加戏剧性色调，从而获得更加精致且颇具魅力的效果。",
+  "memo": "",
+  "pictureControlName": "SunsetFilm_JKBoy",
+  "shootingLocation": "",
+  "id": "01JSDY4WN88219BJHSZB5RAVGX",
+  "authors": [
+    "Jatenipat Ketpradit (JKBoy)"
+  ],
+  "authorIds": [
+    "01M3NKTXTRVQ3AXTMJQXBG6FTD"
+  ],
+  "pictureControl": {
+    "settingName": "SunsetFilm_JKBoy",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+50",
+    "saturation": "-25",
+    "highlight": "0",
+    "shadow": "+45",
+    "whiteLevel": "+5",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1724610484000",
+    "exposureTime": "1/1250",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "-0.7",
+    "meteringMode": "5",
+    "flash": "SPEEDLIGHT",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jsdy4wn88219bjhszb5ravgx/sample.jpg",
+  "imageInfo": {
+    "bytes": 182837,
+    "sha256": "28533207de089012e5643ed2377b7e24ab0a4e5f657a9aad072f5392e43f14d5",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY4WN88219BJHSZB5RAVGX&sortType=0&recipe_lang=zh-cn"
+}

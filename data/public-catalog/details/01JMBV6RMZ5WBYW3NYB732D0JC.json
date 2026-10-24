@@ -1,0 +1,64 @@
+{
+  "name": "Shades of Fall by Brittany Eliza Kunkel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
+  "publicDate": "2025-02-19T10:17:53+08:00",
+  "shootingDate": "2024-10-15T07:55:51",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案让多种场景焕发秋日的光彩，在整个图像中呈现琥珀色、金色和柔和红色等丰富的色调。它加强光线的自然暖意，使风景显得更加生动、闪耀，并将初秋的树叶调整至更接近于最佳观赏期的色彩。非常适合风景或温馨氛围的室内拍摄。",
+  "memo": "",
+  "pictureControlName": "ShadeFall_BrittanyK",
+  "shootingLocation": "",
+  "id": "01JMBV6RMZ5WBYW3NYB732D0JC",
+  "authors": [
+    "Brittany Eliza Kunkel"
+  ],
+  "authorIds": [
+    "01M3NKRKMYYF0QYFC0RARFB30Y"
+  ],
+  "pictureControl": {
+    "settingName": "ShadeFall_BrittanyK",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.25",
+    "middleRangeSharp": "+1.25",
+    "clarity": "-0.25",
+    "contrast": "0",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "0",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1728975351000",
+    "exposureTime": "1/15",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "2500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "12mm",
+    "exposureMode": "1",
+    "whiteBalance": "CLOUDY",
+    "lensModel": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jmbv6rmz5wbyw3nyb732d0jc/sample.jpg",
+  "imageInfo": {
+    "bytes": 133032,
+    "sha256": "b35e2546a5d569a8b72827e7d25fe16a5aef852ec4c42d8c890c99fe40946f3d",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBV6RMZ5WBYW3NYB732D0JC&sortType=0&recipe_lang=zh-cn"
+}

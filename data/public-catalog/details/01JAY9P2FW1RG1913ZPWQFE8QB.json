@@ -1,0 +1,61 @@
+{
+  "name": "Cinematic Blue by Brandon Woelfel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 7_2",
+  "lens": "NIKKOR Z 20mm f/1.8 S",
+  "publicDate": "2024-10-24T11:39:26+08:00",
+  "shootingDate": "2022-06-09T20:40:15",
+  "outline": "",
+  "description": "创作者的说明\nCinematic Blue色彩方案非常适合在蓝调时段拍摄带有环境的镜头。当您追求电影氛围的时刻，它的效果极佳。\nCinematic Blue色彩方案可为您的图像提供酷炫的电影效果。亮部突显暖黄色调，而中间色调和阴影则偏向蓝绿效果，让您拍摄的图像能具有电影般的画面质感。它的蓝色被赋予了适中的对比度和厚重的饱和度。Cinematic Blue适合在各种天气和一天中的很多时刻使用，尤其在您使用较广角度进行拍摄并将对焦点从拍摄对象上稍微移开一点时，效果较为显著。",
+  "memo": "",
+  "pictureControlName": "CineBlue_BrandonW",
+  "shootingLocation": "",
+  "id": "01JAY9P2FW1RG1913ZPWQFE8QB",
+  "authors": [
+    "Brandon Woelfel"
+  ],
+  "authorIds": [
+    "01M3NKFYMSQV59QSJ4V72F8G7C"
+  ],
+  "pictureControl": {
+    "settingName": "Cinematic Blue",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 7_2",
+    "dateTimeOriginal": "1654807215000",
+    "exposureTime": "1/200",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "255",
+    "focalLength": "20mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 20mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay9p2fw1rg1913zpwqfe8qb/sample.jpg",
+  "imageInfo": {
+    "bytes": 141923,
+    "sha256": "48757fd9c9e7713b8d4549ce66526a0c4edd631f5bed1f393e5b413419bd0444",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9P2FW1RG1913ZPWQFE8QB&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "CineBias-TC - Green Edge Experimental by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-12-10T09:13:08+08:00",
+  "shootingDate": "2025-11-07T12:03:24",
+  "outline": "",
+  "description": "创作者的说明\n“Green Edge Experimental”以一种强烈的绿色调主导色彩方案，突破创意边界。阴影深邃且富有戏剧性，中间色调覆盖一层独特的冷绿色，赋予画面一种前卫的艺术气质。肤色呈现柔和且偏冷的质感，与超现实美学融合。以大胆的蓝色和绿色添加色彩冲击力，提升前卫的艺术氛围。这种风格完美适配实验摄影，可营造出超现实、充满个性的视觉世界。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-TC",
+  "shootingLocation": "",
+  "id": "01KBXVVB156N1AE0ZF7R983D15",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-TC",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "-0.25",
+    "clarity": "0.00",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762517004000",
+    "exposureTime": "1/800",
+    "fNumber": "2.8",
+    "exposureProgram": "3",
+    "iso": "640",
+    "exposureBiasValue": "+0.7",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvvb156n1ae0zf7r983d15/sample.jpg",
+  "imageInfo": {
+    "bytes": 98541,
+    "sha256": "f6a69f15d1fe5702d374ba83c2b8be77b91b8007f2acc534a96e367ee5038dad",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVB156N1AE0ZF7R983D15&sortType=0&recipe_lang=zh-cn"
+}

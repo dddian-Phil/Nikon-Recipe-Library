@@ -1,0 +1,62 @@
+{
+  "name": "Color Mode Blue 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:17:20+08:00",
+  "shootingDate": "2023-12-17T16:56:25",
+  "outline": "",
+  "description": "该“色彩方案”采用高调的蓝色调色彩，能产生凉爽的外观。\n该“色彩方案”将图像颜色调得更蓝并使整体更亮。",
+  "memo": "",
+  "pictureControlName": "ClrMode_Bu_01a",
+  "shootingLocation": "",
+  "id": "01JAY8C8T5V2GEGMX4WZMHS1R2",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Si_PowderBlue0",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+15",
+    "saturation": "0",
+    "highlight": "+25",
+    "shadow": "-5",
+    "whiteLevel": "-5",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1702857385000",
+    "exposureTime": "1/160",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jay8c8t5v2gegmx4wzmhs1r2/sample.jpg",
+  "imageInfo": {
+    "bytes": 136292,
+    "sha256": "b24bce6de676d52c0526e98ed44701397e325aee2807ad4d3889c31c30a3a56f",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8C8T5V2GEGMX4WZMHS1R2&sortType=0&recipe_lang=zh-cn"
+}

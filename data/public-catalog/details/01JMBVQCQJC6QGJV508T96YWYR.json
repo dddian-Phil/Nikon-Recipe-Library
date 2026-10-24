@@ -1,0 +1,65 @@
+{
+  "name": "Vintage Vibes by Preston Luke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2025-02-19T10:19:42+08:00",
+  "shootingDate": "2024-09-30T19:20:59",
+  "outline": "",
+  "description": "创作者的说明\n这是一种复古且具有电影感的色彩方案，通过沉稳的绿色调和舒适的暖色调，自然地营造出怀旧氛围。",
+  "memo": "",
+  "pictureControlName": "VintageVibe_Preston",
+  "shootingLocation": "",
+  "id": "01JMBVQCQJC6QGJV508T96YWYR",
+  "authors": [
+    "Preston Luke"
+  ],
+  "authorIds": [
+    "01M3NKRYZW94GPDXBENTM2KE5P"
+  ],
+  "pictureControl": {
+    "settingName": "VintageVibe_Preston",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "0.00",
+    "contrast": "+50",
+    "saturation": "+20",
+    "highlight": "-21",
+    "shadow": "-15",
+    "whiteLevel": "+29",
+    "blackLevel": "-7"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727724059000",
+    "exposureTime": "1/200",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "250",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "BUILT_IN",
+    "focalLength": "16mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvqcqjc6qgjv508t96ywyr/sample.jpg",
+  "imageInfo": {
+    "bytes": 120682,
+    "sha256": "1427d89128dac85967b8a8777a819acfa640c2379d8406a627f9aa4d258a7b52",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVQCQJC6QGJV508T96YWYR&sortType=0&recipe_lang=zh-cn"
+}

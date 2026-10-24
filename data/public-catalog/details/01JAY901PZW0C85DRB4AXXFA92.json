@@ -1,0 +1,62 @@
+{
+  "name": "Golden Dusk by Emilie Hill",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2024-10-24T11:27:29+08:00",
+  "shootingDate": "2024-02-22T07:03:49",
+  "outline": "",
+  "description": "创作者的说明\nGolden Dusk色彩方案可将您的图像变成一个温暖而怀旧的世界。它旨在唤起一种让人联想到温暖的秋天日落的舒适氛围，突出鲜艳生动的黄色和橙色色相，在您的照片中注入高饱和度和低对比度，同时增强白色色调的表现力。该色彩方案非常适合营造温馨的氛围，以柔和、活力四射的光芒增添照片魅力，因而是拍摄风景、肖像和城市风光的理想选择。\n该色彩方案专为充满暖光的拍摄环境而设计，例如沐浴在日出或日落的金色光芒下时，或是在色彩缤纷的环境中。特别是在黄金时段，您使用该色彩方案拍出的图像简直就像被笼罩在迷人的金色光波里。",
+  "memo": "",
+  "pictureControlName": "GoldenDusk_EmilieH",
+  "shootingLocation": "",
+  "id": "01JAY901PZW0C85DRB4AXXFA92",
+  "authors": [
+    "Emilie Hill"
+  ],
+  "authorIds": [
+    "01M3NKGF6K2HPV7ET696A2CEBW"
+  ],
+  "pictureControl": {
+    "settingName": "Golden Dusk",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+12",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1708585429000",
+    "exposureTime": "1/1000",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "69mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay901pzw0c85drb4axxfa92/sample.jpg",
+  "imageInfo": {
+    "bytes": 110211,
+    "sha256": "66e60746dff294f46ffd247d2056ac80a982743a7de023253df387d1b52907f1",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY901PZW0C85DRB4AXXFA92&sortType=0&recipe_lang=zh-cn"
+}

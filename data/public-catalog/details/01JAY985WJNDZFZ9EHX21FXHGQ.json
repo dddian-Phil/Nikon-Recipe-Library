@@ -1,0 +1,65 @@
+{
+  "name": "DG Film Look by Danny Gevirtz",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T11:31:51+08:00",
+  "shootingDate": "2024-01-24T11:02:43",
+  "outline": "",
+  "description": "创作者的说明\nDG Film Look旨在为在各种情况下（如明媚的阳光下或光线不足的室内）拍摄的视频片段增强情感影响力。它的颜色和外观创意风格如同电影院中上映的影像，可唤起观众的怀旧思绪。\nDG Film Look可以在照相机内应用，为您录制的视频片段即刻赋予一种更加浓郁的电影感，让人回想起传奇而经典的电影胶片色彩。为了实现这种电影感，亮部被柔化得更加中性，保留了丰富的暗部，同时实现图像整体干净清爽的效果。拍摄虚构的人物剧以及纪录片时最适合应用这种电影感，因此，在您身处各种拍摄情况、各种天气条件下，以及讲述不同的故事时，均可获得电影般的肤色和好莱坞风格的质感，提升对观众的影响力。",
+  "memo": "",
+  "pictureControlName": "DGFilmLook_DannyG",
+  "shootingLocation": "",
+  "id": "01JAY985WJNDZFZ9EHX21FXHGQ",
+  "authors": [
+    "Danny Gevirtz"
+  ],
+  "authorIds": [
+    "01M3NKJPDC1EC8Q94SMF6QSJ70"
+  ],
+  "pictureControl": {
+    "settingName": "DG Film Look",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.25",
+    "contrast": "0",
+    "saturation": "-5",
+    "highlight": "-50",
+    "shadow": "-57",
+    "whiteLevel": "0",
+    "blackLevel": "+8"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1706094163000",
+    "exposureTime": "1/1000",
+    "fNumber": "4.5",
+    "exposureProgram": "1",
+    "iso": "250",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "70mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jay985wjndzfz9ehx21fxhgq/sample.jpg",
+  "imageInfo": {
+    "bytes": 114612,
+    "sha256": "6ee0d8798b34129239f0aff18f3409fe1fbd4a069fb4f0f9a09ba558a7ed13ad",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY985WJNDZFZ9EHX21FXHGQ&sortType=0&recipe_lang=zh-cn"
+}

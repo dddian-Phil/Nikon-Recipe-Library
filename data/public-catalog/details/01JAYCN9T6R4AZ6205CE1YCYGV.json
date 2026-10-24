@@ -1,0 +1,64 @@
+{
+  "name": "Warm-toned dim lighting by Luna",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T13:21:50+08:00",
+  "shootingDate": "2024-07-23T15:15:00",
+  "outline": "",
+  "description": "创作者的说明\n暖调暗光\n适合室内环境，暖色调暗光，优化了环境和主体的对比度，加强色调柔和感和光线的过渡，营造出温暖治愈的氛围。",
+  "memo": "",
+  "pictureControlName": "WarmDimLight_Luna",
+  "shootingLocation": "",
+  "id": "01JAYCN9T6R4AZ6205CE1YCYGV",
+  "authors": [
+    "Luna Atlantis"
+  ],
+  "authorIds": [
+    "01M3NKM3DXJ5RBJVWK9BP09PNE"
+  ],
+  "pictureControl": {
+    "settingName": "FLEXIBLE_COLOR",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+5",
+    "saturation": "+15",
+    "highlight": "+30",
+    "shadow": "+10",
+    "whiteLevel": "+25",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1704096238000",
+    "exposureTime": "1/250",
+    "fNumber": "1.2",
+    "exposureProgram": "3",
+    "iso": "800",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cc"
+  },
+  "image": "catalog/recipes/01jaycn9t6r4az6205ce1ycygv/sample.jpg",
+  "imageInfo": {
+    "bytes": 47795,
+    "sha256": "298816ca258cd1ca1ecf25ee951bd4ab594aa97951e0a679ee5fa644d2e72f32",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYCN9T6R4AZ6205CE1YCYGV&sortType=0&recipe_lang=zh-cn"
+}

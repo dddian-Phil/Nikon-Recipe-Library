@@ -1,0 +1,64 @@
+{
+  "name": "Honey by Ian Harland",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2025-02-19T10:18:45+08:00",
+  "shootingDate": "2024-10-02T11:28:49",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案为您的照片添加一丝暖意，非常适合背光场景。通过略微降低饱和度并加强暖色调，营造出富有凝聚力的类似色的和谐感。阴影和亮部加入金色调，而刻意保持白色部分的亮白，以此再现柔和的阳光，给人一种柔和而朦胧的效果。",
+  "memo": "",
+  "pictureControlName": "Honey_IanHarland",
+  "shootingLocation": "",
+  "id": "01JMBVDR41VAJBNY8SH0TJQXX3",
+  "authors": [
+    "Ian Harland"
+  ],
+  "authorIds": [
+    "01M3NKRSFASB7WMK454J1ZSJ5C"
+  ],
+  "pictureControl": {
+    "settingName": "Honey_IanHarland",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727868529000",
+    "exposureTime": "1/500",
+    "fNumber": "9",
+    "exposureProgram": "1",
+    "iso": "1000",
+    "exposureBiasValue": "+0.7",
+    "meteringMode": "5",
+    "focalLength": "32.5mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvdr41vajbny8sh0tjqxx3/sample.jpg",
+  "imageInfo": {
+    "bytes": 122324,
+    "sha256": "3923168b2b48204ecd65a1306ec989b14c2b0e7f666898a9e65e87dfb995938d",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVDR41VAJBNY8SH0TJQXX3&sortType=0&recipe_lang=zh-cn"
+}

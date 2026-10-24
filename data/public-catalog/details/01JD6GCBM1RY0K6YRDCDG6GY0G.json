@@ -1,0 +1,64 @@
+{
+  "name": "Kota-Green by TAKASU TILE",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-11-21T14:27:36+08:00",
+  "shootingDate": "2024-10-05T09:09:44",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案旨在为您的图像营造出柔和的色调，创作灵感来自于乡村——我居住的幸田町，那里的人们热情温暖，乡野绿意盎然。该色彩方案的低对比度非常适合用来拍摄色彩鲜艳的蔬菜等照片。正如其名称“Kota-Green”所示，希望您能享受它在绿色植物和花卉，尤其是绿色主题和场景上的表现。我认为在拍摄时稍微提高曝光，会得到更好的效果。",
+  "memo": "",
+  "pictureControlName": "Kota-Green_TAKASU",
+  "shootingLocation": "",
+  "id": "01JD6GCBM1RY0K6YRDCDG6GY0G",
+  "authors": [
+    "TAKASU TILE"
+  ],
+  "authorIds": [
+    "01M3NKNTGW4XAX5K1S3TNARRY9"
+  ],
+  "pictureControl": {
+    "settingName": "Kota-Green_TAKASU",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-12",
+    "saturation": "+9",
+    "highlight": "-25",
+    "shadow": "+26",
+    "whiteLevel": "-29",
+    "blackLevel": "-4"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1728119384000",
+    "exposureTime": "1/1250",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcbm1ry0k6yrdcdg6gy0g/sample.jpg",
+  "imageInfo": {
+    "bytes": 197326,
+    "sha256": "6bc6ed78232820f2216c54a560ab11258dfe89c46c8f749f71d9739a8fb79a6a",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCBM1RY0K6YRDCDG6GY0G&sortType=0&recipe_lang=zh-cn"
+}

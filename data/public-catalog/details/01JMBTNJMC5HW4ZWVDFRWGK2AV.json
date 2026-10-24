@@ -1,0 +1,62 @@
+{
+  "name": "At Dusk by Noise Woo",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 100-400mm f/4.5-5.6 VR S",
+  "publicDate": "2025-02-19T10:16:38+08:00",
+  "shootingDate": "2024-03-01T16:39:37",
+  "outline": "",
+  "description": "创作者的说明\n适合晚霞时刻，突出个人风格化质感，强调色彩质感和抓人眼球而不是高饱和，突出电影感和对比。",
+  "memo": "",
+  "pictureControlName": "At Dusk_Woo",
+  "shootingLocation": "",
+  "id": "01JMBTNJMC5HW4ZWVDFRWGK2AV",
+  "authors": [
+    "吴噪音"
+  ],
+  "authorIds": [
+    "01M3NKR8W78T1S8VT0NVY0BBCA"
+  ],
+  "pictureControl": {
+    "settingName": "At Dusk_Woo",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.00",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+34",
+    "saturation": "+19",
+    "highlight": "-50",
+    "shadow": "-40",
+    "whiteLevel": "0",
+    "blackLevel": "-7"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1709311177000",
+    "exposureTime": "1/100",
+    "fNumber": "7.1",
+    "exposureProgram": "3",
+    "iso": "250",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 100-400mm f/4.5-5.6 VR S",
+    "focusMode": "AF-C",
+    "activeDLighting": "3",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "1,M1.0,+2.0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbtnjmc5hw4zwvdfrwgk2av/sample.jpg",
+  "imageInfo": {
+    "bytes": 55654,
+    "sha256": "f11148901e7369351a26e5c50a24bb1ff616e6e2f2483ff6a29dd463a219dfcd",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTNJMC5HW4ZWVDFRWGK2AV&sortType=0&recipe_lang=zh-cn"
+}

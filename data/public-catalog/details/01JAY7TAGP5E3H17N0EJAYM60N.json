@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Tungsten Color 01b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2024-10-24T10:07:52+08:00",
+  "shootingDate": "2023-11-06T22:08:24",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种钨金色彩的负片。使典型的夜景变得看似电影中的场景。\n请配合3200K左右的白平衡设定使用该“色彩方案”。\n该“色彩方案”是“Negative Film Tungsten Color 01a”“色彩方案”的变体，其特点是增加了对比度和饱和度。",
+  "memo": "",
+  "pictureControlName": "Negative_T_01b",
+  "shootingLocation": "",
+  "id": "01JAY7TAGP5E3H17N0EJAYM60N",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "MARIX_800T_ed",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "0",
+    "saturation": "+30",
+    "highlight": "+10",
+    "shadow": "-40",
+    "whiteLevel": "+5",
+    "blackLevel": "-5"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1699308504000",
+    "exposureTime": "1/60",
+    "fNumber": "1.8",
+    "exposureProgram": "3",
+    "iso": "800",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "3000K",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay7tagp5e3h17n0ejaym60n/sample.jpg",
+  "imageInfo": {
+    "bytes": 148785,
+    "sha256": "3a821405efaa2fd5b19a716c7d376b21fd45e7b76cb132a67ef8a1cd357c931c",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY7TAGP5E3H17N0EJAYM60N&sortType=0&recipe_lang=zh-cn"
+}

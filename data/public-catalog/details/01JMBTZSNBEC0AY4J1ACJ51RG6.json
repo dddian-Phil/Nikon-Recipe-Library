@@ -1,0 +1,64 @@
+{
+  "name": "Moody Greens by Brittany Eliza Kunkel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 24mm f/1.7",
+  "publicDate": "2025-02-19T10:17:35+08:00",
+  "shootingDate": "2024-09-29T09:54:02",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案强化了深邃、沉稳的绿色，让图像显得丰富且具有氛围感。它增强翡翠绿、苔藓绿和森林绿的色调，同时稍微减弱其他色调。阴影变得更加深邃，亮部呈现出一种沉稳、朦胧的质感，从而给树林荫翳或雾气缭绕的风景添加一种神秘感。非常适合户外场景拍摄，有助于让普通环境变得绿意盎然且具戏剧氛围。",
+  "memo": "",
+  "pictureControlName": "MoodyGr_BrittanyK",
+  "shootingLocation": "",
+  "id": "01JMBTZSNBEC0AY4J1ACJ51RG6",
+  "authors": [
+    "Brittany Eliza Kunkel"
+  ],
+  "authorIds": [
+    "01M3NKRKMYYF0QYFC0RARFB30Y"
+  ],
+  "pictureControl": {
+    "settingName": "MoodyGr_BrittanyK",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "0.00",
+    "contrast": "+6",
+    "saturation": "0",
+    "highlight": "+9",
+    "shadow": "+12",
+    "whiteLevel": "+8",
+    "blackLevel": "-17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727603642000",
+    "exposureTime": "1/800",
+    "fNumber": "1.7",
+    "exposureProgram": "3",
+    "iso": "125",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z DX 24mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jmbtzsnbec0ay4j1acj51rg6/sample.jpg",
+  "imageInfo": {
+    "bytes": 132594,
+    "sha256": "c95c2f78a5f5999cc716620e4f8a856d18e9db02a0e3b8a5cb11f5f15ecbf6ce",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTZSNBEC0AY4J1ACJ51RG6&sortType=0&recipe_lang=zh-cn"
+}

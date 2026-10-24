@@ -1,0 +1,64 @@
+{
+  "name": "Crystal Clear by Eisuke Ishibashi",
+  "publisher": "Nikon",
+  "camera": "NIKON Z5_2",
+  "lens": "NIKKOR Z 24-200mm f/4-6.3 VR",
+  "publicDate": "2025-07-09T09:14:33+08:00",
+  "shootingDate": "2025-02-20T15:25:43",
+  "outline": "",
+  "description": "创作者的说明\n我创建此色彩方案是为了呈现清晰且透明的效果。通过调色加强蓝色和青色，并略微提高对比度，以生成更加清晰锐利的画面。该色彩方案特别适合在自然光下拍摄人像，让人物皮肤更显透明质感。也可以在多种场景中使用。快来试试看吧！",
+  "memo": "",
+  "pictureControlName": "CRYSClear_Eisuke",
+  "shootingLocation": "",
+  "id": "01JZ9Z3X3T4W1QZDCSMAW2B6Y2",
+  "authors": [
+    "Eisuke Ishibashi"
+  ],
+  "authorIds": [
+    "01M3NKVSX3VKEEFAMZC9X0FRXW"
+  ],
+  "pictureControl": {
+    "settingName": "CRYSClear_Eisuke",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+1.00",
+    "contrast": "+5",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "-20",
+    "whiteLevel": "+10",
+    "blackLevel": "-5"
+  },
+  "exif": {
+    "model": "NIKON Z5_2",
+    "dateTimeOriginal": "1740065143000",
+    "exposureTime": "1/100",
+    "fNumber": "6.3",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-200mm f/4-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jz9z3x3t4w1qzdcsmaw2b6y2/sample.jpg",
+  "imageInfo": {
+    "bytes": 177878,
+    "sha256": "84f7ca7137b5c4b552b43bf4b006270c7f1a5502dc50c1d4db4a308433346258",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JZ9Z3X3T4W1QZDCSMAW2B6Y2&sortType=0&recipe_lang=zh-cn"
+}

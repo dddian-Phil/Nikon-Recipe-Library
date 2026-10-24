@@ -1,0 +1,64 @@
+{
+  "name": "Clear Portrait by Takahiro Sakai",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T13:18:31+08:00",
+  "shootingDate": "2024-05-17T09:50:07",
+  "outline": "",
+  "description": "创作者的说明\n这是一种旨在创建通透人像的色彩方案。它维持原有的对比度，避免其过于微弱，并将饱和度调整到鲜艳级别。晴天时，它给人一种清爽的印象；阴天时，则呈现出一种平静的氛围。它创造出柔和的效果，与利用散景的照片相契合，并可应用于快照和桌面静物摄影。将曝光调整到略高于良好值时可获得更清晰的效果。色温可以设为自动，但您也可以尝试略冷的蓝色色调。",
+  "memo": "",
+  "pictureControlName": "ClrPortrait_Tsakai",
+  "shootingLocation": "",
+  "id": "01JAYB63AT02S12FKN8TAQPE7C",
+  "authors": [
+    "Takahiro Sakai"
+  ],
+  "authorIds": [
+    "01M3NKG9028VQB6Q7MCX2HW5NG"
+  ],
+  "pictureControl": {
+    "settingName": "ClrPortrait_TSakai",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "+0.75",
+    "contrast": "gamma",
+    "saturation": "+13",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1715939407000",
+    "exposureTime": "1/1250",
+    "fNumber": "1.2",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "3",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jayb63at02s12fkn8taqpe7c/sample.jpg",
+  "imageInfo": {
+    "bytes": 86771,
+    "sha256": "4776b9de247c5559bd76191a33b0b3ad8a503e38211176e043ea3d4a758bf7de",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAYB63AT02S12FKN8TAQPE7C&sortType=0&recipe_lang=zh-cn"
+}

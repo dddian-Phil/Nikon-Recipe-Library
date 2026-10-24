@@ -1,0 +1,64 @@
+{
+  "name": "Honey Tale by MASAYA",
+  "publisher": "Nikon",
+  "camera": "NIKON Z5_2",
+  "lens": "NIKKOR Z 135mm f/1.8 S Plena",
+  "publicDate": "2026-06-23T10:18:07+08:00",
+  "shootingDate": "2025-10-20T10:21:35",
+  "outline": "",
+  "description": "创作者的说明\n这款色彩方案的创作初衷是营造出甜蜜又温暖的氛围，照片仿佛被敷上一层薄蜜。它让日常细微处的故事悄然浮现，如同翻阅温馨的绘本。色阶与中间调经过调整后，营造出柔和且略带暖意的色调质感。在草木丰茂、黄绿相间的场景中使用这款色彩方案时，效果尤为惊艳。当利用柔和的逆光在清晨或傍晚拍摄人像时也格外契合。小秘诀：拍摄时可将曝光稍稍调亮。",
+  "memo": "",
+  "pictureControlName": "HoneyTale_MASAYA",
+  "shootingLocation": "",
+  "id": "01KVA5GNSGV2C6XKKXHZXJPQ0K",
+  "authors": [
+    "MASAYA"
+  ],
+  "authorIds": [
+    "01M3NKZY7A4FEWER9R7XBCFXKR"
+  ],
+  "pictureControl": {
+    "settingName": "HoneyTale_MASAYA",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+15",
+    "saturation": "+10",
+    "highlight": "-20",
+    "shadow": "+20",
+    "whiteLevel": "+25",
+    "blackLevel": "-25"
+  },
+  "exif": {
+    "model": "NIKON Z5_2",
+    "dateTimeOriginal": "1760955695000",
+    "exposureTime": "1/1250",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 135mm f/1.8 S Plena",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kva5gnsgv2c6xkkxhzxjpq0k/sample.jpg",
+  "imageInfo": {
+    "bytes": 111232,
+    "sha256": "e0e2ac5771153b67cc3e43f6d44dba1434fc310ebd4b45b2a4e42b5353805471",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KVA5GNSGV2C6XKKXHZXJPQ0K&sortType=0&recipe_lang=zh-cn"
+}

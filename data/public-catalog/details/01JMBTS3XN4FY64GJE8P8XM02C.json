@@ -1,0 +1,62 @@
+{
+  "name": "Warm-toned Portrait by Wazika",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2025-02-19T10:16:55+08:00",
+  "shootingDate": "2024-10-17T17:43:59",
+  "outline": "",
+  "description": "创作者的说明\n适合室内棚拍和室外光线比较充足的环境，整体色彩细腻细节丰富。",
+  "memo": "",
+  "pictureControlName": "WarmtonedPtt_Wazika",
+  "shootingLocation": "",
+  "id": "01JMBTS3XN4FY64GJE8P8XM02C",
+  "authors": [
+    "瓦子卡"
+  ],
+  "authorIds": [
+    "01M3NKRE7JEJDEW9ZDQK3G90WK"
+  ],
+  "pictureControl": {
+    "settingName": "WarmtonedPtt_Wazika",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+29",
+    "saturation": "+20",
+    "highlight": "-22",
+    "shadow": "+14",
+    "whiteLevel": "+22",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1729187039000",
+    "exposureTime": "1/160",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "120mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbts3xn4fy64gje8p8xm02c/sample.jpg",
+  "imageInfo": {
+    "bytes": 70442,
+    "sha256": "7999c06085b1c021a2e6f34389b7a45e387688c7b634e9a0372301f6c73d6b7d",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTS3XN4FY64GJE8P8XM02C&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Soft Film by Leno Cainelli",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T13:40:24+08:00",
+  "shootingDate": "2024-08-12T09:05:23",
+  "outline": "",
+  "description": "创作者的说明\nSoft Film色彩方案使用柔和的对焦、微妙的色彩触感和平缓的对比度，赋予照片一种优雅而梦幻的氛围。它在忠于照片原有色彩方案的同时，添加了一种温暖且不过时的色调。适用于广泛的拍摄场景，例如捕捉人像中的浪漫亲密瞬间，创建宁静平和的风景照，为生活照赋予微妙的色彩触感，或是为婚礼或订婚照添加怀旧气息。",
+  "memo": "",
+  "pictureControlName": "SoftFilm_Leno",
+  "shootingLocation": "",
+  "id": "01JD6GH3BC0PR7NHVVD1NBPSKZ",
+  "authors": [
+    "Leno Cainelli"
+  ],
+  "authorIds": [
+    "01M3NKMT6QRB531318T39JGZP4"
+  ],
+  "pictureControl": {
+    "settingName": "SoftFilm_Leno",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "0.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "-2.00",
+    "contrast": "-38",
+    "saturation": "-10",
+    "highlight": "-64",
+    "shadow": "+52",
+    "whiteLevel": "-33",
+    "blackLevel": "-40"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1723453523000",
+    "exposureTime": "1/500",
+    "fNumber": "4.5",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "26.5mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-S",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gh3bc0pr7nhvvd1nbpskz/sample.jpg",
+  "imageInfo": {
+    "bytes": 216164,
+    "sha256": "01047077aa8fac39f8ab0f7d4f93e4e74e0dcb06d288f770eec7cc770fd940c3",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH3BC0PR7NHVVD1NBPSKZ&sortType=0&recipe_lang=zh-cn"
+}

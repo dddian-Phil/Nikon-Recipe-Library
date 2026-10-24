@@ -1,0 +1,62 @@
+{
+  "name": "Color Mode Green 01b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:27:26+08:00",
+  "shootingDate": "2023-11-30T14:27:21",
+  "outline": "",
+  "description": "该“色彩方案”增强了整体着色，以产生一种清爽和多彩的外观。\n该“色彩方案”强调了“Color Mode Green 01a”“色彩方案”的独特特征。",
+  "memo": "",
+  "pictureControlName": "ClrMode_Gn_01b",
+  "shootingLocation": "",
+  "id": "01JAY8ZHQ6J4KKD58YR3R2ATT2",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Si_ForestGreen5",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+80",
+    "saturation": "+30",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "0",
+    "blackLevel": "-10"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1701379641000",
+    "exposureTime": "1/400",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay8zhq6j4kkd58yr3r2att2/sample.jpg",
+  "imageInfo": {
+    "bytes": 78293,
+    "sha256": "3e1c8a7d2d74cc7a293277fb04dc5f1ba862043d4b58a04307c5ac02a80f2403",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8ZHQ6J4KKD58YR3R2ATT2&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Filmic by Fabio Oliveira",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2025-04-24T09:07:03+08:00",
+  "shootingDate": "2024-08-29T10:58:32",
+  "outline": "",
+  "description": "创作者的说明\nFilmic色彩方案从胶片摄影永恒的魅力中获取灵感，适用于您的多种拍摄类型。它以温暖、如电影般的色调，将您的影像打造成引发情感共鸣且颇具艺术性的怀旧作品。通过调整白平衡，保持完美均衡且和谐的色调来适应您的场景。在较为复杂的光线条件下，启用动态D-Lighting保留亮部，调整对比度，从而确保可对图像进行适宜的曝光。Filmic色彩方案完美融合了现代的灵活性与经典美学，将平凡瞬间化作永恒的记忆。",
+  "memo": "",
+  "pictureControlName": "Filmic_Fabio",
+  "shootingLocation": "",
+  "id": "01JSDY2WHS4KX6SVD8F65VW5F1",
+  "authors": [
+    "Fabio Oliveira"
+  ],
+  "authorIds": [
+    "01M3NKT1DNST9AJYMJN1SQY0CS"
+  ],
+  "pictureControl": {
+    "settingName": "Filmic_Fabio",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+0.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.75",
+    "contrast": "gamma",
+    "saturation": "+20",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1724929112000",
+    "exposureTime": "1/4000",
+    "fNumber": "2.5",
+    "exposureProgram": "1",
+    "iso": "64",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "2,Y1.5,-0.5",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jsdy2whs4kx6svd8f65vw5f1/sample.jpg",
+  "imageInfo": {
+    "bytes": 263856,
+    "sha256": "216cd3055d2e3120cc4839d4e876a9db384f3f88b6b4882562288490c0bf977c",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY2WHS4KX6SVD8F65VW5F1&sortType=0&recipe_lang=zh-cn"
+}

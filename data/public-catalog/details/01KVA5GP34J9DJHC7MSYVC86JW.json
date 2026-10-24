@@ -1,0 +1,62 @@
+{
+  "name": "Vintage Touch by Amy Shore",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 9",
+  "lens": "NIKKOR Z 35mm f/1.2 S",
+  "publicDate": "2026-06-23T10:18:22+08:00",
+  "shootingDate": "2026-01-16T15:13:15",
+  "outline": "",
+  "description": "创作者的说明\n通过Vintage Touch为您的图像赋予怀旧氛围。这款色彩方案既适合汽车、火车、飞机等经典拍摄对象，也适合车友会、军迷聚会等人数较多的场景。这款色彩方案会柔化拍摄对象的亮部与暗部，营造出一丝淡淡的复古余韵。",
+  "memo": "",
+  "pictureControlName": "VintageTouch_Amy",
+  "shootingLocation": "",
+  "id": "01KVA5GP34J9DJHC7MSYVC86JW",
+  "authors": [
+    "Amy Shore"
+  ],
+  "authorIds": [
+    "01M3NKZ22489GZEEEHBR0J8YB5"
+  ],
+  "pictureControl": {
+    "settingName": "VintageTouch_Amy",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+3.00",
+    "contrast": "gamma",
+    "saturation": "+11",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 9",
+    "dateTimeOriginal": "1768576395000",
+    "exposureTime": "1/100",
+    "fNumber": "6.3",
+    "exposureProgram": "1",
+    "iso": "640",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "35mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 35mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01kva5gp34j9djhc7msyvc86jw/sample.jpg",
+  "imageInfo": {
+    "bytes": 113222,
+    "sha256": "3863702d77c45fd82bce56ae5f84a2ebc0ea91b590e583de32307bcf724debe7",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KVA5GP34J9DJHC7MSYVC86JW&sortType=0&recipe_lang=zh-cn"
+}

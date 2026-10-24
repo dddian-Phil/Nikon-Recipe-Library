@@ -1,5 +1,9 @@
 # Nikon Recipe Library
 
+网页版：[尼康云创配方资料库](https://dddian-phil.github.io/Nikon-Recipe-Library/)。使用 GitHub Pages 展示公开配方、搜索和官方样片；暂不提供收藏、备份或个人照片库。本地完整版继续保留下面介绍的全部功能。
+
+部署分支为 `codex/static-deploy`，在独立 Worktree 中维护；更新代码和公开数据的步骤见 [部署说明](docs/deployment.md)。GitHub Actions 仅发布经过白名单验证的 `dist/`，不会发布本地私人文件。
+
 本地浏览尼康云创色彩方案、作者头像、官方样片与拍摄参数，并将自己的 JPG / NEF 照片关联到使用的方案。
 
 支持按作者和器材筛选、方案收藏、照片喜欢、自动增量扫描、可搜索的手动关联及个人记录备份。官方方案由网页手动同步，提供新增标记与发布排序。界面使用中文，文件和目录使用英文。

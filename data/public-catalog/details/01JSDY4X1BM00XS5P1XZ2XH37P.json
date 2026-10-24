@@ -1,0 +1,64 @@
+{
+  "name": "Coastal Glow by Najmuddin Muif",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2025-04-24T09:08:48+08:00",
+  "shootingDate": "2024-06-29T06:43:09",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案的灵感来源于我自身的摄影风格，它能让人引发清晨海边光线的柔和淡雅色调与轻柔的对比度相融合的联想，营造出宁静且怀旧的氛围。该滤镜着重于黄色的暖色调和柔和的蓝色调，同时添加了些许复古效果，突出在海边所能感受到的自然韵味。非常适合用来创建具有梦幻感且永不过时的唯美照片。",
+  "memo": "",
+  "pictureControlName": "Coastal Glow_NM",
+  "shootingLocation": "",
+  "id": "01JSDY4X1BM00XS5P1XZ2XH37P",
+  "authors": [
+    "Najmuddin Muif"
+  ],
+  "authorIds": [
+    "01M3NKV3YF81955DAQ5JXETEST"
+  ],
+  "pictureControl": {
+    "settingName": "Coastal Glow_NM",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+8",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1719643389000",
+    "exposureTime": "1/500",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "95mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jsdy4x1bm00xs5p1xz2xh37p/sample.jpg",
+  "imageInfo": {
+    "bytes": 108896,
+    "sha256": "5983851e9dfd8adbf63483fbd2f0bcdbd787c0b0735a2a925aebec6a8cef7813",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY4X1BM00XS5P1XZ2XH37P&sortType=0&recipe_lang=zh-cn"
+}

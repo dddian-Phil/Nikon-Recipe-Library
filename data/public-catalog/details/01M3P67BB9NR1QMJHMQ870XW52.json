@@ -1,0 +1,64 @@
+{
+  "name": "Mate Film by Choi matae",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2026-10-14T09:54:49+08:00",
+  "shootingDate": "2025-12-30T13:29:29",
+  "outline": "",
+  "description": "创作者的说明\n这款色彩方案基于我个人的摄影风格而打造，突出绿色调、红色调与柔美肤色。呈现如胶片质感般柔和细腻的渐变效果，绿色青葱浓郁，红色沉稳笃实。无论是绿树成荫的公园，还是红色元素随处可见的城市街景，亮部略带的一抹洋红都能出彩。这款色彩方案在背光场景下呈现效果优美，非常适合于想要把人像肤色拍出明亮、柔和且通透效果的场景。",
+  "memo": "",
+  "pictureControlName": "MateFilm_Choi matae",
+  "shootingLocation": "",
+  "id": "01M3P67BB9NR1QMJHMQ870XW52",
+  "authors": [
+    "Choi matae"
+  ],
+  "authorIds": [
+    "01M3NM0YEJMY4SA1XFE55DNV0K"
+  ],
+  "pictureControl": {
+    "settingName": "MateFilm_Choi matae",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+0.75",
+    "middleRangeSharp": "+0.25",
+    "clarity": "-0.50",
+    "contrast": "gamma",
+    "saturation": "-7",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1767101369000",
+    "exposureTime": "1/1600",
+    "fNumber": "1.4",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01m3p67bb9nr1qmjhmq870xw52/sample.jpg",
+  "imageInfo": {
+    "bytes": 49096,
+    "sha256": "ad1de59729d93651703a99e51460a5d7d8ae190f4eb698420281bbb94d6b4289",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01M3P67BB9NR1QMJHMQ870XW52&sortType=0&recipe_lang=zh-cn"
+}

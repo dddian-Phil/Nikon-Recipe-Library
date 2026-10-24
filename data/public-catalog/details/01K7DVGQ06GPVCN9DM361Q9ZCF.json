@@ -1,0 +1,64 @@
+{
+  "name": "Catgrain by yomowasa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2025-10-16T10:01:07+08:00",
+  "shootingDate": "2025-07-11T08:13:01",
+  "outline": "",
+  "description": "创作者的说明\n这款高对比度、来自胶片灵感的色彩方案可突显猫咪眼睛和毛发的立体感。阴影和亮部中微妙的蓝绿色调营造出稍冷氛围，而中间色调中的暖橙色则柔化了整体印象。色度被稍加抑制，唤起类似复古胶片摄影的沉稳与怀旧质感。特别是猫咪的眼中映入清晨自然的蓝光时会格外清亮，毛发的阴影和纹理也会变得更加栩栩如生。在窗边柔和的光线下拍摄特写照片时推荐使用此色彩方案，它可利用清晨的逆光带来富于戏剧性和表现力的效果。",
+  "memo": "",
+  "pictureControlName": "Catgrain_yw",
+  "shootingLocation": "",
+  "id": "01K7DVGQ06GPVCN9DM361Q9ZCF",
+  "authors": [
+    "yomowasa"
+  ],
+  "authorIds": [
+    "01M3NKXEKRSX2ADP9959Q9YDBD"
+  ],
+  "pictureControl": {
+    "settingName": "Catgrain_yw",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.25",
+    "contrast": "+19",
+    "saturation": "-25",
+    "highlight": "-33",
+    "shadow": "+17",
+    "whiteLevel": "+35",
+    "blackLevel": "-29"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1752221581000",
+    "exposureTime": "1/125",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "800",
+    "exposureBiasValue": "-0.7",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "SUNNY",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "4",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01k7dvgq06gpvcn9dm361q9zcf/sample.jpg",
+  "imageInfo": {
+    "bytes": 125102,
+    "sha256": "bc0daefd68084b5c5c494d8735c7ca51702600fb2e52cb9b2cb6fd3a2b103678",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K7DVGQ06GPVCN9DM361Q9ZCF&sortType=0&recipe_lang=zh-cn"
+}

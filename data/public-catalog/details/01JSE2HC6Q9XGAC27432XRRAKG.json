@@ -1,0 +1,62 @@
+{
+  "name": "Vitality Film by Peng Mango",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "AF-S NIKKOR 24-70mm f/2.8E ED VR",
+  "publicDate": "2025-04-24T09:09:43+08:00",
+  "shootingDate": "2024-12-11T14:49:05",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案模拟了胶片的风格，对比度适中，色彩较浓郁。其增强了中暗部的青色，并且保留了人物健康温暖的肤色，可以应对不同天气和环境，是一个长期可以使用的色彩方案。",
+  "memo": "",
+  "pictureControlName": "VitalityFilm_Pmango",
+  "shootingLocation": "",
+  "id": "01JSE2HC6Q9XGAC27432XRRAKG",
+  "authors": [
+    "芒果小明"
+  ],
+  "authorIds": [
+    "01M3NKVEVCX48ZB52DCYV3CFKG"
+  ],
+  "pictureControl": {
+    "settingName": "VitalityFilm_Pmango",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+1.50",
+    "clarity": "-1.00",
+    "contrast": "-4",
+    "saturation": "0",
+    "highlight": "+54",
+    "shadow": "-17",
+    "whiteLevel": "0",
+    "blackLevel": "-3"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1733928545000",
+    "exposureTime": "1/160",
+    "fNumber": "18",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "55mm",
+    "exposureMode": "1",
+    "whiteBalance": "SUNNY",
+    "lensModel": "VR 24-70mm f/2.8G",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "1,0.0,+1.0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jse2hc6q9xgac27432xrrakg/sample.jpg",
+  "imageInfo": {
+    "bytes": 100744,
+    "sha256": "bfe11ae8ee410bd5dccfa463e839840b9424f00c2e4c1dc9f70d270725aa8a70",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSE2HC6Q9XGAC27432XRRAKG&sortType=0&recipe_lang=zh-cn"
+}

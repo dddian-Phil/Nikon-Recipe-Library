@@ -1,0 +1,64 @@
+{
+  "name": "Vintage Portrait by Kazu Fujisawa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-09-25T09:23:24+08:00",
+  "shootingDate": "2025-06-01T18:37:04",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案本于我自己的摄影风格，通常具有深沉、复古的范儿。它能产生强烈、独特的色彩，但用途极为广泛。无论在白天拍摄、夜间拍摄人像，亦或在咖啡馆和其他室内场合拍照，都可以使用。手动调整白平衡可获得略微暖和的色彩，以轻松打造理想的外观。此色彩方案产生具有复古风味的色彩，因此可以在怀旧咖啡厅和场所以及时尚摄影中尝试一番。",
+  "memo": "",
+  "pictureControlName": "VINTAGEPort_Fuji",
+  "shootingLocation": "",
+  "id": "01K5FVVHSJJS9ZCA8H2DN8MXQK",
+  "authors": [
+    "Kazu Fujisawa"
+  ],
+  "authorIds": [
+    "01M3NKWBEM2J3K4D47SFD3JJYN"
+  ],
+  "pictureControl": {
+    "settingName": "VINTAGEPort_Fuji",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+20",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "-25",
+    "whiteLevel": "0",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1748803024000",
+    "exposureTime": "1/250",
+    "fNumber": "10",
+    "exposureProgram": "1",
+    "iso": "400",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "9090K",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k5fvvhsjjs9zca8h2dn8mxqk/sample.jpg",
+  "imageInfo": {
+    "bytes": 87138,
+    "sha256": "2e16c5043d8e50ef12f0071079b42623205d1a25fe643735f5ff7bfa0c2c3c09",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVHSJJS9ZCA8H2DN8MXQK&sortType=0&recipe_lang=zh-cn"
+}

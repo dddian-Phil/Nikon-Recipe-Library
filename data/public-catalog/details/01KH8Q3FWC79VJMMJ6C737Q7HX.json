@@ -1,0 +1,64 @@
+{
+  "name": "Pink Watercolor by HYEYA",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX MC 35mm f/1.7",
+  "publicDate": "2026-02-25T09:07:13+08:00",
+  "shootingDate": "2025-10-23T15:43:56",
+  "outline": "",
+  "description": "创作者的说明\nPink Watercolor再现了我编辑风格的精髓：清透、纯粹且饱含细腻情愫。其柔和的粉色调能营造出微妙纯净的氛围无需繁杂背景衬托，能够自然凸显模特。尤其在雪原之上的柔和冬光里，或是树隙间洒落的暖阳下时，能在每一张画面中定格独有的静谧与澄澈。",
+  "memo": "",
+  "pictureControlName": "PinkWater_HYEYA",
+  "shootingLocation": "",
+  "id": "01KH8Q3FWC79VJMMJ6C737Q7HX",
+  "authors": [
+    "HYEYA"
+  ],
+  "authorIds": [
+    "01M3NKZK9WY4CRS4018NDF7MZT"
+  ],
+  "pictureControl": {
+    "settingName": "PinkWater_HYEYA",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.50",
+    "contrast": "+11",
+    "saturation": "+5",
+    "highlight": "-70",
+    "shadow": "-29",
+    "whiteLevel": "0",
+    "blackLevel": "+39"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1761234236000",
+    "exposureTime": "1/200",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "35mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX MC 35mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kh8q3fwc79vjmmj6c737q7hx/sample.jpg",
+  "imageInfo": {
+    "bytes": 70658,
+    "sha256": "a5df1ee46cd6e180c0de0d5ef86771c5069cdcd51a47ca608b77d9e58b2fc52f",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KH8Q3FWC79VJMMJ6C737Q7HX&sortType=0&recipe_lang=zh-cn"
+}

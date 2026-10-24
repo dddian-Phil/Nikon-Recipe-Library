@@ -1,0 +1,62 @@
+{
+  "name": "Boho Look by Emilie Hill",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2024-10-24T11:29:40+08:00",
+  "shootingDate": "2024-02-22T06:54:20",
+  "outline": "",
+  "description": "创作者的说明\nBoho Look色彩方案旨在让您的图像充分展现出精致淡雅的魅力。它专为获取柔和、梦幻般的美感而设计，倾向于用微妙的粉红色相和温暖的阴影，通过淡雅的自然色调展现您的场景。采用低饱和度和低对比度来营造出细腻而飘渺的氛围。\n该色彩方案非常适合在多云或阴天等柔和漫射光条件下拍摄，最擅长于在室内或室外的人像、旅行和生活方式摄影中，为场景添加整体柔和、梦幻般的感觉。",
+  "memo": "",
+  "pictureControlName": "BohoLook_EmilieH",
+  "shootingLocation": "",
+  "id": "01JAY948WX5Q9DKCSY7V4FNX6M",
+  "authors": [
+    "Emilie Hill"
+  ],
+  "authorIds": [
+    "01M3NKGF6K2HPV7ET696A2CEBW"
+  ],
+  "pictureControl": {
+    "settingName": "Boho Look",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.25",
+    "contrast": "gamma",
+    "saturation": "-15",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1708584860000",
+    "exposureTime": "1/250",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "38mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay948wx5q9dkcsy7v4fnx6m/sample.jpg",
+  "imageInfo": {
+    "bytes": 151692,
+    "sha256": "215bc285200277208bf3b911b9bfbf56674f5f0de17f54d76ac2b2bf69762497",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY948WX5Q9DKCSY7V4FNX6M&sortType=0&recipe_lang=zh-cn"
+}

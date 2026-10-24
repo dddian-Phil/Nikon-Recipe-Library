@@ -1,0 +1,62 @@
+{
+  "name": "Sky Mist Film by Fujikawa hinano",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z MC 50mm f/2.8",
+  "publicDate": "2025-04-24T09:06:04+08:00",
+  "shootingDate": "2024-12-10T10:59:33",
+  "outline": "",
+  "description": "创作者的说明\n此胶片风格的色彩方案着重于柔和浅蓝和温柔橙色，唤起一种空气中飘浮着薄雾的感觉。虽然对比度和色度略有降低，但整体色调得以保留，呈现的效果会让人联想到35mm胶片的拍摄效果。整体呈现浅蓝色调，但加强了肤色，能够呈现出别样的氛围感。较亮的图像将具有柔和、清新的外观，而较暗的图像则给人以沉稳的印象，因此用户还能体会到不同曝光带来的不同成像效果。",
+  "memo": "",
+  "pictureControlName": "SkyMistFilm_hinano",
+  "shootingLocation": "",
+  "id": "01JSDSNV4EZPYFW54N7NDDYERW",
+  "authors": [
+    "Fujikawa hinano"
+  ],
+  "authorIds": [
+    "01M3NKS4P0CR5YHB9W9KS11MNK"
+  ],
+  "pictureControl": {
+    "settingName": "SkyMistFilm_hinano",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.75",
+    "middleRangeSharp": "+3.75",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1733828373000",
+    "exposureTime": "1/500",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z MC 50mm f/2.8",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jsdsnv4ezpyfw54n7nddyerw/sample.jpg",
+  "imageInfo": {
+    "bytes": 36354,
+    "sha256": "5aa2e011e9002352941aa25ce416560cad4ede24faff322252a96b1fcfa4b79d",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDSNV4EZPYFW54N7NDDYERW&sortType=0&recipe_lang=zh-cn"
+}

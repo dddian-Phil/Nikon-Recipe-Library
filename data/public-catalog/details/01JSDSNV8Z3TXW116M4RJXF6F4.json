@@ -1,0 +1,64 @@
+{
+  "name": "Japanesque Film by Taishi Arashida",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2025-04-24T09:06:23+08:00",
+  "shootingDate": "2024-12-30T11:58:27",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案可产生类似胶片的效果，非常契合日本的自然风光拍摄。相比热门冲印店的现代质感，我更希望实现一种让人联想到街头照相馆的效果。\n因为该色彩方案温暖、琥珀色调的外观，我认为它更适用于自然元素，比如蓝天和鲜花，而不太适用于那些色彩单调的无机物。建议在户外自然光下使用。根据具体情况，它可能更适合在28mm至35mm范围内随意快拍（如同使用便携式胶卷照相机那样），而不太适合用中远摄镜头抓拍模糊效果的照片。",
+  "memo": "",
+  "pictureControlName": "Japanesque_Arashida",
+  "shootingLocation": "",
+  "id": "01JSDSNV8Z3TXW116M4RJXF6F4",
+  "authors": [
+    "Taishi Arashida"
+  ],
+  "authorIds": [
+    "01M3NKSAABCNX5KW9M8A0TDKQM"
+  ],
+  "pictureControl": {
+    "settingName": "Japanesque_Arashida",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+20",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1735559907000",
+    "exposureTime": "1/1000",
+    "fNumber": "5.6",
+    "exposureProgram": "3",
+    "iso": "125",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO2",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jsdsnv8z3txw116m4rjxf6f4/sample.jpg",
+  "imageInfo": {
+    "bytes": 166900,
+    "sha256": "3dc8fcefd03f1a8003b70edc74b753e4dd0147b448073c8bf7b0483850caff8f",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDSNV8Z3TXW116M4RJXF6F4&sortType=0&recipe_lang=zh-cn"
+}

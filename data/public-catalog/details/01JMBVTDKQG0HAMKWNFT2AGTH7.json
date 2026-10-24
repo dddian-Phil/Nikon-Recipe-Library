@@ -1,0 +1,65 @@
+{
+  "name": "Glow Up by Preston Luke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 35mm f/1.4",
+  "publicDate": "2025-02-19T10:19:58+08:00",
+  "shootingDate": "2024-09-30T16:32:30",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案明朗、鲜亮且易于使用，非常适合想要表现清晰、细腻美感的初学者使用。",
+  "memo": "",
+  "pictureControlName": "GlowUp_Preston",
+  "shootingLocation": "",
+  "id": "01JMBVTDKQG0HAMKWNFT2AGTH7",
+  "authors": [
+    "Preston Luke"
+  ],
+  "authorIds": [
+    "01M3NKRYZW94GPDXBENTM2KE5P"
+  ],
+  "pictureControl": {
+    "settingName": "GlowUp_Preston",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+50",
+    "saturation": "+39",
+    "highlight": "-26",
+    "shadow": "+22",
+    "whiteLevel": "+20",
+    "blackLevel": "-17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727713950000",
+    "exposureTime": "1/200",
+    "fNumber": "2.2",
+    "exposureProgram": "1",
+    "iso": "160",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "BUILT_IN",
+    "focalLength": "35mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 35mm f/1.4",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvtdkqg0hamkwnft2agth7/sample.jpg",
+  "imageInfo": {
+    "bytes": 161882,
+    "sha256": "b242e9c6d7746546c1d050a7dd6fd5a2f817ea93f25750245d3e947ab389a12b",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVTDKQG0HAMKWNFT2AGTH7&sortType=0&recipe_lang=zh-cn"
+}

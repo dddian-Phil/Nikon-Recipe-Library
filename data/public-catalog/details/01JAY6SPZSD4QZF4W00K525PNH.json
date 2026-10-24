@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Yellow 02b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T09:49:10+08:00",
+  "shootingDate": "2023-12-07T07:07:13",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以黄色着色为特征的彩色负片。它给照片带来一种怀旧感。\n该“色彩方案”是“Negative Film Yellow 02a”“色彩方案”的变体，其特点是增加了对比度和饱和度。",
+  "memo": "",
+  "pictureControlName": "Negative_Ye_02b",
+  "shootingLocation": "",
+  "id": "01JAY6SPZSD4QZF4W00K525PNH",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Kodak_GOLD_re_ed",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "+40",
+    "saturation": "+30",
+    "highlight": "+20",
+    "shadow": "-20",
+    "whiteLevel": "+10",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1701932833000",
+    "exposureTime": "1/1600",
+    "fNumber": "5.6",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jay6spzsd4qzf4w00k525pnh/sample.jpg",
+  "imageInfo": {
+    "bytes": 79653,
+    "sha256": "b5f375edc9a805b55165f2797db23ca81a989fd5b7ae65d1ac8681f467dc0a6c",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY6SPZSD4QZF4W00K525PNH&sortType=0&recipe_lang=zh-cn"
+}

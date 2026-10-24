@@ -1,0 +1,62 @@
+{
+  "name": "Rose Old Film by Fujikawa hinano",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z MC 50mm f/2.8",
+  "publicDate": "2025-04-24T09:05:35+08:00",
+  "shootingDate": "2024-12-10T11:41:00",
+  "outline": "",
+  "description": "创作者的说明\n此色彩方案采用洋红色调，给人一种使用过期胶卷所拍画面的印象。我想通过照片营造出一种褪色而又令人难忘的场景。对比度较低，阴影部分得到提亮，整体亮度较为柔和。本想让画面整体偏暗，但亮度可以根据个人喜好进行调整。\n最终的视觉效果比预期的更加自然，因此该色彩方案不仅适合营造出独特的氛围，还能在人像拍摄中漂亮地呈现肤色。",
+  "memo": "",
+  "pictureControlName": "RoseOldFilm_hinano",
+  "shootingLocation": "",
+  "id": "01JSDSNTVK9YEGA37N3PCAJ7B9",
+  "authors": [
+    "Fujikawa hinano"
+  ],
+  "authorIds": [
+    "01M3NKS4P0CR5YHB9W9KS11MNK"
+  ],
+  "pictureControl": {
+    "settingName": "RoseOldFilm_hinano",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.75",
+    "middleRangeSharp": "+3.75",
+    "clarity": "+1.75",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1733830860000",
+    "exposureTime": "1/1000",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z MC 50mm f/2.8",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jsdsntvk9yega37n3pcaj7b9/sample.jpg",
+  "imageInfo": {
+    "bytes": 52228,
+    "sha256": "16f63156fea7248038d0f5c0e8a4437d27995b1252b8c37a18c9496748c4f64a",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDSNTVK9YEGA37N3PCAJ7B9&sortType=0&recipe_lang=zh-cn"
+}

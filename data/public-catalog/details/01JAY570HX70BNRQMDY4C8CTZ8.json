@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Yellow 01b",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-10-24T09:21:51+08:00",
+  "shootingDate": "2023-11-02T16:03:38",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以黄色着色为特征的彩色负片。它可生动鲜明地呈现日出和日落的景象。\n该“色彩方案”是“Negative Film Yellow 01a”“色彩方案”的变体，其特点是增加了对比度和饱和度。",
+  "memo": "",
+  "pictureControlName": "Negative_Ye_01b",
+  "shootingLocation": "",
+  "id": "01JAY570HX70BNRQMDY4C8CTZ8",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "ColorPlus_re_ed",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.00",
+    "contrast": "+40",
+    "saturation": "+30",
+    "highlight": "+20",
+    "shadow": "-20",
+    "whiteLevel": "+10",
+    "blackLevel": "-20"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1698941018000",
+    "exposureTime": "1/250",
+    "fNumber": "2",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "MANUAL",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jay570hx70bnrqmdy4c8ctz8/sample.jpg",
+  "imageInfo": {
+    "bytes": 196335,
+    "sha256": "0f18bc265526e70bd5ee86f1e64f90ef7fc2f4a23fd1b489068eb15fda33f75d",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY570HX70BNRQMDY4C8CTZ8&sortType=0&recipe_lang=zh-cn"
+}

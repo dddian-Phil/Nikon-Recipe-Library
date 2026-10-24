@@ -1,0 +1,65 @@
+{
+  "name": "CineBias WC - Grit & Glow by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S II",
+  "publicDate": "2025-12-10T09:12:52+08:00",
+  "shootingDate": "2025-11-08T14:49:20",
+  "outline": "",
+  "description": "创作者的说明\n“Grit & Glow”以高对比度为特色，将深邃浓郁的阴影与明亮鲜艳的高光相结合。色彩充满活力，尤其是橙色和红色，在冷调的阴影背景衬托下更添暖意。肤色保留一丝冷调，又带有淡淡的暖色调，营造出一种均衡而富有张力的氛围。深色区域醒目突出，添加了一种原始且前卫的感觉。这种风格充满力量与动感，非常适合用于充满张力的叙事场景。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-WC",
+  "shootingLocation": "",
+  "id": "01KBXVVASPV32SKAKKFQ08MR5Y",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-WC",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.25",
+    "middleRangeSharp": "+0.25",
+    "clarity": "+1.00",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762613360000",
+    "exposureTime": "1/1600",
+    "fNumber": "2.8",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "70mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S II",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvvaspv32skakkfq08mr5y/sample.jpg",
+  "imageInfo": {
+    "bytes": 64522,
+    "sha256": "20811bc828711618bd37cde9e92fc31306867288fb2c62bc4a88f5273f36ae94",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVVASPV32SKAKKFQ08MR5Y&sortType=0&recipe_lang=zh-cn"
+}

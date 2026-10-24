@@ -1,0 +1,63 @@
+{
+  "name": "The SOFT GLOW AURA by Harpreet Singh",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S",
+  "publicDate": "2025-04-24T09:07:39+08:00",
+  "shootingDate": "2025-01-09T18:00:18",
+  "outline": "",
+  "description": "创作者的说明\nSOFT GLOW AURA色彩方案旨在为您的影像赋予宁静优雅的粉彩色调。建议将其应用于米色舒缓的背景或是柔和的色调场景中。它可确保肤色亮部与阴影之间平滑过渡，营造出一种朴实却颇具吸引力的质感，从而突显拍摄对象的自然美。",
+  "memo": "",
+  "pictureControlName": "SoftGlow_Harpreet",
+  "shootingLocation": "",
+  "id": "01JSDY2X2T5C94YHYFK2C574ER",
+  "authors": [
+    "Harpreet Singh"
+  ],
+  "authorIds": [
+    "01M3NKTEWD5GFEABNVXPJB08PB"
+  ],
+  "pictureControl": {
+    "settingName": "SoftGlow_Harpreet",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.00",
+    "middleRangeSharp": "0.00",
+    "clarity": "-0.75",
+    "contrast": "gamma",
+    "saturation": "+3",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1736445618000",
+    "exposureTime": "1/160",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "500",
+    "exposureBiasValue": "+0.3",
+    "meteringMode": "5",
+    "flash": "SPEEDLIGHT",
+    "focalLength": "47mm",
+    "exposureMode": "1",
+    "whiteBalance": "5680K",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jsdy2x2t5c94yhyfk2c574er/sample.jpg",
+  "imageInfo": {
+    "bytes": 78050,
+    "sha256": "8c0e0d241b59360494c776da6355394a2d45f4c14fec00a28ee7d6c54ced4733",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY2X2T5C94YHYFK2C574ER&sortType=0&recipe_lang=zh-cn"
+}

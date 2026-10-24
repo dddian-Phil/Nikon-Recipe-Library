@@ -1,0 +1,62 @@
+{
+  "name": "Emotional Black-and-White by Wazika",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-120mm f/4 S",
+  "publicDate": "2025-02-19T10:17:12+08:00",
+  "shootingDate": "2024-10-17T17:43:59",
+  "outline": "",
+  "description": "创作者的说明\n适合室内影棚拍摄和大多数室外场景，优化了照片的暗部，让暗部细节更加丰富，整体呈比较自由的情绪。",
+  "memo": "",
+  "pictureControlName": "EmotionalB&W_Wazika",
+  "shootingLocation": "",
+  "id": "01JMBTWV2DWHG73EQP1Z30FG4T",
+  "authors": [
+    "瓦子卡"
+  ],
+  "authorIds": [
+    "01M3NKRE7JEJDEW9ZDQK3G90WK"
+  ],
+  "pictureControl": {
+    "settingName": "EmotionalB&W_Wazika",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+17",
+    "saturation": "-100",
+    "highlight": "+2",
+    "shadow": "-75",
+    "whiteLevel": "0",
+    "blackLevel": "+30"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1729187039000",
+    "exposureTime": "1/160",
+    "fNumber": "4",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "120mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-120mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbtwv2dwhg73eqp1z30fg4t/sample.jpg",
+  "imageInfo": {
+    "bytes": 63026,
+    "sha256": "5c5a4ac659364ce6b28155442783d9549742be01d75accb95767a2b80ad6213b",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBTWV2DWHG73EQP1Z30FG4T&sortType=0&recipe_lang=zh-cn"
+}

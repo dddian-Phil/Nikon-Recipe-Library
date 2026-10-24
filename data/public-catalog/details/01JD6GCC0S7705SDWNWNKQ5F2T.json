@@ -1,0 +1,64 @@
+{
+  "name": "Sunset Glow by Amanatsu Mikan",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-11-21T14:32:55+08:00",
+  "shootingDate": "2024-09-22T17:26:01",
+  "outline": "",
+  "description": "创作者的说明\n正如其名称所示，该色彩方案表达了一种温暖的视角，让人联想到傍晚的光线。由于它是为暖色调而创建的，因此与展示蓝色等冷色调的主题或场景不太搭配。当拍摄包含中性绿色的风景时效果最佳。请尽情感受Sunset Glow的温暖，创作出温暖又温馨的自然风光和城市景观照片。\n使用该色彩方案拍摄人像时，建议定位在光能打到人像皮肤上的位置，以展现色彩的对比。",
+  "memo": "",
+  "pictureControlName": "SunsetGlow_Mikan",
+  "shootingLocation": "",
+  "id": "01JD6GCC0S7705SDWNWNKQ5F2T",
+  "authors": [
+    "Amanatsu Mikan"
+  ],
+  "authorIds": [
+    "01M3NKPFCRRQXPD40KJ5R8M4WH"
+  ],
+  "pictureControl": {
+    "settingName": "SunsetGlow_Mikan",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.25",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727025961000",
+    "exposureTime": "1/500",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "1800",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-A",
+    "activeDLighting": "65535",
+    "skinSoftening": "2",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcc0s7705sdwnwnkq5f2t/sample.jpg",
+  "imageInfo": {
+    "bytes": 65939,
+    "sha256": "094738ebc0e0c31996f6629bebfed5e735e127d5f9e52cdf3414338bc70dc2cd",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCC0S7705SDWNWNKQ5F2T&sortType=0&recipe_lang=zh-cn"
+}

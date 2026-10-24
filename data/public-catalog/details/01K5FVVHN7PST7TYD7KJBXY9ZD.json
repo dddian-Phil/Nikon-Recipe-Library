@@ -1,0 +1,64 @@
+{
+  "name": "Faded Blue Film by Kimura Hinami",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-09-25T09:23:07+08:00",
+  "shootingDate": "2025-06-15T16:28:15",
+  "outline": "",
+  "description": "创作者的说明\n这是一种具有胶片般效果的色彩方案，能产生怀旧的暗蓝色色调。对比度较低，阴影为具有怀旧色调的灰蓝色，以保持整体温暖氛围。适合拍摄花卉、植物和城市景观等日常事物，但也推荐用于肖像拍摄，因为它轻柔地表现了肤色和纹理。在多种天气下都可使用该色彩方案。它在阳光明媚的日子里营造出平静温暖的氛围，而在多云的日子营造一种雅致、宁静的印象。",
+  "memo": "",
+  "pictureControlName": "FadedBlue_Hinami",
+  "shootingLocation": "",
+  "id": "01K5FVVHN7PST7TYD7KJBXY9ZD",
+  "authors": [
+    "Kimura Hinami"
+  ],
+  "authorIds": [
+    "01M3NKW4WGBDZ06KZMB4ETC0FR"
+  ],
+  "pictureControl": {
+    "settingName": "FadedBlue_Hinami",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-25",
+    "saturation": "0",
+    "highlight": "-74",
+    "shadow": "-66",
+    "whiteLevel": "-69",
+    "blackLevel": "-23"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1750004895000",
+    "exposureTime": "1/500",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "-1.7",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k5fvvhn7pst7tyd7kjbxy9zd/sample.jpg",
+  "imageInfo": {
+    "bytes": 120499,
+    "sha256": "4aca927a74e6bb8574f11ad7e97c4393cff73e6dab735a927b8af1824a1847a3",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVHN7PST7TYD7KJBXY9ZD&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Indoor Harmony by Julia Nimke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T13:35:02+08:00",
+  "shootingDate": "2024-08-06T11:39:22",
+  "outline": "",
+  "description": "创作者的说明\nIndoor Harmony色彩方案通过均衡地调整亮部和暗部色调，营造出微妙的模拟感。它非常适合各种室内拍摄，无论是静物还是人像。较为平缓的对比度和中性色调可为场景带来宁静的氛围。该色彩方案还可以使简约风格的建筑照片大放异彩，尤其适合那些在画面中以几何线条和中性色彩为特色的照片。",
+  "memo": "",
+  "pictureControlName": "IndoorHarmony_Julia",
+  "shootingLocation": "",
+  "id": "01JD6GH2PW7GDZ1S7206FG3421",
+  "authors": [
+    "Julia Nimke"
+  ],
+  "authorIds": [
+    "01M3NKMAVAZ9TFRR8S491QM6VE"
+  ],
+  "pictureControl": {
+    "settingName": "IndoorHarmony_Julia",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.75",
+    "contrast": "-30",
+    "saturation": "0",
+    "highlight": "-44",
+    "shadow": "-43",
+    "whiteLevel": "-63",
+    "blackLevel": "+17"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722944362000",
+    "exposureTime": "1/500",
+    "fNumber": "10",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "34mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "5",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6gh2pw7gdz1s7206fg3421/sample.jpg",
+  "imageInfo": {
+    "bytes": 56882,
+    "sha256": "8071d47966203e2f33312d689baf30d661120c48be8c2187ca51307aef82f57c",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH2PW7GDZ1S7206FG3421&sortType=0&recipe_lang=zh-cn"
+}

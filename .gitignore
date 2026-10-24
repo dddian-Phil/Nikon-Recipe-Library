@@ -8,6 +8,8 @@
 /data/.catalog-*
 /app/viewer.html
 /recipes.xlsx
+/dist/
+/output/
 
 # Python environments and caches
 __pycache__/

@@ -1,0 +1,65 @@
+{
+  "name": "CineBias-C - Crisp Teal Contrast by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2025-12-10T09:12:16+08:00",
+  "shootingDate": "2025-11-08T11:59:54",
+  "outline": "",
+  "description": "创作者的说明\n“Crisp Teal Contrast”为画面注入鲜明强烈的对比度，同时提升阴影与亮部细节。以冷色调为主导，使用略微的蓝色调为场景赋予一种清新、前卫的感觉。在保持浓郁色彩的同时又避免过度饱和，肤色则在自然基调中融入冷调底色。阴影深邃，为画面加入大胆的层次感与结构感。这种风格可带来强烈的视觉冲击并兼具清晰度，尤其适合需要突出层次感和情绪氛围的人像摄影。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-C",
+  "shootingLocation": "",
+  "id": "01KBXVV9RMJBPDCZ1JM8Q57MZP",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-C",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "-1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762603194000",
+    "exposureTime": "1/2000",
+    "fNumber": "2",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "-0.7",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "40mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvv9rmjbpdcz1jm8q57mzp/sample.jpg",
+  "imageInfo": {
+    "bytes": 76861,
+    "sha256": "9fa3f50ff05d65ecc3eb90dbbbd32747646a7e37de5a2209809277e797e19553",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVV9RMJBPDCZ1JM8Q57MZP&sortType=0&recipe_lang=zh-cn"
+}

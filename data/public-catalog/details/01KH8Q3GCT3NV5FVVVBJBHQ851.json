@@ -1,0 +1,64 @@
+{
+  "name": "QUIET by Nagisa Ichikawa",
+  "publisher": "Nikon",
+  "camera": "NIKON Z5_2",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S II",
+  "publicDate": "2026-02-25T09:08:07+08:00",
+  "shootingDate": "2025-10-24T17:25:48",
+  "outline": "",
+  "description": "创作者的说明\nQUIET是一款专为工作室里利用柔和自然光进行静物摄影而设计的色彩方案。\n它调低亮部，同时使色彩更加内敛，可保留住阳光透过窗帘时的轻柔光雾与浅淡阴影。物体的清晰质感与纹理细节得到保留的同时，又能在保持画面核心锐利度的同时，柔化整体视觉氛围。\n\n这款色彩方案最初为室内产品拍摄与日常随拍而打造。但在降低半档曝光，它还可在城市街景中营造出复古怀旧的氛围，即便在正午强光下，也能让画面保持一份静谧感。\n\n此外，它也可柔化和改善周围光线，适合光线不过于强烈的户外场景（如阴天或窗边角落等）。",
+  "memo": "",
+  "pictureControlName": "QUIET_Nagisa",
+  "shootingLocation": "",
+  "id": "01KH8Q3GCT3NV5FVVVBJBHQ851",
+  "authors": [
+    "Nagisa Ichikawa"
+  ],
+  "authorIds": [
+    "01M3NKZD05Y65F6ZJCRH1QE0HM"
+  ],
+  "pictureControl": {
+    "settingName": "QUIET_Nagisa",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.25",
+    "middleRangeSharp": "+1.25",
+    "clarity": "-0.25",
+    "contrast": "gamma",
+    "saturation": "+30",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z5_2",
+    "dateTimeOriginal": "1761326748000",
+    "exposureTime": "1/40",
+    "fNumber": "4.5",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "focalLength": "70mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S II",
+    "focusMode": "AF-A",
+    "activeDLighting": "3",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01kh8q3gct3nv5fvvvbjbhq851/sample.jpg",
+  "imageInfo": {
+    "bytes": 40254,
+    "sha256": "6448f93963ba388ebf7a69dd6b9df6134864f1e0d5b165b97eaf6b30b2dbf407",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KH8Q3GCT3NV5FVVVBJBHQ851&sortType=0&recipe_lang=zh-cn"
+}

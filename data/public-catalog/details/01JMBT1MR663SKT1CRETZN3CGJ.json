@@ -1,0 +1,64 @@
+{
+  "name": "Euro Film Black and White by Vincent Versace",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 135mm f/1.8 S Plena",
+  "publicDate": "2025-02-19T10:14:42+08:00",
+  "shootingDate": "2024-07-10T14:00:00",
+  "outline": "",
+  "description": "创作者的说明\n黒白摄影一直是我的最爱。当我使用黒白胶片拍摄时，没有放之四海而皆准的解决方案。不同的胶片乳剂对光线和色调的反应各不相同，因此我着手创作灵活优化校准系列色彩方案，以再现我喜欢的胶片所营造的独特氛围。该色彩方案旨在模拟经典欧洲ISO 100黒白胶片乳剂的色调还原曲线。它是针对平滑地表现亮部和在深色阴影中保留细节而进行的优化。",
+  "memo": "",
+  "pictureControlName": "EuroFilmBW_Vincent",
+  "shootingLocation": "",
+  "id": "01JMBT1MR663SKT1CRETZN3CGJ",
+  "authors": [
+    "Vincent Versace"
+  ],
+  "authorIds": [
+    "01M3NKNKY3BFM2VN8VC6W2JVQX"
+  ],
+  "pictureControl": {
+    "settingName": "EuroFilmBW_Vincent",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "+34",
+    "saturation": "-100",
+    "highlight": "-34",
+    "shadow": "-9",
+    "whiteLevel": "-45",
+    "blackLevel": "-31"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1720620000000",
+    "exposureTime": "1/160",
+    "fNumber": "1.8",
+    "exposureProgram": "3",
+    "iso": "320",
+    "exposureBiasValue": "-2.3",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 135mm f/1.8 S Plena",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jmbt1mr663skt1cretzn3cgj/sample.jpg",
+  "imageInfo": {
+    "bytes": 25035,
+    "sha256": "c768cab7e9b33e5f0177150ee4db2c155543701eaac962a6b68221571c25362b",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBT1MR663SKT1CRETZN3CGJ&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "HK Reminiscence by Hiuman Lam",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 14-30mm f/4 S",
+  "publicDate": "2025-04-24T09:08:04+08:00",
+  "shootingDate": "2024-10-31T10:57:46",
+  "outline": "",
+  "description": "创作者的说明\n该色彩方案适合夜景及室内灯光的生活场景，高饱和度的色彩配置，忧郁的蓝调灯光，加上对比感强烈的柔和暖色调，能轻易创造出港风电影的胶片色调，让影像有一种赛博朋克城市的怀旧感。这种配色可牵动情感，将观众带入梦幻的城市景观，联结对城市生活的共同记忆。",
+  "memo": "",
+  "pictureControlName": "HKReminisce_Hiuman",
+  "shootingLocation": "",
+  "id": "01JSDY2X8EW2KGQV9EJ9QTFFXJ",
+  "authors": [
+    "林晓敏"
+  ],
+  "authorIds": [
+    "01M3NKTMJJSAC9T1KCDDPCS4TS"
+  ],
+  "pictureControl": {
+    "settingName": "HKReminisce_Hiuman",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "+1.00",
+    "sharpening": "+3.50",
+    "middleRangeSharp": "+3.00",
+    "clarity": "+1.50",
+    "contrast": "+64",
+    "saturation": "+45",
+    "highlight": "0",
+    "shadow": "+36",
+    "whiteLevel": "0",
+    "blackLevel": "-18"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1730372266000",
+    "exposureTime": "1/500",
+    "fNumber": "4",
+    "exposureProgram": "3",
+    "iso": "4000",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "14mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 14-30mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "4",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c4"
+  },
+  "image": "catalog/recipes/01jsdy2x8ew2kgqv9ej9qtffxj/sample.jpg",
+  "imageInfo": {
+    "bytes": 275360,
+    "sha256": "ba2f14691a4d4832c45d7826385168e32a2235a634cb6287ccc9b0b71bd51269",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY2X8EW2KGQV9EJ9QTFFXJ&sortType=0&recipe_lang=zh-cn"
+}

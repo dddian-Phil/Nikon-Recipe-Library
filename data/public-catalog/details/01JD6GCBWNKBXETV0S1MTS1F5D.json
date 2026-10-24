@@ -1,0 +1,64 @@
+{
+  "name": "Matte Blue Gray by tanco",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T14:28:41+08:00",
+  "shootingDate": "2024-09-26T15:05:18",
+  "outline": "",
+  "description": "创作者的说明\n色彩柔和，并且质感呈现出哑光效果。我创建该色彩方案是为了使阴影变得柔和，并稍带蓝色调。推荐将它用于拍摄曝光不足氛围的图像，比如咖啡馆等室内或夜间城市风光摄影。\n请使用该色彩方案享受拍摄光影照片的乐趣。",
+  "memo": "",
+  "pictureControlName": "MatteBlueGray_tanco",
+  "shootingLocation": "",
+  "id": "01JD6GCBWNKBXETV0S1MTS1F5D",
+  "authors": [
+    "tanco"
+  ],
+  "authorIds": [
+    "01M3NKP793B8WRNKYWBKPFKGFF"
+  ],
+  "pictureControl": {
+    "settingName": "MatteBlueGray_tanco",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "-6",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727363118000",
+    "exposureTime": "1/800",
+    "fNumber": "5.3",
+    "exposureProgram": "3",
+    "iso": "160",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "36mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gcbwnkbxetv0s1mts1f5d/sample.jpg",
+  "imageInfo": {
+    "bytes": 113934,
+    "sha256": "b28f229e942f267f336cd2e234485b1505529fb0434e4b3a5a77df2e2d54ac30",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCBWNKBXETV0S1MTS1F5D&sortType=0&recipe_lang=zh-cn"
+}

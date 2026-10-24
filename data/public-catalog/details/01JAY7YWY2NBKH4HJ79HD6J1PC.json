@@ -1,0 +1,62 @@
+{
+  "name": "Vintage Mellow by Takahiro Sakai",
+  "publisher": "Nikon",
+  "camera": "NIKON Z f",
+  "lens": "NIKKOR Z 70-200mm f/2.8 VR S",
+  "publicDate": "2024-10-24T11:11:33+08:00",
+  "shootingDate": "2024-01-25T15:51:17",
+  "outline": "",
+  "description": "创作者的说明\nVintage Mellow色彩方案捕捉了略微褪色但丰富的色彩精髓，让人想起在复古胶片上拍摄的珍贵回忆。在增强整体质朴色调的同时，它保留了原始配色方案的真实性，使其在各种情况下都能通用。\n为了最好地展现色彩方案的颜色深度，特别推荐用于对比度强的图像或在温暖的夕阳光辉下拍摄的图像。",
+  "memo": "",
+  "pictureControlName": "VintageM_Tsakai",
+  "shootingLocation": "",
+  "id": "01JAY7YWY2NBKH4HJ79HD6J1PC",
+  "authors": [
+    "Takahiro Sakai"
+  ],
+  "authorIds": [
+    "01M3NKG9028VQB6Q7MCX2HW5NG"
+  ],
+  "pictureControl": {
+    "settingName": "Vintage Mellow",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "+13",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z f",
+    "dateTimeOriginal": "1706197877000",
+    "exposureTime": "1/1000",
+    "fNumber": "3.5",
+    "exposureProgram": "1",
+    "iso": "250",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "92mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 70-200mm f/2.8 VR S",
+    "focusMode": "AF-S",
+    "activeDLighting": "65535",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jay7ywy2nbkh4hj79hd6j1pc/sample.jpg",
+  "imageInfo": {
+    "bytes": 102179,
+    "sha256": "4e685c88bef538328da4fbd1bb2b9d14998a70edb9e4aedbbfd4eaaf78e22346",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY7YWY2NBKH4HJ79HD6J1PC&sortType=0&recipe_lang=zh-cn"
+}

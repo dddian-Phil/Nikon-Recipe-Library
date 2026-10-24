@@ -1,0 +1,61 @@
+{
+  "name": "Teal & Orange by Brandon Woelfel",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 7_2",
+  "lens": "NIKKOR Z 20mm f/1.8 S",
+  "publicDate": "2024-10-24T11:34:49+08:00",
+  "shootingDate": "2022-06-05T20:08:19",
+  "outline": "",
+  "description": "创作者的说明\nTeal & Orange色彩方案增强了图像中的蓝色，使蓝色更饱和，同时赋予其偏青的色相。该色彩方案还可以增强橙色和红色的饱和度，从而产生非常互补的色调和色彩，使拍摄对象更加突出。总体而言，它将饱和度和对比度控制得恰到好处。\n该色彩方案适用于整体图像中已经具有不同蓝色和橙色的场景，因为它可对这两种不同颜色的区域进行丰富的表达。在黄金时段拍摄人像或使用互补色捕捉日落时，该色彩方案是理想的选择。Teal & Orange色彩方案在各种天气或一天中的很多时刻都能有用武之地。它可突出您的拍摄对象并增强画面色彩，因此非常适合已具有这些元素的照片。",
+  "memo": "",
+  "pictureControlName": "T&O_BrandonW",
+  "shootingLocation": "",
+  "id": "01JAY9DGQPS3BKN8V74RKT3AB2",
+  "authors": [
+    "Brandon Woelfel"
+  ],
+  "authorIds": [
+    "01M3NKFYMSQV59QSJ4V72F8G7C"
+  ],
+  "pictureControl": {
+    "settingName": "Teal & Orange",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.50",
+    "clarity": "+0.50",
+    "contrast": "+25",
+    "saturation": "0",
+    "highlight": "+10",
+    "shadow": "-25",
+    "whiteLevel": "+4",
+    "blackLevel": "0"
+  },
+  "exif": {
+    "model": "NIKON Z 7_2",
+    "dateTimeOriginal": "1654459699000",
+    "exposureTime": "1/1250",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "80",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "255",
+    "focalLength": "20mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 20mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jay9dgqps3bkn8v74rkt3ab2/sample.jpg",
+  "imageInfo": {
+    "bytes": 88932,
+    "sha256": "dcb3cc63d3095eaa8c9ed1dc396f0425751c08eb3066ccf493ef936204fdbb32",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9DGQPS3BKN8V74RKT3AB2&sortType=0&recipe_lang=zh-cn"
+}

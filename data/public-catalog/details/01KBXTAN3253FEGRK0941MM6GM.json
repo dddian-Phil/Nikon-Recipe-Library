@@ -1,0 +1,64 @@
+{
+  "name": "Movie Green Orange by Instant Film Studio",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.8 S",
+  "publicDate": "2025-12-10T09:10:53+08:00",
+  "shootingDate": "2025-08-05T10:36:29",
+  "outline": "",
+  "description": "创作者的说明\n源于十年一刻团队核心的颜色搭配，我们将十年一刻的纯净光感融入尼康的色彩优化校准，以极致干净和通透为核心追求，纯净的色彩基底，赋予画面透亮的质感。同时细腻控制高光和阴影的自然过渡，最终呈现出干净通透的视觉效果。",
+  "memo": "",
+  "pictureControlName": "MovieG&O_InstantF",
+  "shootingLocation": "",
+  "id": "01KBXTAN3253FEGRK0941MM6GM",
+  "authors": [
+    "十年一刻"
+  ],
+  "authorIds": [
+    "01M3NKYJA3QZJZZKVM88689ED3"
+  ],
+  "pictureControl": {
+    "settingName": "MovieG&O_InstantF",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+1.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-36",
+    "saturation": "0",
+    "highlight": "-27",
+    "shadow": "-13",
+    "whiteLevel": "-19",
+    "blackLevel": "-3"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1754390189000",
+    "exposureTime": "1/400",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.8 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxtan3253fegrk0941mm6gm/sample.jpg",
+  "imageInfo": {
+    "bytes": 164642,
+    "sha256": "be5ce7f25020bc8395194b1a19ac5199c691ca428c70fafd323731e23d0c2125",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXTAN3253FEGRK0941MM6GM&sortType=0&recipe_lang=zh-cn"
+}

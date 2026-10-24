@@ -1,0 +1,62 @@
+{
+  "name": "Negative Film Yellow&Cyan 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T10:38:58+08:00",
+  "shootingDate": "2023-12-07T16:29:49",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自彩色负片的色阶，可少量调整亮度和色彩强度，营造一种平静的氛围。\n该“色彩方案”还可用于在拍摄后调整着色。",
+  "memo": "",
+  "pictureControlName": "Negative_YeCy_01a",
+  "shootingLocation": "",
+  "id": "01JAY9MPW6QEREEDXPHM2HJKAZ",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Fuji_PRONeg.Std",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "-20",
+    "saturation": "-15",
+    "highlight": "-5",
+    "shadow": "0",
+    "whiteLevel": "-10",
+    "blackLevel": "-40"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1701966589000",
+    "exposureTime": "1/40",
+    "fNumber": "8",
+    "exposureProgram": "3",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "25.5mm",
+    "exposureMode": "0",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jay9mpw6qereedxphm2hjkaz/sample.jpg",
+  "imageInfo": {
+    "bytes": 363691,
+    "sha256": "cc4aa33bf3c314d81e2192b458eea8f01180600b3a2c117e0bbdddd476062459",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY9MPW6QEREEDXPHM2HJKAZ&sortType=0&recipe_lang=zh-cn"
+}

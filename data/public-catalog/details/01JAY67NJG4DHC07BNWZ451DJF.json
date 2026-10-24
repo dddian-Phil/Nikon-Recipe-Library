@@ -1,0 +1,62 @@
+{
+  "name": "NegativeFilm Red&Cyan 01a",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 8",
+  "lens": "NIKKOR Z 24-70mm f/4 S",
+  "publicDate": "2024-10-24T09:39:20+08:00",
+  "shootingDate": "2023-12-02T15:45:30",
+  "outline": "",
+  "description": "该“色彩方案”的灵感源自一种以红色和青色着色为特征的彩色负片。当与蓝色天空一起拍摄阴影时，它能给图像带来一种宁静感。\n该“色彩方案”给阴影添加了略带青色的绿色并给亮部添加了略带洋红的蓝色。",
+  "memo": "",
+  "pictureControlName": "Negative_RdCy_01a",
+  "shootingLocation": "",
+  "id": "01JAY67NJG4DHC07BNWZ451DJF",
+  "authors": [
+    "Nikon"
+  ],
+  "authorIds": [
+    "01M3NKF3C9K9P3XPCK7CQZYG39"
+  ],
+  "pictureControl": {
+    "settingName": "Kodak_PORTRA160_ba",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-2.00",
+    "contrast": "0",
+    "saturation": "+10",
+    "highlight": "0",
+    "shadow": "0",
+    "whiteLevel": "+10",
+    "blackLevel": "-15"
+  },
+  "exif": {
+    "model": "NIKON Z 8",
+    "dateTimeOriginal": "1701557130000",
+    "exposureTime": "1/1000",
+    "fNumber": "5.6",
+    "exposureProgram": "1",
+    "iso": "800",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO0",
+    "lensModel": "NIKKOR Z 24-70mm f/4 S",
+    "focusMode": "MANUAL",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jay67njg4dhc07bnwz451djf/sample.jpg",
+  "imageInfo": {
+    "bytes": 117974,
+    "sha256": "02cc41bf75c12b51053225e8817afda51566c480c26a39c480a73186ee2afda0",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY67NJG4DHC07BNWZ451DJF&sortType=0&recipe_lang=zh-cn"
+}

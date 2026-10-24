@@ -1,0 +1,65 @@
+{
+  "name": "Sunkissed Warmth by Julia Nimke",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 24mm f/1.7",
+  "publicDate": "2024-11-21T13:33:44+08:00",
+  "shootingDate": "2024-08-06T18:35:44",
+  "outline": "",
+  "description": "创作者的说明\nSunkissed Warmth是一种优美的怀旧色彩方案，它将中间色调和阴影转化为舒适的橙色调，能极好地为您的图像添加一种模拟感和温暖氛围。非常适合阳光明媚的户外拍摄，可让强烈的阳光温暖而夺目，同时完美衬托天空之湛蓝。它还可加强黄昏时分光线浓郁的橙色调，赋予日落场景戏剧性氛围。",
+  "memo": "",
+  "pictureControlName": "SunkissedWarm_Julia",
+  "shootingLocation": "",
+  "id": "01JD6FGX28AYSP9H9B036N1T2D",
+  "authors": [
+    "Julia Nimke"
+  ],
+  "authorIds": [
+    "01M3NKMAVAZ9TFRR8S491QM6VE"
+  ],
+  "pictureControl": {
+    "settingName": "SunkissedWarm_Julia",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-0.75",
+    "contrast": "-10",
+    "saturation": "0",
+    "highlight": "-76",
+    "shadow": "-79",
+    "whiteLevel": "-83",
+    "blackLevel": "-18"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722969344000",
+    "exposureTime": "1/200",
+    "fNumber": "9",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "24mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 24mm f/1.7",
+    "focusMode": "AF-A",
+    "activeDLighting": "5",
+    "skinSoftening": "3",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c3"
+  },
+  "image": "catalog/recipes/01jd6fgx28aysp9h9b036n1t2d/sample.jpg",
+  "imageInfo": {
+    "bytes": 98424,
+    "sha256": "e503e77e6c1f948a229d423bfd431c168a289a4fc6e5364ff1a3ea4b0644d3c2",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6FGX28AYSP9H9B036N1T2D&sortType=0&recipe_lang=zh-cn"
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Soft Vivid by Vijay Eesam",
+  "publisher": "Nikon",
+  "camera": "NIKON Z 7_2",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2025-04-24T09:09:59+08:00",
+  "shootingDate": "2023-01-26T17:18:40",
+  "outline": "",
+  "description": "创作者的说明\n色彩方案“Soft Vivid”具有出色的优化校准效果，在保持优雅和氛围的同时，能够轻微加强自然色调，温和地突出绿色，保留柔和的光线效果。",
+  "memo": "",
+  "pictureControlName": "Soft Vivid_Vijay",
+  "shootingLocation": "",
+  "id": "01JSDY5KY7VJ16RRC6WD6X94VM",
+  "authors": [
+    "Vijay Eesam"
+  ],
+  "authorIds": [
+    "01M3NKVM81R1FPTRE3PT2SY6HV"
+  ],
+  "pictureControl": {
+    "settingName": "Soft Vivid_Vijay",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+3.25",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.75",
+    "contrast": "+98",
+    "saturation": "+10",
+    "highlight": "+25",
+    "shadow": "+75",
+    "whiteLevel": "-25",
+    "blackLevel": "+10"
+  },
+  "exif": {
+    "model": "NIKON Z 7_2",
+    "dateTimeOriginal": "1674753520000",
+    "exposureTime": "1/8000",
+    "fNumber": "1.2",
+    "exposureProgram": "1",
+    "iso": "64",
+    "exposureBiasValue": "+0.7",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "SHADE",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "portraitImpressionBalance": "0",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jsdy5ky7vj16rrc6wd6x94vm/sample.jpg",
+  "imageInfo": {
+    "bytes": 50134,
+    "sha256": "1d87466d077ac38b8861f810efffa6ad676e43e99ad3a2cc7637605dcd2dffb2",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JSDY5KY7VJ16RRC6WD6X94VM&sortType=0&recipe_lang=zh-cn"
+}

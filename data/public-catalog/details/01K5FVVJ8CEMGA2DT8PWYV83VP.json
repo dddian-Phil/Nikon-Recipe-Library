@@ -1,0 +1,64 @@
+{
+  "name": "Green Soul By Wong",
+  "publisher": "Nikon",
+  "camera": "NIKON Z5_2",
+  "lens": "NIKKOR Z 50mm f/1.4",
+  "publicDate": "2025-09-25T09:24:21+08:00",
+  "shootingDate": "2025-04-17T16:41:29",
+  "outline": "",
+  "description": "创作者的说明\n人物浓郁肤色与环境青绿色形成冷暖对比，更突出主体，同时让人物肤质富有质感，适合在白天户外的绿植场景中使用。",
+  "memo": "",
+  "pictureControlName": "Green Soul_Wong",
+  "shootingLocation": "",
+  "id": "01K5FVVJ8CEMGA2DT8PWYV83VP",
+  "authors": [
+    "阿黄"
+  ],
+  "authorIds": [
+    "01M3NKWHZ5BP3WX8EQX9FAACWP"
+  ],
+  "pictureControl": {
+    "settingName": "Green Soul_Wong",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "0",
+    "saturation": "+6",
+    "highlight": "0",
+    "shadow": "-16",
+    "whiteLevel": "0",
+    "blackLevel": "-26"
+  },
+  "exif": {
+    "model": "NIKON Z5_2",
+    "dateTimeOriginal": "1744908089000",
+    "exposureTime": "1/1250",
+    "fNumber": "2",
+    "exposureProgram": "1",
+    "iso": "200",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "5000K",
+    "lensModel": "NIKKOR Z 50mm f/1.4",
+    "focusMode": "AF-S",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "2",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01k5fvvj8cemga2dt8pwyv83vp/sample.jpg",
+  "imageInfo": {
+    "bytes": 79754,
+    "sha256": "37bfed2a64c1ec38a4dcd6594954e52d00f603c39573bc4626b87182eac73c79",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01K5FVVJ8CEMGA2DT8PWYV83VP&sortType=0&recipe_lang=zh-cn"
+}

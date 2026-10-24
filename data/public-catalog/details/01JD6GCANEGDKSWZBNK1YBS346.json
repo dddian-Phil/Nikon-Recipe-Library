@@ -1,0 +1,64 @@
+{
+  "name": "Sunset Reset by Baek Jaekwang",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z MC 50mm f/2.8",
+  "publicDate": "2024-11-21T13:44:01+08:00",
+  "shootingDate": "2024-09-11T22:18:00",
+  "outline": "",
+  "description": "创作者的说明\nSunset Reset是一个以“冰冷数字世界中的心灵家园”为主题的色彩方案，它可为您的照片营造出一种温暖、柔和而舒缓的氛围。非常适合捕捉日常生活中的温馨时刻，如与家人共进晚餐时，或与朋友或宠物共度的宝贵时刻，向观众传达一种温暖而宁静的感受。该色彩方案在金色光线下以及室内间接照明中拍摄时同样表现出色。Sunset Reset这个名字包含挥别象征终章的夕阳并拥抱序曲的寓意。",
+  "memo": "",
+  "pictureControlName": "SunsetReset_Baek",
+  "shootingLocation": "",
+  "id": "01JD6GCANEGDKSWZBNK1YBS346",
+  "authors": [
+    "Baek Jaekwang"
+  ],
+  "authorIds": [
+    "01M3NKMZVC5AN5MGGQDDJ79338"
+  ],
+  "pictureControl": {
+    "settingName": "Sunset Reset",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+1.25",
+    "contrast": "+15",
+    "saturation": "0",
+    "highlight": "0",
+    "shadow": "+10",
+    "whiteLevel": "+1",
+    "blackLevel": "-25"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1726093080000",
+    "exposureTime": "1/125",
+    "fNumber": "4.5",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "+0.7",
+    "meteringMode": "5",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z MC 50mm f/2.8",
+    "focusMode": "MANUAL",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "1",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c1"
+  },
+  "image": "catalog/recipes/01jd6gcanegdkswzbnk1ybs346/sample.jpg",
+  "imageInfo": {
+    "bytes": 38313,
+    "sha256": "9480b1cc084e4fca5558322e16549cf82771c46c0992f11e7b6ccad099bc5937",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GCANEGDKSWZBNK1YBS346&sortType=0&recipe_lang=zh-cn"
+}

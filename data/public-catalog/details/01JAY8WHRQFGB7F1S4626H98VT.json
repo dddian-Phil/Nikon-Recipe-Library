@@ -1,0 +1,65 @@
+{
+  "name": "Blue Mood by LUIZCLAS",
+  "publisher": "Nikon",
+  "camera": "NIKON Z6_3",
+  "lens": "NIKKOR Z 50mm f/1.2 S",
+  "publicDate": "2024-10-24T11:25:34+08:00",
+  "shootingDate": "2024-01-18T12:48:59",
+  "outline": "",
+  "description": "创作者的说明\nBlue Mood色彩方案赋予一种俏皮风，增强温暖的橙色调，同时在阴影中注入一丝清爽的蓝色对比，营造出格外醒目的现代效果。它主要用于人像摄影，但它的多功能性使其能够应用于不同的场景和情形，为图像带来酷炫别致的氛围。\n无论是在室内还是室外，该色彩方案在应用于白天、日落或黄金时段拍摄的图像时，其效果最为神奇。",
+  "memo": "",
+  "pictureControlName": "BlueM_LUIZCLAS",
+  "shootingLocation": "",
+  "id": "01JAY8WHRQFGB7F1S4626H98VT",
+  "authors": [
+    "LUIZCLAS"
+  ],
+  "authorIds": [
+    "01M3NKJ8DJAEP5XCV418AERF2Z"
+  ],
+  "pictureControl": {
+    "settingName": "Blue Mood",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+4.75",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z6_3",
+    "dateTimeOriginal": "1705582139000",
+    "exposureTime": "1/800",
+    "fNumber": "1.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "50mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 50mm f/1.2 S",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "3",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jay8whrqfgb7f1s4626h98vt/sample.jpg",
+  "imageInfo": {
+    "bytes": 99273,
+    "sha256": "f47581a2092447fa1ea646d1f1f6e7fe125311bf64a06498bf384329a77df356",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JAY8WHRQFGB7F1S4626H98VT&sortType=0&recipe_lang=zh-cn"
+}

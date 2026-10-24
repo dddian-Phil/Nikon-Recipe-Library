@@ -1,0 +1,65 @@
+{
+  "name": "CineBias-T - Cool Atmosphere by RED",
+  "publisher": "Nikon",
+  "camera": "NIKON ZR",
+  "lens": "NIKKOR Z 24-70mm f/2.8 S II",
+  "publicDate": "2025-12-10T09:11:57+08:00",
+  "shootingDate": "2025-11-07T14:43:16",
+  "outline": "",
+  "description": "创作者的说明\n“Cool Atmosphere”以温柔的青绿色调笼罩画面，营造出忧郁的电影感氛围。通过冷色调柔化场景，加入一种宁静、内省的质感。蓝色微妙地偏向青色，而绿色更加浓郁，从而丰富画面环境。肤色呈现冷调，略带不饱和的空灵效果。不显生硬的阴影，保持均衡对比。这种风格可营造出一种静谧意境，引人沉思。非常适合捕捉室内场景中柔和的冷调氛围。\n\n使用此色彩方案时，我们建议将相机上的[动态D-Lighting]设置为[高+]或[高1]。选择这两个选项中的任一，都能在保留高光细节的同时，为图像带来丰富且具有电影感的色调效果。",
+  "memo": "",
+  "pictureControlName": "CineBias-T",
+  "shootingLocation": "",
+  "id": "01KBXVV9F5TRD8DA11S2W9JWPW",
+  "authors": [
+    "Nikon | RED"
+  ],
+  "authorIds": [
+    "01M3NKXTSFFW5BR5PV52Z4CW56"
+  ],
+  "pictureControl": {
+    "settingName": "CineBias-T",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "-5",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON ZR",
+    "dateTimeOriginal": "1762526596000",
+    "exposureTime": "1/250",
+    "fNumber": "4",
+    "exposureProgram": "3",
+    "iso": "200",
+    "exposureBiasValue": "-0.3",
+    "meteringMode": "5",
+    "flash": "NONE",
+    "focalLength": "43mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z 24-70mm f/2.8 S II",
+    "focusMode": "AF-C",
+    "activeDLighting": "7",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "3",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01kbxvv9f5trd8da11s2w9jwpw/sample.jpg",
+  "imageInfo": {
+    "bytes": 76955,
+    "sha256": "fa10998631d7b708d67c2993a58ebe47e34388dbdd945eb4ed37983707f63234",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01KBXVV9F5TRD8DA11S2W9JWPW&sortType=0&recipe_lang=zh-cn"
+}

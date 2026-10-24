@@ -1,0 +1,64 @@
+{
+  "name": "Film Pop by Leno Cainelli",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+  "publicDate": "2024-11-21T13:41:06+08:00",
+  "shootingDate": "2024-08-11T08:23:19",
+  "outline": "",
+  "description": "创作者的说明\nFilm Pop色彩方案可突出街头摄影大胆而充满活力的一面。它加强色彩和对比度，在保留真实胶片感的同时，使整体看起来丰富多彩且鲜明生动。它能使照片因色彩而充满活力，从而体现拍摄现场的热情氛围。非常适合需要强调色彩的场景（无论是都市和街头摄影还是旅行照片、庆祝活动以及时尚摄影等），可为您的照片注入活力与激情。",
+  "memo": "",
+  "pictureControlName": "FilmPop_Leno",
+  "shootingLocation": "",
+  "id": "01JD6GH3FZFKP9RGXGYQZNVZ44",
+  "authors": [
+    "Leno Cainelli"
+  ],
+  "authorIds": [
+    "01M3NKMT6QRB531318T39JGZP4"
+  ],
+  "pictureControl": {
+    "settingName": "FilmPop_Leno",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "-1.50",
+    "middleRangeSharp": "+1.00",
+    "clarity": "-1.75",
+    "contrast": "-46",
+    "saturation": "+12",
+    "highlight": "-34",
+    "shadow": "+45",
+    "whiteLevel": "-85",
+    "blackLevel": "+18"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1723364599000",
+    "exposureTime": "1/320",
+    "fNumber": "8",
+    "exposureProgram": "1",
+    "iso": "320",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "135mm",
+    "exposureMode": "1",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_cf"
+  },
+  "image": "catalog/recipes/01jd6gh3fzfkp9rgxgyqznvz44/sample.jpg",
+  "imageInfo": {
+    "bytes": 100996,
+    "sha256": "7aa89803116658d12eb10bd5d79b95134d5790fac7af0f6c18a23e62bfe28c20",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH3FZFKP9RGXGYQZNVZ44&sortType=0&recipe_lang=zh-cn"
+}

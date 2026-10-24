@@ -1,0 +1,64 @@
+{
+  "name": "Glow by Ian Harland",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+  "publicDate": "2025-02-19T10:19:20+08:00",
+  "shootingDate": "2024-10-01T17:46:23",
+  "outline": "",
+  "description": "创作者的说明\n这是一种简约风格的色彩方案，通过添加一丝暖意柔化各种场景。这种微小的调整能够营造出自然而舒适的印象，非常适合直接在照相机显示屏中向模特儿展示他们的优雅风采。该色彩方案通过加入柔和的暖意并柔化整个图像，在拍摄时即可呈现效果，是现场拍摄使用自定义优化校准的理想选择。非常适合在不破坏场景氛围的情况下，表现出平滑而温暖的美感。",
+  "memo": "",
+  "pictureControlName": "Glow_IanHarland",
+  "shootingLocation": "",
+  "id": "01JMBVM7P3ZJZKQBJJSKXWC7JB",
+  "authors": [
+    "Ian Harland"
+  ],
+  "authorIds": [
+    "01M3NKRSFASB7WMK454J1ZSJ5C"
+  ],
+  "pictureControl": {
+    "settingName": "Glow_IanHarland",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "-",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.50",
+    "clarity": "-1.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1727804783000",
+    "exposureTime": "1/250",
+    "fNumber": "5",
+    "exposureProgram": "3",
+    "iso": "640",
+    "exposureBiasValue": "-1.0",
+    "meteringMode": "5",
+    "focalLength": "32.5mm",
+    "exposureMode": "0",
+    "whiteBalance": "AUTO1",
+    "lensModel": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+    "focusMode": "AF-C",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "1",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jmbvm7p3zjzkqbjjskxwc7jb/sample.jpg",
+  "imageInfo": {
+    "bytes": 163187,
+    "sha256": "abb67af97681d9e886c368102a1a5783cd191a18fd169708ff2ca8b89cf3d4e8",
+    "width": 720,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JMBVM7P3ZJZKQBJJSKXWC7JB&sortType=0&recipe_lang=zh-cn"
+}

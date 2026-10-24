@@ -1,0 +1,64 @@
+{
+  "name": "Summertime Shine by Dondre Green",
+  "publisher": "Nikon",
+  "camera": "NIKON Z50_2",
+  "lens": "NIKKOR Z 40mm f/2",
+  "publicDate": "2024-11-21T13:35:22+08:00",
+  "shootingDate": "2024-08-03T09:02:06",
+  "outline": "",
+  "description": "创作者的说明\nSummertime Shine色彩方案使用温暖的黄色和橙色调，营造出一种复古且令人难忘的夏日感觉。它为您的图像添加整体柔和、怀旧的氛围，因此非常适合白天的场景。无论是在明亮的自然光下捕捉人像，进行街头抓拍，还是拍摄旅行照片，该色彩方案都能够将这些特别的瞬间保存为温馨的回忆。",
+  "memo": "",
+  "pictureControlName": "SummerShine_Dondre",
+  "shootingLocation": "",
+  "id": "01JD6GH2YA7TK5HY74QCRHF1Q1",
+  "authors": [
+    "Dondre Green"
+  ],
+  "authorIds": [
+    "01M3NKMK4T6KH9SWK69ZV2T6B2"
+  ],
+  "pictureControl": {
+    "settingName": "SummerShine_Dondre",
+    "baseName": "FLEXIBLE COLOR",
+    "quickSharp": "0.00",
+    "sharpening": "+2.00",
+    "middleRangeSharp": "+1.00",
+    "clarity": "+0.50",
+    "contrast": "gamma",
+    "saturation": "0",
+    "highlight": "gamma",
+    "shadow": "gamma",
+    "whiteLevel": "gamma",
+    "blackLevel": "gamma"
+  },
+  "exif": {
+    "model": "NIKON Z50_2",
+    "dateTimeOriginal": "1722675726000",
+    "exposureTime": "1/1250",
+    "fNumber": "2.8",
+    "exposureProgram": "1",
+    "iso": "100",
+    "exposureBiasValue": "0.0",
+    "meteringMode": "5",
+    "focalLength": "40mm",
+    "exposureMode": "1",
+    "whiteBalance": "NATURAL AUTO",
+    "lensModel": "NIKKOR Z 40mm f/2",
+    "focusMode": "AF-A",
+    "activeDLighting": "0",
+    "skinSoftening": "0",
+    "portraitImpressionBalance": "0",
+    "afSubjectDetection": "2",
+    "afPrioritySelection": "-",
+    "afAreaMode": "02_c5"
+  },
+  "image": "catalog/recipes/01jd6gh2ya7tk5hy74qcrhf1q1/sample.jpg",
+  "imageInfo": {
+    "bytes": 196883,
+    "sha256": "ebff15ad67a32cd4a4885f9d82fe5283bb7b297223ca699ba03f225770d76032",
+    "width": 1620,
+    "height": 1080,
+    "format": "JPEG"
+  },
+  "source": "https://imagingcloud.nikon.com.cn/recipe/release/detail/?id=01JD6GH2YA7TK5HY74QCRHF1Q1&sortType=0&recipe_lang=zh-cn"
+}
