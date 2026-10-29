@@ -1,7 +1,7 @@
 """Export only public Nikon material and build a backend-free Pages artifact.
 
-Export is explicit and offline. Normal builds read only the committed snapshot;
-neither command scans photos, loads personal records, or contacts Nikon.
+Exports are explicit and offline. Normal builds read only committed public
+snapshots; only --export-photos reads the selected local photo library.
 """
 from __future__ import annotations
 
@@ -10,8 +10,10 @@ import csv
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import re
+import subprocess
 
 from collect_nikon import BASE, LABELS, VALUES
 
@@ -275,8 +277,24 @@ def csv_bytes(headers, rows):
     return stream.getvalue().encode('utf-8-sig')
 
 
-def build(snapshot=SNAPSHOT, output=OUTPUT):
+def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
     payload, catalog = snapshot_files(Path(snapshot))
+    from public_photos import snapshot_files as photo_snapshot_files
+    photos_root = Path(photos_snapshot) if photos_snapshot is not None else Path(snapshot).parent / 'public-photos'
+    photo_library, photos = ({'version': 1, 'updatedAt': '', 'captures': [], 'recipeFavorites': []}, {})
+    if photos_root.exists():
+        photo_library, photos = photo_snapshot_files(photos_root, {r['id'] for r in payload['recipes']})
+    revision = os.environ.get('GITHUB_SHA', '')
+    if not revision:
+        try:
+            revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True,
+                                      text=True, check=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            revision = ''
+    if revision and not re.fullmatch(r'[0-9a-f]{40,64}', revision):
+        raise ValueError('Invalid publication revision')
+    payload['photoLibrary'] = photo_library
+    payload['publication'] = {'revision': revision}
     template = (ROOT / 'app/viewer_template.html').read_text(encoding='utf-8')
     style = (ROOT / 'app/ui.css').read_text(encoding='utf-8')
     template = re.sub(r'<style>.*?</style>', lambda _: '<style>\n' + style + '\n</style>', template, count=1, flags=re.S)
@@ -284,28 +302,46 @@ def build(snapshot=SNAPSHOT, output=OUTPUT):
     template = template.replace('__PAYLOAD__', serialized)
     template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" data-mode="static">')
     template = template.replace('NIKON IMAGING CLOUD / LOCAL LIBRARY', 'NIKON IMAGING CLOUD / RECIPE LIBRARY')
-    template = template.replace('尼康云创 · 我的色彩资料库', '尼康云创 · 配方资料库')
     template = template.replace('href="/api/backup"', 'href="#"')
     template = template.replace('href="/scheme-table.xlsx"', 'href="./catalog/tables/recipes.csv"').replace('Excel 总表</a>', '配方总表 CSV</a>')
     template = template.replace('href="/guide"', 'href="./guide.html"')
     template = template.replace('资料与备份</summary>', '资料与说明</summary>')
-    template = re.sub(r'<footer>.*?</footer>', '<footer>本页展示 Nikon 中国站公开配方与官方样片。个人照片及记录仅在本地完整版使用。<br>样片器材不代表配方兼容性限制；展示图并非 RAW 原片。<br><span id="stamp"></span></footer>', template, count=1, flags=re.S)
+    template = re.sub(r'<footer>.*?</footer>', '<footer>本页展示公开方案、官方样片与我的实拍；关联和收藏状态随本地资料库发布更新。<br>实拍仅提供压缩展示图，原始 JPG 保留在本地。方案器材为官网样片拍摄设备；按名称关联不代表全部参数未经微调。<br><span id="stamp"></span></footer>', template, count=1, flags=re.S)
     files = {'index.html': template.encode('utf-8'),
              'app.js': (ROOT / 'app/app.js').read_bytes(),
              'guide.html': (ROOT / 'app/public_guide.html').read_bytes(), '.nojekyll': b''}
     files.update({'catalog/' + relative: body for relative, body in catalog.items()})
+    files.update({'photos/' + relative: body for relative, body in photos.items()})
     files['catalog/tables/recipes.csv'] = csv_bytes(
         ['方案名称', '作者', '相机', '镜头', '发布日期', '基础优化校准', '方案 ID', '官网链接'],
         [[r['name'], ' / '.join(r['authors']), r['camera'], r['lens'], r['publicDate'],
           r['pictureControl'].get('baseName', ''), r['id'], r['source']] for r in payload['recipes']])
     files['publish-manifest.json'] = json_bytes({'schemaVersion': 1,
         'recipeCount': len(payload['recipes']), 'creatorCount': len(payload['creators']),
+        'photoCount': len(photo_library['captures']), 'revision': revision,
         'files': [{'path': path, 'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()}
                   for path, body in sorted(files.items())]})
-    write_tree(Path(output), files)
+    output = Path(output)
+    # Retire only previously built, unchanged photo assets listed in the old manifest.
+    # This supports edited/deleted photos without accepting arbitrary output files.
+    stale = tree_files(output) - set(files) if output.exists() else set()
+    if stale:
+        if not (output / 'publish-manifest.json').is_file():
+            raise ValueError('Unexpected files in output without a previous build manifest')
+        previous = read_json(confined(output, 'publish-manifest.json'))
+        known = {item['path']: item for item in previous['files']}
+        for relative in stale:
+            if not re.fullmatch(r'photos/images/[0-9a-f]{24}-(thumb|display)-[0-9a-f]{16}\.jpg', relative) or relative not in known:
+                raise ValueError('Unexpected files in output; refusing publication: ' + relative)
+            if hashlib.sha256(confined(output, relative).read_bytes()).hexdigest() != known[relative]['sha256']:
+                raise ValueError('Unexpected change to previous output photo')
+        for relative in stale:
+            confined(output, relative).unlink()
+    write_tree(output, files)
     if tree_files(Path(output)) != set(files):
         raise ValueError('Published files differ from the allowlist')
     return {'recipes': len(payload['recipes']), 'creators': len(payload['creators']),
+            'photos': len(photo_library['captures']),
             'files': len(files), 'bytes': sum(len(body) for body in files.values())}
 
 
@@ -313,9 +349,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--export', action='store_true', help='Explicitly export the local public catalog before building')
     parser.add_argument('--catalog-source', type=Path, default=ROOT / 'data/catalog')
+    parser.add_argument('--export-photos', action='store_true', help='Export reduced JPGs and resolved associations')
+    parser.add_argument('--photo-workspace', type=Path, default=ROOT)
     args = parser.parse_args()
     if args.export:
         print(json.dumps({'export': export_catalog(args.catalog_source)}, ensure_ascii=True))
+    if args.export_photos:
+        from public_photos import export_photos
+        catalog, _ = snapshot_files(SNAPSHOT)
+        result = export_photos(args.photo_workspace, ROOT / 'data/public-photos', {r['id'] for r in catalog['recipes']})
+        print(json.dumps({'photos': result}, ensure_ascii=True))
     print(json.dumps({'build': build()}, ensure_ascii=True))
 
 

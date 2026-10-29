@@ -1,6 +1,6 @@
 # Nikon Recipe Library
 
-网页版：[尼康云创配方资料库](https://dddian-phil.github.io/Nikon-Recipe-Library/)。使用 GitHub Pages 展示公开配方、搜索和官方样片；暂不提供收藏、备份或个人照片库。本地完整版继续保留下面介绍的全部功能。
+网页版：[尼康云创资料库](https://dddian-phil.github.io/Nikon-Recipe-Library/)。使用与本地相同的界面浏览公开方案、官方样片、我的实拍、关联结果和收藏状态。网页版只读；收藏、喜欢、手动关联和本地文件操作在电脑端完成。
 
 部署分支为 `codex/static-deploy`，在独立 Worktree 中维护；更新代码和公开数据的步骤见 [部署说明](docs/deployment.md)。GitHub Actions 仅发布经过白名单验证的 `dist/`，不会发布本地私人文件。
 
@@ -15,6 +15,8 @@
 3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 `update-photos.cmd`。
 
 完整使用说明请打开根目录的 `guide.html`，也可以阅读 [文档源码](docs/guide.md)。已有的本地官方素材下载完成后，日常浏览无需联网。
+
+更新公开网页时，双击原项目根目录的 `sync-website.cmd`。程序自动扫描照片，生成 480 像素缩略图与 1280 像素展示图，只提交公开快照到部署分支，推送后等待 Pages 部署并核对线上 Git 版本。原始 JPG 保留在本地。首次使用需安装并登录 GitHub CLI，且部署分支代码已提交。
 
 ## 首次安装
 

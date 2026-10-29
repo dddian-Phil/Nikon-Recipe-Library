@@ -44,6 +44,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 
 .tile-actions .photo-association{margin-left:auto;text-align:right}.tile-actions .photo-association.is-unmatched{color:#fff700}
 
+/* Keep pointer returns quiet and keyboard focus fully inside clipped cards. */
+.pointer-focus-return:focus-visible{outline:none}
+.card:focus-visible{outline-offset:-3px}
+.viewer-topnav button:focus-visible{outline:none}
+
 /* Typography is scoped to the header and browsing controls. */
 header,.tools,.filter-options,#active-filters,.countbar{font-family:"Segoe UI","DengXian","Microsoft YaHei UI",sans-serif}
 header>h1{font-family:"Microsoft YaHei","Segoe UI",sans-serif;font-weight:600;letter-spacing:-.5px;line-height:1.4}
@@ -57,7 +62,7 @@ header,.tools,.countbar{--control-chevron:url("data:image/svg+xml,%3Csvg xmlns='
 #q{padding-left:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='8.5' cy='8.5' r='5.5' stroke='%23aaa' stroke-width='1.5'/%3E%3Cpath d='m13 13 4 4' stroke='%23aaa' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:16px 16px;background-position:12px center}
 .filter-options{padding-top:4px;gap:9px}
 
-/* Public Pages mode shares the local UI but exposes only public browsing. */
+/* Public browsing uses the same layout as the local library. */
 html[data-mode="static"] [data-local-only]{display:none!important}
 html[data-mode="static"] .tile-actions:empty{display:none}
 @media(max-width:750px){html[data-mode="static"] input,html[data-mode="static"] select{font-size:16px}html[data-mode="static"] .density-switch{flex-direction:row}}
