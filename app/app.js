@@ -101,9 +101,30 @@ function openPhoto(id,queue=null){
  info.append(parameterTable('我的拍摄信息',{拍摄时间:formatTakenAt(p.takenAt),相机:p.camera,镜头:p.lens,ISO:p.iso||'',光圈:p.fNumber||'',快门秒:p.exposureTime||'',焦距:p.focalLength||''}));if(!isStatic){const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件（JPG＋NEF 归为一次拍摄）'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources)}else photo.append(el('p','实拍展示图 · '+p.imageInfo.width+' × '+p.imageInfo.height+' px'));content.append(photo,info);$('photo-like').textContent=p.favorite?'♥ 已喜欢':'♡ 喜欢这张';$('photo-like').setAttribute('aria-pressed',String(p.favorite));photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
 }
 async function api(path,body){if(isStatic)throw new Error('网页版仅供浏览，请在本地资料库修改');const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
+
+let websiteStatus={running:false},catalogBusy=false;
+function renderWebsiteStatus(status){
+ if(data.mode==='static')return;
+ if(status)websiteStatus=status;
+ const s=websiteStatus;
+ $('publish-website').disabled=!!s.running||catalogBusy;
+ $('publish-website').textContent=s.running?'正在同步网页…':'同步到 GitHub 网页';
+ $('website-sync-panel').hidden=!s.state||s.state==='idle';
+ $('website-sync-status').textContent=(s.message||'')+(s.state==='succeeded'&&s.finishedAt?' · '+new Date(s.finishedAt).toLocaleString('zh-CN',{hour12:false}):'');
+ $('website-sync-error').hidden=!s.error;$('website-sync-error').textContent=s.error||'';
+ $('website-link').hidden=s.state!=='succeeded';
+ $('sync-catalog').disabled=!!s.running||catalogBusy;
+}
+$('publish-website').onclick=async()=>{
+ if(data.mode==='static')return;
+ $('publish-website').disabled=true;
+ try{renderWebsiteStatus(await api('/api/website/sync',{}))}
+ catch(error){renderWebsiteStatus({...websiteStatus,state:'failed',message:'未能开始网页同步。',error:error.message})}
+};
+
 function acceptState(next){
  const changed=JSON.stringify(next.revision)!==JSON.stringify(library.revision);library=next;const s=next.summary;$('summary').textContent=`${rs.length} 个公开方案 · ${availableCreators.length} 位作者 · 我的实拍 ${s.photos} 张`;$('view-photos').textContent='我的实拍（'+s.photos+'）';$('library-status').textContent=next.scanning?'正在扫描新照片…':'自动检查已开启 · 将新照片放入「photos」即可 · 收藏已保存到本地';$('scan-photos').disabled=next.scanning;
- $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);
+ $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);if(next.websiteSync)renderWebsiteStatus(next.websiteSync);
  if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open)openPhoto(activePhoto)}
 }
 async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请重新双击最外层的 open-library.cmd。收藏记录仍保存在本地文件中。'}}}
@@ -176,7 +197,7 @@ function assignmentEditor(photo){
  select.addEventListener('change',()=>{assignmentQueries.delete(photo.id);mutate(select.value==='__auto__'?{action:'reset_assignment',id:photo.id}:{action:'assign_photo',id:photo.id,recipeId:select.value==='__none__'?null:select.value})});
  section.append(searchLabel,search,label,select,status);render();return section;
 }
-function renderCatalogStatus(status){$('sync-catalog').disabled=!!status.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').textContent=status.state==='idle'?'官方方案仅在点击「同步云创」后更新':status.message;$('catalog-sync-error').hidden=!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
+function renderCatalogStatus(status){catalogBusy=!!status.running;renderWebsiteStatus();$('sync-catalog').disabled=catalogBusy||!!websiteStatus.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').textContent=status.state==='idle'?'官方方案仅在点击「同步云创」后更新':status.message;$('catalog-sync-error').hidden=!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
 async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent='官方目录时间：'+(next.syncMetadata?.syncedAt||next.report.finishedAt||'尚未同步');acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
 $('sync-catalog').onclick=async()=>{$('sync-catalog').disabled=true;try{renderCatalogStatus(await api('/api/catalog/sync',{}))}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='无法开始同步：'+error.message;$('sync-catalog').disabled=false}};
 $('stamp').textContent='官方目录时间：'+(data.syncMetadata?.syncedAt||data.report.finishedAt||'尚未同步');

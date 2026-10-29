@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 import threading
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 import urllib.error
@@ -139,6 +140,36 @@ class ServerTests(unittest.TestCase):
 
     def test_catalog_download_cannot_escape_catalog_directory(self):
         self.assertEqual(self.request('/catalog/%2e%2e/%2e%2e/local/personal-records.json')[0], 404)
+
+    def test_website_get_and_foreign_origin_never_publish(self):
+        website = SimpleNamespace(status=lambda: {'state': 'idle', 'running': False},
+                                  start=lambda: self.fail('Unexpected publication'))
+        with patch.object(server, 'WEBSITE', website):
+            self.assertEqual(self.request('/api/website/sync')[0], 200)
+            self.assertEqual(self.request('/api/state')[1]['websiteSync']['state'], 'idle')
+            self.assertEqual(self.request('/api/website/sync', {}, origin='https://example.com')[0], 403)
+            self.assertEqual(self.request('/api/website/sync', {}, content_type='text/plain')[0], 400)
+
+    def test_website_post_starts_one_job_and_duplicate_is_conflict(self):
+        starts = []
+        def start():
+            starts.append(True)
+            return len(starts) == 1
+        website = SimpleNamespace(status=lambda: {'state': 'running', 'running': True}, start=start)
+        with patch.object(server, 'WEBSITE', website):
+            self.assertEqual(self.request('/api/website/sync', {}, origin=self.url)[0], 202)
+            self.assertEqual(self.request('/api/website/sync', {}, origin=self.url)[0], 409)
+        self.assertEqual(self.official.calls, [])
+
+    def test_catalog_and_website_jobs_do_not_overlap(self):
+        website = SimpleNamespace(status=lambda: {'state': 'running', 'running': True},
+                                  start=lambda: self.fail('Unexpected publication'))
+        with patch.object(server, 'WEBSITE', website):
+            self.assertEqual(self.request('/api/catalog/sync', {}, origin=self.url)[0], 409)
+        website.status = lambda: {'state': 'idle', 'running': False}
+        with patch.object(server, 'WEBSITE', website), patch.object(self.catalog, 'status', return_value={'running': True}):
+            self.assertEqual(self.request('/api/website/sync', {}, origin=self.url)[0], 409)
+        self.assertEqual(self.official.calls, [])
 
 
 if __name__ == '__main__':

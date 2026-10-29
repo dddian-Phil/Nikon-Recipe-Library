@@ -10,9 +10,12 @@ from pathlib import Path
 from urllib.parse import parse_qs, quote, unquote, urlparse
 from photo_library import PhotoLibrary, WORKSPACE, INTERNAL, PHOTO_ROOT, CATALOG_ROOT, PREVIEWS
 from catalog_sync import CatalogSync
+from website_sync import WebsiteSync
 
 LIBRARY = None
 CATALOG = None
+WEBSITE = None
+SYNC_ACTION_LOCK = threading.Lock()
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -56,11 +59,14 @@ class Handler(BaseHTTPRequestHandler):
             elif path == '/api/state':
                 state = LIBRARY.state()
                 state['catalogSync'] = CATALOG.status()
+                state['websiteSync'] = WEBSITE.status() if WEBSITE else None
                 self.send_json(state)
             elif path == '/api/catalog':
                 self.send_json(CATALOG.payload())
             elif path == '/api/catalog/sync':
                 self.send_json(CATALOG.status())
+            elif path == '/api/website/sync':
+                self.send_json(WEBSITE.status() if WEBSITE else {'state': 'idle', 'running': False})
             elif path == '/api/backup':
                 with LIBRARY.lock:
                     self.send_json(LIBRARY.records, download='nikon-personal-records.json')
@@ -103,10 +109,26 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(incoming, dict):
                 raise ValueError('请求必须为 JSON 对象')
             if self.path == '/api/catalog/sync':
-                started = CATALOG.start()
+                with SYNC_ACTION_LOCK:
+                    if WEBSITE and WEBSITE.status()['running']:
+                        self.send_json({'error': '正在发布网页，请完成后再同步云创。'}, 409)
+                        return
+                    started = CATALOG.start()
                 status = CATALOG.status()
                 if not started:
                     status['error'] = '同步已在进行，请稍候'
+                self.send_json(status, 202 if started else 409)
+            elif self.path == '/api/website/sync':
+                with SYNC_ACTION_LOCK:
+                    if CATALOG.status()['running']:
+                        self.send_json({'error': '正在获取云创方案，请完成后再同步到网页。'}, 409)
+                        return
+                    if WEBSITE is None:
+                        raise ValueError('网页同步尚未初始化，请重新打开本地资料库。')
+                    started = WEBSITE.start()
+                status = WEBSITE.status()
+                if not started:
+                    status['error'] = '网页同步已在进行，请稍候。'
                 self.send_json(status, 202 if started else 409)
             elif self.path == '/api/scan':
                 LIBRARY.start_scan()
@@ -124,7 +146,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main():
-    global LIBRARY, CATALOG
+    global LIBRARY, CATALOG, WEBSITE
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--scan', action='store_true')
@@ -138,9 +160,9 @@ def main():
         LIBRARY.scan()
         print(json.dumps(LIBRARY.state()['summary'], ensure_ascii=True))
         return
-    if not (Path(__file__).parent / 'viewer.html').exists():
-        from build_viewer import build
-        build()
+    WEBSITE = WebsiteSync(WORKSPACE)
+    from build_viewer import build
+    build()
     server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
     LIBRARY.start_scan()
     def watch():

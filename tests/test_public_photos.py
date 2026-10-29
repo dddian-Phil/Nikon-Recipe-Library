@@ -190,6 +190,15 @@ class PublicPhotoTests(unittest.TestCase):
                 self.assertLessEqual(max(picture.size), 1280)
                 self.assertNotIn('mp', picture.info)
 
+    def test_publication_lock_prevents_overlapping_cli_and_web_jobs(self):
+        with patch.object(publish, 'ROOT', self.root):
+            with publish.publication_lock():
+                with self.assertRaisesRegex(ValueError, 'already running'):
+                    with publish.publication_lock():
+                        self.fail('Overlapping publication was allowed')
+            with publish.publication_lock():
+                pass
+
 
 class PublicationGitTests(unittest.TestCase):
     def test_dead_local_git_proxy_is_bypassed_for_this_push_only(self):

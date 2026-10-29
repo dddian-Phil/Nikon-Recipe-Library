@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
@@ -20,6 +21,68 @@ from public_photos import export_photos
 BRANCH = 'codex/static-deploy'
 PUBLIC_PATHS = ('data/public-catalog/', 'data/public-photos/')
 SITE_URL = 'https://dddian-phil.github.io/Nikon-Recipe-Library/'
+EVENTS = False
+
+
+def progress(phase, message, **values):
+    if EVENTS:
+        print('WEBSITE_SYNC ' + json.dumps({'phase': phase, 'message': message, **values}), flush=True)
+    else:
+        print(message, flush=True)
+
+
+def friendly_error(error):
+    message = str(error)
+    for token, explanation in (
+        ('uncommitted', '网页部署文件有尚未完成的修改，请先保存并提交这些修改，再重新同步。'),
+        ('staged changes', '网页部署目录有待提交的修改，请先完成这些修改。'),
+        ('scan is incomplete', '照片仍在复制或读取失败，请等照片准备好后重试。'),
+        ('edited since', '照片在准备期间发生变化，请重新同步。'),
+        ('changed during', '照片或关联在准备期间发生变化，请重新同步。'),
+        ('GitHub CLI', '未找到 GitHub 登录工具，请完成 GitHub CLI 安装和登录。'),
+        ('Pages has not started', '内容已上传，但网页还未开始更新，请稍后重试。'),
+        ('live version is not confirmed', '网页发布已完成，但暂时无法确认线上版本，请稍后重试。'),
+        ('already running', '网页同步已在进行，请等待完成后再试。')):
+        if token in message:
+            return explanation
+    if isinstance(error, subprocess.CalledProcessError):
+        args = error.cmd if isinstance(error.cmd, (list, tuple)) else [error.cmd]
+        if 'auth' in args:
+            return 'GitHub 登录已失效，请重新登录 GitHub 后再同步。'
+        if 'push' in args:
+            return '上传 GitHub 失败，请检查网络；本地照片和记录已保留。'
+        if 'watch' in args:
+            return 'GitHub 未能完成网页发布，请查看部署结果后重试。'
+        return '发布检查未通过，详细原因已保存在本地同步日志中。'
+    return '同步未完成，请检查网络和本地照片后重试；详细原因已保存在本地同步日志中。'
+
+
+@contextmanager
+def publication_lock():
+    path = ROOT / 'local/website-publish.lock'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('a+b') as handle:
+        if path.stat().st_size == 0:
+            handle.write(b'0')
+            handle.flush()
+        handle.seek(0)
+        try:
+            if sys.platform == 'win32':
+                import msvcrt
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as error:
+            raise ValueError('Website publication is already running') from error
+        try:
+            yield
+        finally:
+            handle.seek(0)
+            if sys.platform == 'win32':
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle, fcntl.LOCK_UN)
 
 
 def command(*args, capture=True, cwd=ROOT):
@@ -76,20 +139,21 @@ def refresh_photos(workspace):
 
 
 def prepare(workspace):
-    print('1/4 Scanning local JPGs...', flush=True)
+    progress('scanning', '正在检查新增和修改的实拍照片…')
     refresh_photos(workspace)
-    print('2/4 Exporting public catalog and reduced photo copies...', flush=True)
+    progress('exporting', '正在生成实拍展示图并整理本地方案、收藏和关联…')
     export_catalog(workspace / 'data/catalog')
     catalog, _ = snapshot_files(SNAPSHOT)
     result = export_photos(workspace, ROOT / 'data/public-photos', {r['id'] for r in catalog['recipes']})
     build()
     print(json.dumps(result), flush=True)
-    print('3/4 Verifying publication boundaries and JavaScript...', flush=True)
+    progress('testing', '正在检查网页内容和图片…')
     command(sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-v', capture=False)
     command('node', '--check', 'app/app.js', capture=False)
 
 
 def await_deployment(revision):
+    progress('deploying', '内容已上传，GitHub 正在更新网页…')
     deadline = time.monotonic() + 120
     while True:
         runs = json.loads(command('gh', 'run', 'list', '--workflow', 'pages.yml', '--branch', BRANCH,
@@ -105,6 +169,7 @@ def await_deployment(revision):
     outcome = json.loads(command('gh', 'run', 'view', str(run['databaseId']), '--json', 'headSha,conclusion'))
     if outcome != {'headSha': revision, 'conclusion': 'success'}:
         raise ValueError('The deployment did not complete successfully for this Git commit')
+    progress('verifying', '正在确认线上网页已更新…')
     deadline = time.monotonic() + 120
     while True:
         try:
@@ -114,6 +179,7 @@ def await_deployment(revision):
                 manifest = json.load(response)
             if manifest.get('revision') == revision:
                 print('Published and verified: ' + revision + '\n' + SITE_URL, flush=True)
+                progress('verified', '网页已更新。', revision=revision, url=SITE_URL)
                 return
         except (urllib.error.URLError, ValueError):
             pass
@@ -139,11 +205,20 @@ def push_snapshot():
 
 
 def main():
+    global EVENTS
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--workspace', type=Path, required=True)
     parser.add_argument('--prepare-only', action='store_true', help='Build and verify locally without committing or pushing')
+    parser.add_argument('--events', action='store_true', help='Emit publication progress for the local web UI')
     args = parser.parse_args()
+    EVENTS = args.events
+    with publication_lock():
+        publish(args)
+
+
+def publish(args):
     workspace = args.workspace.resolve()
+    progress('checking', '正在检查网页同步配置…')
     if not args.prepare_only:
         check_deployment()
         if not shutil.which('gh'):
@@ -155,7 +230,7 @@ def main():
         return
     # Check again: never scoop up edits made while export/tests were running.
     check_deployment()
-    print('4/4 Committing public snapshots, pushing, and waiting for Pages...', flush=True)
+    progress('pushing', '正在上传方案和实拍到 GitHub…')
     command('git', 'add', '--', 'data/public-catalog', 'data/public-photos')
     staged = command('git', 'diff', '--cached', '--name-only', '-z')
     if any(path and not path.startswith(PUBLIC_PATHS) for path in staged.split('\0')):
@@ -172,4 +247,5 @@ if __name__ == '__main__':
         main()
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
         print('Website sync NOT confirmed: ' + str(error), file=sys.stderr)
+        progress('failed', friendly_error(error))
         sys.exit(1)
