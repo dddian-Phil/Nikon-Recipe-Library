@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30T01:33:33+08:00",
+  "updatedAt": "2026-10-30T02:06:59+08:00",
   "captures": [
     {
       "name": "DSC_2665",
@@ -609,6 +609,74 @@
       "imageInfo": {
         "bytes": 52386,
         "sha256": "29902c67f062b57813bde91f41b7aa8912871bed92058a2f5945fdfa47635913",
+        "width": 1280,
+        "height": 853,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_3747",
+      "takenAt": "2026:01:07 20:31:28",
+      "camera": "NIKON Z50_2",
+      "lens": "Viltrox AF 27/1.2 Z",
+      "iso": "100",
+      "fNumber": "1.2",
+      "exposureTime": "0.005",
+      "focalLength": "27.0",
+      "pictureControlName": "AUTO",
+      "pictureControlBase": "AUTO",
+      "metadataIssueCode": "",
+      "id": "1106b457dcabdd0fff3c0bde",
+      "recipeId": null,
+      "association": "unmatched",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/1106b457dcabdd0fff3c0bde-thumb-1496cb169719fb0f.jpg",
+      "thumbnailInfo": {
+        "bytes": 37457,
+        "sha256": "1496cb169719fb0f6702b293859c643b31a668800574df29915c4b1cdc719636",
+        "width": 480,
+        "height": 320,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/1106b457dcabdd0fff3c0bde-display-fc7be204668f7437.jpg",
+      "imageInfo": {
+        "bytes": 193351,
+        "sha256": "fc7be204668f7437576ee10bfbbea333a26a76f9a78c95d0b41badfb91209b21",
+        "width": 1280,
+        "height": 853,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_3741",
+      "takenAt": "2026:01:07 20:27:49",
+      "camera": "NIKON Z50_2",
+      "lens": "Viltrox AF 27/1.2 Z",
+      "iso": "320",
+      "fNumber": "1.2",
+      "exposureTime": "0.005",
+      "focalLength": "27.0",
+      "pictureControlName": "AUTO",
+      "pictureControlBase": "AUTO",
+      "metadataIssueCode": "",
+      "id": "2a8f0aabf20bf21fe56bf2fd",
+      "recipeId": null,
+      "association": "unmatched",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/2a8f0aabf20bf21fe56bf2fd-thumb-6ca68c04f39fbb37.jpg",
+      "thumbnailInfo": {
+        "bytes": 35396,
+        "sha256": "6ca68c04f39fbb37e7eda1df428ae8a0301eb81d2314f2176d05eb5a9ae08050",
+        "width": 480,
+        "height": 320,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/2a8f0aabf20bf21fe56bf2fd-display-9a0f89cb70398cfa.jpg",
+      "imageInfo": {
+        "bytes": 191555,
+        "sha256": "9a0f89cb70398cfaa68948dfeaec6e4a17f6f37ba143852fa3561e5ba9942dc4",
         "width": 1280,
         "height": 853,
         "format": "JPEG"
