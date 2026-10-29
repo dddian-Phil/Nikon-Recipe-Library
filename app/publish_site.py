@@ -5,9 +5,11 @@ import argparse
 from contextlib import contextmanager
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import socket
+import stat
 import subprocess
 import sys
 import time
@@ -105,6 +107,72 @@ def check_deployment():
         # Renames have a second path in porcelain output; reject them conservatively.
         if 'R' in entry[:2] or 'C' in entry[:2] or not entry[3:].startswith(PUBLIC_PATHS):
             raise ValueError('The deployment code has uncommitted changes; review and commit it first: ' + entry[3:])
+    return not status
+
+
+def source_fingerprint(workspace):
+    """Hash publication inputs without decoding images or rebuilding the website."""
+    roots = (workspace / 'data/catalog', workspace / 'photos')
+    if not all(root.is_dir() for root in roots):
+        raise ValueError('Publication source directories are missing')
+    paths = [workspace / 'local/photo-index.json', workspace / 'local/personal-records.json']
+    paths += [path for path in roots[0].rglob('*') if path.is_file()]
+    paths += [path for path in roots[1].rglob('*') if path.is_file() and path.suffix.lower() in {'.jpg', '.jpeg'}]
+    fingerprint = hashlib.sha256()
+    parents = {}
+    for path in sorted(paths):
+        if path.parent not in parents:
+            parents[path.parent] = path.parent.resolve()
+        before = path.lstat()
+        resolved = path.resolve() if stat.S_ISLNK(before.st_mode) else parents[path.parent] / path.name
+        if not resolved.is_relative_to(workspace):
+            raise ValueError('Publication source path is outside the workspace')
+        if stat.S_ISLNK(before.st_mode):
+            before = path.stat()
+        with path.open('rb') as stream:
+            digest = hashlib.file_digest(stream, 'sha256').digest()
+        after = path.stat()
+        if (before.st_size, before.st_mtime_ns, before.st_ctime_ns) != (after.st_size, after.st_mtime_ns, after.st_ctime_ns):
+            raise ValueError('Local sources changed during verification; retry')
+        fingerprint.update(path.relative_to(workspace).as_posix().encode('utf-8') + b'\0' + digest)
+    return fingerprint.hexdigest()
+
+
+def remember_verified_sources(workspace, revision, fingerprint):
+    # Cache only the exact inputs used for a successful, confirmed publication.
+    # Edits made while GitHub was deploying must be processed on the next click.
+    try:
+        if source_fingerprint(workspace) != fingerprint:
+            return
+        path = workspace / 'local/website-publish-cache.json'
+        temporary = path.with_suffix('.tmp')
+        temporary.write_text(json.dumps({'version': 1, 'revision': revision, 'sources': fingerprint}), encoding='utf-8')
+        os.replace(temporary, path)
+    except (OSError, ValueError):
+        pass  # A cache failure cannot turn a verified publication into a failure.
+
+
+def try_unchanged_publication(workspace, clean):
+    if not clean:
+        return False
+    try:
+        cached = json.loads((workspace / 'local/website-publish-cache.json').read_text(encoding='utf-8'))
+        if not isinstance(cached, dict) or cached.get('version') != 1:
+            return False
+        revision = command('git', 'rev-parse', 'HEAD')
+        if cached.get('revision') != revision or cached.get('sources') != source_fingerprint(workspace):
+            return False
+        progress('verifying', '本地没有修改，正在确认线上网页版本…')
+        if not online_revision_matches(revision):
+            return False
+        # Recheck after the network wait, including edits made during verification.
+        if (cached['sources'] != source_fingerprint(workspace) or not check_deployment() or
+                command('git', 'rev-parse', 'HEAD') != revision):
+            return False
+    except (OSError, ValueError):
+        return False
+    progress('verified', '网页已经是最新，无需重复发布。', revision=revision, url=SITE_URL, unchanged=True)
+    return True
 
 
 def refresh_photos(workspace):
@@ -143,6 +211,7 @@ def refresh_photos(workspace):
 def prepare(workspace):
     progress('scanning', '正在检查新增和修改的实拍照片…')
     refresh_photos(workspace)
+    fingerprint = source_fingerprint(workspace)
     progress('exporting', '正在生成实拍展示图并整理本地方案、收藏和关联…')
     export_catalog(workspace / 'data/catalog')
     catalog, _ = snapshot_files(SNAPSHOT)
@@ -150,6 +219,7 @@ def prepare(workspace):
     print(json.dumps(result), flush=True)
     progress('testing', '正在校验网页文件、图片尺寸和完整性…')
     build()
+    return fingerprint
 
 
 def online_revision_matches(revision):
@@ -224,8 +294,10 @@ def publish(args):
     workspace = args.workspace.resolve()
     progress('checking', '正在检查网页同步配置…')
     if not args.prepare_only:
-        check_deployment()
-    prepare(workspace)
+        clean = check_deployment()
+        if try_unchanged_publication(workspace, clean):
+            return
+    fingerprint = prepare(workspace)
     if args.prepare_only:
         print('Local preview prepared; nothing committed or pushed.', flush=True)
         return
@@ -236,6 +308,7 @@ def publish(args):
     if not changes:
         progress('verifying', '本地内容没有变化，正在确认网页版本…')
         if online_revision_matches(revision):
+            remember_verified_sources(workspace, revision, fingerprint)
             progress('verified', '网页已经是最新，无需重复发布。', revision=revision, url=SITE_URL, unchanged=True)
             return
     if not shutil.which('gh'):
@@ -251,6 +324,7 @@ def publish(args):
     revision = command('git', 'rev-parse', 'HEAD')
     push_snapshot()
     await_deployment(revision)
+    remember_verified_sources(workspace, revision, fingerprint)
 
 
 if __name__ == '__main__':

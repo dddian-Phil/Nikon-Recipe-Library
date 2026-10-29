@@ -225,6 +225,8 @@ class PublicationGitTests(unittest.TestCase):
     def test_current_online_version_skips_auth_push_and_deployment(self):
         args = SimpleNamespace(workspace=static.ROOT, prepare_only=False)
         with patch.object(publish, 'check_deployment'), patch.object(publish, 'prepare'), \
+             patch.object(publish, 'try_unchanged_publication', return_value=False), \
+             patch.object(publish, 'remember_verified_sources'), \
              patch.object(publish, 'command', side_effect=['', 'a' * 40]) as command, \
              patch.object(publish, 'online_revision_matches', return_value=True), \
              patch.object(publish, 'push_snapshot') as push, \
@@ -238,6 +240,7 @@ class PublicationGitTests(unittest.TestCase):
 
     def test_daily_prepare_validates_output_without_running_program_tests(self):
         with patch.object(publish, 'refresh_photos'), patch.object(publish, 'export_catalog'), \
+             patch.object(publish, 'source_fingerprint', return_value='source-hash'), \
              patch.object(publish, 'snapshot_files', return_value=({'recipes': [{'id': RID}]}, {})), \
              patch.object(publish, 'export_photos', return_value={'photos': 1}), \
              patch.object(publish, 'build') as build, patch.object(publish, 'command') as command:
@@ -275,6 +278,87 @@ class PublicationGitTests(unittest.TestCase):
             publish.check_deployment()
         with patch.object(publish, 'command', side_effect=[publish.BRANCH, 'app/app.js']), self.assertRaises(ValueError):
             publish.check_deployment()
+
+
+class PublicationCacheTests(unittest.TestCase):
+    def setUp(self):
+        base = static.ROOT / 'local/test-runs'
+        base.mkdir(parents=True, exist_ok=True)
+        temporary = tempfile.TemporaryDirectory(dir=base)
+        self.addCleanup(temporary.cleanup)
+        self.workspace = Path(temporary.name).resolve()
+        self.files = {'local/photo-index.json': b'index', 'local/personal-records.json': b'records',
+                      'data/catalog/data/recipes.json': b'catalog', 'photos/a.jpg': b'photo'}
+        for name, body in self.files.items():
+            path = self.workspace / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(body)
+        self.revision = 'a' * 40
+        self.fingerprint = publish.source_fingerprint(self.workspace)
+        self.cache = self.workspace / 'local/website-publish-cache.json'
+        publish.remember_verified_sources(self.workspace, self.revision, self.fingerprint)
+
+    def fast_check(self, clean=True, revision=None, online=True):
+        with patch.object(publish, 'command', return_value=revision or self.revision), \
+             patch.object(publish, 'check_deployment', return_value=clean), \
+             patch.object(publish, 'online_revision_matches', return_value=online):
+            return publish.try_unchanged_publication(self.workspace, clean)
+
+    def test_unchanged_sources_skip_scan_export_build_and_push(self):
+        with patch.object(publish, 'command', return_value=self.revision) as command, \
+             patch.object(publish, 'check_deployment', return_value=True), \
+             patch.object(publish, 'online_revision_matches', return_value=True), \
+             patch.object(publish, 'prepare', side_effect=AssertionError('Unneeded preparation')), \
+             patch.object(publish, 'push_snapshot', side_effect=AssertionError('Unneeded push')):
+            publish.publish(SimpleNamespace(workspace=self.workspace, prepare_only=False))
+        self.assertTrue(all(call.args == ('git', 'rev-parse', 'HEAD') for call in command.call_args_list))
+
+    def test_photo_record_and_catalog_edits_invalidate_the_cache(self):
+        for name, body in self.files.items():
+            with self.subTest(name=name):
+                path = self.workspace / name
+                previous = path.stat()
+                path.write_bytes(b'X' * len(body))
+                # Same size and restored timestamp must not hide a content change.
+                import os
+                os.utime(path, ns=(previous.st_atime_ns, previous.st_mtime_ns))
+                self.assertFalse(self.fast_check())
+                path.write_bytes(body)
+        self.assertTrue(self.fast_check())
+
+    def test_added_and_deleted_photos_invalidate_the_cache(self):
+        added = self.workspace / 'photos/new.jpg'
+        added.write_bytes(b'new photo')
+        self.assertFalse(self.fast_check())
+        added.unlink()
+        (self.workspace / 'photos/a.jpg').unlink()
+        self.assertFalse(self.fast_check())
+
+    def test_code_changes_dirty_snapshot_and_unconfirmed_online_version_need_normal_flow(self):
+        self.assertFalse(self.fast_check(revision='b' * 40))
+        self.assertFalse(self.fast_check(clean=False))
+        self.assertFalse(self.fast_check(online=False))
+
+    def test_edit_during_online_verification_cannot_report_unchanged(self):
+        def edit_while_waiting(_):
+            (self.workspace / 'local/personal-records.json').write_bytes(b'new favorite')
+            return True
+        with patch.object(publish, 'command', return_value=self.revision), \
+             patch.object(publish, 'check_deployment', return_value=True), \
+             patch.object(publish, 'online_revision_matches', side_effect=edit_while_waiting):
+            self.assertFalse(publish.try_unchanged_publication(self.workspace, True))
+
+    def test_edits_during_deployment_are_not_recorded_as_published(self):
+        before = self.cache.read_bytes()
+        (self.workspace / 'photos/a.jpg').write_bytes(b'edited while publishing')
+        publish.remember_verified_sources(self.workspace, 'b' * 40, self.fingerprint)
+        self.assertEqual(self.cache.read_bytes(), before)
+
+    def test_missing_or_invalid_cache_falls_back_to_normal_publication(self):
+        self.cache.unlink()
+        self.assertFalse(self.fast_check())
+        self.cache.write_text('broken JSON', encoding='utf-8')
+        self.assertFalse(self.fast_check())
 
 
 if __name__ == '__main__':
