@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30T02:06:59+08:00",
+  "updatedAt": "2026-10-30T02:39:40+08:00",
   "captures": [
     {
       "name": "DSC_2665",
@@ -609,40 +609,6 @@
       "imageInfo": {
         "bytes": 52386,
         "sha256": "29902c67f062b57813bde91f41b7aa8912871bed92058a2f5945fdfa47635913",
-        "width": 1280,
-        "height": 853,
-        "format": "JPEG"
-      }
-    },
-    {
-      "name": "DSC_3747",
-      "takenAt": "2026:01:07 20:31:28",
-      "camera": "NIKON Z50_2",
-      "lens": "Viltrox AF 27/1.2 Z",
-      "iso": "100",
-      "fNumber": "1.2",
-      "exposureTime": "0.005",
-      "focalLength": "27.0",
-      "pictureControlName": "AUTO",
-      "pictureControlBase": "AUTO",
-      "metadataIssueCode": "",
-      "id": "1106b457dcabdd0fff3c0bde",
-      "recipeId": null,
-      "association": "unmatched",
-      "favorite": false,
-      "metadataConflict": false,
-      "thumbnail": "photos/images/1106b457dcabdd0fff3c0bde-thumb-1496cb169719fb0f.jpg",
-      "thumbnailInfo": {
-        "bytes": 37457,
-        "sha256": "1496cb169719fb0f6702b293859c643b31a668800574df29915c4b1cdc719636",
-        "width": 480,
-        "height": 320,
-        "format": "JPEG"
-      },
-      "preview": "photos/images/1106b457dcabdd0fff3c0bde-display-fc7be204668f7437.jpg",
-      "imageInfo": {
-        "bytes": 193351,
-        "sha256": "fc7be204668f7437576ee10bfbbea333a26a76f9a78c95d0b41badfb91209b21",
         "width": 1280,
         "height": 853,
         "format": "JPEG"
