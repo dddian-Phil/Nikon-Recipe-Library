@@ -45,9 +45,12 @@ class FakeOfficial:
         self.started = None
         self.release = None
         self.catalog_override = None
+        self.creator_override = None
 
     def catalog(self):
-        return {'recipe': [{'id': d['id'], 'name': d['name']} for d in self.details]}
+        return {'recipe': [{'id': d['id'], 'name': d['name'], 'img': {'url': d['thumbnail']},
+                            'picture_controll_name': d['pictureControlName'],
+                            'public_date': d['publicDate']} for d in self.details]}
 
     def creators(self):
         return {'creators': [{'id': AUTHOR, 'name': 'Example Creator', 'profile': 'Public profile',
@@ -64,7 +67,7 @@ class FakeOfficial:
                 self.release.wait(5)
             result = self.catalog_override if self.catalog_override is not None else self.catalog()
         elif url == sync.IR + '/info/creator':
-            result = self.creators()
+            result = self.creator_override if self.creator_override is not None else self.creators()
         elif '/publicrecipe/' in url:
             rid = url.split('/')[-1].split('?')[0]
             result = next(d for d in self.details if d['id'] == rid)
@@ -149,47 +152,112 @@ class CatalogSyncTests(unittest.TestCase):
         self.assertEqual(self.official.calls, [])
 
     def test_added_and_changed_recipes(self):
-        self.official.details = [detail(recipeDetail='Changed introduction'), detail(NEW)]
+        self.official.details = [detail(name='Renamed film', recipeDetail='Changed introduction'), detail(NEW)]
         result = self.run_sync()['result']
         self.assertEqual(result['newRecipeIds'], [NEW])
         self.assertEqual(result['changedRecipeIds'], [RID])
         self.assertEqual(len(self.manager.payload()['recipes']), 2)
 
-    def test_image_only_change_is_detected(self):
-        self.official.images[HOST + RID + '.jpg'] = picture('blue')
-        self.assertEqual(self.run_sync()['result']['changedRecipeIds'], [RID])
+    def test_unchanged_directory_needs_only_two_requests_and_no_rebuild(self):
+        before = hashes(self.root)
+        with patch.object(sync.shutil, 'copytree', side_effect=AssertionError('Unneeded copy')), \
+             patch.object(sync, 'rebuild_archive', side_effect=AssertionError('Unneeded rebuild')):
+            result = self.run_sync()['result']
+        self.assertTrue(result['unchanged'])
+        self.assertEqual(self.official.calls, [sync.LIST, sync.IR + '/info/creator'])
+        self.assertEqual(result['requestCount'], 2)
+        self.assertEqual(hashes(self.root), before)
 
-    def test_unchanged_images_are_revalidated_without_downloading(self):
+    def test_detail_and_image_only_changes_are_intentionally_not_requested(self):
+        before = hashes(self.root)
+        self.official.details = [detail(recipeDetail='Remote-only edit')]
+        self.official.images[HOST + RID + '.jpg'] = picture('blue')
+        result = self.run_sync()['result']
+        self.assertTrue(result['unchanged'])
+        self.assertEqual(result['changedRecipeIds'], [])
+        self.assertEqual(len(self.official.calls), 2)
+        self.assertEqual(hashes(self.root), before)
+
+    def test_only_new_recipe_is_downloaded(self):
+        self.official.details.append(detail(NEW))
+        result = self.run_sync()['result']
+        self.assertEqual(result['newRecipeIds'], [NEW])
+        self.assertEqual(result['detailsFetched'], 1)
+        self.assertEqual(result['requestCount'], 4)
+        self.assertEqual(len(self.official.calls), 4)
+        self.assertEqual([u for u in self.official.calls if '/publicrecipe/' in u],
+                         [sync.IR + '/publicrecipe/0000000000000001/' + NEW + '?sortType=0&isPagenation=false'])
+        self.assertNotIn(HOST + RID + '.jpg', self.official.calls)
+        self.assertNotIn(HOST + 'portrait.png', self.official.calls)
+
+    def test_directory_change_can_revalidate_its_sample_without_downloading(self):
         self.official = ConditionalOfficial()
         self.manager.transport = self.official
-        self.assertEqual(self.run_sync()['result']['imageDownloads'], 2)
+        self.official.details = [detail(name='First rename')]
+        self.assertEqual(self.run_sync()['result']['imageDownloads'], 1)
         self.official.image_bytes = 0
-        self.official.details = [detail(thumbnail=HOST + RID + '.jpg?Signature=rotated')]
+        self.official.calls.clear()
+        self.official.details = [detail(name='Second rename')]
         result = self.run_sync()['result']
-        self.assertEqual(result['imageReused'], 2)
+        self.assertEqual(result['imageReused'], 1)
         self.assertEqual(result['imageDownloads'], 0)
         self.assertEqual(self.official.image_bytes, 0)
-        self.assertEqual(result['changedRecipeIds'], [])
-
-    def test_conditional_cache_detects_image_only_edits(self):
-        self.official = ConditionalOfficial()
-        self.manager.transport = self.official
-        self.run_sync()
-        self.official.images[HOST + RID + '.jpg'] = picture('blue')
-        result = self.run_sync()['result']
         self.assertEqual(result['changedRecipeIds'], [RID])
-        self.assertEqual(result['imageDownloads'], 1)
-        self.assertEqual(result['imageReused'], 1)
+        self.assertEqual(len(self.official.calls), 4)
 
-    def test_corrupt_local_image_is_downloaded_instead_of_reused(self):
-        self.official = ConditionalOfficial()
-        self.manager.transport = self.official
-        self.run_sync()
-        (self.root / 'recipes' / RID.lower() / 'sample.jpg').write_bytes(b'corrupt')
+    def test_missing_or_corrupt_local_sample_is_repaired(self):
+        image = self.root / 'recipes' / RID.lower() / 'sample.jpg'
+        for missing in (False, True):
+            with self.subTest(missing=missing):
+                image.unlink() if missing else image.write_bytes(b'corrupt')
+                self.official.calls.clear()
+                result = self.run_sync()['result']
+                self.assertEqual(result['imageDownloads'], 1)
+                self.assertEqual(len(self.official.calls), 4)
+                self.manager.validate(self.root)
+
+    def test_likes_new_flags_and_rotating_image_signatures_are_ignored(self):
+        catalog = self.official.catalog()
+        catalog['recipe'][0].update(like={'num': 100}, is_new=True,
+                                    img={'url': HOST + RID + '.jpg?Signature=rotated'})
+        self.official.catalog_override = catalog
         result = self.run_sync()['result']
-        self.assertEqual(result['imageDownloads'], 1)
-        self.assertEqual(result['imageReused'], 1)
-        self.manager.validate(self.root)
+        self.assertTrue(result['unchanged'])
+        self.assertEqual(len(self.official.calls), 2)
+
+    def test_meaningful_sample_url_change_refreshes_recipe(self):
+        self.official.details = [detail(thumbnail=HOST + RID + '.jpg?width=800')]
+        result = self.run_sync()['result']
+        self.assertEqual(result['detailsFetched'], 1)
+        self.assertEqual(len(self.official.calls), 4)
+
+    def test_author_profile_updates_without_rechecking_existing_images(self):
+        directory = self.official.creators()
+        directory['creators'][0]['profile'] = 'Updated author profile'
+        self.official.creator_override = directory
+        self.run_sync()
+        self.assertEqual(self.manager.payload()['creators'][0]['profile'], 'Updated author profile')
+        self.assertEqual(len(self.official.calls), 2)
+
+    def test_new_author_downloads_only_its_portrait(self):
+        directory = self.official.creators()
+        directory['creators'].append({**directory['creators'][0], 'id': '01M3NKSAABCNX5KW9M8A0TDKQN',
+                                      'name': 'New author', 'thumbnail': HOST + 'new-portrait.png'})
+        self.official.creator_override = directory
+        self.run_sync()
+        self.assertEqual(len(self.manager.payload()['creators']), 2)
+        self.assertEqual(self.official.calls, [sync.LIST, sync.IR + '/info/creator', HOST + 'new-portrait.png'])
+
+    def test_no_change_preserves_content_revision_and_new_recipe_badges(self):
+        self.official.details.append(detail(NEW))
+        self.run_sync()
+        before = hashes(self.root)
+        metadata = self.manager.payload()['syncMetadata']
+        result = self.run_sync()['result']
+        self.assertTrue(result['unchanged'])
+        self.assertEqual(hashes(self.root), before)
+        self.assertEqual(result['revision'], metadata['revision'])
+        self.assertEqual(self.manager.payload()['syncMetadata']['newRecipeIds'], [NEW])
 
     def test_asset_identity_ignores_only_access_signatures(self):
         self.assertEqual(sync.asset_identity(HOST + 'a.jpg?Signature=old&width=400'),
@@ -214,7 +282,7 @@ class CatalogSyncTests(unittest.TestCase):
         cases = ['timeout', 'empty', 'duplicate', 'path', 'bad_image', 'truncated_jpeg', 'bad_detail', 'bad_url']
         for case in cases:
             with self.subTest(case=case):
-                official = FakeOfficial()
+                official = FakeOfficial([detail(name='Changed directory entry')])
                 if case == 'timeout':
                     official.failure = TimeoutError('Synthetic timeout')
                 elif case == 'empty':
@@ -228,9 +296,9 @@ class CatalogSyncTests(unittest.TestCase):
                 elif case == 'truncated_jpeg':
                     official.images[HOST + RID + '.jpg'] = picture()[:-20]
                 elif case == 'bad_detail':
-                    official.details = [detail(pictureControl='not a dictionary')]
+                    official.details = [detail(name='Changed directory entry', pictureControl='not a dictionary')]
                 elif case == 'bad_url':
-                    official.details = [detail(thumbnail='http://127.0.0.1/private')]
+                    official.details = [detail(name='Changed directory entry', thumbnail='http://127.0.0.1/private')]
                 self.official = official
                 self.manager = sync.CatalogSync(self.workspace, transport=official)
                 self.run_sync(False)
@@ -238,6 +306,7 @@ class CatalogSyncTests(unittest.TestCase):
                 self.assertFalse(self.manager.journal.exists())
 
     def test_promotion_rename_failure_rolls_back(self):
+        self.official.details.append(detail(NEW))
         before = hashes(self.root)
         rename = Path.rename
         def fail_stage(path, target):
@@ -256,12 +325,13 @@ class CatalogSyncTests(unittest.TestCase):
             if len(calls) == 1:
                 raise RuntimeError('Synthetic reload failure')
         self.manager.on_reload = reload
-        self.official.details = [detail(recipeDetail='Changed')]
+        self.official.details = [detail(name='Changed name', recipeDetail='Changed')]
         self.run_sync(False)
         self.assertEqual(hashes(self.root), before)
         self.assertEqual(calls, ['Changed', 'Original introduction'])
 
     def test_commit_journal_failure_rolls_back(self):
+        self.official.details.append(detail(NEW))
         before = hashes(self.root)
         write_json = sync.write_json
         def fail_commit(path, value):
@@ -322,6 +392,7 @@ class CatalogSyncTests(unittest.TestCase):
         self.assertFalse(backup.exists())
 
     def test_finished_commit_with_interrupted_status_is_reconciled(self):
+        self.official.details.append(detail(NEW))
         self.run_sync()
         metadata = self.manager.payload()['syncMetadata']
         sync.write_json(self.manager.status_path, {'state': 'running', 'running': True,

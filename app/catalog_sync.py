@@ -143,6 +143,25 @@ def fingerprint(recipe):
                 'imageSha256': recipe.get('imageInfo', {}).get('sha256')}
 
 
+def directory_entry(item):
+    """Compare published directory content, not likes or rotating access tokens."""
+    result = {key: value for key, value in item.items() if key not in {'like', 'is_new'}}
+    for key in ('img', 'thumbnail'):
+        value = result.get(key)
+        if isinstance(value, dict):
+            result[key] = {**value, 'url': asset_identity(value['url'])}
+        elif value:
+            result[key] = asset_identity(value)
+    return result
+
+
+def local_image_matches(path, expected):
+    try:
+        return bool(expected) and hashlib.sha256(path.read_bytes()).hexdigest() == expected
+    except OSError:
+        return False
+
+
 class CatalogSync:
     def __init__(self, workspace, *, on_reload=None, transport=request_bytes):
         self.workspace = Path(workspace).resolve()
@@ -288,19 +307,11 @@ class CatalogSync:
 
     def _prepare(self, stage):
         with self.lock:
-            if self.root.exists():
-                shutil.copytree(self.root, stage)
-            else:
-                stage.mkdir(parents=True)
-        old = read_json(stage / 'data/recipes.json', [])
-        self._cache_root = stage
-        self._http_cache = read_json(stage / 'raw/http-cache.json', {})
-        if not isinstance(self._http_cache, dict):
-            self._http_cache = {}
-        self._image_counts = {'downloaded': 0, 'reused': 0}
+            old = read_json(self.root / 'data/recipes.json', [])
+            old_catalog = read_json(self.root / 'raw/catalog.json', {'recipe': []})
+            old_creators = read_json(self.root / 'raw/creators.json', {'creators': []})
         old_by_id = {recipe['id']: recipe for recipe in old}
-        old_catalog = read_json(stage / 'raw/catalog.json', {'recipe': []})
-        old_creators = read_json(stage / 'raw/creators.json', {'creators': []})
+        old_listed = {item['id']: item for item in old_catalog.get('recipe', [])}
         request = json.dumps({'ownerUserId': 'nikon', 'bookId': '', 'sortType': 0,
                               'lang_code': 'zh-cn', 'country': None}).encode()
         catalog = self._json(LIST, request)
@@ -316,21 +327,20 @@ class CatalogSync:
                 if not isinstance(item, dict) or not isinstance(item.get('path'), str):
                     raise ValueError('官方作者的方案关联格式不正确')
 
-        def fetch_detail(item):
+        pending = []
+        for item in listed:
             rid = item['id']
-            detail = self._json(IR + '/publicrecipe/0000000000000001/' + rid + '?sortType=0&isPagenation=false')
-            if detail.get('id') != rid or not isinstance(detail.get('name'), str) or not detail['name'].strip():
-                raise ValueError(f'方案 {rid} 的详情 ID 或名称无效')
-            if not isinstance(detail.get('pictureControl'), dict) or not isinstance(detail.get('exif', {}), dict):
-                raise ValueError(f'方案 {rid} 的参数格式无效')
-            write_json(stage / 'raw/details' / (rid + '.json'), detail)
-            self._image(detail.get('thumbnail', ''), stage / 'recipes' / rid.lower() / 'sample.jpg')
-
-        with ThreadPoolExecutor(max_workers=6) as pool:
-            futures = [pool.submit(fetch_detail, item) for item in listed]
-            for count, future in enumerate(as_completed(futures), 1):
-                future.result()
-                self._progress(f'正在检查方案 {count} / {len(listed)}（图片未变化时复用本地副本）…')
+            previous = old_by_id.get(rid, {})
+            try:
+                detail = read_json(self.root / 'raw/details' / (rid + '.json'), {})
+                detail_present = (detail.get('id') == rid and isinstance(detail.get('pictureControl'), dict))
+            except (OSError, ValueError, AttributeError):
+                detail_present = False
+            if (not previous or directory_entry(item) != directory_entry(old_listed.get(rid, {})) or
+                    not detail_present or not local_image_matches(
+                        self.root / 'recipes' / rid.lower() / 'sample.jpg',
+                        previous.get('imageInfo', {}).get('sha256'))):
+                pending.append(item)
 
         # Retain offline/withdrawn recipes so favorites and associations keep resolving.
         catalog['recipe'] = listed + [item for item in old_catalog.get('recipe', []) if item['id'] not in remote_ids]
@@ -343,12 +353,66 @@ class CatalogSync:
         directory['creators'] = authors + [c for c in old_creators.get('creators', []) if c['id'] not in remote_author_ids]
         used = {creator['id'] for creator in authors if any(
             item['path'].rstrip('/').split('/')[-1] in remote_ids for item in creator.get('recipes', []))}
-        portraits = [creator for creator in authors if creator['id'] in used and creator.get('thumbnail')]
+        assets = {item['path']: item for item in read_json(self.root / 'data/assets.json', [])}
+        portraits = []
+        for creator in authors:
+            if creator['id'] not in used or not creator.get('thumbnail'):
+                continue
+            previous_url = old_author_by_id.get(creator['id'], {}).get('thumbnail')
+            relative = 'assets/creators/' + creator['id'] + '.png'
+            if (not previous_url or asset_identity(creator['thumbnail']) != asset_identity(previous_url) or
+                    not local_image_matches(self.root / relative, assets.get(relative, {}).get('sha256'))):
+                portraits.append(creator)
+
+        unchanged = (not pending and not portraits and
+            [directory_entry(item) for item in catalog['recipe']] ==
+            [directory_entry(item) for item in old_catalog.get('recipe', [])] and
+            [directory_entry(item) for item in directory['creators']] ==
+            [directory_entry(item) for item in old_creators.get('creators', [])] and
+            (self.root / 'data/creators.json').is_file() and
+            (self.root / 'data/collection_report.json').is_file() and
+            all((self.root / 'recipes' / item['id'].lower() / 'recipe.md').is_file() for item in old))
+        if unchanged:
+            # A directory check does not create a new content revision or clear new badges.
+            metadata = read_json(self.root / 'data/sync_metadata.json', {})
+            return {**metadata, 'revision': metadata.get('revision', ''),
+                    'newRecipeIds': [], 'changedRecipeIds': [], 'officialCount': len(listed),
+                    'retainedCount': len(old) - len(listed), 'unchanged': True,
+                    'detailsFetched': 0, 'requestCount': 2, 'imageDownloads': 0, 'imageReused': 0}
+
+        self._progress(f'目录检查完成，需要更新 {len(pending)} 个方案，其余复用本地资料…')
+        with self.lock:
+            if self.root.exists():
+                shutil.copytree(self.root, stage)
+            else:
+                stage.mkdir(parents=True)
+        self._cache_root = stage
+        self._http_cache = read_json(stage / 'raw/http-cache.json', {})
+        if not isinstance(self._http_cache, dict):
+            self._http_cache = {}
+        self._image_counts = {'downloaded': 0, 'reused': 0}
+
+        def fetch_detail(item):
+            rid = item['id']
+            detail = self._json(IR + '/publicrecipe/0000000000000001/' + rid + '?sortType=0&isPagenation=false')
+            if detail.get('id') != rid or not isinstance(detail.get('name'), str) or not detail['name'].strip():
+                raise ValueError(f'方案 {rid} 的详情 ID 或名称无效')
+            if not isinstance(detail.get('pictureControl'), dict) or not isinstance(detail.get('exif', {}), dict):
+                raise ValueError(f'方案 {rid} 的参数格式无效')
+            write_json(stage / 'raw/details' / (rid + '.json'), detail)
+            self._image(detail.get('thumbnail', ''), stage / 'recipes' / rid.lower() / 'sample.jpg')
+
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            futures = [pool.submit(fetch_detail, item) for item in pending]
+            for count, future in enumerate(as_completed(futures), 1):
+                future.result()
+                self._progress(f'正在下载新增或目录有变化的方案 {count} / {len(pending)}…')
+
         with ThreadPoolExecutor(max_workers=6) as pool:
             futures = [pool.submit(self._image, creator['thumbnail'], stage / 'assets/creators' / (creator['id'] + '.png')) for creator in portraits]
             for count, future in enumerate(as_completed(futures), 1):
                 future.result()
-                self._progress(f'正在验证作者头像 {count} / {len(portraits)}…')
+                self._progress(f'正在下载新增或变化的作者头像 {count} / {len(portraits)}…')
         write_json(stage / 'raw/catalog.json', catalog)
         write_json(stage / 'raw/http-cache.json', self._http_cache)
         write_json(stage / 'raw/creators.json', directory)
@@ -366,6 +430,7 @@ class CatalogSync:
         metadata = {'revision': uuid.uuid4().hex, 'syncedAt': now(), 'newRecipeIds': added,
                     'changedRecipeIds': changed, 'officialCount': len(listed),
                     'retainedCount': len(new_recipes) - len(listed), 'jobId': self.status().get('jobId'),
+                    'detailsFetched': len(pending), 'requestCount': 2 + len(pending) * 2 + len(portraits),
                     'imageDownloads': self._image_counts['downloaded'], 'imageReused': self._image_counts['reused']}
         write_json(stage / 'data/sync_metadata.json', metadata)
         self.validate(stage)
@@ -431,10 +496,12 @@ class CatalogSync:
         stage = self._safe_transaction_path('.catalog-stage-' + uuid.uuid4().hex, '.catalog-stage-')
         try:
             metadata = self._prepare(stage)
-            self._progress('校验通过，正在切换目录…')
-            self._promote(stage)
+            if not metadata.get('unchanged'):
+                self._progress('校验通过，正在切换目录…')
+                self._promote(stage)
             result = {'state': 'succeeded', 'running': False, 'finishedAt': now(), 'error': None,
-                      'message': f"同步完成：新增 {len(metadata['newRecipeIds'])} 个，更新 {len(metadata['changedRecipeIds'])} 个",
+                      'message': '目录没有变化，已复用本地方案。' if metadata.get('unchanged') else
+                          f"同步完成：新增 {len(metadata['newRecipeIds'])} 个，更新 {len(metadata['changedRecipeIds'])} 个",
                       'result': metadata}
         except Exception as error:
             result = {'state': 'failed', 'running': False, 'finishedAt': now(),
