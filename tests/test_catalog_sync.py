@@ -158,14 +158,14 @@ class CatalogSyncTests(unittest.TestCase):
         self.assertEqual(result['changedRecipeIds'], [RID])
         self.assertEqual(len(self.manager.payload()['recipes']), 2)
 
-    def test_unchanged_directory_needs_only_two_requests_and_no_rebuild(self):
+    def test_unchanged_directory_needs_only_one_request_and_no_rebuild(self):
         before = hashes(self.root)
         with patch.object(sync.shutil, 'copytree', side_effect=AssertionError('Unneeded copy')), \
              patch.object(sync, 'rebuild_archive', side_effect=AssertionError('Unneeded rebuild')):
             result = self.run_sync()['result']
         self.assertTrue(result['unchanged'])
-        self.assertEqual(self.official.calls, [sync.LIST, sync.IR + '/info/creator'])
-        self.assertEqual(result['requestCount'], 2)
+        self.assertEqual(self.official.calls, [sync.LIST])
+        self.assertEqual(result['requestCount'], 1)
         self.assertEqual(hashes(self.root), before)
 
     def test_detail_and_image_only_changes_are_intentionally_not_requested(self):
@@ -175,7 +175,7 @@ class CatalogSyncTests(unittest.TestCase):
         result = self.run_sync()['result']
         self.assertTrue(result['unchanged'])
         self.assertEqual(result['changedRecipeIds'], [])
-        self.assertEqual(len(self.official.calls), 2)
+        self.assertEqual(len(self.official.calls), 1)
         self.assertEqual(hashes(self.root), before)
 
     def test_only_new_recipe_is_downloaded(self):
@@ -223,7 +223,7 @@ class CatalogSyncTests(unittest.TestCase):
         self.official.catalog_override = catalog
         result = self.run_sync()['result']
         self.assertTrue(result['unchanged'])
-        self.assertEqual(len(self.official.calls), 2)
+        self.assertEqual(len(self.official.calls), 1)
 
     def test_meaningful_sample_url_change_refreshes_recipe(self):
         self.official.details = [detail(thumbnail=HOST + RID + '.jpg?width=800')]
@@ -231,22 +231,60 @@ class CatalogSyncTests(unittest.TestCase):
         self.assertEqual(result['detailsFetched'], 1)
         self.assertEqual(len(self.official.calls), 4)
 
-    def test_author_profile_updates_without_rechecking_existing_images(self):
+    def test_author_changes_are_checked_only_when_a_recipe_changes(self):
         directory = self.official.creators()
         directory['creators'][0]['profile'] = 'Updated author profile'
         self.official.creator_override = directory
+        self.assertTrue(self.run_sync()['result']['unchanged'])
+        self.assertEqual(self.manager.payload()['creators'][0]['profile'], 'Public profile')
+        self.assertEqual(self.official.calls, [sync.LIST])
+        self.official.calls.clear()
+        self.official.details = [detail(name='Changed directory name')]
         self.run_sync()
         self.assertEqual(self.manager.payload()['creators'][0]['profile'], 'Updated author profile')
-        self.assertEqual(len(self.official.calls), 2)
+        self.assertEqual(len(self.official.calls), 4)
+        self.assertNotIn(HOST + 'portrait.png', self.official.calls)
 
-    def test_new_author_downloads_only_its_portrait(self):
+    def test_new_recipe_fetches_author_mapping_and_new_portrait(self):
+        self.official.details.append(detail(NEW))
         directory = self.official.creators()
-        directory['creators'].append({**directory['creators'][0], 'id': '01M3NKSAABCNX5KW9M8A0TDKQN',
-                                      'name': 'New author', 'thumbnail': HOST + 'new-portrait.png'})
+        new_author = '01M3NKSAABCNX5KW9M8A0TDKQN'
+        directory['creators'].append({**directory['creators'][0], 'id': new_author,
+            'recipes': [{'path': '/recipe/' + NEW}], 'name': 'New author', 'thumbnail': HOST + 'new-portrait.png'})
         self.official.creator_override = directory
-        self.run_sync()
+        result = self.run_sync()['result']
         self.assertEqual(len(self.manager.payload()['creators']), 2)
-        self.assertEqual(self.official.calls, [sync.LIST, sync.IR + '/info/creator', HOST + 'new-portrait.png'])
+        recipe = next(r for r in self.manager.payload()['recipes'] if r['id'] == NEW)
+        self.assertIn(new_author, recipe['authorIds'])
+        self.assertEqual(result['requestCount'], 5)
+        self.assertIn(HOST + 'new-portrait.png', self.official.calls)
+        self.assertNotIn(HOST + 'portrait.png', self.official.calls)
+
+    def test_missing_portrait_refreshes_author_urls_and_repairs_only_that_image(self):
+        (self.root / 'assets/creators' / (AUTHOR + '.png')).unlink()
+        result = self.run_sync()['result']
+        self.assertEqual(result['requestCount'], 3)
+        self.assertEqual(self.official.calls, [sync.LIST, sync.IR + '/info/creator', HOST + 'portrait.png'])
+        self.manager.validate(self.root)
+
+    def test_broken_author_cache_is_refreshed(self):
+        (self.root / 'raw/creators.json').write_text('broken JSON', encoding='utf-8')
+        self.run_sync()
+        self.assertIn(sync.IR + '/info/creator', self.official.calls)
+        self.assertFalse(any('/publicrecipe/' in url for url in self.official.calls))
+        self.manager.validate(self.root)
+
+    def test_author_outage_does_not_block_unchanged_check_but_preserves_new_update(self):
+        def unavailable(url, *args, **kwargs):
+            if url == sync.IR + '/info/creator':
+                raise TimeoutError('Synthetic author outage')
+            return self.official(url, *args, **kwargs)
+        self.manager.transport = unavailable
+        self.assertTrue(self.run_sync()['result']['unchanged'])
+        before = hashes(self.root)
+        self.official.details.append(detail(NEW))
+        self.run_sync(False)
+        self.assertEqual(hashes(self.root), before)
 
     def test_no_change_preserves_content_revision_and_new_recipe_badges(self):
         self.official.details.append(detail(NEW))

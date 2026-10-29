@@ -124,6 +124,17 @@ def validate_list(items, label):
     return items
 
 
+def validate_authors(directory):
+    authors = validate_list(directory.get('creators'), '官方作者目录')
+    for creator in authors:
+        if not isinstance(creator.get('recipes', []), list):
+            raise ValueError('官方作者的方案关联格式不正确')
+        for item in creator.get('recipes', []):
+            if not isinstance(item, dict) or not isinstance(item.get('path'), str):
+                raise ValueError('官方作者的方案关联格式不正确')
+    return authors
+
+
 def image_digest(path):
     if path.stat().st_size > 32 * 1024 * 1024:
         raise ValueError('素材文件超过安全大小限制')
@@ -309,23 +320,17 @@ class CatalogSync:
         with self.lock:
             old = read_json(self.root / 'data/recipes.json', [])
             old_catalog = read_json(self.root / 'raw/catalog.json', {'recipe': []})
-            old_creators = read_json(self.root / 'raw/creators.json', {'creators': []})
+            try:
+                old_creators = read_json(self.root / 'raw/creators.json', {'creators': []})
+            except (OSError, ValueError):
+                old_creators = {'creators': []}
         old_by_id = {recipe['id']: recipe for recipe in old}
         old_listed = {item['id']: item for item in old_catalog.get('recipe', [])}
         request = json.dumps({'ownerUserId': 'nikon', 'bookId': '', 'sortType': 0,
                               'lang_code': 'zh-cn', 'country': None}).encode()
         catalog = self._json(LIST, request)
         listed = validate_list(catalog.get('recipe'), '官方方案目录')
-        directory = self._json(IR + '/info/creator')
-        authors = validate_list(directory.get('creators'), '官方作者目录')
         remote_ids = {item['id'] for item in listed}
-        remote_author_ids = {creator['id'] for creator in authors}
-        for creator in authors:
-            if not isinstance(creator.get('recipes', []), list):
-                raise ValueError('官方作者的方案关联格式不正确')
-            for item in creator.get('recipes', []):
-                if not isinstance(item, dict) or not isinstance(item.get('path'), str):
-                    raise ValueError('官方作者的方案关联格式不正确')
 
         pending = []
         for item in listed:
@@ -342,6 +347,28 @@ class CatalogSync:
                         previous.get('imageInfo', {}).get('sha256'))):
                 pending.append(item)
 
+        assets = {item['path']: item for item in read_json(self.root / 'data/assets.json', [])}
+        try:
+            cached_authors = validate_authors(old_creators)
+            author_cache_ready = (self.root / 'data/creators.json').is_file() and all(
+                not creator.get('thumbnail') or
+                not any(item['path'].rstrip('/').split('/')[-1] in remote_ids for item in creator.get('recipes', [])) or
+                local_image_matches(self.root / 'assets/creators' / (creator['id'] + '.png'),
+                    assets.get('assets/creators/' + creator['id'] + '.png', {}).get('sha256'))
+                for creator in cached_authors)
+        except (ValueError, TypeError, AttributeError):
+            old_creators = {'creators': []}
+            author_cache_ready = False
+        # Photographer mappings are needed for changed/new recipes, not every check.
+        refresh_authors = bool(pending) or not author_cache_ready
+        if refresh_authors:
+            self._progress('发现方案更新或缺失资料，正在补充作者目录…')
+            directory = self._json(IR + '/info/creator')
+        else:
+            directory = copy.deepcopy(old_creators)
+        authors = validate_authors(directory)
+        remote_author_ids = {creator['id'] for creator in authors}
+
         # Retain offline/withdrawn recipes so favorites and associations keep resolving.
         catalog['recipe'] = listed + [item for item in old_catalog.get('recipe', []) if item['id'] not in remote_ids]
         old_author_by_id = {creator['id']: creator for creator in old_creators.get('creators', [])}
@@ -353,7 +380,6 @@ class CatalogSync:
         directory['creators'] = authors + [c for c in old_creators.get('creators', []) if c['id'] not in remote_author_ids]
         used = {creator['id'] for creator in authors if any(
             item['path'].rstrip('/').split('/')[-1] in remote_ids for item in creator.get('recipes', []))}
-        assets = {item['path']: item for item in read_json(self.root / 'data/assets.json', [])}
         portraits = []
         for creator in authors:
             if creator['id'] not in used or not creator.get('thumbnail'):
@@ -378,7 +404,8 @@ class CatalogSync:
             return {**metadata, 'revision': metadata.get('revision', ''),
                     'newRecipeIds': [], 'changedRecipeIds': [], 'officialCount': len(listed),
                     'retainedCount': len(old) - len(listed), 'unchanged': True,
-                    'detailsFetched': 0, 'requestCount': 2, 'imageDownloads': 0, 'imageReused': 0}
+                    'detailsFetched': 0, 'requestCount': 1 + int(refresh_authors),
+                    'imageDownloads': 0, 'imageReused': 0}
 
         self._progress(f'目录检查完成，需要更新 {len(pending)} 个方案，其余复用本地资料…')
         with self.lock:
@@ -430,7 +457,8 @@ class CatalogSync:
         metadata = {'revision': uuid.uuid4().hex, 'syncedAt': now(), 'newRecipeIds': added,
                     'changedRecipeIds': changed, 'officialCount': len(listed),
                     'retainedCount': len(new_recipes) - len(listed), 'jobId': self.status().get('jobId'),
-                    'detailsFetched': len(pending), 'requestCount': 2 + len(pending) * 2 + len(portraits),
+                    'detailsFetched': len(pending),
+                    'requestCount': 1 + int(refresh_authors) + len(pending) * 2 + len(portraits),
                     'imageDownloads': self._image_counts['downloaded'], 'imageReused': self._image_counts['reused']}
         write_json(stage / 'data/sync_metadata.json', metadata)
         self.validate(stage)
