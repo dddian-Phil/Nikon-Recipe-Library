@@ -18,6 +18,7 @@ CAPTURE_KEYS = set(TEXT_FIELDS) | {'id', 'recipeId', 'association', 'favorite',
     'metadataConflict', 'thumbnail', 'preview', 'thumbnailInfo', 'imageInfo'}
 LIBRARY_KEYS = {'version', 'updatedAt', 'captures', 'recipeFavorites'}
 IMAGE_KEYS = {'bytes', 'sha256', 'width', 'height', 'format'}
+RENDER_VERSION = 'srgb-jpeg-480q75-1280q80-v1'
 
 
 def photo_id(value):
@@ -143,6 +144,17 @@ def export_photos(workspace, target, recipe_ids):
     if known_files != current_files:
         raise ValueError('Photos changed since the last scan; update the local photo library first')
     favorites, assignments = set(records.get('photoFavorites', [])), records.get('photoAssignments', {})
+    cache_path = workspace / 'local/website-photo-cache.json'
+    cached_sources, old_captures, old_images = {}, {}, {}
+    try:
+        cache = read_json(cache_path)
+        if isinstance(cache, dict) and cache.get('renderer') == RENDER_VERSION and isinstance(cache.get('sources'), dict):
+            old_library, old_images = snapshot_files(target, recipe_ids)
+            old_captures = {p['id']: p for p in old_library['captures']}
+            cached_sources = cache.get('sources', {})
+    except (OSError, ValueError, KeyError, TypeError):
+        pass  # Missing or invalid cached output is regenerated from the original JPG.
+    sources, reused = {}, 0
     captures, files, source_hashes = [], {}, {}
     for original in index['captures']:
         versions = [v for v in original['files'] if Path(v['path']).suffix.lower() in {'.jpg', '.jpeg'}]
@@ -161,11 +173,22 @@ def export_photos(workspace, target, recipe_ids):
         capture.update(id=pid, recipeId=recipe,
             association='manual' if pid in assignments else 'automatic' if recipe else 'unmatched',
             favorite=pid in favorites, metadataConflict=bool(original.get('metadataConflict')))
-        for kind, image, info in reduced_jpegs(body):
+        old_capture, cached = old_captures.get(pid), cached_sources.get(pid, {})
+        if not isinstance(cached, dict):
+            cached = {}
+        if (old_capture and cached.get('source') == digest and
+                cached.get('images') == [old_capture['thumbnailInfo']['sha256'], old_capture['imageInfo']['sha256']]):
+            reduced = [('thumb', old_images[old_capture['thumbnail'].removeprefix('photos/')], old_capture['thumbnailInfo']),
+                       ('display', old_images[old_capture['preview'].removeprefix('photos/')], old_capture['imageInfo'])]
+            reused += 1
+        else:
+            reduced = reduced_jpegs(body)
+        for kind, image, info in reduced:
             relative = image_path(pid, kind, info['sha256'])
             files[relative] = image
             capture['thumbnail' if kind == 'thumb' else 'preview'] = 'photos/' + relative
             capture['thumbnailInfo' if kind == 'thumb' else 'imageInfo'] = info
+        sources[pid] = {'source': digest, 'images': [capture['thumbnailInfo']['sha256'], capture['imageInfo']['sha256']]}
         captures.append(capture)
     payload = {'version': 1, 'updatedAt': max(index.get('updatedAt', ''), records.get('updatedAt', '')),
         'captures': captures, 'recipeFavorites': sorted(set(records.get('recipeFavorites', [])) & recipe_ids)}
@@ -184,10 +207,17 @@ def export_photos(workspace, target, recipe_ids):
     target.mkdir(parents=True, exist_ok=True)
     for relative, image in files.items():
         path = confined(target, relative)
+        if path.is_file() and path.read_bytes() == image:
+            continue
         path.parent.mkdir(parents=True, exist_ok=True)
         temporary = path.with_suffix('.tmp')
         temporary.write_bytes(image)
         os.replace(temporary, path)
     for relative in existing - expected:
         confined(target, relative).unlink()
-    return {'photos': len(captures), 'files': len(files), 'bytes': sum(map(len, files.values()))}
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = cache_path.with_suffix('.tmp')
+    temporary.write_bytes(json_bytes({'renderer': RENDER_VERSION, 'sources': sources}))
+    os.replace(temporary, cache_path)
+    return {'photos': len(captures), 'files': len(files), 'bytes': sum(map(len, files.values())),
+            'rendered': len(captures) - reused, 'reused': reused}

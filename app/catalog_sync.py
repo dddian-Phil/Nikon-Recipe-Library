@@ -16,7 +16,7 @@ import re
 import shutil
 import threading
 import time
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunsplit
 import urllib.error
 import urllib.request
 import uuid
@@ -54,12 +54,30 @@ class OfficialRedirects(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, official_url(newurl))
 
 
-def request_bytes(url, data=None, *, limit=32 * 1024 * 1024):
+def response_validators(response):
+    values = {}
+    for header, key in (('ETag', 'etag'), ('Last-Modified', 'modified')):
+        value = response.headers.get(header) if response.headers else None
+        if isinstance(value, str) and len(value) <= 1024 and '\r' not in value and '\n' not in value:
+            values[key] = value
+    return values
+
+
+def asset_identity(url):
+    parsed = urlparse(official_url(url))
+    # Rotating access signatures do not change the underlying image resource.
+    query = [(key, value) for key, value in parse_qsl(parsed.query, keep_blank_values=True)
+             if key.lower() not in {'signature', 'policy', 'key-pair-id', 'expires'}]
+    return urlunsplit((parsed.scheme, parsed.netloc, parsed.path, urlencode(query), ''))
+
+
+def request_bytes(url, data=None, *, limit=32 * 1024 * 1024, conditional=None, response_info=None):
     official_url(url)
     headers = {'User-Agent': 'NikonRecipeLibrary/1.0', 'Referer': BASE + '/',
                'Accept-Language': 'zh-CN,zh;q=0.9'}
     if data is not None:
         headers['Content-Type'] = 'text/plain;charset=UTF-8'
+    headers.update(conditional or {})
     for attempt in range(2):
         try:
             request = urllib.request.Request(url, data=data, headers=headers)
@@ -68,8 +86,14 @@ def request_bytes(url, data=None, *, limit=32 * 1024 * 1024):
                 body = response.read(limit + 1)
                 if len(body) > limit:
                     raise ValueError('官方响应超过安全大小限制')
+                if response_info is not None:
+                    response_info.update(response_validators(response))
                 return body
         except urllib.error.HTTPError as error:
+            if error.code == 304 and conditional:
+                if response_info is not None:
+                    response_info.update(response_validators(error))
+                return None
             if error.code not in (429, 500, 502, 503, 504) or attempt:
                 raise
         except (OSError, urllib.error.URLError):
@@ -133,6 +157,8 @@ class CatalogSync:
         self.publication_guard = nullcontext
         self.transport = transport
         self.thread = None
+        self._http_cache = {}
+        self._image_counts = {'downloaded': 0, 'reused': 0}
         self.recover()
         self._status = read_json(self.status_path, {'state': 'idle', 'message': '尚未手动同步', 'running': False})
         if self._status.get('running'):
@@ -229,10 +255,36 @@ class CatalogSync:
 
     def _image(self, url, target):
         official_url(url)
-        body = self.transport(url, limit=32 * 1024 * 1024)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(body)
-        image_digest(target)
+        key = target.relative_to(self._cache_root).as_posix()
+        identity = asset_identity(url)
+        cached = self._http_cache.get(key, {})
+        if not isinstance(cached, dict):
+            cached = {}
+        conditional = {}
+        if (cached.get('resource') == identity and target.is_file() and
+                target.stat().st_size == cached.get('bytes') and
+                hashlib.sha256(target.read_bytes()).hexdigest() == cached.get('sha256')):
+            for name, field in (('If-None-Match', 'etag'), ('If-Modified-Since', 'modified')):
+                value = cached.get(field)
+                if isinstance(value, str) and 0 < len(value) <= 1024 and '\r' not in value and '\n' not in value:
+                    conditional[name] = value
+        info = {}
+        body = self.transport(url, limit=32 * 1024 * 1024, conditional=conditional, response_info=info)
+        if body is None:
+            if not conditional:
+                raise ValueError('官方图片返回未修改，但没有可验证的本地副本')
+            saved = dict(cached)
+            saved.update(info)
+            count = 'reused'
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(body)
+            digest = image_digest(target)
+            saved = {'resource': identity, 'sha256': digest, 'bytes': len(body), **info}
+            count = 'downloaded'
+        with self.status_lock:
+            self._http_cache[key] = saved
+            self._image_counts[count] += 1
 
     def _prepare(self, stage):
         with self.lock:
@@ -241,6 +293,11 @@ class CatalogSync:
             else:
                 stage.mkdir(parents=True)
         old = read_json(stage / 'data/recipes.json', [])
+        self._cache_root = stage
+        self._http_cache = read_json(stage / 'raw/http-cache.json', {})
+        if not isinstance(self._http_cache, dict):
+            self._http_cache = {}
+        self._image_counts = {'downloaded': 0, 'reused': 0}
         old_by_id = {recipe['id']: recipe for recipe in old}
         old_catalog = read_json(stage / 'raw/catalog.json', {'recipe': []})
         old_creators = read_json(stage / 'raw/creators.json', {'creators': []})
@@ -269,11 +326,11 @@ class CatalogSync:
             write_json(stage / 'raw/details' / (rid + '.json'), detail)
             self._image(detail.get('thumbnail', ''), stage / 'recipes' / rid.lower() / 'sample.jpg')
 
-        with ThreadPoolExecutor(max_workers=4) as pool:
+        with ThreadPoolExecutor(max_workers=6) as pool:
             futures = [pool.submit(fetch_detail, item) for item in listed]
             for count, future in enumerate(as_completed(futures), 1):
                 future.result()
-                self._progress(f'正在验证方案及样片 {count} / {len(listed)}…')
+                self._progress(f'正在检查方案 {count} / {len(listed)}（图片未变化时复用本地副本）…')
 
         # Retain offline/withdrawn recipes so favorites and associations keep resolving.
         catalog['recipe'] = listed + [item for item in old_catalog.get('recipe', []) if item['id'] not in remote_ids]
@@ -287,12 +344,13 @@ class CatalogSync:
         used = {creator['id'] for creator in authors if any(
             item['path'].rstrip('/').split('/')[-1] in remote_ids for item in creator.get('recipes', []))}
         portraits = [creator for creator in authors if creator['id'] in used and creator.get('thumbnail')]
-        with ThreadPoolExecutor(max_workers=4) as pool:
+        with ThreadPoolExecutor(max_workers=6) as pool:
             futures = [pool.submit(self._image, creator['thumbnail'], stage / 'assets/creators' / (creator['id'] + '.png')) for creator in portraits]
             for count, future in enumerate(as_completed(futures), 1):
                 future.result()
                 self._progress(f'正在验证作者头像 {count} / {len(portraits)}…')
         write_json(stage / 'raw/catalog.json', catalog)
+        write_json(stage / 'raw/http-cache.json', self._http_cache)
         write_json(stage / 'raw/creators.json', directory)
         write_json(stage / 'data/recipes.json', old)
         write_json(stage / 'data/collection_report.json', {'startedAt': now(), 'finishedAt': now()})
@@ -307,7 +365,8 @@ class CatalogSync:
         changed = [r['id'] for r in new_recipes if r['id'] in old_by_id and fingerprint(r) != fingerprint(old_by_id[r['id']])]
         metadata = {'revision': uuid.uuid4().hex, 'syncedAt': now(), 'newRecipeIds': added,
                     'changedRecipeIds': changed, 'officialCount': len(listed),
-                    'retainedCount': len(new_recipes) - len(listed), 'jobId': self.status().get('jobId')}
+                    'retainedCount': len(new_recipes) - len(listed), 'jobId': self.status().get('jobId'),
+                    'imageDownloads': self._image_counts['downloaded'], 'imageReused': self._image_counts['reused']}
         write_json(stage / 'data/sync_metadata.json', metadata)
         self.validate(stage)
         return metadata

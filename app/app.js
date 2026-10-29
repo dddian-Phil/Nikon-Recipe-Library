@@ -102,7 +102,7 @@ function openPhoto(id,queue=null){
 }
 async function api(path,body){if(isStatic)throw new Error('网页版仅供浏览，请在本地资料库修改');const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
-let websiteStatus={running:false},catalogBusy=false;
+let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false;
 function renderWebsiteStatus(status){
  if(data.mode==='static')return;
  if(status)websiteStatus=status;
@@ -197,9 +197,9 @@ function assignmentEditor(photo){
  select.addEventListener('change',()=>{assignmentQueries.delete(photo.id);mutate(select.value==='__auto__'?{action:'reset_assignment',id:photo.id}:{action:'assign_photo',id:photo.id,recipeId:select.value==='__none__'?null:select.value})});
  section.append(searchLabel,search,label,select,status);render();return section;
 }
-function renderCatalogStatus(status){catalogBusy=!!status.running;renderWebsiteStatus();$('sync-catalog').disabled=catalogBusy||!!websiteStatus.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').textContent=status.state==='idle'?'官方方案仅在点击「同步云创」后更新':status.message;$('catalog-sync-error').hidden=!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
+function renderCatalogStatus(status){catalogBusy=!!status.running;renderWebsiteStatus();$('sync-catalog').disabled=catalogBusy||!!websiteStatus.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').hidden=!catalogStatusRequested;$('catalog-sync-status').textContent='云创方案：'+(status.state==='idle'?'尚未开始同步':status.message);$('catalog-sync-error').hidden=!catalogStatusRequested||!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=!catalogStatusRequested;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
 async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent='官方目录时间：'+(next.syncMetadata?.syncedAt||next.report.finishedAt||'尚未同步');acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
-$('sync-catalog').onclick=async()=>{$('sync-catalog').disabled=true;try{renderCatalogStatus(await api('/api/catalog/sync',{}))}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='无法开始同步：'+error.message;$('sync-catalog').disabled=false}};
+$('sync-catalog').onclick=async()=>{catalogStatusRequested=true;$('catalog-sync-status').hidden=false;$('catalog-sync-status').textContent='云创方案：正在开始同步…';$('sync-catalog').disabled=true;try{renderCatalogStatus(await api('/api/catalog/sync',{}))}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='无法开始同步：'+error.message;$('sync-catalog').disabled=false}};
 $('stamp').textContent='官方目录时间：'+(data.syncMetadata?.syncedAt||data.report.finishedAt||'尚未同步');
 if(isStatic){
  document.documentElement.dataset.mode='static';
@@ -210,7 +210,7 @@ if(isStatic){
  $('view-photos').textContent='我的实拍（'+library.captures.length+'）';
  $('library-status').textContent='浏览公开方案与我的实拍，照片关联及收藏状态来自本地发布';
  $('sync-catalog').textContent='更新说明';$('sync-catalog').onclick=()=>{location.href='./guide.html#updates'};
- $('catalog-sync-status').textContent='实拍更新：'+(published.updatedAt||'尚未发布');
+ $('catalog-sync-status').hidden=false;$('catalog-sync-status').textContent='实拍更新：'+(published.updatedAt||'尚未发布');
  $('stamp').textContent+=' · 发布版本：'+(data.publication?.revision?.slice(0,12)||'本地预览');
 }
 update();window.addEventListener('hashchange',applyRoute);

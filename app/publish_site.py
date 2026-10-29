@@ -22,9 +22,11 @@ BRANCH = 'codex/static-deploy'
 PUBLIC_PATHS = ('data/public-catalog/', 'data/public-photos/')
 SITE_URL = 'https://dddian-phil.github.io/Nikon-Recipe-Library/'
 EVENTS = False
+STARTED = time.monotonic()
 
 
 def progress(phase, message, **values):
+    values['elapsedSeconds'] = round(time.monotonic() - STARTED, 1)
     if EVENTS:
         print('WEBSITE_SYNC ' + json.dumps({'phase': phase, 'message': message, **values}), flush=True)
     else:
@@ -145,11 +147,20 @@ def prepare(workspace):
     export_catalog(workspace / 'data/catalog')
     catalog, _ = snapshot_files(SNAPSHOT)
     result = export_photos(workspace, ROOT / 'data/public-photos', {r['id'] for r in catalog['recipes']})
-    build()
     print(json.dumps(result), flush=True)
-    progress('testing', '正在检查网页内容和图片…')
-    command(sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-v', capture=False)
-    command('node', '--check', 'app/app.js', capture=False)
+    progress('testing', '正在校验网页文件、图片尺寸和完整性…')
+    build()
+
+
+def online_revision_matches(revision):
+    try:
+        req = urllib.request.Request(SITE_URL + 'publish-manifest.json?revision=' + revision,
+                                      headers={'Cache-Control': 'no-cache'})
+        with urllib.request.urlopen(req, timeout=12) as response:
+            manifest = json.load(response)
+        return manifest.get('revision') == revision
+    except (urllib.error.URLError, ValueError):
+        return False
 
 
 def await_deployment(revision):
@@ -172,17 +183,10 @@ def await_deployment(revision):
     progress('verifying', '正在确认线上网页已更新…')
     deadline = time.monotonic() + 120
     while True:
-        try:
-            req = urllib.request.Request(SITE_URL + 'publish-manifest.json?revision=' + revision,
-                                          headers={'Cache-Control': 'no-cache'})
-            with urllib.request.urlopen(req, timeout=15) as response:
-                manifest = json.load(response)
-            if manifest.get('revision') == revision:
-                print('Published and verified: ' + revision + '\n' + SITE_URL, flush=True)
-                progress('verified', '网页已更新。', revision=revision, url=SITE_URL)
-                return
-        except (urllib.error.URLError, ValueError):
-            pass
+        if online_revision_matches(revision):
+            print('Published and verified: ' + revision + '\n' + SITE_URL, flush=True)
+            progress('verified', '网页已更新。', revision=revision, url=SITE_URL)
+            return
         if time.monotonic() > deadline:
             raise ValueError('Pages finished, but the live version is not confirmed yet; refresh later or retry')
         time.sleep(3)
@@ -221,15 +225,22 @@ def publish(args):
     progress('checking', '正在检查网页同步配置…')
     if not args.prepare_only:
         check_deployment()
-        if not shutil.which('gh'):
-            raise ValueError('GitHub CLI (gh) is required to confirm deployment status')
-        command('gh', 'auth', 'status', capture=True)
     prepare(workspace)
     if args.prepare_only:
         print('Local preview prepared; nothing committed or pushed.', flush=True)
         return
     # Check again: never scoop up edits made while export/tests were running.
     check_deployment()
+    changes = command('git', 'status', '--porcelain=v1', '--untracked-files=all', '--', *PUBLIC_PATHS)
+    revision = command('git', 'rev-parse', 'HEAD')
+    if not changes:
+        progress('verifying', '本地内容没有变化，正在确认网页版本…')
+        if online_revision_matches(revision):
+            progress('verified', '网页已经是最新，无需重复发布。', revision=revision, url=SITE_URL, unchanged=True)
+            return
+    if not shutil.which('gh'):
+        raise ValueError('GitHub CLI (gh) is required to confirm deployment status')
+    command('gh', 'auth', 'status', capture=True)
     progress('pushing', '正在上传方案和实拍到 GitHub…')
     command('git', 'add', '--', 'data/public-catalog', 'data/public-photos')
     staged = command('git', 'diff', '--cached', '--name-only', '-z')

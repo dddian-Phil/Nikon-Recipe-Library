@@ -145,6 +145,27 @@ class PublicPhotoTests(unittest.TestCase):
             self.export()
         self.assertEqual(unexpected.read_bytes(), b'PRIVATE_SENTINEL')
 
+    def test_unchanged_photos_and_record_edits_reuse_validated_display_copies(self):
+        self.export()
+        self.records['photoFavorites'] = []
+        self.save_index()
+        with patch.object(public, 'reduced_jpegs', side_effect=AssertionError('Unchanged JPG was re-rendered')):
+            result = self.export()
+        self.assertEqual(result['reused'], 1)
+        self.assertEqual(result['rendered'], 0)
+        payload, _ = public.snapshot_files(self.target, {RID})
+        self.assertFalse(payload['captures'][0]['favorite'])
+
+    def test_edited_photo_regenerates_and_invalid_cached_copy_is_repaired(self):
+        self.export()
+        self.write_source('blue')
+        self.save_index()
+        self.assertEqual(self.export()['rendered'], 1)
+        payload, _ = public.snapshot_files(self.target, {RID})
+        (self.target / payload['captures'][0]['preview'].removeprefix('photos/')).write_bytes(b'corrupt')
+        self.assertEqual(self.export()['rendered'], 1)
+        public.snapshot_files(self.target, {RID})
+
     def test_public_snapshot_rejects_private_fields_bad_references_and_image_tampering(self):
         self.export()
         payload = static.read_json(self.target / 'library.json')
@@ -201,6 +222,28 @@ class PublicPhotoTests(unittest.TestCase):
 
 
 class PublicationGitTests(unittest.TestCase):
+    def test_current_online_version_skips_auth_push_and_deployment(self):
+        args = SimpleNamespace(workspace=static.ROOT, prepare_only=False)
+        with patch.object(publish, 'check_deployment'), patch.object(publish, 'prepare'), \
+             patch.object(publish, 'command', side_effect=['', 'a' * 40]) as command, \
+             patch.object(publish, 'online_revision_matches', return_value=True), \
+             patch.object(publish, 'push_snapshot') as push, \
+             patch.object(publish, 'await_deployment') as deploy, \
+             patch.object(publish, 'progress') as progress:
+            publish.publish(args)
+        push.assert_not_called()
+        deploy.assert_not_called()
+        self.assertEqual(command.call_count, 2)
+        self.assertTrue(progress.call_args.kwargs['unchanged'])
+
+    def test_daily_prepare_validates_output_without_running_program_tests(self):
+        with patch.object(publish, 'refresh_photos'), patch.object(publish, 'export_catalog'), \
+             patch.object(publish, 'snapshot_files', return_value=({'recipes': [{'id': RID}]}, {})), \
+             patch.object(publish, 'export_photos', return_value={'photos': 1}), \
+             patch.object(publish, 'build') as build, patch.object(publish, 'command') as command:
+            publish.prepare(static.ROOT)
+        build.assert_called_once()
+        command.assert_not_called()
     def test_dead_local_git_proxy_is_bypassed_for_this_push_only(self):
         with patch.object(publish, 'command', return_value='https://github.com/example/library.git') as run, \
              patch.object(publish.subprocess, 'run', return_value=SimpleNamespace(stdout='http://127.0.0.1:10808')), \

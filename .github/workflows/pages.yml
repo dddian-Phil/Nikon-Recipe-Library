@@ -21,12 +21,32 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+          fetch-depth: 2
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - name: Install image validation dependencies
         run: python -m pip install -r requirements.txt
+      - name: Detect code changes
+        id: changes
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import os, subprocess
+          parent = subprocess.run(['git', 'rev-parse', 'HEAD^'], capture_output=True, text=True)
+          full = os.environ['EVENT_NAME'] != 'push' or parent.returncode != 0 or parent.stdout.strip() != os.environ.get('BEFORE_SHA')
+          if not full:
+              paths = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD^', 'HEAD'], text=True).splitlines()
+              full = any(p.startswith(('app/', 'tests/', '.github/')) or p == 'requirements.txt' for p in paths)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('test_code=' + str(full).lower() + '\n')
+          PY
       - name: Test static publication boundaries
+        if: steps.changes.outputs.test_code == 'true'
         run: python -B -m unittest discover -s tests -v
       - name: Check JavaScript
         run: node --check app/app.js

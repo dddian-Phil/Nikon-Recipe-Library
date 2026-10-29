@@ -94,6 +94,8 @@ def write_tree(root, files):
         raise ValueError('Unexpected files in output; refusing publication: ' + ', '.join(sorted(unexpected)))
     for relative, body in files.items():
         path = confined(root, relative)
+        if path.is_file() and path.read_bytes() == body:
+            continue
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(body)
 

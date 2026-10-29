@@ -73,6 +73,23 @@ class FakeOfficial:
         return json.dumps(result).encode()
 
 
+class ConditionalOfficial(FakeOfficial):
+    def __init__(self):
+        super().__init__()
+        self.image_bytes = 0
+
+    def __call__(self, url, data=None, **kwargs):
+        body = super().__call__(url, data, **kwargs)
+        if url == sync.LIST or url == sync.IR + '/info/creator' or '/publicrecipe/' in url:
+            return body
+        etag = '"' + hashlib.sha256(body).hexdigest() + '"'
+        kwargs['response_info']['etag'] = etag
+        if kwargs.get('conditional', {}).get('If-None-Match') == etag:
+            return None
+        self.image_bytes += len(body)
+        return body
+
+
 def seed(workspace, official):
     root = workspace / 'data/catalog'
     sync.write_json(root / 'raw/catalog.json', official.catalog())
@@ -141,6 +158,44 @@ class CatalogSyncTests(unittest.TestCase):
     def test_image_only_change_is_detected(self):
         self.official.images[HOST + RID + '.jpg'] = picture('blue')
         self.assertEqual(self.run_sync()['result']['changedRecipeIds'], [RID])
+
+    def test_unchanged_images_are_revalidated_without_downloading(self):
+        self.official = ConditionalOfficial()
+        self.manager.transport = self.official
+        self.assertEqual(self.run_sync()['result']['imageDownloads'], 2)
+        self.official.image_bytes = 0
+        self.official.details = [detail(thumbnail=HOST + RID + '.jpg?Signature=rotated')]
+        result = self.run_sync()['result']
+        self.assertEqual(result['imageReused'], 2)
+        self.assertEqual(result['imageDownloads'], 0)
+        self.assertEqual(self.official.image_bytes, 0)
+        self.assertEqual(result['changedRecipeIds'], [])
+
+    def test_conditional_cache_detects_image_only_edits(self):
+        self.official = ConditionalOfficial()
+        self.manager.transport = self.official
+        self.run_sync()
+        self.official.images[HOST + RID + '.jpg'] = picture('blue')
+        result = self.run_sync()['result']
+        self.assertEqual(result['changedRecipeIds'], [RID])
+        self.assertEqual(result['imageDownloads'], 1)
+        self.assertEqual(result['imageReused'], 1)
+
+    def test_corrupt_local_image_is_downloaded_instead_of_reused(self):
+        self.official = ConditionalOfficial()
+        self.manager.transport = self.official
+        self.run_sync()
+        (self.root / 'recipes' / RID.lower() / 'sample.jpg').write_bytes(b'corrupt')
+        result = self.run_sync()['result']
+        self.assertEqual(result['imageDownloads'], 1)
+        self.assertEqual(result['imageReused'], 1)
+        self.manager.validate(self.root)
+
+    def test_asset_identity_ignores_only_access_signatures(self):
+        self.assertEqual(sync.asset_identity(HOST + 'a.jpg?Signature=old&width=400'),
+                         sync.asset_identity(HOST + 'a.jpg?Signature=new&width=400'))
+        self.assertNotEqual(sync.asset_identity(HOST + 'a.jpg?width=400'),
+                            sync.asset_identity(HOST + 'a.jpg?width=800'))
 
     def test_rotating_signed_urls_do_not_mark_recipe_changed(self):
         self.official.details = [detail(thumbnail=HOST + RID + '.jpg?signature=rotated')]

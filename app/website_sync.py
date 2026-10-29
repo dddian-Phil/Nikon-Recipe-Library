@@ -49,7 +49,8 @@ class WebsiteSync:
         with self.lock:
             if self._status['running']:
                 return False
-            self._update(state='running', running=True, message='正在准备同步到网页…', error='', startedAt=now())
+            self._update(state='running', running=True, message='正在准备同步到网页…', error='', startedAt=now(),
+                         revision='', finishedAt='')
             self.thread = threading.Thread(target=self._run, daemon=True)
             try:
                 self.thread.start()
@@ -60,6 +61,7 @@ class WebsiteSync:
 
     def _run(self):
         verified = None
+        unchanged = False
         reported_error = ''
         try:
             deployment = self.workspace / 'local/worktrees/static-deploy'
@@ -88,6 +90,7 @@ class WebsiteSync:
                             revision = event.get('revision', '')
                             if re.fullmatch(r'[0-9a-f]{40,64}', revision) and event.get('url') == SITE_URL:
                                 verified = revision
+                                unchanged = event.get('unchanged') is True
                         elif event.get('phase') in {'checking', 'scanning', 'exporting', 'testing', 'pushing', 'deploying', 'verifying'}:
                             self._update(message=str(event['message'])[:300])
                     code = process.wait()
@@ -97,7 +100,8 @@ class WebsiteSync:
                 if not reported_error:
                     reported_error = '同步未完成，请检查网络后重试；详细记录保存在本地。'
                 raise ValueError(reported_error)
-            self._update(state='succeeded', running=False, message='网页已更新：本地方案、实拍及收藏状态已同步。',
+            self._update(state='succeeded', running=False,
+                         message='网页已经是最新，无需重复发布。' if unchanged else '网页已更新：本地方案、实拍及收藏状态已同步。',
                          revision=verified, finishedAt=now(), error='')
         except Exception as error:
             self._update(state='failed', running=False, message='网页同步未完成。', error=str(error)[:500], finishedAt=now())
