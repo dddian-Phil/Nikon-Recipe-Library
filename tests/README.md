@@ -17,3 +17,6 @@ retained offline recipes, invalid JSON/IDs/images/URLs, transport failure,
 duplicate starts, directory rename and journal write failure, reload rollback,
 crash recovery, empty installs, local HTTP authorization and path boundaries,
 photo parsing diagnostics, partial copies and manual record preservation.
+Viewer checks also cover unique control IDs, grouped sync/backup/help actions,
+browsing-control placement, visible status regions outside menus, accessible
+search/density controls, and embedded styles and escaped catalog payloads.
