@@ -10,7 +10,7 @@ let visibleRecipeIds=[],visiblePhotoIds=[];
 let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false;
 const assignmentQueries=new Map();
 let keyboardNavigation=false;
-document.addEventListener('pointerdown',event=>{keyboardNavigation=false;event.target.closest('.card,.photo-mini')?.classList.add('pointer-focus-return')},true);
+document.addEventListener('pointerdown',event=>{keyboardNavigation=false;event.target.closest('.card,.photo-mini,.viewer-topnav button')?.classList.add('pointer-focus-return')},true);
 document.addEventListener('keydown',()=>{keyboardNavigation=true;const elements=document.querySelector('dialog[open]')?[document.activeElement]:document.querySelectorAll('.pointer-focus-return');for(const element of elements)element?.classList.remove('pointer-focus-return')},true);
 const viewers={recipe:{queue:[],id:null,focus:false,origin:null},photo:{queue:[],id:null,focus:false,origin:null}};
 const controls=['q','author','camera','lens','base'];
@@ -173,7 +173,7 @@ function toggleFocus(kind){const v=viewers[kind];v.focus=!v.focus;syncViewer(kin
 function navigateViewer(kind,delta){const v=viewers[kind],index=v.queue.indexOf(v.id)+delta;if(index<0||index>=v.queue.length)return;const id=v.queue[index];kind==='photo'?openPhoto(id,v.queue):openRecipe(recipeById.get(id),v.queue);viewerDialog(kind).scrollTop=0}
 function bindViewerSwipe(kind){
  const dialog=viewerDialog(kind);let gesture=null,suppressClickUntil=0;
- const ready=()=>dialog.open&&viewers[kind].focus&&(window.visualViewport?.scale||1)<=1.01;
+ const ready=()=>dialog.open&&(window.visualViewport?.scale||1)<=1.01;
  dialog.addEventListener('pointerdown',event=>{
   suppressClickUntil=0;
   if(event.pointerType!=='touch'){gesture=null;return}
@@ -194,7 +194,7 @@ function bindViewerSwipe(kind){
  dialog.addEventListener('pointerup',event=>{
   const motion=movement(event);if(!motion)return;
   const current=gesture;gesture=null;
-  // A drag must not become the image click that exits focus mode.
+  // A drag must not become the image click that toggles the viewing mode.
   if(current.moved)suppressClickUntil=performance.now()+700;
   if(!ready()||current.id!==viewers[kind].id||current.axis!=='x'||motion.ax<current.threshold||motion.ax<=motion.ay*1.5)return;
   event.preventDefault();navigateViewer(kind,motion.dx<0?1:-1);
@@ -208,6 +208,7 @@ function bindViewerSwipe(kind){
 }
 for(const kind of['recipe','photo']){
  bindViewerSwipe(kind);
+ viewerDialog(kind).addEventListener('focusin',event=>{if(event.target.matches('.viewer-topnav button'))event.target.classList.toggle('pointer-focus-return',!keyboardNavigation)});
  $(kind+'-prev').onclick=()=>navigateViewer(kind,-1);$(kind+'-next').onclick=()=>navigateViewer(kind,1);$(kind+'-focus').onclick=()=>toggleFocus(kind);
  viewerDialog(kind).addEventListener('close',()=>{const v=viewers[kind],origin=v.origin;v.focus=false;viewerDialog(kind).classList.remove('is-focused');requestAnimationFrame(()=>{if(origin){for(const parent of origin.parent)if(parent.node.open)parent.node.scrollTop=parent.top;if(origin.element?.isConnected){origin.element.classList.toggle('pointer-focus-return',!origin.keyboard);origin.element.focus({preventScroll:true})}window.scrollTo(origin.x,origin.y)}})});
 }

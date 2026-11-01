@@ -58,29 +58,28 @@ async page => {
     await touch.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
     await page.waitForTimeout(400);
   }
-  async function verify(kind) {
+  async function verify(kind, focused) {
     const dialog = page.locator(kind === 'recipe' ? '#modal' : '#photo-modal');
     const image = dialog.locator('.detailimage img');
     const position = page.locator('#' + kind + '-position');
     const focus = page.locator('#' + kind + '-focus');
     const close = page.locator(kind === 'recipe' ? '#close' : '#photo-close');
+    const isFocused = async () => (await dialog.getAttribute('class') || '').includes('is-focused');
     const initial = await position.textContent();
     await image.evaluate(img => img.decode());
-    await swipe(image, -150);
-    check(await position.textContent() === initial, kind + ': swiped outside focus mode');
-    await focus.click();
+    if (focused) await focus.click();
     check(await image.evaluate(img => getComputedStyle(img.parentElement).touchAction) === 'pan-y pinch-zoom', kind + ': missing touch policy');
     await swipe(image, -150);
     check((await position.textContent()).startsWith('2 /'), kind + ': left swipe did not go forward');
-    check((await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': swipe exited focus');
+    check(await isFocused() === focused, kind + ': swipe changed viewing mode');
     await swipe(image, 150);
     check(await position.textContent() === initial, kind + ': right swipe did not go back');
     await swipe(image, 150);
     check(await position.textContent() === initial, kind + ': moved before first photo');
-    check((await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': edge swipe exited focus');
+    check(await isFocused() === focused, kind + ': edge swipe changed viewing mode');
     await swipe(image, -24);
     check(await position.textContent() === initial, kind + ': short drag changed image');
-    check((await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': short drag exited focus');
+    check(await isFocused() === focused, kind + ': short drag changed viewing mode');
     await swipe(image, -20, -110);
     check(await position.textContent() === initial, kind + ': vertical scroll changed image');
     await dialog.evaluate(node => { node.scrollTop = 0; });
@@ -99,43 +98,82 @@ async page => {
     await page.mouse.move(imageBox.x + 40, imageBox.y + 80, {steps: 6});
     await page.mouse.up();
     check(await position.textContent() === initial, kind + ': mouse drag changed image');
-    if (!(await dialog.getAttribute('class') || '').includes('is-focused')) await focus.click();
-    await swipe(page.locator('#' + kind + '-strip'), -120);
-    check(await position.textContent() === initial, kind + ': thumbnail scrolling changed image');
+    if (await isFocused() !== focused) await focus.click();
+    if (focused) {
+      await swipe(page.locator('#' + kind + '-strip'), -120);
+      check(await position.textContent() === initial, kind + ': thumbnail scrolling changed image');
+    }
     await tap(image);
-    check(!(await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': ordinary tap no longer exits focus');
+    check(await isFocused() !== focused, kind + ': ordinary tap no longer changes mode');
     await tap(image);
-    check((await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': ordinary tap no longer enters focus');
+    check(await isFocused() === focused, kind + ': ordinary tap no longer restores mode');
     await swipe(image, -150);
-    await page.screenshot({path: output + '-' + kind + '-swipe.png'});
+    await page.screenshot({path: output + '-' + kind + (focused ? '-focus' : '-detail') + '-swipe.png'});
     await close.click();
     await page.locator('#grid .card').first().click();
-    await focus.click();
+    if (focused) await focus.click();
     await swipe(image, -150);
     check((await position.textContent()).startsWith('2 /'), kind + ': swipe stopped after reopening');
     await close.click();
     await page.locator('#grid .card').last().click();
-    await focus.click();
+    if (focused) await focus.click();
     const last = await position.textContent();
     await swipe(image, -150);
     check(await position.textContent() === last, kind + ': moved past last photo');
-    check((await dialog.getAttribute('class') || '').includes('is-focused'), kind + ': final swipe exited focus');
+    check(await isFocused() === focused, kind + ': final swipe changed viewing mode');
     await close.click();
   }
-  await page.locator('#grid .card').first().click();
-  await verify('recipe');
+  for (const focused of [false, true]) {
+    await page.locator('#grid .card').first().click();
+    await verify('recipe', focused);
+  }
   await page.locator('#view-photos').click();
   const photos = await page.locator('#grid .card').count();
   check(photos > 1, 'Photo swipe coverage requires at least two indexed or published photos');
-  await page.locator('#grid .card').first().click();
-  if (!isStatic) check(await page.locator('.source-files h3').textContent() === '\u539f\u6587\u4ef6', 'Original-files heading still has parenthetical text');
-  await verify('photo');
+  for (const focused of [false, true]) {
+    await page.locator('#grid .card').first().click();
+    if (!isStatic) check(await page.locator('.source-files h3').textContent() === '\u539f\u6587\u4ef6', 'Original-files heading still has parenthetical text');
+    await verify('photo', focused);
+  }
   await page.locator('#q').fill(await page.locator('#grid h3').first().textContent());
   const filtered = await page.locator('#grid .card').count();
   await page.locator('#grid .card').first().click();
   await page.locator('#photo-focus').click();
   check((await page.locator('#photo-position').textContent()).endsWith('/ ' + filtered), 'Swipe queue ignores current filters');
   await page.locator('#photo-close').click();
+  await page.locator('#q').fill('');
+  for (const width of [1440, 390, 320]) {
+    await page.setViewportSize({width, height: 900});
+    for (const kind of ['recipe', 'photo']) {
+      await page.locator(kind === 'recipe' ? '#view-recipes' : '#view-photos').click();
+      await page.locator('#grid .card').first().click();
+      const dialog = page.locator(kind === 'recipe' ? '#modal' : '#photo-modal');
+      const nav = dialog.locator('.viewer-topnav');
+      await page.locator('#' + kind + '-next').click();
+      await page.mouse.move(0, 0);
+      const layout = await nav.evaluate(node => ({
+        centers: [...node.querySelectorAll('svg,.viewer-position')].map(item => {
+          const box = item.getBoundingClientRect();return box.y + box.height / 2;
+        }),
+        buttons: [...node.querySelectorAll('button')].map(button => ({
+          outline: getComputedStyle(button).outlineStyle,
+          shadow: getComputedStyle(button).boxShadow
+        }))
+      }));
+      check(layout.centers.length === 3 && Math.max(...layout.centers) - Math.min(...layout.centers) < 1, 'Arrow and counter alignment: ' + JSON.stringify(layout));
+      check(layout.buttons.every(button => button.outline === 'none' && button.shadow === 'none'), 'Pointer navigation has a focus highlight');
+      check(await dialog.locator('.dialogtop').evaluate(node => node.scrollWidth <= node.clientWidth), 'Toolbar overflows at ' + width);
+      await dialog.locator('.dialogtop').screenshot({path: output + '-' + kind + '-nav-' + width + '.png'});
+      await page.keyboard.press('Shift+Tab');
+      const keyboardFocus = await page.evaluate(() => ({
+        nav: !!document.activeElement.closest('.viewer-topnav'),
+        outline: getComputedStyle(document.activeElement).outlineStyle,
+        shadow: getComputedStyle(document.activeElement).boxShadow
+      }));
+      check(keyboardFocus.nav && keyboardFocus.outline === 'none' && keyboardFocus.shadow !== 'none', 'Keyboard focus lost its quiet indicator');
+      await page.locator(kind === 'recipe' ? '#close' : '#photo-close').click();
+    }
+  }
   check(errors.length === 0, 'Browser errors: ' + errors.join(', '));
-  return {mode: isStatic ? 'static' : 'local', photos, filtered, errors, checks: 'real touch swipes, boundaries, vertical scroll, multitouch, cancellation, short drags, mouse, thumbnail scroll, taps, reopen, filtered queue'};
+  return {mode: isStatic ? 'static' : 'local', photos, filtered, errors, modes: ['detail', 'focus'], navigationWidths: [1440, 390, 320], checks: 'touch swipes, boundaries, vertical scroll, multitouch, zoom, cancellation, taps, filtered queue, aligned icons, no pointer highlight, keyboard focus'};
 }

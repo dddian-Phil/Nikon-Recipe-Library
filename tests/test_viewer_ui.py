@@ -98,6 +98,15 @@ class ViewerUITests(unittest.TestCase):
         self.assertIn('data-local-only', parser.elements['publish-website'][0])
         self.assertIn('data-local-only', parser.elements['website-sync-panel'][0])
 
+    def test_viewer_navigation_has_named_icon_controls(self):
+        html, parser = self.page()
+        for key in ('recipe-prev', 'recipe-next', 'photo-prev', 'photo-next'):
+            attrs, _ = parser.elements[key]
+            self.assertTrue(attrs['aria-label'])
+            self.assertEqual(attrs['title'], attrs['aria-label'])
+        self.assertEqual(html.count('class="lucide lucide-chevron-left"'), 2)
+        self.assertEqual(html.count('class="lucide lucide-chevron-right"'), 2)
+
     def test_payload_and_embedded_styles_survive_header_changes(self):
         recipe = {'id': 'preview', 'name': '长标题 </script> 与引号 "',
                   'image': 'recipes/preview/sample.jpg', 'document': 'preview.md',

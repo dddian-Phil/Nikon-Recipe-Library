@@ -41,8 +41,10 @@ npx.cmd --yes @playwright/cli -s=nikon-swipe run-code --filename tests/viewer_sw
 npx.cmd --yes @playwright/cli -s=nikon-swipe close
 ```
 
-This sends real touch input for recipes and photos, covering directions,
+This sends real touch input for recipes and photos in normal and focused modes, covering directions,
 queue boundaries, filtered queues, cancellation, vertical scroll, multitouch,
 zoomed panning, short drags, thumbnail scroll, taps and immediate button actions.
+It checks icon/counter alignment at desktop and mobile widths and verifies that
+pointer navigation has no focus highlight while keyboard navigation stays visible.
 It never changes published or personal records. Screenshots are saved under
 ignored `output/playwright/`. Physical iPhone Safari behavior still needs device QA.
