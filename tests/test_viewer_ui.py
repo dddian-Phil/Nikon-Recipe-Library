@@ -107,6 +107,15 @@ class ViewerUITests(unittest.TestCase):
         self.assertEqual(html.count('class="lucide lucide-chevron-left"'), 2)
         self.assertEqual(html.count('class="lucide lucide-chevron-right"'), 2)
 
+    def test_viewer_close_icons_keep_accessible_names(self):
+        html, parser = self.page()
+        for key in ('close', 'photo-close'):
+            attrs, _ = parser.elements[key]
+            self.assertEqual(attrs['class'], 'viewer-close')
+            self.assertTrue(attrs['aria-label'])
+            self.assertEqual(attrs['title'], attrs['aria-label'])
+        self.assertEqual(html.count('class="lucide lucide-x"'), 2)
+
     def test_payload_and_embedded_styles_survive_header_changes(self):
         recipe = {'id': 'preview', 'name': '长标题 </script> 与引号 "',
                   'image': 'recipes/preview/sample.jpg', 'document': 'preview.md',
