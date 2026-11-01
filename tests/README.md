@@ -30,9 +30,12 @@ npx.cmd --yes @playwright/cli -s=nikon-swipe run-code --filename tests/viewer_sw
 npx.cmd --yes @playwright/cli -s=nikon-swipe close
 ```
 
-The browser check sends real touch input for both recipe and photo viewers.
+The browser check sends real touch input for both recipe and photo viewers
+in normal detail and focused modes.
 It covers direction, queue boundaries, filtered queues, cancelled gestures,
 vertical scrolling, multitouch, zoomed panning, short drags, mouse input,
 thumbnail scrolling, ordinary taps and immediate button actions after swiping.
+It also verifies icon/counter alignment at desktop and mobile widths, no pointer
+focus highlight on navigation arrows, and a quiet keyboard focus indicator.
 Local photo state is mocked only in this test browser; no records are written.
 Screenshots are saved under ignored `output/playwright/`.
