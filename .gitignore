@@ -23,6 +23,8 @@ venv/
 .agents/
 .aws/
 .playwright-mcp/
+.playwright-cli/
+/output/
 .vscode/
 .idea/
 *.log

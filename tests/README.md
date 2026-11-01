@@ -20,3 +20,19 @@ photo parsing diagnostics, partial copies and manual record preservation.
 Viewer checks also cover unique control IDs, grouped sync/backup/help actions,
 browsing-control placement, visible status regions outside menus, accessible
 search/density controls, and embedded styles and escaped catalog payloads.
+
+Touch gestures can be checked in a dedicated Chromium session after starting
+the local library (or a static preview with at least two published photos):
+
+```powershell
+npx.cmd --yes @playwright/cli -s=nikon-swipe open http://127.0.0.1:8765/ --browser chrome
+npx.cmd --yes @playwright/cli -s=nikon-swipe run-code --filename tests/viewer_swipe.browser.js
+npx.cmd --yes @playwright/cli -s=nikon-swipe close
+```
+
+The browser check sends real touch input for both recipe and photo viewers.
+It covers direction, queue boundaries, filtered queues, cancelled gestures,
+vertical scrolling, multitouch, zoomed panning, short drags, mouse input,
+thumbnail scrolling, ordinary taps and immediate button actions after swiping.
+Local photo state is mocked only in this test browser; no records are written.
+Screenshots are saved under ignored `output/playwright/`.

@@ -165,7 +165,7 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(7px)}
 /* A focused photograph is never cropped, including the thumbnail rail. */
 dialog.is-focused{width:min(1440px,97vw);background:var(--canvas)}
 dialog.is-focused .detail{display:block}dialog.is-focused .detail>div:not(.detailimage){display:none}
-dialog.is-focused .detailimage{position:static;min-height:68vh;padding:16px 40px}
+dialog.is-focused .detailimage{position:static;min-height:68vh;padding:16px 40px;touch-action:pan-y pinch-zoom}
 dialog.is-focused .detailimage img{max-height:71vh;cursor:zoom-out}dialog.is-focused .detailimage p{display:none}
 .viewer-strip{display:none}dialog.is-focused .viewer-strip{display:flex;align-items:center;gap:8px;padding:12px 20px;overflow-x:auto;background:var(--canvas);border-top:1px solid var(--line)}
 .viewer-strip button{flex:0 0 66px;width:66px;height:54px;padding:3px;border-radius:4px;border:1px solid transparent;background:var(--surface)}

@@ -162,7 +162,43 @@ function syncViewer(kind){
 }
 function toggleFocus(kind){const v=viewers[kind];v.focus=!v.focus;syncViewer(kind);viewerDialog(kind).scrollTop=0}
 function navigateViewer(kind,delta){const v=viewers[kind],index=v.queue.indexOf(v.id)+delta;if(index<0||index>=v.queue.length)return;const id=v.queue[index];kind==='photo'?openPhoto(id,v.queue):openRecipe(recipeById.get(id),v.queue);viewerDialog(kind).scrollTop=0}
+function bindViewerSwipe(kind){
+ const dialog=viewerDialog(kind);let gesture=null,suppressClickUntil=0;
+ const ready=()=>dialog.open&&viewers[kind].focus&&(window.visualViewport?.scale||1)<=1.01;
+ dialog.addEventListener('pointerdown',event=>{
+  suppressClickUntil=0;
+  if(event.pointerType!=='touch'){gesture=null;return}
+  const stage=event.target.closest?.('.detailimage');
+  if(!event.isPrimary||!ready()||!stage){gesture=null;return}
+  gesture={pointer:event.pointerId,id:viewers[kind].id,x:event.clientX,y:event.clientY,axis:null,moved:false,threshold:Math.max(48,stage.clientWidth*.12)};
+ });
+ function movement(event){
+  if(!gesture||gesture.pointer!==event.pointerId)return null;
+  const dx=event.clientX-gesture.x,dy=event.clientY-gesture.y,ax=Math.abs(dx),ay=Math.abs(dy);
+  if(Math.max(ax,ay)>10){
+   gesture.moved=true;
+   if(!gesture.axis){if(ax>ay*1.25)gesture.axis='x';else if(ay>ax*1.25)gesture.axis='y'}
+  }
+  return {dx,ax,ay};
+ }
+ dialog.addEventListener('pointermove',movement,{passive:true});
+ dialog.addEventListener('pointerup',event=>{
+  const motion=movement(event);if(!motion)return;
+  const current=gesture;gesture=null;
+  // A drag must not become the image click that exits focus mode.
+  if(current.moved)suppressClickUntil=performance.now()+700;
+  if(!ready()||current.id!==viewers[kind].id||current.axis!=='x'||motion.ax<current.threshold||motion.ax<=motion.ay*1.5)return;
+  event.preventDefault();navigateViewer(kind,motion.dx<0?1:-1);
+ });
+ dialog.addEventListener('pointercancel',()=>{gesture=null});
+ dialog.addEventListener('click',event=>{
+  if(performance.now()>suppressClickUntil)return;
+  suppressClickUntil=0;event.preventDefault();event.stopImmediatePropagation();
+ },true);
+ dialog.addEventListener('close',()=>{gesture=null;suppressClickUntil=0});
+}
 for(const kind of['recipe','photo']){
+ bindViewerSwipe(kind);
  $(kind+'-prev').onclick=()=>navigateViewer(kind,-1);$(kind+'-next').onclick=()=>navigateViewer(kind,1);$(kind+'-focus').onclick=()=>toggleFocus(kind);
  viewerDialog(kind).addEventListener('close',()=>{const v=viewers[kind],origin=v.origin;v.focus=false;viewerDialog(kind).classList.remove('is-focused');requestAnimationFrame(()=>{if(origin){for(const parent of origin.parent)if(parent.node.open)parent.node.scrollTop=parent.top;if(origin.element?.isConnected){origin.element.classList.toggle('pointer-focus-return',!origin.keyboard);origin.element.focus({preventScroll:true})}window.scrollTo(origin.x,origin.y)}})});
 }
