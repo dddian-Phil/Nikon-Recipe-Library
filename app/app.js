@@ -100,14 +100,14 @@ function openPhoto(id,queue=null){
 }
 async function api(path,body){const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
-let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false,websiteStatusRequested=false;
+let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false;
 function renderWebsiteStatus(status){
  if(data.mode==='static')return;
  if(status)websiteStatus=status;
  const s=websiteStatus;
  $('publish-website').disabled=!!s.running||catalogBusy;
  $('publish-website').textContent=s.running?'正在同步网页…':'同步到 GitHub 网页';
- $('website-sync-panel').hidden=!s.state||s.state==='idle'||(s.state==='succeeded'&&!websiteStatusRequested);
+ $('website-sync-panel').hidden=!s.state||s.state==='idle';
  $('website-sync-status').textContent=(s.message||'')+(s.state==='succeeded'&&s.finishedAt?' · '+new Date(s.finishedAt).toLocaleString('zh-CN',{hour12:false}):'');
  $('website-sync-error').hidden=!s.error;$('website-sync-error').textContent=s.error||'';
  $('website-link').hidden=s.state!=='succeeded';
@@ -115,7 +115,6 @@ function renderWebsiteStatus(status){
 }
 $('publish-website').onclick=async()=>{
  if(data.mode==='static')return;
- websiteStatusRequested=true;
  $('publish-website').disabled=true;
  try{renderWebsiteStatus(await api('/api/website/sync',{}))}
  catch(error){renderWebsiteStatus({...websiteStatus,state:'failed',message:'未能开始网页同步。',error:error.message})}
@@ -173,8 +172,6 @@ document.addEventListener('keydown',event=>{
  if(kind){if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();navigateViewer(kind,event.key==='ArrowLeft'?-1:1)}else if(key==='f'){event.preventDefault();toggleFocus(kind)}}else if(event.key==='/'){event.preventDefault();$('q').focus();$('q').select()}
 });
 document.addEventListener('click',event=>{if(!event.target.closest('#utility-menu'))$('utility-menu').open=false});
-document.addEventListener('click',event=>{if(!event.target.closest('#filter-menu')&&!event.target.closest('#author-picker'))$('filter-menu').open=false});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.querySelector('dialog[open]')){for(const id of['filter-menu','utility-menu'])if($(id).open){$(id).open=false;$(id).querySelector('summary').focus()}}});
 function problemItem(issue){const item=el('div',undefined,'problem-item');item.append(el('strong',issue.file||'照片'),el('p',issue.message),el('p',issue.action,'muted'));if(issue.detail){const details=el('details');details.append(el('summary','技术详情'),el('p',issue.detail));item.append(details)}return item}
 function assignmentEditor(photo){
  const section=el('details',undefined,'assignment');section.open=!photo.recipeId;
@@ -203,3 +200,7 @@ function renderCatalogStatus(status){catalogBusy=!!status.running;renderWebsiteS
 async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent='官方目录时间：'+(next.syncMetadata?.syncedAt||next.report.finishedAt||'尚未同步');acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
 $('sync-catalog').onclick=async()=>{catalogStatusRequested=true;$('catalog-sync-status').hidden=false;$('catalog-sync-status').textContent='云创方案：正在开始同步…';$('sync-catalog').disabled=true;try{renderCatalogStatus(await api('/api/catalog/sync',{}))}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='无法开始同步：'+error.message;$('sync-catalog').disabled=false}};
 $('stamp').textContent='官方目录时间：'+(data.report.finishedAt||'尚未同步');update();window.addEventListener('hashchange',applyRoute);(async()=>{try{await loadCatalog()}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='读取当前目录失败：'+error.message+'。请刷新页面。'}await refresh();applyRoute()})();setInterval(()=>{if(!document.hidden)refresh()},3000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+
+// Close the grouped filters without changing the original v1 browsing behavior.
+document.addEventListener('click',event=>{if(!event.target.closest('#filter-menu')&&!event.target.closest('#author-picker'))$('filter-menu').open=false});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.querySelector('dialog[open]')&&$('filter-menu').open){$('filter-menu').open=false;$('filter-menu').querySelector('summary').focus()}});
