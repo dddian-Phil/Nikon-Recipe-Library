@@ -163,6 +163,18 @@ async page => {
       check(layout.centers.length === 3 && Math.max(...layout.centers) - Math.min(...layout.centers) < 1, 'Arrow and counter alignment: ' + JSON.stringify(layout));
       check(layout.buttons.every(button => button.outline === 'none' && button.shadow === 'none'), 'Pointer navigation has a focus highlight');
       check(await dialog.locator('.dialogtop').evaluate(node => node.scrollWidth <= node.clientWidth), 'Toolbar overflows at ' + width);
+      const closeStyle = await dialog.locator('.viewer-close').evaluate(button => {
+        const box = button.getBoundingClientRect(), icon = button.querySelector('svg').getBoundingClientRect(), style = getComputedStyle(button);
+        return {width: box.width, height: box.height, iconWidth: icon.width, iconHeight: icon.height,
+          text: button.textContent.trim(), label: button.getAttribute('aria-label'),
+          background: style.backgroundColor, border: style.borderWidth,
+          dx: (icon.x + icon.width / 2) - (box.x + box.width / 2),
+          dy: (icon.y + icon.height / 2) - (box.y + box.height / 2)};
+      });
+      check(closeStyle.width === 44 && closeStyle.height === 44, 'Close target is not 44px: ' + JSON.stringify(closeStyle));
+      check(closeStyle.iconWidth === 18 && closeStyle.iconHeight === 18 && Math.abs(closeStyle.dx) < 1 && Math.abs(closeStyle.dy) < 1, 'Close icon is not centered');
+      check(closeStyle.text === '' && closeStyle.label, 'Close icon lacks an accessible name or still shows text');
+      check(closeStyle.background === 'rgba(0, 0, 0, 0)' && closeStyle.border === '0px', 'Close button has a persistent background or border');
       await dialog.locator('.dialogtop').screenshot({path: output + '-' + kind + '-nav-' + width + '.png'});
       await page.keyboard.press('Shift+Tab');
       const keyboardFocus = await page.evaluate(() => ({

@@ -241,3 +241,10 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
   .countbar{gap:7px}.filter-options{gap:8px 12px}.brand{font-size:13px}.library-actions{font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+
+.viewer-toolbar{padding-block:10px}
+.dialog-actions .viewer-close{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-width:44px;padding:0;margin-left:4px;border:0;border-radius:6px;line-height:1;color:var(--muted);background:transparent}
+.viewer-close svg{display:block;width:18px;height:18px}
+.dialog-actions .viewer-close:active{color:var(--ink);background:var(--hover)}
+.dialog-actions .viewer-close:focus-visible{outline:none;box-shadow:inset 0 -2px var(--muted)}
+@media(hover:hover){.dialog-actions .viewer-close:hover{color:var(--ink);background:var(--hover)}}
