@@ -28,3 +28,6 @@ retained offline recipes, invalid JSON/IDs/images/URLs, transport failure,
 duplicate starts, directory rename and journal write failure, reload rollback,
 crash recovery, empty installs, local HTTP authorization and path boundaries,
 photo parsing diagnostics, partial copies and manual record preservation.
+Public gallery checks also cover unique status IDs after static conversion,
+local-only action markers, grouped browsing controls, dark embedded styles,
+relative public links, and escaped catalog payloads.

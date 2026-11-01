@@ -304,12 +304,11 @@ def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
     template = template.replace('__PAYLOAD__', serialized)
     template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" data-mode="static">')
     template = template.replace('src="/app.js"', 'src="./app.js"')
-    template = template.replace('NIKON IMAGING CLOUD / LOCAL LIBRARY', 'NIKON IMAGING CLOUD / RECIPE LIBRARY')
     template = template.replace('href="/api/backup"', 'href="#"')
     template = template.replace('href="/scheme-table.xlsx"', 'href="./catalog/tables/recipes.csv"').replace('Excel 总表</a>', '配方总表 CSV</a>')
     template = template.replace('href="/guide"', 'href="./guide.html"')
     template = template.replace('资料与备份</summary>', '资料与说明</summary>')
-    template = re.sub(r'<footer>.*?</footer>', '<footer><div class="footer-wordmark">尼康云创 <span>· 我的色彩资料库</span></div><p id="library-status" aria-live="polite"></p>本页展示公开方案、官方样片与我的实拍；关联和收藏状态随本地资料库发布更新。<br>实拍仅提供压缩展示图，原始 JPG 保留在本地。方案器材为官网样片拍摄设备；按名称关联不代表全部参数未经微调。<br><span id="stamp"></span></footer>', template, count=1, flags=re.S)
+    template = re.sub(r'<footer>.*?</footer>', '<footer><p>尼康云创 · 色彩与实拍</p><div class="footer-notes"><span>实拍为压缩展示图，原始照片保留在本地。收藏与关联为最近一次发布的状态。</span><span>官网样片器材不代表兼容性限制；实拍按优化校准名称关联，参数可能经过微调。</span><span id="stamp"></span></div></footer>', template, count=1, flags=re.S)
     files = {'index.html': template.encode('utf-8'),
              'app.js': (ROOT / 'app/app.js').read_bytes(),
              'guide.html': (ROOT / 'app/public_guide.html').read_bytes(), '.nojekyll': b''}

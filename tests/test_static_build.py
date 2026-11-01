@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'app'))
 import build_static as static
+from test_viewer_ui import ViewerParser
 
 RID = 'PUBLICRECIPE0001'
 CID = 'PUBLICAUTHOR0001'
@@ -83,6 +84,39 @@ class StaticBuildTests(unittest.TestCase):
                     static.build(self.snapshot, self.output)
                 self.assertEqual(bad.read_text(encoding='utf-8'), 'private')
                 bad.unlink()
+
+    def test_gallery_structure_survives_static_conversion(self):
+        static.build(self.snapshot, self.output)
+        html = (self.output / 'index.html').read_text(encoding='utf-8')
+        parser = ViewerParser()
+        parser.feed(html)
+        self.assertTrue(all(count == 1 for count in parser.ids.values()))
+        self.assertIn('color-scheme:dark', html)
+        self.assertIn('class="library-header"', html)
+        self.assertIn('class="footer-notes"', html)
+        for key in ('view-recipes', 'view-photos', 'q', 'filter-menu',
+                    'recipe-sort', 'density-comfort', 'density-compact'):
+            self.assertIn('browse-controls', parser.elements[key][1])
+        self.assertEqual(parser.ids['library-status'], 1)
+        self.assertEqual(parser.ids['stamp'], 1)
+        self.assertIn('utility-menu', parser.elements['shortcut-help'][1])
+        for key in ('scan-photos', 'publish-website', 'import-records', 'photo-like'):
+            self.assertIn('data-local-only', parser.elements[key][0])
+        self.assertIn('<div class="utility-group" data-local-only>', html)
+        self.assertNotIn('href="/api/', html)
+        self.assertIn('href="./guide.html"', html)
+        self.assertEqual(json.loads(parser.payload)['mode'], 'static')
+
+    def test_static_payload_stays_escaped_in_gallery_template(self):
+        self.payload['recipes'][0]['name'] = '</script><img src=x onerror=alert(1)>'
+        self.save_snapshot()
+        static.build(self.snapshot, self.output)
+        html = (self.output / 'index.html').read_text(encoding='utf-8')
+        parser = ViewerParser()
+        parser.feed(html)
+        self.assertNotIn(self.payload['recipes'][0]['name'], html)
+        self.assertEqual(json.loads(parser.payload)['recipes'][0]['name'],
+                         self.payload['recipes'][0]['name'])
 
     def test_rejects_modified_sample_portrait_and_detail(self):
         for relative in (static.sample_path(RID), static.portrait_path(CID), 'details/' + RID + '.json'):
