@@ -303,12 +303,13 @@ def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
     serialized = json.dumps(payload, ensure_ascii=False, allow_nan=False).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
     template = template.replace('__PAYLOAD__', serialized)
     template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" data-mode="static">')
+    template = template.replace('src="/app.js"', 'src="./app.js"')
     template = template.replace('NIKON IMAGING CLOUD / LOCAL LIBRARY', 'NIKON IMAGING CLOUD / RECIPE LIBRARY')
     template = template.replace('href="/api/backup"', 'href="#"')
     template = template.replace('href="/scheme-table.xlsx"', 'href="./catalog/tables/recipes.csv"').replace('Excel 总表</a>', '配方总表 CSV</a>')
     template = template.replace('href="/guide"', 'href="./guide.html"')
     template = template.replace('资料与备份</summary>', '资料与说明</summary>')
-    template = re.sub(r'<footer>.*?</footer>', '<footer>本页展示公开方案、官方样片与我的实拍；关联和收藏状态随本地资料库发布更新。<br>实拍仅提供压缩展示图，原始 JPG 保留在本地。方案器材为官网样片拍摄设备；按名称关联不代表全部参数未经微调。<br><span id="stamp"></span></footer>', template, count=1, flags=re.S)
+    template = re.sub(r'<footer>.*?</footer>', '<footer><div class="footer-wordmark">尼康云创 <span>· 我的色彩资料库</span></div><p id="library-status" aria-live="polite"></p>本页展示公开方案、官方样片与我的实拍；关联和收藏状态随本地资料库发布更新。<br>实拍仅提供压缩展示图，原始 JPG 保留在本地。方案器材为官网样片拍摄设备；按名称关联不代表全部参数未经微调。<br><span id="stamp"></span></footer>', template, count=1, flags=re.S)
     files = {'index.html': template.encode('utf-8'),
              'app.js': (ROOT / 'app/app.js').read_bytes(),
              'guide.html': (ROOT / 'app/public_guide.html').read_bytes(), '.nojekyll': b''}
