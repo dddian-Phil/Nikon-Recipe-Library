@@ -108,7 +108,7 @@ function openPhoto(id,queue=null){
  const fileIssues=(p.issues||[]).filter(issue=>!['missing_picture_control','picture_control_unavailable','picture_control_encoding','incomplete_picture_control','unsupported_picture_control','conflicting_picture_control'].includes(issue.code));
  if(fileIssues.length){const warnings=el('section',undefined,'photo-problems');warnings.append(el('h3','文件读取提示'));for(const issue of fileIssues)warnings.append(problemItem(issue));info.append(warnings)}
  if(!isStatic)info.append(assignmentEditor(p));
- info.append(parameterTable('我的拍摄信息',{拍摄时间:formatTakenAt(p.takenAt),相机:p.camera,镜头:p.lens,ISO:p.iso||'',光圈:p.fNumber||'',快门秒:p.exposureTime||'',焦距:p.focalLength||''}));if(!isStatic){const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件（JPG＋NEF 归为一次拍摄）'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources)}else photo.append(el('p','实拍展示图 · '+p.imageInfo.width+' × '+p.imageInfo.height+' px'));content.append(photo,info);$('photo-like').textContent=p.favorite?'♥ 已喜欢':'♡ 喜欢这张';$('photo-like').setAttribute('aria-pressed',String(p.favorite));photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
+ info.append(parameterTable('我的拍摄信息',{拍摄时间:formatTakenAt(p.takenAt),相机:p.camera,镜头:p.lens,ISO:p.iso||'',光圈:p.fNumber||'',快门秒:p.exposureTime||'',焦距:p.focalLength||''}));if(!isStatic){const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources)}else photo.append(el('p','实拍展示图 · '+p.imageInfo.width+' × '+p.imageInfo.height+' px'));content.append(photo,info);$('photo-like').textContent=p.favorite?'♥ 已喜欢':'♡ 喜欢这张';$('photo-like').setAttribute('aria-pressed',String(p.favorite));photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
 }
 async function api(path,body){if(isStatic)throw new Error('网页版仅供浏览，请在本地资料库修改');const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
@@ -171,7 +171,43 @@ function syncViewer(kind){
 }
 function toggleFocus(kind){const v=viewers[kind];v.focus=!v.focus;syncViewer(kind);viewerDialog(kind).scrollTop=0}
 function navigateViewer(kind,delta){const v=viewers[kind],index=v.queue.indexOf(v.id)+delta;if(index<0||index>=v.queue.length)return;const id=v.queue[index];kind==='photo'?openPhoto(id,v.queue):openRecipe(recipeById.get(id),v.queue);viewerDialog(kind).scrollTop=0}
+function bindViewerSwipe(kind){
+ const dialog=viewerDialog(kind);let gesture=null,suppressClickUntil=0;
+ const ready=()=>dialog.open&&viewers[kind].focus&&(window.visualViewport?.scale||1)<=1.01;
+ dialog.addEventListener('pointerdown',event=>{
+  suppressClickUntil=0;
+  if(event.pointerType!=='touch'){gesture=null;return}
+  const stage=event.target.closest?.('.detailimage');
+  if(!event.isPrimary||!ready()||!stage){gesture=null;return}
+  gesture={pointer:event.pointerId,id:viewers[kind].id,x:event.clientX,y:event.clientY,axis:null,moved:false,threshold:Math.max(48,stage.clientWidth*.12)};
+ });
+ function movement(event){
+  if(!gesture||gesture.pointer!==event.pointerId)return null;
+  const dx=event.clientX-gesture.x,dy=event.clientY-gesture.y,ax=Math.abs(dx),ay=Math.abs(dy);
+  if(Math.max(ax,ay)>10){
+   gesture.moved=true;
+   if(!gesture.axis){if(ax>ay*1.25)gesture.axis='x';else if(ay>ax*1.25)gesture.axis='y'}
+  }
+  return {dx,ax,ay};
+ }
+ dialog.addEventListener('pointermove',movement,{passive:true});
+ dialog.addEventListener('pointerup',event=>{
+  const motion=movement(event);if(!motion)return;
+  const current=gesture;gesture=null;
+  // A drag must not become the image click that exits focus mode.
+  if(current.moved)suppressClickUntil=performance.now()+700;
+  if(!ready()||current.id!==viewers[kind].id||current.axis!=='x'||motion.ax<current.threshold||motion.ax<=motion.ay*1.5)return;
+  event.preventDefault();navigateViewer(kind,motion.dx<0?1:-1);
+ });
+ dialog.addEventListener('pointercancel',()=>{gesture=null});
+ dialog.addEventListener('click',event=>{
+  if(performance.now()>suppressClickUntil)return;
+  suppressClickUntil=0;event.preventDefault();event.stopImmediatePropagation();
+ },true);
+ dialog.addEventListener('close',()=>{gesture=null;suppressClickUntil=0});
+}
 for(const kind of['recipe','photo']){
+ bindViewerSwipe(kind);
  $(kind+'-prev').onclick=()=>navigateViewer(kind,-1);$(kind+'-next').onclick=()=>navigateViewer(kind,1);$(kind+'-focus').onclick=()=>toggleFocus(kind);
  viewerDialog(kind).addEventListener('close',()=>{const v=viewers[kind],origin=v.origin;v.focus=false;viewerDialog(kind).classList.remove('is-focused');requestAnimationFrame(()=>{if(origin){for(const parent of origin.parent)if(parent.node.open)parent.node.scrollTop=parent.top;if(origin.element?.isConnected){origin.element.classList.toggle('pointer-focus-return',!origin.keyboard);origin.element.focus({preventScroll:true})}window.scrollTo(origin.x,origin.y)}})});
 }
