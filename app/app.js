@@ -100,14 +100,14 @@ function openPhoto(id,queue=null){
 }
 async function api(path,body){const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
-let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false;
+let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false,websiteStatusRequested=false;
 function renderWebsiteStatus(status){
  if(data.mode==='static')return;
  if(status)websiteStatus=status;
  const s=websiteStatus;
  $('publish-website').disabled=!!s.running||catalogBusy;
  $('publish-website').textContent=s.running?'正在同步网页…':'同步到 GitHub 网页';
- $('website-sync-panel').hidden=!s.state||s.state==='idle';
+ $('website-sync-panel').hidden=!s.state||s.state==='idle'||(s.state==='succeeded'&&!websiteStatusRequested);
  $('website-sync-status').textContent=(s.message||'')+(s.state==='succeeded'&&s.finishedAt?' · '+new Date(s.finishedAt).toLocaleString('zh-CN',{hour12:false}):'');
  $('website-sync-error').hidden=!s.error;$('website-sync-error').textContent=s.error||'';
  $('website-link').hidden=s.state!=='succeeded';
@@ -115,6 +115,7 @@ function renderWebsiteStatus(status){
 }
 $('publish-website').onclick=async()=>{
  if(data.mode==='static')return;
+ websiteStatusRequested=true;
  $('publish-website').disabled=true;
  try{renderWebsiteStatus(await api('/api/website/sync',{}))}
  catch(error){renderWebsiteStatus({...websiteStatus,state:'failed',message:'未能开始网页同步。',error:error.message})}
@@ -137,6 +138,7 @@ for(const id of controls)$(id).addEventListener(id==='q'?'input':'change',update
 $('reset').onclick=()=>{for(const id of controls)$(id).value='';for(const id of['only-favorites','only-mine','only-unmatched','only-new'])$(id).checked=false;$('recipe-sort').value='latest';update()};
 function applyRoute(){const route=location.hash.slice(1);if(route.startsWith('author=')){for(const id of controls)$(id).value='';$('author').value=decodeURIComponent(route.slice(7));pane='recipes';update()}else if(route){const selected=recipeById.get(route);if(selected)openRecipe(selected)}}
 function renderFilterChips(){
+ const filterCount=controls.filter(id=>id!=='q'&&$(id).value).length;$('filter-count').textContent=filterCount;$('filter-count').hidden=!filterCount;
  const labels={q:'搜索',author:'作者',camera:'相机',lens:'镜头',base:'优化校准'};const fragment=document.createDocumentFragment();
  for(const id of controls){const value=$(id).value;if(!value)continue;const chip=button(labels[id]+'：'+value,()=>{$(id).value='';update()},'filter-chip');chip.setAttribute('aria-label','移除'+labels[id]+'筛选：'+value);const cross=el('span','×');cross.setAttribute('aria-hidden','true');chip.append(cross);fragment.append(chip)}
  if(pane==='recipes'&&$('only-new').checked)fragment.append(button('本次同步新增 ×',()=>{$('only-new').checked=false;update()},'filter-chip'));
@@ -171,6 +173,8 @@ document.addEventListener('keydown',event=>{
  if(kind){if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();navigateViewer(kind,event.key==='ArrowLeft'?-1:1)}else if(key==='f'){event.preventDefault();toggleFocus(kind)}}else if(event.key==='/'){event.preventDefault();$('q').focus();$('q').select()}
 });
 document.addEventListener('click',event=>{if(!event.target.closest('#utility-menu'))$('utility-menu').open=false});
+document.addEventListener('click',event=>{if(!event.target.closest('#filter-menu')&&!event.target.closest('#author-picker'))$('filter-menu').open=false});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.querySelector('dialog[open]')){for(const id of['filter-menu','utility-menu'])if($(id).open){$(id).open=false;$(id).querySelector('summary').focus()}}});
 function problemItem(issue){const item=el('div',undefined,'problem-item');item.append(el('strong',issue.file||'照片'),el('p',issue.message),el('p',issue.action,'muted'));if(issue.detail){const details=el('details');details.append(el('summary','技术详情'),el('p',issue.detail));item.append(details)}return item}
 function assignmentEditor(photo){
  const section=el('details',undefined,'assignment');section.open=!photo.recipeId;

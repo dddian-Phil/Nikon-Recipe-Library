@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>使用说明 · 尼康云创资料库</title><style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#191919;color:#dedede;font:16px/1.85 system-ui,"Microsoft YaHei",sans-serif}main{max-width:880px;margin:36px auto;padding:32px 44px 48px;background:#242424;border:1px solid #383838;border-radius:12px}h1{margin:0 0 24px;color:#fff;font-size:30px;line-height:1.4}h2{margin:34px 0 12px;padding-top:20px;border-top:1px solid #404040;color:#fff;font-size:21px;line-height:1.5}strong{color:#fff}p{margin:12px 0}li{margin:8px 0}ul,ol{padding-left:25px}code{padding:3px 6px;background:#333;border-radius:4px;color:#fff}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #414141}th{background:#333;color:#fff}.table-wrap{overflow:auto;margin:18px 0}@media(max-width:640px){main{margin:0;padding:24px 20px;border:0;border-radius:0}h1{font-size:26px}}
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f7f6f2;color:#39372f;font:16px/1.9 "Segoe UI","Microsoft YaHei UI",system-ui,sans-serif}main{max-width:850px;margin:0 auto;padding:60px 36px 80px}h1,h2{font-family:"Songti SC","SimSun",serif;font-weight:400;color:#292823;line-height:1.5}h1{margin:24px 0 32px;font-size:34px}h2{margin:40px 0 15px;padding-top:25px;border-top:1px solid #dedcd4;font-size:24px}strong{font-weight:600;color:#292823}a{color:#39372f;text-underline-offset:4px}p{margin:14px 0}li{margin:10px 0}ul,ol{padding-left:25px}code{padding:3px 6px;background:#eeece5;border-radius:4px;font-size:14px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #dedcd4}th{font-weight:500;color:#292823;background:#eeece5}.table-wrap{overflow:auto;margin:20px 0}.note{padding:18px 22px;background:#eeece5;border-radius:8px}@media(max-width:640px){main{padding:28px 20px 50px}h1{font-size:28px}h2{font-size:22px}}
 </style></head><body><main><h1>尼康云创资料库</h1>
 <p>双击同一层的 <strong>open-library.cmd</strong>，即可在浏览器使用。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。</p>
 <h2>网页手动同步云创</h2>
@@ -67,4 +67,7 @@
 <li><strong>Esc</strong> 关闭当前窗口，回到之前的位置；<strong>/</strong> 聚焦搜索，<strong>?</strong> 打开快捷操作提示。输入文字时不会触发看图快捷键。</li>
 </ul>
 <h2>无法打开时</h2>
-<p>请再次双击 <strong>open-library.cmd</strong>。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。</p></main></body></html>
+<p>请再次双击 <strong>open-library.cmd</strong>。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。</p>
+<h2>极简界面的操作位置</h2>
+<p>搜索框直接可用；点击旁边的「筛选」选择作者、相机、镜头或基础优化校准。已选条件会出现在下方，可逐个移除。右上角「资料与备份」包含同步云创、同步到 GitHub 网页、备份和使用说明。</p>
+<p>改版前的本地版和网页版分别保存为 GitHub 的 <code>v1</code>、<code>v1-web</code> 标签；成对恢复步骤见 <code>docs/versions.md</code>。</p></main></body></html>
