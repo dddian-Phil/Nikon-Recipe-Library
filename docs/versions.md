@@ -1,5 +1,28 @@
 # 版本保存与成对恢复
 
+## v2 当前稳定版
+
+保存日期：2026-11-02。本地资料库和当前已上线的网页版成对保存：
+
+| 部分 | 分支 | 固定标签 |
+| --- | --- | --- |
+| 本地完整资料库 | main | [v2](https://github.com/dddian-Phil/Nikon-Recipe-Library/tree/v2) |
+| 线上展示页 | codex/static-deploy | [v2-web](https://github.com/dddian-Phil/Nikon-Recipe-Library/tree/v2-web) |
+
+v2 保留深色图库、方案与实拍在普通及专注模式下的横滑切换、对齐的箭头与页码、纯图标关闭按钮，以及本地入口重新生成页面的修复。网页版继续只读，保存已发布的 144 个方案和 26 张实拍，不重新导出本地照片。
+
+两个标签固定保留，不随分支的新提交移动。可用 `git rev-parse 'v2^{commit}'` 和 `git rev-parse 'v2-web^{commit}'` 查询完整提交；其中 v2-web 对应已核验的线上提交 `bb84ad1fde25fbaa2bff4da534bb5508e32eb97b`。
+
+本机独立备份保存在 `local/versions/v2-20261102/`：
+
+- `v2-project.zip`：本地版已跟踪的源码、说明、图标和测试。
+- `v2-web.zip`：网页版源码及已经公开的方案、样片和压缩实拍。
+- `version.json`：配套提交号、备份文件 SHA256 和校验记录。
+
+备份目录被 Git 忽略。原始照片、个人记录、运行配置和下载缓存不包含在源码备份中，也不会因为保存标签而改变。需要恢复 v2 时，应成对使用 v2 和 v2-web；现有 `restore-v1.cmd` 仍然只恢复 v1，不会自动改为恢复 v2。
+
+## v1 历史版本
+
 改版前的所有已有修改已经提交；本地和 GitHub 均保存了下面两个配套标签。
 
 | 部分 | 分支 | v1 标签 | 完整提交 |

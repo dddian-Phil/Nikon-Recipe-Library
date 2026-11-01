@@ -37,6 +37,10 @@ try {
             if (Get-LibraryHealth) { $ready = $true; break }
         }
         if (-not $ready) { throw 'Library startup failed. See local/runtime.log or guide.html.' }
+    } else {
+        # A reused service can still be serving HTML generated before a code update.
+        & $pythonPath (Join-Path $programPath 'build_viewer.py')
+        if ($LASTEXITCODE -ne 0) { throw 'Viewer generation failed.' }
     }
     if ($Action -eq 'update') {
         Invoke-RestMethod -Uri ($serviceUrl + '/api/scan') -Method Post -ContentType 'application/json' -Body '{}' | Out-Null
