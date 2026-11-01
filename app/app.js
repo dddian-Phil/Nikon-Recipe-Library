@@ -1,7 +1,8 @@
 const data=JSON.parse(document.getElementById('payload').textContent),rs=data.recipes,creators=data.creators;
 const $=id=>document.getElementById(id),el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const isStatic=data.mode==='static';
-function photoImage(photo,small=false){const path=small?(photo.thumbnail||photo.preview):photo.preview;return path?(isStatic?'./':'/')+path:''}
+// Reuse the same display image in the grid and viewer, as in the local library.
+function photoImage(photo){return photo.preview?(isStatic?'./':'/')+photo.preview:''}
 const recipeById=new Map(rs.map(r=>[r.id,r]));
 function formatTakenAt(value){return (value||'').replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')}
 let library={captures:[],records:{recipeFavorites:[],photoFavorites:[],photoAssignments:{}},summary:{files:0,photos:0,matched:0,favoritePhotos:0},revision:[-1,-1]},pane='recipes',activePhoto=null,activeRecipe=null,writeQueue=Promise.resolve(),toastTimer,connectionFailures=0;
@@ -69,7 +70,7 @@ function photoAssociationStatus(p){
 function photoTile(p){
  const tile=el('article',undefined,'recipe-tile photo-tile');tile.dataset.photoId=p.id;
  const card=button('',()=>openPhoto(p.id),'card');card.setAttribute('aria-label','查看实拍 '+p.name);
- if(p.preview){const img=el('img');img.src=photoImage(p,true);img.alt=p.name;img.loading='lazy';card.append(img)}else card.append(el('div',isStatic?'暂无展示图':'暂无预览，可打开原文件','placeholder'));
+ if(p.preview){const img=el('img');img.src=photoImage(p);img.alt=p.name;img.loading='lazy';card.append(img)}else card.append(el('div',isStatic?'暂无展示图':'暂无预览，可打开原文件','placeholder'));
  const body=el('div',undefined,'text'),r=recipeById.get(p.recipeId),automatic=String(p.pictureControlName||'').trim().toUpperCase()==='AUTO';
  body.append(el('h3',p.name));
  const scheme=r?r.name:automatic?'自动优化校准（AUTO）':p.pictureControlName;
@@ -80,7 +81,7 @@ function photoTile(p){
  tile.append(card,actions);return tile;
 }
 function parameterTable(title,obj){const section=el('section',undefined,'section');section.append(el('h3',title));const table=el('table');for(const[key,value]of Object.entries(obj)){const tr=el('tr');tr.append(el('th',data.labels[key]||key),el('td',fmt(key,value)));table.append(tr)}section.append(table);return section}
-function miniPhotos(photos){const grid=el('div',undefined,'photo-grid');for(const p of photos){const b=button('',()=>openPhoto(p.id,photos.map(p=>p.id)),'photo-mini');b.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src=photoImage(p,true);img.alt=p.name;img.loading='lazy';b.append(img)}else b.append(el('div','无预览','placeholder'));b.append(el('span',(p.favorite?'♥ ':'')+p.name));grid.append(b)}return grid}
+function miniPhotos(photos){const grid=el('div',undefined,'photo-grid');for(const p of photos){const b=button('',()=>openPhoto(p.id,photos.map(p=>p.id)),'photo-mini');b.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src=photoImage(p);img.alt=p.name;img.loading='lazy';b.append(img)}else b.append(el('div','无预览','placeholder'));b.append(el('span',(p.favorite?'♥ ':'')+p.name));grid.append(b)}return grid}
 function renderRecipePhotos(r){const target=$('recipe-my-photos');if(!target)return;const own=myPhotos(r.id);target.replaceChildren(el('h3','我的实拍（'+own.length+' 张）'));if(own.length)target.append(miniPhotos(own));else target.append(el('p',isStatic?'还没有发布使用这个方案拍摄的实拍。':'把使用这个方案拍摄的照片放进「photos」，识别后会出现在这里。也可以在照片详情里手动关联。','muted'));const favorite=$('recipe-detail-favorite');if(favorite){favorite.replaceChildren(favoriteButton(r.id))}}
 function openRecipe(r,queue=null){
  prepareViewer('recipe',r.id,queue);
@@ -154,7 +155,7 @@ function prepareViewer(kind,id,queue){
 function syncViewer(kind){
  const v=viewers[kind],dialog=viewerDialog(kind),position=v.queue.indexOf(v.id);$(kind+'-position').textContent=(position+1)+' / '+v.queue.length;$(kind+'-prev').disabled=position<=0;$(kind+'-next').disabled=position>=v.queue.length-1;$(kind+'-focus').textContent=v.focus?'显示资料':'专注看图';$(kind+'-focus').setAttribute('aria-pressed',String(v.focus));dialog.classList.toggle('is-focused',v.focus);
  const strip=$(kind+'-strip');strip.replaceChildren();if(!v.focus)return;const fragment=document.createDocumentFragment();let selected;
- for(const id of v.queue){const item=kind==='photo'?library.captures.find(p=>p.id===id):recipeById.get(id);if(!item)continue;const thumb=button('',()=>kind==='photo'?openPhoto(id,v.queue):openRecipe(item,v.queue));thumb.setAttribute('aria-label','查看 '+item.name);thumb.setAttribute('aria-pressed',String(id===v.id));const path=kind==='photo'?photoImage(item,true):item.image;if(path){const img=el('img');img.src=path;img.alt='';img.loading='lazy';thumb.append(img)}else thumb.append(el('span',item.name));fragment.append(thumb);if(id===v.id)selected=thumb}
+ for(const id of v.queue){const item=kind==='photo'?library.captures.find(p=>p.id===id):recipeById.get(id);if(!item)continue;const thumb=button('',()=>kind==='photo'?openPhoto(id,v.queue):openRecipe(item,v.queue));thumb.setAttribute('aria-label','查看 '+item.name);thumb.setAttribute('aria-pressed',String(id===v.id));const path=kind==='photo'?photoImage(item):item.image;if(path){const img=el('img');img.src=path;img.alt='';img.loading='lazy';thumb.append(img)}else thumb.append(el('span',item.name));fragment.append(thumb);if(id===v.id)selected=thumb}
  strip.append(fragment);requestAnimationFrame(()=>{if(selected)strip.scrollLeft=selected.offsetLeft-strip.offsetLeft-strip.clientWidth/2+selected.clientWidth/2});
 }
 function toggleFocus(kind){const v=viewers[kind];v.focus=!v.focus;syncViewer(kind);viewerDialog(kind).scrollTop=0}
