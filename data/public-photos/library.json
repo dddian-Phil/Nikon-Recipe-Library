@@ -1,75 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30T02:41:29+08:00",
+  "updatedAt": "2026-11-02T11:55:02+08:00",
   "captures": [
-    {
-      "name": "DSC_2665",
-      "takenAt": "2026:10:29 15:17:55",
-      "camera": "NIKON Z50_2",
-      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
-      "iso": "110",
-      "fNumber": "5.6",
-      "exposureTime": "0.008",
-      "focalLength": "50.0",
-      "pictureControlName": "BlueHour_Luna",
-      "pictureControlBase": "FLEXIBLE COLOR",
-      "metadataIssueCode": "",
-      "id": "87244eca3827235395863a83",
-      "recipeId": "01JAYCJP2B79XXAHE7YT7B1ME4",
-      "association": "automatic",
-      "favorite": false,
-      "metadataConflict": false,
-      "thumbnail": "photos/images/87244eca3827235395863a83-thumb-9ce092ffa171fe30.jpg",
-      "thumbnailInfo": {
-        "bytes": 45007,
-        "sha256": "9ce092ffa171fe30ae8390abeea1ef4459e79c8f3ba9397319b5457e2341ebb5",
-        "width": 343,
-        "height": 480,
-        "format": "JPEG"
-      },
-      "preview": "photos/images/87244eca3827235395863a83-display-d648d7928aa768c8.jpg",
-      "imageInfo": {
-        "bytes": 360139,
-        "sha256": "d648d7928aa768c85d2610035dc25114180ba8524d5553156a587ce1c1e61e37",
-        "width": 915,
-        "height": 1280,
-        "format": "JPEG"
-      }
-    },
-    {
-      "name": "DSC_2639",
-      "takenAt": "2026:10:27 16:23:03",
-      "camera": "NIKON Z50_2",
-      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
-      "iso": "125",
-      "fNumber": "4.5",
-      "exposureTime": "0.008",
-      "focalLength": "50.0",
-      "pictureControlName": "Pale Tale_Yuri",
-      "pictureControlBase": "FLEXIBLE COLOR",
-      "metadataIssueCode": "",
-      "id": "a2335eb634356d1201d76e9d",
-      "recipeId": "01JZ9Z8E65TVX23WQ9D2W9TCPN",
-      "association": "automatic",
-      "favorite": false,
-      "metadataConflict": false,
-      "thumbnail": "photos/images/a2335eb634356d1201d76e9d-thumb-27a70b39acec0524.jpg",
-      "thumbnailInfo": {
-        "bytes": 42398,
-        "sha256": "27a70b39acec0524c7f62db76ef427ed6a49ca038cac2218414d367f39fd09ce",
-        "width": 351,
-        "height": 480,
-        "format": "JPEG"
-      },
-      "preview": "photos/images/a2335eb634356d1201d76e9d-display-33a7ae3c0e5ae46c.jpg",
-      "imageInfo": {
-        "bytes": 297593,
-        "sha256": "33a7ae3c0e5ae46c87582b233e644ffe94b8770930e69da8e50e9c78c0fda2d6",
-        "width": 937,
-        "height": 1280,
-        "format": "JPEG"
-      }
-    },
     {
       "name": "DSC_2636",
       "takenAt": "2026:10:27 16:21:47",
@@ -235,40 +167,6 @@
       "imageInfo": {
         "bytes": 337128,
         "sha256": "49624612d9e134750b5eb49937f8bbb6e9379fe23504e455608b65e2c7569939",
-        "width": 1280,
-        "height": 853,
-        "format": "JPEG"
-      }
-    },
-    {
-      "name": "DSC_1154",
-      "takenAt": "2026:10:13 15:25:51",
-      "camera": "NIKON Z50_2",
-      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
-      "iso": "100",
-      "fNumber": "4.5",
-      "exposureTime": "0.0025",
-      "focalLength": "50.0",
-      "pictureControlName": "AUTO",
-      "pictureControlBase": "AUTO",
-      "metadataIssueCode": "",
-      "id": "0d2ab843f346b0b8ab9c61c5",
-      "recipeId": null,
-      "association": "unmatched",
-      "favorite": false,
-      "metadataConflict": false,
-      "thumbnail": "photos/images/0d2ab843f346b0b8ab9c61c5-thumb-fc30e3f965d4c367.jpg",
-      "thumbnailInfo": {
-        "bytes": 58118,
-        "sha256": "fc30e3f965d4c367890699764e22405302109c685e0261c1582437ae1e6946ef",
-        "width": 480,
-        "height": 320,
-        "format": "JPEG"
-      },
-      "preview": "photos/images/0d2ab843f346b0b8ab9c61c5-display-af092ea6d8ebc73f.jpg",
-      "imageInfo": {
-        "bytes": 449790,
-        "sha256": "af092ea6d8ebc73f7f0246ef9af4dd9769063da252c4d9ac174122054e19d374",
         "width": 1280,
         "height": 853,
         "format": "JPEG"
@@ -697,7 +595,7 @@
       "id": "e46c0886267f1e36a23a5c59",
       "recipeId": "01JSE2HC6Q9XGAC27432XRRAKG",
       "association": "automatic",
-      "favorite": false,
+      "favorite": true,
       "metadataConflict": false,
       "thumbnail": "photos/images/e46c0886267f1e36a23a5c59-thumb-63c072a3f29c763a.jpg",
       "thumbnailInfo": {
