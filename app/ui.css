@@ -1,9 +1,10 @@
 /* A quiet photographic library: typography and spacing frame the work. */
 :root{
   color-scheme:dark;--canvas:#191919;--surface:#242424;--ink:#f0eee8;--muted:#b1b1aa;--line:#3b3b38;--accent:#fff700;
-  --hover:#2e2e2b;--stage:#1d1d1c;--sans:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --hover:#2e2e2b;--stage:var(--canvas);--sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --brand-sans:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
   --serif:"Noto Serif CJK SC","Source Han Serif SC","Songti SC","SimSun",serif;
-  --work-title:Georgia,"PingFang SC","Microsoft YaHei",sans-serif;--gutter:clamp(20px,4vw,56px);--image-height:330px;
+  --work-title:Georgia,"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--gutter:clamp(20px,4vw,56px);--image-height:330px;
   --chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23b1b1aa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   font:15px/1.65 var(--sans);color:var(--ink);background:var(--canvas);
 }
@@ -211,7 +212,7 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
   .masthead{min-height:72px;gap:8px}.brand{font-size:14px;gap:7px}.brand::before{width:6px;height:6px}
   .library-actions{gap:4px;font-size:12px}.library-actions>button{padding:8px}.utility-menu>summary{padding:8px}.utility-menu>summary::after{margin-left:4px;width:12px}
   .library-intro{padding:24px 0 30px;gap:18px}.library-intro h1{font-size:34px;letter-spacing:-.04em}#summary{font-size:12px}#library-status{font-size:11px}
-  .browse-controls{position:static}.browse-main{display:block;padding-bottom:14px}.view-tabs{gap:26px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+  .browse-controls{position:relative}.browse-main{display:block;padding-bottom:14px}.view-tabs{gap:26px;margin-bottom:20px;border-bottom:1px solid var(--line)}
   .view-tabs button{font-size:15px;padding:8px 0 13px}.view-tabs button[aria-pressed="true"]::after{bottom:-1px}
   .filter-toolbar{gap:10px;justify-content:space-between}#q{background-color:var(--surface);font-size:14px;height:44px}.search-field>kbd{display:none}
   .filter-menu>summary{height:44px;font-size:13px;background:var(--surface)}
@@ -248,3 +249,30 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
 .dialog-actions .viewer-close:active{color:var(--ink);background:var(--hover)}
 .dialog-actions .viewer-close:focus-visible{outline:none;box-shadow:inset 0 -2px var(--muted)}
 @media(hover:hover){.dialog-actions .viewer-close:hover{color:var(--ink);background:var(--hover)}}
+
+/* Use the installed Noto family for reading, keeping the original brand and title. */
+.brand,.favorite-icon{font-family:var(--brand-sans)}
+.library-actions,#summary,.utility-items a,.utility-items button,#q,.filter-menu>summary{font-size:14px}
+#library-status,.tools label,.author-filter,.filter-options label,#count,.recipe-sort select,.density-switch button{font-size:13px}
+.tools select,.tools input,#author-trigger,#reset{font-size:14px}
+.card .author,.detail .author,.author-choice-name{font-size:14px}
+.card .gear,.card .date,.tile-actions,.tile-actions button,.tile-actions .photo-association{font-size:13px}
+.detail table{font-size:14px;line-height:1.85}
+.prose{font-size:16px;line-height:1.9}
+.muted,#creator p{font-size:14px}
+.assignment label,.assignment summary,.links,.source-files,.dialogtop>span{font-size:13px}
+.assignment input,.assignment select{font-size:14px}
+.dialog-actions button,.dialogtop>button{font-size:13px}
+.detailimage p,.photo-mini span,.author-choice-count,.footer-notes{font-size:12px}
+.author-picker-title h2,.shortcut-content h2,footer>p{font-family:var(--sans)}
+#author-search{font-size:16px}
+.shortcut-content p,#toast{font-size:14px}
+#website-link{white-space:nowrap}
+@media(max-width:600px){
+  .library-actions,#summary,.card .author{font-size:13px}
+  #library-status{font-size:12px}
+  #q,.tools select,.tools input,#author-search{font-size:16px}
+  .dialog-actions button,.dialogtop>button,.viewer-position{font-size:12px}
+  body[data-density="compact"] .card .author{font-size:13px}
+  body[data-density="compact"] .card .gear,body[data-density="compact"] .card .date,body[data-density="compact"] .tile-actions .photo-association{font-size:12px}
+}
