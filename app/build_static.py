@@ -20,6 +20,7 @@ from collect_nikon import BASE, LABELS, VALUES
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = ROOT / 'data/public-catalog'
 OUTPUT = ROOT / 'dist'
+FONT_ROOT = ROOT / 'app/assets/fonts'
 RECIPE_TEXT = ('name', 'publisher', 'camera', 'lens', 'publicDate', 'shootingDate',
                'outline', 'description', 'memo', 'pictureControlName', 'shootingLocation')
 PICTURE_KEYS = frozenset(('settingName', 'baseName', 'quickSharp', 'sharpening',
@@ -279,6 +280,37 @@ def csv_bytes(headers, rows):
     return stream.getvalue().encode('utf-8-sig')
 
 
+def font_files(root=None):
+    root = Path(root) if root is not None else FONT_ROOT
+    manifest = read_json(confined(root, 'manifest.json'))
+    if manifest.get('schemaVersion') != 1 or manifest.get('family') != 'Noto Sans SC':
+        raise ValueError('Unexpected public font manifest')
+    files = {}
+    for item in manifest['files']:
+        name = item['path']
+        if (name not in {'noto-sans-sc.css', 'OFL.txt'} and
+                not re.fullmatch(r'noto-sans-sc-[0-9a-f]{16}\.woff2', name)):
+            raise ValueError('Unexpected public font path')
+        if name in files:
+            raise ValueError('Duplicate public font path')
+        body = confined(root, name).read_bytes()
+        if len(body) != item['bytes'] or hashlib.sha256(body).hexdigest() != item['sha256']:
+            raise ValueError('Public font hash mismatch')
+        if name.endswith('.woff2') and not body.startswith(b'wOF2'):
+            raise ValueError('Invalid public WOFF2 font')
+        files[name] = body
+    if tree_files(root) != set(files) | {'manifest.json'}:
+        raise ValueError('Unexpected files in public font directory')
+    if not {'noto-sans-sc.css', 'OFL.txt'}.issubset(files):
+        raise ValueError('Missing font stylesheet or license')
+    css = files['noto-sans-sc.css'].decode('utf-8')
+    references = set(re.findall(r'url\("\./([^"]+)"\)', css))
+    if (not references or references != {name for name in files if name.endswith('.woff2')} or
+            'https:' in css or 'http:' in css or '@import' in css):
+        raise ValueError('Font stylesheet must reference only bundled fonts')
+    return files
+
+
 def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
     payload, catalog = snapshot_files(Path(snapshot))
     from public_photos import snapshot_files as photo_snapshot_files
@@ -304,6 +336,7 @@ def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
     template = template.replace('__PAYLOAD__', serialized)
     template = template.replace('<html lang="zh-CN">', '<html lang="zh-CN" data-mode="static">')
     template = template.replace('src="/app.js"', 'src="./app.js"')
+    template = template.replace('<style>', '<link rel="stylesheet" href="./fonts/noto-sans-sc.css">\n<style>', 1)
     template = template.replace('href="/api/backup"', 'href="#"')
     template = template.replace('href="/scheme-table.xlsx"', 'href="./catalog/tables/recipes.csv"').replace('Excel 总表</a>', '配方总表 CSV</a>')
     template = template.replace('href="/guide"', 'href="./guide.html"')
@@ -314,6 +347,7 @@ def build(snapshot=SNAPSHOT, output=OUTPUT, photos_snapshot=None):
              'guide.html': (ROOT / 'app/public_guide.html').read_bytes(), '.nojekyll': b''}
     files.update({'catalog/' + relative: body for relative, body in catalog.items()})
     files.update({'photos/' + relative: body for relative, body in photos.items()})
+    files.update({'fonts/' + relative: body for relative, body in font_files().items()})
     files['catalog/tables/recipes.csv'] = csv_bytes(
         ['方案名称', '作者', '相机', '镜头', '发布日期', '基础优化校准', '方案 ID', '官网链接'],
         [[r['name'], ' / '.join(r['authors']), r['camera'], r['lens'], r['publicDate'],

@@ -5,6 +5,14 @@ const isStatic=data.mode==='static';
 function photoImage(photo){return photo.preview?(isStatic?'./':'/')+photo.preview:''}
 const recipeById=new Map(rs.map(r=>[r.id,r]));
 function formatTakenAt(value){return (value||'').replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')}
+const catalogDateFormat=new Intl.DateTimeFormat('zh-CN',{dateStyle:'long',timeStyle:'short',hourCycle:'h23',timeZone:'Asia/Shanghai'});
+function formatCatalogStamp(catalog){
+ const value=catalog.syncMetadata?.syncedAt||catalog.report?.finishedAt;
+ if(!value)return '云创方案数据：尚未同步';
+ const date=new Date(value);
+ if(Number.isNaN(date.getTime()))return '云创方案数据：更新时间未知';
+ return '云创方案数据更新于：'+catalogDateFormat.format(date)+'（北京时间）';
+}
 let library={captures:[],records:{recipeFavorites:[],photoFavorites:[],photoAssignments:{}},summary:{files:0,photos:0,matched:0,favoritePhotos:0},revision:[-1,-1]},pane='recipes',activePhoto=null,activeRecipe=null,writeQueue=Promise.resolve(),toastTimer,connectionFailures=0;
 let visibleRecipeIds=[],visiblePhotoIds=[];
 let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false;
@@ -250,9 +258,9 @@ function assignmentEditor(photo){
  section.append(searchLabel,search,label,select,status);render();return section;
 }
 function renderCatalogStatus(status){catalogBusy=!!status.running;renderWebsiteStatus();$('sync-catalog').disabled=catalogBusy||!!websiteStatus.running;$('sync-catalog').textContent=status.running?'正在同步…':'同步云创';$('catalog-sync-status').hidden=!catalogStatusRequested;$('catalog-sync-status').textContent='云创方案：'+(status.state==='idle'?'尚未开始同步':status.message);$('catalog-sync-error').hidden=!catalogStatusRequested||!status.error;$('catalog-sync-error').textContent=status.error?'原因：'+status.error+'。请检查网络后点击「同步云创」重试；不会自动重试。':'';if(status.state==='succeeded'&&status.result?.revision!==catalogRevision&&!catalogLoading)loadCatalog().catch(error=>{$('catalog-sync-error').hidden=!catalogStatusRequested;$('catalog-sync-error').textContent='目录已更新，但页面读取失败：'+error.message+'。请刷新页面。'})}
-async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent='官方目录时间：'+(next.syncMetadata?.syncedAt||next.report.finishedAt||'尚未同步');acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
+async function loadCatalog(){catalogLoading=true;try{const next=await api('/api/catalog');if(!Array.isArray(next.recipes)||!Array.isArray(next.creators))throw new Error('目录数据格式无效');rs.splice(0,rs.length,...next.recipes);creators.splice(0,creators.length,...next.creators);recipeById.clear();for(const r of rs)recipeById.set(r.id,r);Object.assign(data,{report:next.report,labels:next.labels,values:next.values});newRecipeIds=new Set(next.syncMetadata?.newRecipeIds||[]);catalogRevision=next.syncMetadata?.revision||'';rebuildAuthors();populateFilters();update();$('stamp').textContent=formatCatalogStamp(next);acceptState(library);if(next.sync)renderCatalogStatus(next.sync);if($('modal').open&&recipeById.has(activeRecipe)){const top=$('modal').scrollTop;openRecipe(recipeById.get(activeRecipe));$('modal').scrollTop=top}if($('photo-modal').open)openPhoto(activePhoto)}finally{catalogLoading=false}}
 $('sync-catalog').onclick=async()=>{catalogStatusRequested=true;$('catalog-sync-status').hidden=false;$('catalog-sync-status').textContent='云创方案：正在开始同步…';$('sync-catalog').disabled=true;try{renderCatalogStatus(await api('/api/catalog/sync',{}))}catch(error){$('catalog-sync-error').hidden=false;$('catalog-sync-error').textContent='无法开始同步：'+error.message;$('sync-catalog').disabled=false}};
-$('stamp').textContent='官方目录时间：'+(data.syncMetadata?.syncedAt||data.report.finishedAt||'尚未同步');
+$('stamp').textContent=formatCatalogStamp(data);
 if(isStatic){
  document.documentElement.dataset.mode='static';
  const published=data.photoLibrary||{captures:[],recipeFavorites:[],updatedAt:''};
@@ -262,8 +270,9 @@ if(isStatic){
  $('view-photos').textContent='我的实拍（'+library.captures.length+'）';
  $('library-status').textContent='公开只读版';
  $('library-status').removeAttribute('title');
- $('stamp').textContent+=' · 实拍更新：'+(published.updatedAt||'尚未发布');
- $('stamp').textContent+=' · 发布版本：'+(data.publication?.revision?.slice(0,12)||'本地预览');
+ const photoDate=published.updatedAt?new Date(published.updatedAt):null;
+ $('stamp').textContent+='\n实拍数据更新于：'+(!photoDate?'尚未发布':Number.isNaN(photoDate.getTime())?'时间未知':catalogDateFormat.format(photoDate)+'（北京时间）');
+ $('stamp').textContent+='\n发布版本：'+(data.publication?.revision?.slice(0,12)||'本地预览');
 }
 update();window.addEventListener('hashchange',applyRoute);
 if(isStatic){applyRoute()}else{

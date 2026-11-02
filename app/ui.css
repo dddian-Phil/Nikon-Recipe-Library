@@ -1,9 +1,10 @@
 /* A quiet photographic library: typography and spacing frame the work. */
 :root{
   color-scheme:dark;--canvas:#191919;--surface:#242424;--ink:#f0eee8;--muted:#b1b1aa;--line:#3b3b38;--accent:#fff700;
-  --hover:#2e2e2b;--stage:#1d1d1c;--sans:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --hover:#2e2e2b;--stage:var(--canvas);--sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --brand-sans:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
   --serif:"Noto Serif CJK SC","Source Han Serif SC","Songti SC","SimSun",serif;
-  --work-title:Georgia,"PingFang SC","Microsoft YaHei",sans-serif;--gutter:clamp(20px,4vw,56px);--image-height:330px;
+  --work-title:Georgia,"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--gutter:clamp(20px,4vw,56px);--image-height:330px;
   --chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23b1b1aa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   font:15px/1.65 var(--sans);color:var(--ink);background:var(--canvas);
 }
@@ -249,6 +250,33 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
 .dialog-actions .viewer-close:focus-visible{outline:none;box-shadow:inset 0 -2px var(--muted)}
 @media(hover:hover){.dialog-actions .viewer-close:hover{color:var(--ink);background:var(--hover)}}
 
+/* Keep the original brand and heading while sharing the local reading typography. */
+.brand,.favorite-icon{font-family:var(--brand-sans)}
+.library-actions,#summary,.utility-items a,.utility-items button,#q,.filter-menu>summary{font-size:14px}
+#library-status,.tools label,.author-filter,.filter-options label,#count,.recipe-sort select,.density-switch button{font-size:13px}
+.tools select,.tools input,#author-trigger,#reset{font-size:14px}
+.card .author,.detail .author,.author-choice-name{font-size:14px}
+.card .gear,.card .date,.tile-actions,.tile-actions button,.tile-actions .photo-association{font-size:13px}
+.detail table{font-size:14px;line-height:1.85}
+.prose{font-size:16px;line-height:1.9}
+.muted,#creator p{font-size:14px}
+.assignment label,.assignment summary,.links,.source-files,.dialogtop>span{font-size:13px}
+.assignment input,.assignment select{font-size:14px}
+.dialog-actions button,.dialogtop>button{font-size:13px}
+.detailimage p,.photo-mini span,.author-choice-count,.footer-notes{font-size:12px}
+.author-picker-title h2,.shortcut-content h2,footer>p{font-family:var(--sans)}
+#author-search{font-size:16px}
+.shortcut-content p,#toast{font-size:14px}
+#website-link{white-space:nowrap}
+@media(max-width:600px){
+  .library-actions,#summary,.card .author{font-size:13px}
+  #library-status{font-size:12px}
+  #q,.tools select,.tools input,#author-search{font-size:16px}
+  .dialog-actions button,.dialogtop>button,.viewer-position{font-size:12px}
+  body[data-density="compact"] .card .author{font-size:13px}
+  body[data-density="compact"] .card .gear,body[data-density="compact"] .card .date,body[data-density="compact"] .tile-actions .photo-association{font-size:12px}
+}
+
 /* The public snapshot shares the gallery, but exposes no local write actions. */
 html[data-mode="static"] [data-local-only]{display:none!important}
 html[data-mode="static"] .utility-group:not([data-local-only]){border-top:0;margin-top:0;padding-top:3px}
@@ -257,4 +285,5 @@ html[data-mode="static"] .utility-group:not([data-local-only])+.utility-group{bo
 .tile-actions .photo-association{margin-left:auto;text-align:right}
 html[data-mode="static"] .library-meta{min-width:0}
 html[data-mode="static"] #library-status{overflow-wrap:anywhere}
+html[data-mode="static"] #stamp{white-space:pre-line}
 @media(max-width:750px){html[data-mode="static"] input[type=search],html[data-mode="static"] select,html[data-mode="static"] .tools select,html[data-mode="static"] #q{font-size:16px}}

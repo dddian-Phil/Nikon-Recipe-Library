@@ -13,3 +13,5 @@
 *.png binary
 *.nef binary
 *.xlsx binary
+*.woff2 binary
+app/assets/fonts/OFL.txt text eol=lf

@@ -4,6 +4,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 from types import SimpleNamespace
@@ -73,6 +74,42 @@ class StaticBuildTests(unittest.TestCase):
         self.assertIn('src="./app.js"', html)
         self.assertNotIn('href="/api/', html)
         self.assertIn('./catalog/tables/recipes.csv', html)
+        self.assertIn('href="./fonts/noto-sans-sc.css"', html)
+        self.assertTrue((self.output / 'fonts/OFL.txt').is_file())
+
+    def test_bundled_fonts_are_offline_and_self_contained(self):
+        with patch('socket.socket', side_effect=AssertionError('Network forbidden')):
+            files = static.font_files()
+        self.assertGreater(len(files), 2)
+        self.assertIn(b'@font-face', files['noto-sans-sc.css'])
+        self.assertNotIn(b'https:', files['noto-sans-sc.css'])
+        self.assertIn(b'SIL OPEN FONT LICENSE', files['OFL.txt'])
+
+    def test_fonts_reject_unexpected_files_and_corrupt_assets(self):
+        fonts = self.root / 'fonts'
+        shutil.copytree(static.FONT_ROOT, fonts)
+        private = fonts / 'personal-records.json'
+        private.write_text('PRIVATE_SENTINEL', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            static.font_files(fonts)
+        self.assertTrue(private.exists())
+        private.unlink()
+        next(fonts.glob('*.woff2')).write_bytes(b'wOF2broken')
+        with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+            static.font_files(fonts)
+
+    def test_fonts_reject_external_css_even_with_updated_hash(self):
+        fonts = self.root / 'fonts'
+        shutil.copytree(static.FONT_ROOT, fonts)
+        css = fonts / 'noto-sans-sc.css'
+        css.write_bytes(b'@import url("https://example.com/font.css");\n' + css.read_bytes())
+        manifest = static.read_json(fonts / 'manifest.json')
+        for item in manifest['files']:
+            if item['path'] == css.name:
+                item.update(bytes=css.stat().st_size, sha256=hashlib.sha256(css.read_bytes()).hexdigest())
+        (fonts / 'manifest.json').write_bytes(static.json_bytes(manifest))
+        with self.assertRaisesRegex(ValueError, 'only bundled fonts'):
+            static.font_files(fonts)
 
     def test_rejects_unexpected_snapshot_and_output_files(self):
         for target in (self.snapshot, self.output):
