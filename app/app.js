@@ -5,6 +5,29 @@ const isStatic=data.mode==='static';
 function photoImage(photo){return photo.preview?(isStatic?'./':'/')+photo.preview:''}
 const recipeById=new Map(rs.map(r=>[r.id,r]));
 function formatTakenAt(value){return (value||'').replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')}
+function photoNumber(value){
+ const raw=String(value??'').trim();if(!raw)return null;
+ const fraction=raw.match(/^\(?\s*(\d+(?:\.\d+)?)\s*[,/]\s*(\d+(?:\.\d+)?)\s*\)?$/);
+ const number=fraction?Number(fraction[1])/Number(fraction[2]):Number(raw);
+ return Number.isFinite(number)&&number>0?number:null;
+}
+function formatShutter(value){
+ const seconds=photoNumber(value);if(seconds===null)return '';
+ if(seconds>=1)return String(seconds);
+ const reciprocal=1/seconds,denominator=Math.round(reciprocal);
+ if(Math.abs(reciprocal-denominator)/reciprocal<0.001)return '1/'+denominator;
+ const scale=1000000000,numerator=Math.round(seconds*scale);
+ const gcd=(a,b)=>b?gcd(b,a%b):a,divisor=gcd(numerator,scale);
+ return numerator/divisor+'/'+scale/divisor;
+}
+function photoParameters(p){
+ const parameters={拍摄时间:formatTakenAt(p.takenAt),相机:p.camera,镜头:p.lens,
+  '快门速度（秒）':formatShutter(p.exposureTime),'光圈 F 值':photoNumber(p.fNumber)??''};
+ if(p.exposureProgram)parameters.exposureProgram=p.exposureProgram;
+ parameters['ISO 感光度']=p.iso||'';
+ const focalLength=photoNumber(p.focalLength);parameters['焦距']=focalLength===null?'':focalLength+' mm';
+ return parameters;
+}
 const catalogDateFormat=new Intl.DateTimeFormat('zh-CN',{dateStyle:'long',timeStyle:'short',hourCycle:'h23',timeZone:'Asia/Shanghai'});
 function formatCatalogStamp(catalog){
  const value=catalog.syncMetadata?.syncedAt||catalog.report?.finishedAt;
@@ -22,39 +45,45 @@ document.addEventListener('pointerdown',event=>{keyboardNavigation=false;event.t
 document.addEventListener('keydown',()=>{keyboardNavigation=true;const elements=document.querySelector('dialog[open]')?[document.activeElement]:document.querySelectorAll('.pointer-focus-return');for(const element of elements)element?.classList.remove('pointer-focus-return')},true);
 const viewers={recipe:{queue:[],id:null,focus:false,origin:null},photo:{queue:[],id:null,focus:false,origin:null}};
 const controls=['q','author','camera','lens','base'];
+const paneFilters={recipes:{},photos:{}};
+try{const saved=JSON.parse(localStorage.getItem('nikon-library-pane-filters')||'null');if(saved){Object.assign(paneFilters.recipes,saved.recipes);Object.assign(paneFilters.photos,saved.photos)}else Object.assign(paneFilters.recipes,JSON.parse(localStorage.getItem('nikon-public-archive-filters')||'{}'))}catch{}
 const fmt=(key,value)=>value==='gamma'?'自定义曲线（未公开曲线数值）':(data.values[key]||{})[String(value)]??(value!==null&&typeof value==='object'?JSON.stringify(value):String(value??''));
 const recipeFavorite=id=>library.records.recipeFavorites.includes(id);
 const myPhotos=id=>library.captures.filter(p=>p.recipeId===id);
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3500)}
-function setOptions(id,values){const selected=$(id).value;while($(id).options.length>1)$(id).remove(1);for(const value of [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'zh-CN'))){const option=el('option',value);option.value=value;$(id).append(option)}$(id).value=selected}
-function populateFilters(){setOptions('camera',[...rs.map(r=>r.camera),...library.captures.map(p=>p.camera)]);setOptions('lens',[...rs.map(r=>r.lens),...library.captures.map(p=>p.lens)]);setOptions('base',[...rs.map(r=>r.pictureControl.baseName),...library.captures.map(p=>p.pictureControlBase)])}
-populateFilters();
-try{const state=JSON.parse(localStorage.getItem('nikon-public-archive-filters')||'{}');for(const key of controls)if(state[key])$(key).value=state[key]}catch{}
+function setOptions(id,values){const selected=$(id).value,options=[...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'zh-CN'));while($(id).options.length>1)$(id).remove(1);for(const value of options){const option=el('option',value);option.value=value;$(id).append(option)}$(id).value=options.includes(selected)?selected:''}
+function populateFilters(){const items=pane==='recipes'?rs:library.captures;setOptions('camera',items.map(item=>item.camera));setOptions('lens',items.map(item=>item.lens));setOptions('base',items.map(item=>pane==='recipes'?item.pictureControl.baseName:item.pictureControlBase));rebuildAuthors();if(!authorCounts.has($('author').value))$('author').value=''}
+function restorePaneFilters(){populateFilters();for(const key of controls)$(key).value=paneFilters[pane][key]||'';populateFilters();$('only-favorites').checked=!!paneFilters[pane].favorites}
 const authorCounts=new Map();let availableCreators=[];
-function rebuildAuthors(){authorCounts.clear();for(const r of rs)for(const name of r.authors)authorCounts.set(name,(authorCounts.get(name)||0)+1);availableCreators=creators.filter(c=>authorCounts.has(c.name))}
-rebuildAuthors();
+function rebuildAuthors(){authorCounts.clear();const items=pane==='recipes'?rs:library.captures.map(p=>recipeById.get(p.recipeId)).filter(Boolean);for(const r of items)for(const name of r.authors)authorCounts.set(name,(authorCounts.get(name)||0)+1);availableCreators=creators.filter(c=>authorCounts.has(c.name))}
+restorePaneFilters();
 function syncAuthorTrigger(){const c=availableCreators.find(c=>c.name===$('author').value);$('selected-author-name').textContent=c?c.name:'全部作者';$('selected-author-avatar').hidden=!c?.localPortrait;$('selected-author-initial').hidden=!!c?.localPortrait;if(c?.localPortrait)$('selected-author-avatar').src=c.localPortrait;$('selected-author-initial').textContent=c?c.name.slice(0,1):'全'}
 function chooseAuthor(name){$('author').value=name;update();$('author-picker').close()}
 function renderAuthors(){
  const query=$('author-search').value.trim().toLocaleLowerCase(),matches=availableCreators.filter(c=>!query||c.name.toLocaleLowerCase().includes(query));$('author-grid').replaceChildren();
- function tile(c){const name=c?.name||'',button=el('button',undefined,'author-choice');button.type='button';button.setAttribute('aria-pressed',String($('author').value===name));button.setAttribute('aria-label',c?'选择作者 '+name:'选择全部作者');const portrait=el(c?.localPortrait?'img':'span',c?.localPortrait?undefined:(c?name.slice(0,1):'全部'),'author-portrait'+(c?.localPortrait?'':' author-initial'));if(c?.localPortrait){portrait.src=c.localPortrait;portrait.alt='';portrait.loading='lazy';portrait.decoding='async'}button.append(portrait,el('span',c?name:'全部作者','author-choice-name'),el('span',(c?authorCounts.get(name):rs.length)+' 个方案','author-choice-count'));button.addEventListener('click',()=>chooseAuthor(name));return button}
+ function tile(c){const name=c?.name||'',button=el('button',undefined,'author-choice');button.type='button';button.setAttribute('aria-pressed',String($('author').value===name));button.setAttribute('aria-label',c?'选择作者 '+name:'选择全部作者');const portrait=el(c?.localPortrait?'img':'span',c?.localPortrait?undefined:(c?name.slice(0,1):'全部'),'author-portrait'+(c?.localPortrait?'':' author-initial'));if(c?.localPortrait){portrait.src=c.localPortrait;portrait.alt='';portrait.loading='lazy';portrait.decoding='async'}button.append(portrait,el('span',c?name:'全部作者','author-choice-name'),el('span',(c?authorCounts.get(name):(pane==='recipes'?rs.length:library.captures.length))+(pane==='recipes'?' 个方案':' 张实拍'),'author-choice-count'));button.addEventListener('click',()=>chooseAuthor(name));return button}
  const fragment=document.createDocumentFragment();if(!query)fragment.append(tile(null));for(const c of matches)fragment.append(tile(c));$('author-grid').append(fragment);$('author-no-match').hidden=matches.length>0;$('author-match-count').textContent=query?`找到 ${matches.length} 位作者`:`${availableCreators.length} 位作者 · 点击官网头像筛选`;
 }
 $('author-trigger').onclick=()=>{$('author-search').value='';renderAuthors();$('author-picker').showModal();$('author-picker').scrollTop=0;$('author-search').focus({preventScroll:true})};$('author-search').addEventListener('input',renderAuthors);$('author-picker-close').onclick=()=>$('author-picker').close();
 function button(text,handler,cls){const b=el('button',text,cls);b.type='button';b.addEventListener('click',handler);return b}
+function favoriteIcon(active,kind){
+ const ns='http://www.w3.org/2000/svg',icon=document.createElementNS(ns,'svg'),path=document.createElementNS(ns,'path');
+ icon.setAttribute('class','favorite-icon'+(active?' is-active':''));icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');icon.setAttribute('focusable','false');
+ path.setAttribute('d',kind==='photo'?'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z':'m12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.2-5.7-3-5.7 3 1.1-6.2-4.5-4.4 6.3-.9Z');icon.append(path);return icon;
+}
 function setFavoriteContent(target,active,kind){
- const photo=kind==='photo',icon=el('span',photo?(active?'♥':'♡'):(active?'★':'☆'),'favorite-icon');icon.setAttribute('aria-hidden','true');
+ const photo=kind==='photo',icon=favoriteIcon(active,kind);
  target.classList.add('favorite-action');target.setAttribute('aria-pressed',String(active));target.title=photo?(active?'取消喜欢':'喜欢这张照片'):(active?'取消收藏':'收藏方案');target.replaceChildren(icon,el('span',photo?(active?'已喜欢':'喜欢'):(active?'已收藏':'收藏方案')));
 }
 function favoriteStatus(active,kind){
  const status=el('span');if(!active)return status;
- const photo=kind==='photo',label=photo?'已喜欢':'已收藏',icon=el('span',photo?'♥':'★','favorite-icon');icon.setAttribute('aria-hidden','true');
+ const photo=kind==='photo',label=photo?'已喜欢':'已收藏',icon=favoriteIcon(active,kind);
  status.className='favorite-action favorite-status';status.title=label;status.append(icon,el('span',label));return status;
 }
 function favoriteButton(id){const active=recipeFavorite(id);if(isStatic)return favoriteStatus(active,'recipe');const b=button('',()=>mutate({action:'toggle_recipe',id}));setFavoriteContent(b,active,'recipe');b.setAttribute('aria-label',(active?'取消收藏 ':'收藏方案 ')+recipeById.get(id).name);return b}
 function photoLikeButton(photo){if(isStatic)return favoriteStatus(photo.favorite,'photo');const b=button('',()=>mutate({action:'toggle_photo',id:photo.id}));setFavoriteContent(b,photo.favorite,'photo');b.setAttribute('aria-label',(photo.favorite?'取消喜欢 ':'喜欢照片 ')+photo.name);return b}
 function update(){
- syncAuthorTrigger();const state=Object.fromEntries(controls.map(key=>[key,$(key).value]));try{localStorage.setItem('nikon-public-archive-filters',JSON.stringify(state))}catch{}
+ syncAuthorTrigger();const state=Object.fromEntries(controls.map(key=>[key,$(key).value]));paneFilters[pane]={...state,favorites:$('only-favorites').checked};try{localStorage.setItem('nikon-library-pane-filters',JSON.stringify(paneFilters))}catch{}
  const query=state.q.trim().toLocaleLowerCase(),favorites=$('only-favorites').checked;
  $('view-recipes').setAttribute('aria-pressed',String(pane==='recipes'));$('view-photos').setAttribute('aria-pressed',String(pane==='photos'));$('favorites-label').textContent=pane==='recipes'?'只看收藏':'只看喜欢';$('mine-filter').hidden=pane==='photos';$('unmatched-filter').hidden=pane==='recipes';$('q').placeholder=pane==='recipes'?'搜索方案、作者、器材…':'搜索照片、方案、器材…';
  $('view-help').textContent='点开照片后，方向键连续浏览 · F 专注看图';
@@ -98,7 +127,7 @@ function photoTile(p){
  tile.append(card,actions);return tile;
 }
 function parameterTable(title,obj){const section=el('section',undefined,'section');section.append(el('h3',title));const table=el('table');for(const[key,value]of Object.entries(obj)){const tr=el('tr');tr.append(el('th',data.labels[key]||key),el('td',fmt(key,value)));table.append(tr)}section.append(table);return section}
-function miniPhotos(photos){const grid=el('div',undefined,'photo-grid');for(const p of photos){const b=button('',()=>openPhoto(p.id,photos.map(p=>p.id)),'photo-mini');b.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src=photoImage(p);img.alt=p.name;img.loading='lazy';b.append(img)}else b.append(el('div','无预览','placeholder'));b.append(el('span',(p.favorite?'♥ ':'')+p.name));grid.append(b)}return grid}
+function miniPhotos(photos){const grid=el('div',undefined,'photo-grid');for(const p of photos){const b=button('',()=>openPhoto(p.id,photos.map(p=>p.id)),'photo-mini');b.setAttribute('aria-label','查看实拍 '+p.name);if(p.preview){const img=el('img');img.src=photoImage(p);img.alt=p.name;img.loading='lazy';b.append(img)}else b.append(el('div','无预览','placeholder'));const caption=el('span');if(p.favorite)caption.append(favoriteIcon(true,'photo'));caption.append(document.createTextNode(p.name));b.append(caption);grid.append(b)}return grid}
 function renderRecipePhotos(r){const target=$('recipe-my-photos');if(!target)return;const own=myPhotos(r.id);target.replaceChildren(el('h3','我的实拍（'+own.length+' 张）'));if(own.length)target.append(miniPhotos(own));else target.append(el('p',isStatic?'还没有发布使用这个方案拍摄的实拍。':'把使用这个方案拍摄的照片放进「photos」，识别后会出现在这里。也可以在照片详情里手动关联。','muted'));const favorite=$('recipe-detail-favorite');if(favorite){favorite.replaceChildren(favoriteButton(r.id))}}
 function openRecipe(r,queue=null){
  prepareViewer('recipe',r.id,queue);
@@ -116,7 +145,7 @@ function openPhoto(id,queue=null){
  const fileIssues=(p.issues||[]).filter(issue=>!['missing_picture_control','picture_control_unavailable','picture_control_encoding','incomplete_picture_control','unsupported_picture_control','conflicting_picture_control'].includes(issue.code));
  if(fileIssues.length){const warnings=el('section',undefined,'photo-problems');warnings.append(el('h3','文件读取提示'));for(const issue of fileIssues)warnings.append(problemItem(issue));info.append(warnings)}
  if(!isStatic)info.append(assignmentEditor(p));
- info.append(parameterTable('我的拍摄信息',{拍摄时间:formatTakenAt(p.takenAt),相机:p.camera,镜头:p.lens,ISO:p.iso||'',光圈:p.fNumber||'',快门秒:p.exposureTime||'',焦距:p.focalLength||''}));if(!isStatic){const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources)}else photo.append(el('p','实拍展示图 · '+p.imageInfo.width+' × '+p.imageInfo.height+' px'));content.append(photo,info);$('photo-like').textContent=p.favorite?'♥ 已喜欢':'♡ 喜欢这张';$('photo-like').setAttribute('aria-pressed',String(p.favorite));photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
+ info.append(parameterTable('我的拍摄信息',photoParameters(p)));if(!isStatic){const sources=el('div',undefined,'source-files');sources.append(el('h3','原文件'));for(const file of p.files){const link=el('a',file.kind+' · '+file.path);link.href='/api/original?path='+encodeURIComponent(file.path);link.target='_blank';link.rel='noopener';sources.append(link)}info.append(sources)}else photo.append(el('p','实拍展示图 · '+p.imageInfo.width+' × '+p.imageInfo.height+' px'));content.append(photo,info);setFavoriteContent($('photo-like'),p.favorite,'photo');photo.querySelector('img')?.addEventListener('click',()=>toggleFocus('photo'));syncViewer('photo');if(!$('photo-modal').open)$('photo-modal').showModal();
 }
 async function api(path,body){if(isStatic)throw new Error('网页版仅供浏览，请在本地资料库修改');const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
@@ -142,13 +171,13 @@ $('publish-website').onclick=async()=>{
 };
 
 function acceptState(next){
- const changed=JSON.stringify(next.revision)!==JSON.stringify(library.revision);library=next;const s=next.summary;$('summary').textContent=`${rs.length} 个公开方案 · ${availableCreators.length} 位作者 · 我的实拍 ${s.photos} 张`;$('view-photos').textContent='我的实拍（'+s.photos+'）';$('library-status').textContent=next.scanning?'正在扫描新照片…':'自动检查已开启 · 将新照片放入「photos」即可 · 收藏已保存到本地';$('scan-photos').disabled=next.scanning;
+ const changed=JSON.stringify(next.revision)!==JSON.stringify(library.revision);library=next;const s=next.summary;$('summary').textContent=`${rs.length} 个公开方案 · ${creators.filter(c=>rs.some(r=>r.authors.includes(c.name))).length} 位作者 · 我的实拍 ${s.photos} 张`;$('view-photos').textContent='我的实拍（'+s.photos+'）';$('library-status').textContent=next.scanning?'正在扫描新照片…':'自动检查已开启 · 将新照片放入「photos」即可 · 收藏已保存到本地';$('scan-photos').disabled=next.scanning;
  $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);if(next.websiteSync)renderWebsiteStatus(next.websiteSync);
  if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open)openPhoto(activePhoto)}
 }
 async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请重新双击最外层的 open-library.cmd。收藏记录仍保存在本地文件中。'}}}
 function mutate(body){writeQueue=writeQueue.then(async()=>{acceptState(await api('/api/records',body))}).catch(error=>toast('保存失败：'+error.message));return writeQueue}
-function switchPane(next){pane=next;$('only-favorites').checked=false;update()}
+function switchPane(next){if(pane===next)return;pane=next;restorePaneFilters();update()}
 $('view-recipes').onclick=()=>switchPane('recipes');$('view-photos').onclick=()=>switchPane('photos');
 $('scan-photos').onclick=async()=>{try{acceptState(await api('/api/scan',{}));toast('已开始检查新增照片')}catch(error){toast(error.message)}};
 $('import-records').onclick=()=>$('records-file').click();$('records-file').onchange=async event=>{const file=event.target.files[0];if(!file)return;try{const incoming=JSON.parse(await file.text());acceptState(await api('/api/import',incoming));toast('备份已合并，原有收藏已保留')}catch(error){toast('导入失败：'+error.message)}event.target.value=''};
@@ -156,7 +185,7 @@ $('close').onclick=()=>$('modal').close();$('photo-close').onclick=()=>$('photo-
 for(const dialog of[$('modal'),$('photo-modal'),$('author-picker')])dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close()}});
 for(const id of controls)$(id).addEventListener(id==='q'?'input':'change',update);for(const id of['only-favorites','only-mine','only-unmatched','only-new','recipe-sort'])$(id).addEventListener('change',update);
 $('reset').onclick=()=>{for(const id of controls)$(id).value='';for(const id of['only-favorites','only-mine','only-unmatched','only-new'])$(id).checked=false;$('recipe-sort').value='latest';update()};
-function applyRoute(){const route=location.hash.slice(1);if(route.startsWith('author=')){for(const id of controls)$(id).value='';$('author').value=decodeURIComponent(route.slice(7));pane='recipes';update()}else if(route){const selected=recipeById.get(route);if(selected)openRecipe(selected)}}
+function applyRoute(){const route=location.hash.slice(1);if(route.startsWith('author=')){switchPane('recipes');for(const id of controls)$(id).value='';$('author').value=decodeURIComponent(route.slice(7));update()}else if(route){const selected=recipeById.get(route);if(selected)openRecipe(selected)}}
 function renderFilterChips(){
  const filterCount=controls.filter(id=>id!=='q'&&$(id).value).length;$('filter-count').textContent=filterCount;$('filter-count').hidden=!filterCount;
  const labels={q:'搜索',author:'作者',camera:'相机',lens:'镜头',base:'优化校准'};const fragment=document.createDocumentFragment();
@@ -266,7 +295,7 @@ if(isStatic){
  const published=data.photoLibrary||{captures:[],recipeFavorites:[],updatedAt:''};
  library={captures:published.captures,records:{recipeFavorites:published.recipeFavorites,photoFavorites:published.captures.filter(p=>p.favorite).map(p=>p.id),photoAssignments:{}},summary:{photos:published.captures.length},revision:[published.updatedAt]};
  populateFilters();
- $('summary').textContent=`${rs.length} 个公开方案 · ${availableCreators.length} 位作者 · 我的实拍 ${library.captures.length} 张`;
+ $('summary').textContent=`${rs.length} 个公开方案 · ${creators.filter(c=>rs.some(r=>r.authors.includes(c.name))).length} 位作者 · 我的实拍 ${library.captures.length} 张`;
  $('view-photos').textContent='我的实拍（'+library.captures.length+'）';
  $('library-status').textContent='公开只读版';
  $('library-status').removeAttribute('title');

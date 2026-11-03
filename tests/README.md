@@ -48,3 +48,8 @@ It checks icon/counter alignment at desktop and mobile widths and verifies that
 pointer navigation has no focus highlight while keyboard navigation stays visible.
 It never changes published or personal records. Screenshots are saved under
 ignored `output/playwright/`. Physical iPhone Safari behavior still needs device QA.
+
+Photo parameters, separate pane filters, SVG favorite icons and arrow focus styles
+can be checked with `run-code --filename tests/viewer_details.browser.js` against
+the local library or static preview containing liked photos. Use a dedicated
+headless browser session; the check clears only that session’s filter preferences.
