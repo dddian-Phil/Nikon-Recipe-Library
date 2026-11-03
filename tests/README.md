@@ -36,6 +36,11 @@ It covers direction, queue boundaries, filtered queues, cancelled gestures,
 vertical scrolling, multitouch, zoomed panning, short drags, mouse input,
 thumbnail scrolling, ordinary taps and immediate button actions after swiping.
 It also verifies icon/counter alignment at desktop and mobile widths, no pointer
-focus highlight on navigation arrows, and a quiet keyboard focus indicator.
+focus highlight on navigation arrows, and no box or underline during keyboard navigation.
 Local photo state is mocked only in this test browser; no records are written.
 Screenshots are saved under ignored `output/playwright/`.
+
+Photo parameters, separate pane filters, SVG favorite icons and arrow focus styles
+can be checked with `run-code --filename tests/viewer_details.browser.js` against
+the local library or static preview containing liked photos. Use a dedicated
+headless browser session; the check clears only that session’s filter preferences.

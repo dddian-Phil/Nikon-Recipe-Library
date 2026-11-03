@@ -182,7 +182,7 @@ async page => {
         outline: getComputedStyle(document.activeElement).outlineStyle,
         shadow: getComputedStyle(document.activeElement).boxShadow
       }));
-      check(keyboardFocus.nav && keyboardFocus.outline === 'none' && keyboardFocus.shadow !== 'none', 'Keyboard focus lost its quiet indicator');
+      check(keyboardFocus.nav && keyboardFocus.outline === 'none' && keyboardFocus.shadow === 'none', 'Keyboard navigation has a box or underline');
       await page.locator(kind === 'recipe' ? '#close' : '#photo-close').click();
     }
   }

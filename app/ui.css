@@ -116,7 +116,8 @@ p{margin:10px 0 16px}.muted{color:var(--muted);font-size:13px}.nowrap{white-spac
 .tile-actions button{font-size:12px;padding:3px 0;color:var(--muted);text-align:left}
 .tile-actions .photo-count:hover{background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .favorite-action{display:inline-flex;align-items:center;justify-content:center;gap:7px}
-.favorite-icon{font:20px/1 var(--sans);flex:none}.favorite-action[aria-pressed="true"] .favorite-icon{color:var(--accent)}
+.favorite-icon{display:inline-block;width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}.favorite-icon.is-active{color:var(--accent);fill:currentColor}
+.photo-mini .favorite-icon{width:13px;height:13px;margin-right:5px}
 .tile-actions .favorite-action{position:absolute;top:calc(var(--image-height) + 12px);right:-6px;width:36px;height:36px;padding:0;text-align:center;border-radius:6px}
 .tile-actions .favorite-action>span:not(.favorite-icon){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .tile-actions .photo-association{color:var(--muted);overflow-wrap:anywhere;font-size:12px}
@@ -142,8 +143,8 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(7px)}
 .viewer-topnav{display:grid;grid-template-columns:32px 64px 32px;align-items:center;gap:4px;flex:none}
 .viewer-topnav button{display:grid;place-items:center;width:32px;height:32px;padding:0;line-height:1}
 .viewer-topnav svg{display:block;width:16px;height:16px;flex:none}
-.viewer-topnav button:focus-visible{outline:none}
-.viewer-topnav button:focus-visible:not(.pointer-focus-return){box-shadow:inset 0 -2px var(--muted)}
+.viewer-topnav button:hover,.viewer-topnav button:focus,.viewer-topnav button:focus-visible{outline:none;box-shadow:none;border-color:transparent;background:transparent}
+.viewer-topnav button:hover svg,.viewer-topnav button:focus-visible svg{stroke-width:2.5}
 .viewer-position{display:grid;place-items:center;height:32px;font-size:12px;line-height:1;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 .detail{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
 .detailimage{position:sticky;top:66px;align-self:start;display:flex;flex-direction:column;justify-content:center;min-height:calc(85vh - 66px);padding:28px;background:var(--canvas);touch-action:pan-y pinch-zoom}
