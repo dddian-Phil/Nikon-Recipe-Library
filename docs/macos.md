@@ -27,16 +27,13 @@
 |---|---|
 | `main` | 保留迁移前的主分支 |
 | `claude/ui-polish` | 保留 GitHub 上原有的探索分支 |
-| `codex/windows/main` | Windows 主目录最后的提交 |
-| `codex/windows/claude/ui-polish` | Windows 本地探索分支最后的提交，比原远程分支多 8 个提交 |
-| `codex/windows/codex/static-deploy` | Windows 网页发布分支的固定保存点 |
-| `codex/windows/claude/kind-goldwasser-bac032` | Windows 的另一个探索分支保存点 |
-| `codex/windows-ui-exploration` | 从 Windows 探索目录找回的未提交界面改动和测试 |
 | `codex/macos` | 当前项目目录，Mac 日常使用和后续开发 |
-| `codex/macos-exploration` | `local/worktrees/ui-polish/`，保留探索界面并合入 Mac 启动支持 |
+| `codex/macos-exploration` | `local/worktrees/ui-polish/`，从 Mac 稳定版本开始新的探索 |
 | `codex/static-deploy` | `local/worktrees/static-deploy/`，沿用现有 GitHub Pages 发布流程 |
 
-生产发布分支继续使用 `codex/static-deploy`，以匹配现有 Actions 工作流。Windows 当时的版本另外保存在 `codex/windows/codex/static-deploy`，后续发布不会改变这个保存点。`v1`、`v1-web`、`v2`、`v2-web` 标签保留。迁移本身不推送或发布网站。
+本地共 5 个分支：原有 3 个，加上 2 个 Mac 分支。Windows 未提交的失败探索改动已丢弃，不另建备份分支或备份标签。
+
+生产发布分支继续使用 `codex/static-deploy`，以匹配现有 Actions 工作流。原有的 `v1`、`v1-web`、`v2`、`v2-web` 标签保留。迁移本身不推送或发布网站。
 
 照片、个人记录与完整官方素材集中在主项目目录。探索 worktree 保留源码和独立记录空间，不额外复制整套照片库。需要探索真实数据时，先明确导入或预览方式，避免两边分别修改收藏后互相覆盖。
 
@@ -66,9 +63,9 @@ git worktree add local/worktrees/static-deploy codex/static-deploy
 
 2026-11-12 迁移保留了主目录个人记录、原始照片、完整官方素材、Excel、预览，以及 `local/versions/` 中的旧版恢复包。探索目录另外发现的 3 张原照片也已加入 `photos/`，同名同内容的照片只保留一份。
 
-主目录的个人记录更新时间较新，继续作为当前记录。探索目录的不同版本另存于 `local/migration/2026-11-12/exploration-records/`，不自动合并收藏。迁移时的主目录原始记录在同级 `main-records/`，旧运行配置也保存在这里。
+主目录的个人记录更新时间较新，继续作为当前记录。失败探索目录的另一份记录没有合并到当前资料库，也不另留迁移备份。额外的备份分支、导入的检查点及开发资料归档已清理。
 
-逐文件的 SHA256、去向与清理分类见同级 `manifest.json`。历史开发脚本、诊断、旧源码片段和本地工具配置保存在 `windows-development-notes.zip`。重复工作目录、旧构建产物、浏览器截图、Python 缓存和 Windows worktree 绝对路径不作为运行环境保留。Git 分支和 Codex 检查点已导入当前仓库。
+逐文件的 SHA256、原迁移分类与后续清理说明见 `local/migration/2026-11-12/manifest.json`。重复工作目录、旧构建产物、浏览器截图、Python 缓存和 Windows worktree 绝对路径不作为运行环境保留。
 
 以上个人资料和迁移档案都位于 Git 忽略的目录，不会随着代码提交上传。换电脑时仍需单独备份 `photos/`、`local/` 和 `data/catalog/`。
 
