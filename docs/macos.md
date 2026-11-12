@@ -4,6 +4,8 @@
 
 在 Finder 中打开项目，双击 `open-library.command`。照片放在 `photos/`，收藏和关联保存在 `local/personal-records.json`。网页操作、8 秒自动扫描、云创手动同步和 GitHub 网页发布沿用原来的功能。
 
+本机桌面已建立名为「尼康云创资料库」的 Finder 替身，指向 `open-library.command`，双击即可启动。替身使用独立设计的深灰摄影图标，PNG、Mac ICNS 和生成提示词保存在 `app/assets/library-icon-macos-v1.*`。替身留在本机桌面；换电脑后需重新建立。
+
 - `setup-mac.command`：首次安装或更新 Python 依赖，需要联网并已安装 uv。
 - `open-library.command`：启动本项目服务并打开浏览器；已有服务时重新生成页面后复用。
 - `update-photos.command`：立即扫描本地照片。

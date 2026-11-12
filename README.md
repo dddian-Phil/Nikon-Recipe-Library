@@ -6,7 +6,7 @@
 
 ## 日常使用
 
-1. Mac 双击 `open-library.command`，Windows 双击 `open-library.cmd` 打开资料库。
+1. Mac 双击桌面的「尼康云创资料库」替身或 `open-library.command`，Windows 双击 `open-library.cmd` 打开资料库。
 2. 将照片放进 `photos/`，也可以建立子文件夹；服务运行时每 8 秒自动检查。
 3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 Mac 的 `update-photos.command` / Windows 的 `update-photos.cmd`。
 
