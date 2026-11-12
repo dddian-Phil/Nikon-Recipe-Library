@@ -25,15 +25,15 @@
 
 | 分支 | 用途 |
 |---|---|
-| `main` | 保留迁移前的主分支 |
-| `claude/ui-polish` | 保留 GitHub 上原有的探索分支 |
+| `codex/win` | Windows 原主分支，原名 `main` |
+| `codex/win-exploration` | Windows 原探索分支，原名 `claude/ui-polish` |
 | `codex/macos` | 当前项目目录，Mac 日常使用和后续开发 |
 | `codex/macos-exploration` | `local/worktrees/ui-polish/`，从 Mac 稳定版本开始新的探索 |
 | `codex/static-deploy` | `local/worktrees/static-deploy/`，沿用现有 GitHub Pages 发布流程 |
 
-本地共 5 个分支：原有 3 个，加上 2 个 Mac 分支。Windows 未提交的失败探索改动已丢弃，不另建备份分支或备份标签。
+本地和 GitHub 共用这 5 个分支名称：Windows 开发分支标记为 `win`，Mac 开发分支标记为 `macos`，另有一个共用发布分支。Windows 未提交的失败探索改动已丢弃，不另建备份分支或备份标签。
 
-生产发布分支继续使用 `codex/static-deploy`，以匹配现有 Actions 工作流。原有的 `v1`、`v1-web`、`v2`、`v2-web` 标签保留。迁移本身不推送或发布网站。
+生产发布分支继续使用 `codex/static-deploy`，以匹配现有 Actions 工作流。原有的 `v1`、`v1-web`、`v2`、`v2-web` 标签保留。两个平台开发分支的推送不会触发生产部署。
 
 照片、个人记录与完整官方素材集中在主项目目录。探索 worktree 保留源码和独立记录空间，不额外复制整套照片库。需要探索真实数据时，先明确导入或预览方式，避免两边分别修改收藏后互相覆盖。
 
