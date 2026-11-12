@@ -12,7 +12,7 @@
 # Python environments and caches
 __pycache__/
 *.py[cod]
-.venv/
+.venv
 venv/
 
 # Local credentials, editor settings and automation artifacts
