@@ -26,12 +26,12 @@
 | 分支 | 用途 |
 |---|---|
 | `codex/win` | Codex 的 Windows 原主分支，原名 `main` |
-| `claude/win-ui-polish` | Claude 的 Windows UI Polish 分支，原名 `claude/ui-polish` |
+| `claude/win-polish` | Claude 的 Windows Polish 分支，原名 `claude/ui-polish` |
 | `codex/macos` | 当前项目目录，Codex 的 Mac 日常使用和后续开发 |
-| `claude/macos-ui-polish` | `local/worktrees/ui-polish/`，供 Claude 从 Mac 稳定版本继续 UI Polish |
+| `claude/macos-polish` | `local/worktrees/ui-polish/`，供 Claude 从 Mac 稳定版本继续 Polish |
 | `codex/static-deploy` | `local/worktrees/static-deploy/`，沿用现有 GitHub Pages 发布流程 |
 
-本地和 GitHub 共用这 5 个分支名称：`codex/`、`claude/` 标记开发工具，`win`、`macos` 标记平台，Claude 的界面分支使用 `ui-polish`，另有一个共用发布分支。Windows 未提交的失败探索改动已丢弃，不另建备份分支或备份标签。
+本地和 GitHub 共用这 5 个分支名称：`codex/`、`claude/` 标记开发工具，`win`、`macos` 标记平台，Claude 的分支使用 `polish`，另有一个共用发布分支。Windows 未提交的失败探索改动已丢弃，不另建备份分支或备份标签。
 
 生产发布分支继续使用 `codex/static-deploy`，以匹配现有 Actions 工作流。原有的 `v1`、`v1-web`、`v2`、`v2-web` 标签保留。两个平台开发分支的推送不会触发生产部署。
 
