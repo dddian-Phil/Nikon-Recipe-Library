@@ -1,7 +1,143 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T00:23:12+08:00",
+  "updatedAt": "2026-11-12T23:22:11+08:00",
   "captures": [
+    {
+      "name": "DSC_3023",
+      "takenAt": "2026:11:11 14:58:01",
+      "camera": "NIKON Z50_2",
+      "lens": "TAMRON 17-70mm F2.8 B070 Z",
+      "iso": "100",
+      "fNumber": "4.0",
+      "exposureTime": "0.0025",
+      "focalLength": "70.0",
+      "pictureControlName": "MovieG&O_InstantF",
+      "pictureControlBase": "FLEXIBLE COLOR",
+      "metadataIssueCode": "",
+      "id": "fb9cf325594a866835053bc5",
+      "recipeId": "01KBXTAN3253FEGRK0941MM6GM",
+      "association": "automatic",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/fb9cf325594a866835053bc5-thumb-b4d61d7d8b41320d.jpg",
+      "thumbnailInfo": {
+        "bytes": 44933,
+        "sha256": "b4d61d7d8b41320d78966fbf8d411e4c3e9b8d36d37efc3ec8a95ba928badaa0",
+        "width": 480,
+        "height": 320,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/fb9cf325594a866835053bc5-display-a11e3ac97f1ce482.jpg",
+      "imageInfo": {
+        "bytes": 333587,
+        "sha256": "a11e3ac97f1ce4824b545e0d12ab902250fc1cee2d39077a32e0a5ca0d5bbd6a",
+        "width": 1280,
+        "height": 853,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_3021",
+      "takenAt": "2026:11:11 14:57:24",
+      "camera": "NIKON Z50_2",
+      "lens": "TAMRON 17-70mm F2.8 B070 Z",
+      "iso": "100",
+      "fNumber": "4.0",
+      "exposureTime": "0.0025",
+      "focalLength": "41.0",
+      "pictureControlName": "MovieG&O_InstantF",
+      "pictureControlBase": "FLEXIBLE COLOR",
+      "metadataIssueCode": "",
+      "id": "605370249003f82a0e8dc74f",
+      "recipeId": "01KBXTAN3253FEGRK0941MM6GM",
+      "association": "automatic",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/605370249003f82a0e8dc74f-thumb-e4298ad56785c3d6.jpg",
+      "thumbnailInfo": {
+        "bytes": 37836,
+        "sha256": "e4298ad56785c3d681f09f3e2be0df58321d66bf54f3f4fcd4c63223bfae8082",
+        "width": 320,
+        "height": 480,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/605370249003f82a0e8dc74f-display-003d792864477060.jpg",
+      "imageInfo": {
+        "bytes": 322202,
+        "sha256": "003d7928644770601830c866f840919c053376558d00f91b41a2d76ee7ac3671",
+        "width": 853,
+        "height": 1280,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_2665",
+      "takenAt": "2026:10:29 15:17:55",
+      "camera": "NIKON Z50_2",
+      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+      "iso": "110",
+      "fNumber": "5.6",
+      "exposureTime": "0.008",
+      "focalLength": "50.0",
+      "pictureControlName": "BlueHour_Luna",
+      "pictureControlBase": "FLEXIBLE COLOR",
+      "metadataIssueCode": "",
+      "id": "87244eca3827235395863a83",
+      "recipeId": "01JAYCJP2B79XXAHE7YT7B1ME4",
+      "association": "automatic",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/87244eca3827235395863a83-thumb-ce760c0088ef6100.jpg",
+      "thumbnailInfo": {
+        "bytes": 44790,
+        "sha256": "ce760c0088ef6100367183fed2d1830a3615a0dd31903bfe2e189f9f3c81870e",
+        "width": 343,
+        "height": 480,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/87244eca3827235395863a83-display-4f370632532c9f6d.jpg",
+      "imageInfo": {
+        "bytes": 357940,
+        "sha256": "4f370632532c9f6d8907eab5949ab8457ef4bc63d94b64a625169f7ecf004503",
+        "width": 915,
+        "height": 1280,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_2639",
+      "takenAt": "2026:10:27 16:23:03",
+      "camera": "NIKON Z50_2",
+      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+      "iso": "125",
+      "fNumber": "4.5",
+      "exposureTime": "0.008",
+      "focalLength": "50.0",
+      "pictureControlName": "Pale Tale_Yuri",
+      "pictureControlBase": "FLEXIBLE COLOR",
+      "metadataIssueCode": "",
+      "id": "a2335eb634356d1201d76e9d",
+      "recipeId": "01JZ9Z8E65TVX23WQ9D2W9TCPN",
+      "association": "automatic",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/a2335eb634356d1201d76e9d-thumb-0494ec88aedb4096.jpg",
+      "thumbnailInfo": {
+        "bytes": 42315,
+        "sha256": "0494ec88aedb40960753a5c098745e5639733d6661dbb04ec8aa38f43c6a0ca1",
+        "width": 351,
+        "height": 480,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/a2335eb634356d1201d76e9d-display-e30a21118f8f27d5.jpg",
+      "imageInfo": {
+        "bytes": 296914,
+        "sha256": "e30a21118f8f27d5a4caf9d40635c1932089190420d533b47030e2f7cdc6e2df",
+        "width": 937,
+        "height": 1280,
+        "format": "JPEG"
+      }
+    },
     {
       "name": "DSC_2636",
       "takenAt": "2026:10:27 16:21:47",
@@ -167,6 +303,40 @@
       "imageInfo": {
         "bytes": 337128,
         "sha256": "49624612d9e134750b5eb49937f8bbb6e9379fe23504e455608b65e2c7569939",
+        "width": 1280,
+        "height": 853,
+        "format": "JPEG"
+      }
+    },
+    {
+      "name": "DSC_1154",
+      "takenAt": "2026:10:13 15:25:51",
+      "camera": "NIKON Z50_2",
+      "lens": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+      "iso": "100",
+      "fNumber": "4.5",
+      "exposureTime": "0.0025",
+      "focalLength": "50.0",
+      "pictureControlName": "AUTO",
+      "pictureControlBase": "AUTO",
+      "metadataIssueCode": "",
+      "id": "0d2ab843f346b0b8ab9c61c5",
+      "recipeId": null,
+      "association": "unmatched",
+      "favorite": false,
+      "metadataConflict": false,
+      "thumbnail": "photos/images/0d2ab843f346b0b8ab9c61c5-thumb-c7a70a5c0bf30950.jpg",
+      "thumbnailInfo": {
+        "bytes": 58045,
+        "sha256": "c7a70a5c0bf3095009b0d4260a1569c88c8661ef04cbbee7cd7a6fca872ba5e4",
+        "width": 480,
+        "height": 320,
+        "format": "JPEG"
+      },
+      "preview": "photos/images/0d2ab843f346b0b8ab9c61c5-display-afbff3f60c17cd64.jpg",
+      "imageInfo": {
+        "bytes": 448026,
+        "sha256": "afbff3f60c17cd64ec9eabd96c8972a71f75684eec34ded9425575748516fadd",
         "width": 1280,
         "height": 853,
         "format": "JPEG"
@@ -791,6 +961,7 @@
     "01JSDSNV8Z3TXW116M4RJXF6F4",
     "01JSE2HC6Q9XGAC27432XRRAKG",
     "01JZ9Z8E65TVX23WQ9D2W9TCPN",
+    "01KBXTAN3253FEGRK0941MM6GM",
     "01M3P67BB9NR1QMJHMQ870XW52"
   ]
 }
