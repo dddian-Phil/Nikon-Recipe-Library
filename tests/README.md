@@ -2,6 +2,19 @@
 
 Run from the project root with the existing Python runtime and requirements:
 
+On macOS, run `./setup-mac.command` once, then:
+
+```bash
+./.venv/bin/python -B -m unittest discover -s tests -v
+```
+
+Mac launcher integration tests use isolated libraries with spaces and Chinese
+characters in their paths. They cover start/reuse, stale viewer regeneration,
+updates, stopping the owned process, wrong workspaces and failed startups.
+The Windows PowerShell launcher tests are skipped on macOS.
+
+On Windows:
+
 ```powershell
 python -m unittest discover -s tests -v
 node --check app/app.js

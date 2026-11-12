@@ -1,6 +1,8 @@
 # 尼康云创资料库
 
-双击同一层的 **open-library.cmd**，即可在浏览器使用。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。
+Mac 双击同一层的 **open-library.command**，Windows 双击 **open-library.cmd**，即可在浏览器使用。Mac 首次使用先运行 **setup-mac.command**。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。
+
+Mac 关闭浏览器后服务仍在后台运行；双击 **stop-library.command** 可停止本项目的服务，正在扫描、同步或发布时请等待完成。再次打开资料库会复用已有服务。
 
 ## 网页手动同步云创
 
@@ -26,7 +28,7 @@
 ## 添加照片与持续更新
 
 1. 把新照片复制到 **photos** 文件夹，可以按日期或拍摄主题建立子文件夹。
-2. 资料库打开后每 8 秒检查一次变化，新照片会自动出现。也可以点击页面上的 **更新照片库**，或双击最外层的 **update-photos.cmd**。
+2. 资料库打开后每 8 秒检查一次变化，新照片会自动出现。也可以点击页面上的 **更新照片库**，或双击最外层的 Mac **update-photos.command** / Windows **update-photos.cmd**。
 3. 打开 **我的实拍** 查看照片。能够读出优化校准名称时，会按名称关联云创方案。首次导入需要读取文件并生成预览，数量多时请稍等。
 
 JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增加拍摄张数。更新会跳过未变化的文件，不会修改原照片。正在复制的文件会留到后续检查。
@@ -69,8 +71,13 @@ JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增�
 | 最外层入口 | 用途 |
 |---|---|
 | open-library.cmd | 日常浏览、收藏、反查和管理实拍 |
+| open-library.command | Mac 日常打开资料库 |
+| setup-mac.command | Mac 安装或更新项目环境 |
+| stop-library.command | Mac 停止后台服务 |
 | photos | 放入新照片，可自由建立子文件夹 |
 | update-photos.cmd | 立即检查新增、移动或移除的照片 |
+| update-photos.command | Mac 立即更新照片索引 |
+| sync-website.command | Mac 网页发布备用入口 |
 | recipes.xlsx | 直接用 Excel 查看公开方案总表 |
 | guide.html | 本说明，双击即可阅读 |
 | README.md | 项目介绍与安装说明 |
@@ -78,7 +85,7 @@ JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增�
 | data/catalog | 官方方案、样片与作者头像 |
 | local | 个人记录、照片索引、缩略图、配置及历史检查 |
 
-运行需要 Python 3.11 或更新版本、Pillow 和 tifffile。当前电脑已配置好。新电脑先按 README.md 安装并下载官方目录；日常浏览不依赖外部网络。
+运行需要 Python 3.11 或更新版本、Pillow 和 tifffile。Mac 安装脚本会在项目中准备所需环境。新电脑先按 README.md 安装，并复制或下载官方目录；日常浏览不依赖外部网络。
 
 主分支管理程序和文档，部署分支另外保存公开方案与经过压缩的实拍展示副本。原始 photos、local、完整个人记录、下载的原始官方目录、生成的浏览页面和 recipes.xlsx 均不提交到 GitHub。迁移个人照片和收藏时，请另行复制 photos 与 local。
 
@@ -94,7 +101,7 @@ JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增�
 
 ## 无法打开时
 
-请再次双击 **open-library.cmd**。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。
+请再次双击 Mac **open-library.command** / Windows **open-library.cmd**。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。Mac 缺少环境时重新运行 **setup-mac.command**。
 
 ## 收起筛选条件
 

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import mimetypes
+import os
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -55,7 +56,7 @@ class Handler(BaseHTTPRequestHandler):
         path = unquote(parsed.path)
         try:
             if path == '/api/health':
-                self.send_json({'service': 'nikon-local-library', 'workspace': hashlib.sha256(str(WORKSPACE).encode()).hexdigest(), 'port': self.server.server_port})
+                self.send_json({'service': 'nikon-local-library', 'workspace': hashlib.sha256(str(WORKSPACE).encode()).hexdigest(), 'port': self.server.server_port, 'pid': os.getpid()})
             elif path == '/api/state':
                 state = LIBRARY.state()
                 state['catalogSync'] = CATALOG.status()

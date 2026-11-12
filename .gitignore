@@ -21,6 +21,7 @@ venv/
 !.env.example
 .codex/
 .agents/
+.claude/
 .aws/
 .playwright-mcp/
 .playwright-cli/

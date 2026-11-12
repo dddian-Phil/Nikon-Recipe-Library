@@ -2,7 +2,8 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>使用说明 · 尼康云创资料库</title><style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#191919;color:#dedede;font:16px/1.85 system-ui,"Microsoft YaHei",sans-serif}main{max-width:880px;margin:36px auto;padding:32px 44px 48px;background:#242424;border:1px solid #383838;border-radius:12px}h1{margin:0 0 24px;color:#fff;font-size:30px;line-height:1.4}h2{margin:34px 0 12px;padding-top:20px;border-top:1px solid #404040;color:#fff;font-size:21px;line-height:1.5}strong{color:#fff}p{margin:12px 0}li{margin:8px 0}ul,ol{padding-left:25px}code{padding:3px 6px;background:#333;border-radius:4px;color:#fff}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #414141}th{background:#333;color:#fff}.table-wrap{overflow:auto;margin:18px 0}@media(max-width:640px){main{margin:0;padding:24px 20px;border:0;border-radius:0}h1{font-size:26px}}
 </style></head><body><main><h1>尼康云创资料库</h1>
-<p>双击同一层的 <strong>open-library.cmd</strong>，即可在浏览器使用。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。</p>
+<p>Mac 双击同一层的 <strong>open-library.command</strong>，Windows 双击 <strong>open-library.cmd</strong>，即可在浏览器使用。Mac 首次使用先运行 <strong>setup-mac.command</strong>。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。</p>
+<p>Mac 关闭浏览器后服务仍在后台运行；双击 <strong>stop-library.command</strong> 可停止本项目的服务，正在扫描、同步或发布时请等待完成。再次打开资料库会复用已有服务。</p>
 <h2>网页手动同步云创</h2>
 <p>点击顶部的 <strong>同步云创</strong>，执行日常增量同步：读取官方目录，只下载新增或目录信息有变化的方案，更新相关介绍、参数、样片和作者资料。页面显示进度，以及完成后的新增、更新数量。打开网页、刷新页面和重启服务不会自动联系官方，也不增加任何官方同步定时任务。</p>
 <p>打开或刷新页面不会显示上次同步的结果，只有本次点击 <strong>同步云创</strong> 后才显示进度和结果。已有且目录信息未变化的方案和头像直接复用，不逐个请求详情或核对图片；本地素材缺失或损坏时会补齐。目录没有变化且本地资料完整时只请求一次方案目录，直接复用已有作者资料；新增、方案变更或作者资料缺失时才读取作者目录，不单独检查作者简介和头像的远端变化。没有变化时提示 <strong>目录没有变化，已复用本地方案</strong>，不重新生成整份资料库。旧方案仅在详情内修改参数或替换同地址样片，日常同步不会发现；页面不提供完整核对入口。</p>
@@ -19,7 +20,7 @@
 <h2>添加照片与持续更新</h2>
 <ol>
 <li>把新照片复制到 <strong>photos</strong> 文件夹，可以按日期或拍摄主题建立子文件夹。</li>
-<li>资料库打开后每 8 秒检查一次变化，新照片会自动出现。也可以点击页面上的 <strong>更新照片库</strong>，或双击最外层的 <strong>update-photos.cmd</strong>。</li>
+<li>资料库打开后每 8 秒检查一次变化，新照片会自动出现。也可以点击页面上的 <strong>更新照片库</strong>，或双击最外层的 Mac <strong>update-photos.command</strong> / Windows <strong>update-photos.cmd</strong>。</li>
 <li>打开 <strong>我的实拍</strong> 查看照片。能够读出优化校准名称时，会按名称关联云创方案。首次导入需要读取文件并生成预览，数量多时请稍等。</li>
 </ol>
 <p>JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增加拍摄张数。更新会跳过未变化的文件，不会修改原照片。正在复制的文件会留到后续检查。</p>
@@ -46,8 +47,13 @@
 <h2>文件夹说明</h2>
 <div class="table-wrap"><table><thead><tr><th>最外层入口</th><th>用途</th></tr></thead><tbody>
 <tr><td>open-library.cmd</td><td>日常浏览、收藏、反查和管理实拍</td></tr>
+<tr><td>open-library.command</td><td>Mac 日常打开资料库</td></tr>
+<tr><td>setup-mac.command</td><td>Mac 安装或更新项目环境</td></tr>
+<tr><td>stop-library.command</td><td>Mac 停止后台服务</td></tr>
 <tr><td>photos</td><td>放入新照片，可自由建立子文件夹</td></tr>
 <tr><td>update-photos.cmd</td><td>立即检查新增、移动或移除的照片</td></tr>
+<tr><td>update-photos.command</td><td>Mac 立即更新照片索引</td></tr>
+<tr><td>sync-website.command</td><td>Mac 网页发布备用入口</td></tr>
 <tr><td>recipes.xlsx</td><td>直接用 Excel 查看公开方案总表</td></tr>
 <tr><td>guide.html</td><td>本说明，双击即可阅读</td></tr>
 <tr><td>README.md</td><td>项目介绍与安装说明</td></tr>
@@ -55,7 +61,7 @@
 <tr><td>data/catalog</td><td>官方方案、样片与作者头像</td></tr>
 <tr><td>local</td><td>个人记录、照片索引、缩略图、配置及历史检查</td></tr>
 </tbody></table></div>
-<p>运行需要 Python 3.11 或更新版本、Pillow 和 tifffile。当前电脑已配置好。新电脑先按 README.md 安装并下载官方目录；日常浏览不依赖外部网络。</p>
+<p>运行需要 Python 3.11 或更新版本、Pillow 和 tifffile。Mac 安装脚本会在项目中准备所需环境。新电脑先按 README.md 安装，并复制或下载官方目录；日常浏览不依赖外部网络。</p>
 <p>主分支管理程序和文档，部署分支另外保存公开方案与经过压缩的实拍展示副本。原始 photos、local、完整个人记录、下载的原始官方目录、生成的浏览页面和 recipes.xlsx 均不提交到 GitHub。迁移个人照片和收藏时，请另行复制 photos 与 local。</p>
 <h2>浏览与快捷操作</h2>
 <p>界面采用接近尼康云创官网的黑白灰配色，以黄色标记主要操作与选中状态。顶部的「资料与备份」菜单包含总表与个人记录的导入导出。</p>
@@ -67,6 +73,6 @@
 <li><strong>Esc</strong> 关闭当前窗口，回到之前的位置；<strong>/</strong> 聚焦搜索，<strong>?</strong> 打开快捷操作提示。输入文字时不会触发看图快捷键。</li>
 </ul>
 <h2>无法打开时</h2>
-<p>请再次双击 <strong>open-library.cmd</strong>。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。</p>
+<p>请再次双击 Mac <strong>open-library.command</strong> / Windows <strong>open-library.cmd</strong>。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。Mac 缺少环境时重新运行 <strong>setup-mac.command</strong>。</p>
 <h2>收起筛选条件</h2>
 <p>搜索框直接可用。点击旁边的「筛选」，展开作者、相机、镜头和基础优化校准条件；已选条件仍在下方显示，可逐个移除。右上角同步、照片更新与备份按钮沿用 v1 的位置。</p></main></body></html>

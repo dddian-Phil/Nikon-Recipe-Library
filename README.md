@@ -6,9 +6,11 @@
 
 ## 日常使用
 
-1. 双击 `open-library.cmd` 打开资料库。
+1. Mac 双击 `open-library.command`，Windows 双击 `open-library.cmd` 打开资料库。
 2. 将照片放进 `photos/`，也可以建立子文件夹；服务运行时每 8 秒自动检查。
-3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 `update-photos.cmd`。
+3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 Mac 的 `update-photos.command` / Windows 的 `update-photos.cmd`。
+
+Mac 关闭浏览器后服务仍在后台运行；双击 `stop-library.command` 可停止。再次打开会复用同一个资料库服务。
 
 完整使用说明请打开根目录的 `guide.html`，也可以阅读 [文档源码](docs/guide.md)。已有的本地官方素材下载完成后，日常浏览无需联网。
 
@@ -16,7 +18,16 @@
 
 ## 首次安装
 
-需要 Python 3.11 或更新版本。以下命令在项目根目录执行：
+Mac 已安装 uv 时，在项目根目录执行一次：
+
+```bash
+./setup-mac.command
+./open-library.command
+```
+
+安装脚本为项目准备 Python 3.12 和 `.venv`，下载与缓存保存在忽略目录 `local/`，并配置本机解释器路径。之后直接双击启动入口即可。完整说明与迁移、分支安排见 [Mac 使用说明](docs/macos.md)。
+
+Windows 需要 Python 3.11 或更新版本。以下命令在项目根目录执行：
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -36,7 +47,7 @@ python -m pip install -r requirements.txt
 
 同步仅替换 `data/catalog/`，不会写入原照片或 `local/personal-records*.json`。已有照片的自动扫描保持原来的 8 秒间隔；它只读取本地文件，与官方同步无关。当前 `recipes.xlsx` 是原有静态导出，网页同步不重写它。
 
-如需指定 Python 路径或端口，将 `app/runtime.example.json` 复制为 `local/runtime.json` 后编辑。此机器原有的运行配置已保存在该位置。
+如需指定 Windows Python 路径或端口，将 `app/runtime.example.json` 复制为 `local/runtime.json` 后编辑。Mac 入口使用项目的 `.venv/bin/python`，端口仍读取这个文件；运行安装脚本会更新解释器路径。
 
 也可以直接运行：
 
@@ -51,7 +62,12 @@ python app/library_server.py --port 8765
 | 路径 | 用途 |
 |---|---|
 | `open-library.cmd` | 打开资料库 |
+| `open-library.command` | Mac 打开资料库 |
+| `setup-mac.command` | Mac 安装或更新运行依赖 |
+| `stop-library.command` | Mac 停止本项目的后台服务 |
 | `update-photos.cmd` | 立即更新照片索引 |
+| `update-photos.command` | Mac 立即更新照片索引 |
+| `sync-website.command` | Mac 发布网页；加 `--prepare-only` 仅在本地准备 |
 | `guide.html` | 可直接阅读的使用说明 |
 | `photos/` | 自己的原始照片，保留原文件名 |
 | `app/` | 前端、照片解析、采集器及本地服务 |
