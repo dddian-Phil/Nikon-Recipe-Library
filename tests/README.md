@@ -53,6 +53,35 @@ focus highlight on navigation arrows, and no box or underline during keyboard na
 Local photo state is mocked only in this test browser; no records are written.
 Screenshots are saved under ignored `output/playwright/`.
 
+JPEG import has an end-to-end check in `photo_import.browser.py`. It starts a
+temporary library, uses generated JPEGs and installed Google Chrome, then removes
+the library when finished. Install optional test tools into the ignored local
+directory (without changing the application environment), then run:
+
+```bash
+uv pip install --python .venv/bin/python --target local/browser-test-tools --cache-dir local/uv-cache playwright
+PYTHONPATH=local/browser-test-tools ./.venv/bin/python -B tests/photo_import.browser.py
+```
+
+This covers native file selection, automatic scanning, exact image/EXIF retention,
+duplicates, name collisions, partial failures, JPEG-only restrictions, drag and
+drop, active filters, existing detail/like actions, local-only controls, and desktop,
+390px and 320px layouts. Results and screenshots go to `output/playwright/`.
+Generated JPEGs with MPF embedded previews (opened as MPO) cover byte-for-byte
+preservation, EXIF, all embedded frames, rejection of truncated auxiliary images,
+HTTP upload, drag-and-drop import and gallery preview generation.
+
+The same browser check verifies the minimal add/delete toolbar follows the gallery,
+photo selection, visible-only select-all, keyboard/cancel/Esc, filter and pane changes,
+batch deletion and partial-failure retry, persisted batch undo after refresh,
+partial restore retry, preserved likes, deleting all photos, sticky mobile controls,
+and static-mode restrictions. It also checks matching action icons, nested drag
+entry/exit and cancellation, and selection markers below (never over) images at
+both gallery densities on desktop and mobile.
+Backend trash tests cover grouped copies, concurrent scans, stale confirmations,
+changed/missing files, path boundaries, rollback, recovery after restart and restore
+name conflicts. All deletion tests use generated photos in temporary libraries.
+
 Photo parameters, separate pane filters, SVG favorite icons and arrow focus styles
 can be checked with `run-code --filename tests/viewer_details.browser.js` against
 the local library or static preview containing liked photos. Use a dedicated

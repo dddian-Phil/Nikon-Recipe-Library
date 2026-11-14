@@ -35,6 +35,12 @@ function formatCatalogStamp(catalog){
 }
 let library={captures:[],records:{recipeFavorites:[],photoFavorites:[],photoAssignments:{}},summary:{files:0,photos:0,matched:0,favoritePhotos:0},revision:[-1,-1]},pane='recipes',activePhoto=null,activeRecipe=null,writeQueue=Promise.resolve(),toastTimer,connectionFailures=0;
 let visibleRecipeIds=[],visiblePhotoIds=[];
+let importingPhotos=false;
+let pendingPhotoDelete=null,deletingPhoto=false,undoingPhotoDelete=false,photoRestoreError='';
+let selectingPhotos=false;const selectedPhotoIds=new Set();
+let recentPhotoDelete=null;try{recentPhotoDelete=JSON.parse(sessionStorage.getItem('nikon-photo-delete')||'null')}catch{}
+if(recentPhotoDelete&&!Array.isArray(recentPhotoDelete))recentPhotoDelete=[recentPhotoDelete];
+recentPhotoDelete=Array.isArray(recentPhotoDelete)?recentPhotoDelete.filter(item=>typeof item?.token==='string'&&typeof item?.name==='string'):[];
 let newRecipeIds=new Set(data.syncMetadata?.newRecipeIds||[]),catalogRevision=data.syncMetadata?.revision||'',catalogLoading=false;
 const assignmentQueries=new Map();
 let keyboardNavigation=false;
@@ -80,6 +86,7 @@ function update(){
  $('view-recipes').setAttribute('aria-pressed',String(pane==='recipes'));$('view-photos').setAttribute('aria-pressed',String(pane==='photos'));$('favorites-label').textContent=pane==='recipes'?'只看收藏':'只看喜欢';$('mine-filter').hidden=pane==='photos';$('unmatched-filter').hidden=pane==='recipes';$('q').placeholder=pane==='recipes'?'搜索方案、作者、器材…':'搜索照片、方案、器材…';
  $('view-help').textContent='点开照片后，方向键连续浏览 · F 专注看图';
  $('new-filter').hidden=pane==='photos';$('recipe-sort-control').hidden=pane==='photos';
+ $('photo-import').hidden=pane!=='photos'||data.mode==='static';
  const c=creators.find(c=>c.name===state.author);$('creator').replaceChildren();$('creator').style.display=c?'flex':'none';
  if(c){if(c.localPortrait){const img=el('img');img.src=c.localPortrait;img.alt=c.name;$('creator').append(img)}const body=el('div');body.append(el('h3',c.name),el('span',c.position,'muted'),el('p',c.profile));$('creator').append(body)}
  const fragment=document.createDocumentFragment();let count=0,total=0;
@@ -91,10 +98,10 @@ function update(){
  }else{
   total=library.captures.length;
   const list=library.captures.filter(p=>{const r=recipeById.get(p.recipeId);return(!state.author||r?.authors.includes(state.author))&&(!state.camera||p.camera===state.camera)&&(!state.lens||p.lens===state.lens)&&(!state.base||p.pictureControlBase===state.base)&&(!favorites||p.favorite)&&(!$('only-unmatched').checked||!p.recipeId)&&(!query||[p.name,p.camera,p.lens,p.pictureControlName,r?.name,...(r?.authors||[]),...p.files.map(f=>f.path)].join(' ').toLocaleLowerCase().includes(query))});
-  visiblePhotoIds=list.map(p=>p.id);count=list.length;for(const p of list)fragment.append(photoTile(p));
+  visiblePhotoIds=list.map(p=>p.id);for(const id of selectedPhotoIds)if(!visiblePhotoIds.includes(id))selectedPhotoIds.delete(id);count=list.length;for(const p of list)fragment.append(photoTile(p));
  }
- $('grid').replaceChildren(fragment);$('count').textContent=`${count===total?count:count+' / '+total} ${pane==='recipes'?'个方案':'张实拍'}`;$('empty').hidden=!!count;$('empty').textContent=pane==='photos'&&total===0?'把 JPG 或 NEF 放入最外层「photos」文件夹，稍等片刻即可在这里查看。':'没有符合条件的内容，请调整筛选。';
- renderFilterChips();
+ $('grid').replaceChildren(fragment);$('count').textContent=`${count===total?count:count+' / '+total} ${pane==='recipes'?'个方案':'张实拍'}`;$('empty').hidden=!!count;$('empty').textContent=pane==='photos'&&total===0?(data.mode==='static'?'还没有发布的实拍照片。':'点击下方「添加照片」或将照片拖到添加区域，开始记录你的色彩。'):'没有符合条件的内容，请调整筛选。';
+ renderFilterChips();renderPhotoControls();
 }
 function photoAssociationStatus(p){
  const matched=recipeById.has(p.recipeId),name=String(p.pictureControlName||'').trim();
@@ -106,11 +113,13 @@ function photoAssociationStatus(p){
  return {text:'未匹配云创',warning:true};
 }
 function photoTile(p){
- const tile=el('article',undefined,'recipe-tile photo-tile');tile.dataset.photoId=p.id;
- const card=button('',()=>openPhoto(p.id),'card');card.setAttribute('aria-label','查看实拍 '+p.name);
+ const selecting=selectingPhotos&&data.mode!=='static',tile=el('article',undefined,'recipe-tile photo-tile'+(selecting?' is-selecting':''));tile.dataset.photoId=p.id;
+ const card=button('',()=>{if(selecting){if(deletingPhoto)return;selectedPhotoIds.has(p.id)?selectedPhotoIds.delete(p.id):selectedPhotoIds.add(p.id);card.setAttribute('aria-pressed',String(selectedPhotoIds.has(p.id)));renderPhotoControls()}else openPhoto(p.id)},'card');card.setAttribute('aria-label',(selecting?'选择实拍 ':'查看实拍 ')+p.name);if(selecting)card.setAttribute('aria-pressed',String(selectedPhotoIds.has(p.id)));
  if(p.preview){const img=el('img');img.src='/'+p.preview;img.alt=p.name;img.loading='lazy';card.append(img)}else card.append(el('div','暂无预览，可打开原文件','placeholder'));
  const body=el('div',undefined,'text'),r=recipeById.get(p.recipeId),automatic=String(p.pictureControlName||'').trim().toUpperCase()==='AUTO';
- body.append(el('h3',p.name));
+ const caption=el('div',undefined,'photo-caption');caption.append(el('h3',p.name));
+ if(selecting){const mark=el('span',undefined,'photo-selection-mark');mark.setAttribute('aria-hidden','true');const ns='http://www.w3.org/2000/svg',icon=document.createElementNS(ns,'svg'),path=document.createElementNS(ns,'path');icon.setAttribute('viewBox','0 0 16 16');icon.setAttribute('fill','none');icon.setAttribute('stroke','currentColor');icon.setAttribute('stroke-width','1.75');icon.setAttribute('stroke-linecap','round');icon.setAttribute('stroke-linejoin','round');icon.setAttribute('focusable','false');path.setAttribute('d','m3 8 3 3 7-7');icon.append(path);mark.append(icon);caption.append(mark)}
+ body.append(caption);
  const scheme=r?r.name:automatic?'自动优化校准（AUTO）':p.pictureControlName;
  if(scheme)body.append(el('div',scheme,'author'));
  body.append(el('div',p.camera+' · '+p.lens,'gear'),el('div',formatTakenAt(p.takenAt)||'未提供拍摄时间','date'));card.append(body);
@@ -141,6 +150,72 @@ function openPhoto(id,queue=null){
 }
 async function api(path,body){const response=await fetch(path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const result=await response.json();if(!response.ok)throw new Error(result.error||'操作失败');return result}
 
+function renderPhotoControls(){
+ const busy=importingPhotos||deletingPhoto||undoingPhotoDelete;
+ document.body.classList.toggle('selecting-photos',selectingPhotos);
+ $('photo-import').classList.toggle('is-selecting',selectingPhotos);
+ $('add-photos').hidden=selectingPhotos;$('delete-photos').hidden=selectingPhotos;
+ $('add-photos').disabled=busy||!library.photoImport;
+ $('delete-photos').disabled=busy||!library.photoDelete||!visiblePhotoIds.length||!!library.scanning;
+ for(const id of['cancel-photo-selection','select-all-photos','delete-selected-photos'])$(id).hidden=!selectingPhotos;
+ $('cancel-photo-selection').disabled=deletingPhoto;
+ $('select-all-photos').disabled=busy||!visiblePhotoIds.length;
+ $('select-all-photos').textContent=visiblePhotoIds.length&&selectedPhotoIds.size===visiblePhotoIds.length?'取消全选':'全选';
+ $('delete-selected-photos').disabled=busy||!selectedPhotoIds.size||!library.photoDelete||!!library.scanning;
+ $('delete-selected-photos').textContent='删除所选（'+selectedPhotoIds.size+'）';
+ $('photo-selection-status').textContent=selectingPhotos?(selectedPhotoIds.size?'已选 '+selectedPhotoIds.size+' 张照片':'请选择需要删除的照片'):'';
+ for(const card of document.querySelectorAll('.photo-tile.is-selecting .card'))card.disabled=deletingPhoto;
+ $('photo-import-feedback').hidden=selectingPhotos||!$('photo-import-status').textContent;
+ $('photo-delete-feedback').hidden=selectingPhotos||!recentPhotoDelete.length;
+ if(recentPhotoDelete.length)$('photo-delete-status').textContent=photoRestoreError||'已删除 '+recentPhotoDelete.length+' 张照片';
+ $('undo-photo-delete').disabled=busy||!!library.scanning;
+ $('undo-photo-delete').textContent=undoingPhotoDelete?'正在恢复…':'撤销删除';
+}
+function endPhotoSelection(){if(deletingPhoto)return;selectingPhotos=false;selectedPhotoIds.clear();update();$('delete-photos').focus({preventScroll:true})}
+$('delete-photos').onclick=()=>{if(data.mode==='static'||!library.photoDelete||importingPhotos||deletingPhoto||undoingPhotoDelete||!visiblePhotoIds.length)return;selectingPhotos=true;selectedPhotoIds.clear();update();$('grid').querySelector('.photo-tile:last-child .card')?.focus({preventScroll:true})};
+$('cancel-photo-selection').onclick=endPhotoSelection;
+$('select-all-photos').onclick=()=>{if(deletingPhoto)return;const all=selectedPhotoIds.size===visiblePhotoIds.length;selectedPhotoIds.clear();if(!all)for(const id of visiblePhotoIds)selectedPhotoIds.add(id);update()};
+function renderPhotoDeleteDialog(){
+ const photos=pendingPhotoDelete.photos,files=photos.flatMap(photo=>photo.files);
+ $('photo-delete-title').textContent=photos.length===1?'删除这张实拍？':'删除这 '+photos.length+' 张实拍？';
+ $('photo-delete-name').textContent=photos.length===1?photos[0].name:photos.length+' 张照片 · '+files.length+' 个文件';
+ $('photo-delete-files').replaceChildren(...files.map(file=>el('li',file.path)));
+ $('photo-delete-description').textContent='原文件移入本地回收目录，可撤销。';
+}
+$('delete-selected-photos').onclick=()=>{
+ if(data.mode==='static'||!library.photoDelete||deletingPhoto||!selectedPhotoIds.size)return;
+ const photos=library.captures.filter(photo=>selectedPhotoIds.has(photo.id));if(!photos.length)return;
+ pendingPhotoDelete={photos:photos.map(({id,name,files})=>({id,name,files})),deleted:[]};renderPhotoDeleteDialog();
+ $('photo-delete-error').hidden=true;$('photo-delete-dialog').showModal();$('cancel-photo-delete').focus();
+};
+function rememberPhotoDelete(value){recentPhotoDelete=[...value];photoRestoreError='';try{if(value.length)sessionStorage.setItem('nikon-photo-delete',JSON.stringify(value));else sessionStorage.removeItem('nikon-photo-delete')}catch{}}
+$('cancel-photo-delete').onclick=()=>$('photo-delete-dialog').close();
+$('photo-delete-dialog').addEventListener('cancel',event=>{if(deletingPhoto)event.preventDefault()});
+$('photo-delete-dialog').addEventListener('close',()=>{pendingPhotoDelete=null});
+$('confirm-photo-delete').onclick=async()=>{
+ if(!pendingPhotoDelete||deletingPhoto||data.mode==='static')return;
+ const request=pendingPhotoDelete;deletingPhoto=true;renderPhotoControls();$('confirm-photo-delete').disabled=true;$('cancel-photo-delete').disabled=true;$('confirm-photo-delete').textContent='正在删除…';$('photo-delete-error').hidden=true;
+ try{
+  await writeQueue;
+  while(request.photos.length){
+   const photo=request.photos[0],result=await api('/api/photos/delete',{id:photo.id,files:photo.files});
+   request.photos.shift();request.deleted.push({token:result.token,name:result.name});rememberPhotoDelete(request.deleted);selectedPhotoIds.delete(photo.id);acceptState(result.state);
+  }
+  selectingPhotos=false;selectedPhotoIds.clear();$('photo-delete-dialog').close();update();toast('已删除 '+request.deleted.length+' 张照片');
+ }catch(error){renderPhotoDeleteDialog();$('photo-delete-error').textContent=(request.deleted.length?'已删除 '+request.deleted.length+' 张，其余未删除。':'')+error.message;$('photo-delete-error').hidden=false}
+ finally{deletingPhoto=false;renderPhotoControls();$('confirm-photo-delete').disabled=false;$('cancel-photo-delete').disabled=false;$('confirm-photo-delete').textContent='删除照片';if(!request.photos.length)$('undo-photo-delete').focus({preventScroll:true})}
+};
+$('undo-photo-delete').onclick=async()=>{
+ if(!recentPhotoDelete.length||undoingPhotoDelete||deletingPhoto||importingPhotos||selectingPhotos||data.mode==='static')return;
+ undoingPhotoDelete=true;photoRestoreError='';renderPhotoControls();let restored=0;
+ try{
+  await writeQueue;
+  for(const item of [...recentPhotoDelete]){const result=await api('/api/photos/restore',{token:item.token});rememberPhotoDelete(recentPhotoDelete.filter(photo=>photo.token!==item.token));restored++;acceptState(result.state)}
+  toast('已恢复 '+restored+' 张照片');
+ }catch(error){photoRestoreError=(restored?'已恢复 '+restored+' 张。':'')+'恢复失败：'+error.message}
+ finally{undoingPhotoDelete=false;renderPhotoControls();if(!recentPhotoDelete.length)$('delete-photos').focus({preventScroll:true})}
+};
+
 let websiteStatus={running:false},catalogBusy=false,catalogStatusRequested=false;
 function renderWebsiteStatus(status){
  if(data.mode==='static')return;
@@ -162,15 +237,62 @@ $('publish-website').onclick=async()=>{
 };
 
 function acceptState(next){
+ next.photoImport??=library.photoImport;
+ next.photoDelete??=library.photoDelete;
  const changed=JSON.stringify(next.revision)!==JSON.stringify(library.revision);library=next;const s=next.summary;$('summary').textContent=`${rs.length} 个公开方案 · ${creators.filter(c=>rs.some(r=>r.authors.includes(c.name))).length} 位作者 · 我的实拍 ${s.photos} 张`;$('view-photos').textContent='我的实拍（'+s.photos+'）';$('library-status').textContent=next.scanning?'正在扫描新照片…':next.scanError?'照片扫描未完成':'自动检查已开启';$('scan-photos').disabled=next.scanning;
  $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);if(next.websiteSync)renderWebsiteStatus(next.websiteSync);
- if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open)openPhoto(activePhoto)}
+ if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open){if(next.captures.some(photo=>photo.id===activePhoto))openPhoto(activePhoto);else $('photo-modal').close()}}
+ renderPhotoControls();
 }
 async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-status').textContent='本地服务已断开';$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请重新双击最外层的 open-library.cmd。收藏记录仍保存在本地文件中。'}}}
 function mutate(body){writeQueue=writeQueue.then(async()=>{acceptState(await api('/api/records',body))}).catch(error=>toast('保存失败：'+error.message));return writeQueue}
-function switchPane(next){if(pane===next)return;pane=next;restorePaneFilters();update()}
+function switchPane(next){if(pane===next)return;selectingPhotos=false;selectedPhotoIds.clear();pane=next;restorePaneFilters();update()}
 $('view-recipes').onclick=()=>switchPane('recipes');$('view-photos').onclick=()=>switchPane('photos');
 $('scan-photos').onclick=async()=>{try{acceptState(await api('/api/scan',{}));toast('已开始检查新增照片')}catch(error){toast(error.message)}};
+function uploadPhoto(file,onProgress){
+ return new Promise((resolve,reject)=>{
+  const request=new XMLHttpRequest();request.open('POST','/api/photos?name='+encodeURIComponent(file.name));request.setRequestHeader('Content-Type','application/octet-stream');request.timeout=300000;
+  request.upload.onprogress=event=>{if(event.lengthComputable)onProgress(event.loaded/event.total)};
+  request.onload=()=>{let result;try{result=JSON.parse(request.responseText)}catch{reject(new Error('服务响应异常，请重新打开本地资料库后重试。'));return}if(request.status>=200&&request.status<300&&['added','duplicate'].includes(result.status))resolve(result);else reject(new Error(result.error||'添加失败，请重试。'))};
+  request.onerror=()=>reject(new Error('连接中断，请检查本地服务后重试；已保存的照片再次添加会自动去重。'));
+  request.ontimeout=()=>reject(new Error('传输超时，请重试；已保存的照片再次添加会自动去重。'));
+  request.send(file);
+ });
+}
+async function addPhotos(selected){
+ const files=Array.from(selected||[]);if(!files.length||importingPhotos||selectingPhotos||deletingPhoto||undoingPhotoDelete||data.mode==='static')return;
+ if(!library.photoImport){toast('请先停止并重新打开本地资料库，以启用照片导入。');return}
+ importingPhotos=true;$('add-photos').disabled=true;$('add-photos-label').textContent='正在添加…';$('photo-import').setAttribute('aria-busy','true');$('photo-import-feedback').hidden=false;$('photo-import-errors').replaceChildren();$('photo-import-errors').hidden=true;$('photo-import-progress').hidden=false;$('photo-import-progress').value=0;
+ renderPhotoControls();$('photo-import-feedback').hidden=false;
+ let added=0,duplicates=0,failed=0;
+ try{
+  for(const [index,file]of files.entries()){
+   const label=`正在添加 ${index+1} / ${files.length}：${file.name}`;$('photo-import-status').textContent=label;
+   try{
+    if(!/\.jpe?g$/i.test(file.name))throw new Error('仅支持 JPEG 照片（.jpg / .jpeg）。');
+    if(!file.size||file.size>library.photoImport.maxFileBytes)throw new Error('照片不能为空，单个文件不能超过 256 MB。');
+    const result=await uploadPhoto(file,fraction=>{$('photo-import-progress').value=(index+fraction)/files.length*100;if(fraction===1)$('photo-import-status').textContent=`正在校验 ${index+1} / ${files.length}：${file.name}`});
+    if(result.status==='added')added++;else duplicates++;
+   }catch(error){failed++;$('photo-import-errors').hidden=false;$('photo-import-errors').append(el('li',file.name+'：'+error.message))}
+   $('photo-import-progress').value=(index+1)/files.length*100;
+  }
+  let summary=`已添加 ${added} 个文件`+(duplicates?`，${duplicates} 个已存在`:'')+(failed?`，${failed} 个未添加`:'')+'。';
+  if(added||duplicates){try{acceptState(await api('/api/scan',{}));await refresh();if(controls.some(id=>$(id).value)||$('only-favorites').checked||$('only-unmatched').checked)summary+=' 若未看到照片，请清除当前筛选。'}catch{summary+=' 文件已保存，请点击「更新照片库」刷新。'}}
+  $('photo-import-status').textContent=summary;
+ }finally{importingPhotos=false;$('photo-files').value='';$('add-photos-label').textContent='添加照片';$('photo-import').setAttribute('aria-busy','false');$('photo-import-progress').hidden=true;renderPhotoControls()}
+}
+$('add-photos').onclick=()=>$('photo-files').click();$('photo-files').onchange=event=>addPhotos(event.target.files);
+let photoDragDepth=0;
+function resetPhotoDrag(){photoDragDepth=0;$('photo-import').classList.remove('is-dragging');if(!importingPhotos)$('add-photos-label').textContent='添加照片'}
+for(const type of['dragenter','dragover','dragleave','drop'])$('photo-import').addEventListener(type,event=>{
+ if(!Array.from(event.dataTransfer?.types||[]).includes('Files'))return;event.preventDefault();
+ const allowed=data.mode!=='static'&&!!library.photoImport&&!importingPhotos&&!selectingPhotos&&!deletingPhoto&&!undoingPhotoDelete;
+ if(type==='dragenter'){photoDragDepth++;if(allowed){$('photo-import').classList.add('is-dragging');$('add-photos-label').textContent='松开添加'}}
+ if(type==='dragover')event.dataTransfer.dropEffect=allowed?'copy':'none';
+ if(type==='dragleave'&&--photoDragDepth<=0)resetPhotoDrag();
+ if(type==='drop'){resetPhotoDrag();if(allowed)addPhotos(event.dataTransfer.files)}
+});
+document.addEventListener('dragend',resetPhotoDrag);window.addEventListener('blur',resetPhotoDrag);
 $('import-records').onclick=()=>$('records-file').click();$('records-file').onchange=async event=>{const file=event.target.files[0];if(!file)return;try{const incoming=JSON.parse(await file.text());acceptState(await api('/api/import',incoming));toast('备份已合并，原有收藏已保留')}catch(error){toast('导入失败：'+error.message)}event.target.value=''};
 $('close').onclick=()=>$('modal').close();$('photo-close').onclick=()=>$('photo-modal').close();$('photo-like').onclick=()=>activePhoto&&mutate({action:'toggle_photo',id:activePhoto});
 for(const dialog of[$('modal'),$('photo-modal'),$('author-picker')])dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close()}});
@@ -246,7 +368,8 @@ $('shortcut-help').onclick=openShortcuts;$('shortcuts-close').onclick=()=>$('sho
 document.addEventListener('keydown',event=>{
  if(event.ctrlKey||event.metaKey||event.altKey||event.target.closest?.('input,select,textarea,[contenteditable="true"]'))return;
  const key=event.key.toLowerCase();if(event.key==='?'&&!$('shortcuts').open){event.preventDefault();openShortcuts();return}
- if($('shortcuts').open||$('author-picker').open)return;
+ if($('shortcuts').open||$('author-picker').open||$('photo-delete-dialog').open)return;
+ if(selectingPhotos&&event.key==='Escape'){event.preventDefault();endPhotoSelection();return}
  const kind=$('photo-modal').open?'photo':$('modal').open?'recipe':null;
  if(kind){if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();navigateViewer(kind,event.key==='ArrowLeft'?-1:1)}else if(key==='f'){event.preventDefault();toggleFocus(kind)}}else if(event.key==='/'){event.preventDefault();$('q').focus();$('q').select()}
 });

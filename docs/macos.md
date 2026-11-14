@@ -41,6 +41,8 @@
 
 使用 Claude 开发 Mac 界面时，在 Claude 中打开 `local/worktrees/ui-polish/`。分支名称用于标识工作归属，实际使用的模型由对应工具会话选择。
 
+探索性的设计先在 UI Polish 分支尝试，确认后再合入 macOS；明确要做的功能或修复可以直接在 macOS 分支开发，不必经过 UI Polish。所有修改先完成本地测试，再整合到网页部署分支并通过发布校验后上传。具体协作约定见根目录 `AGENTS.md`。
+
 ## 网页发布
 
 在本地网页的「资料与备份」中点击「同步到 GitHub 网页」。发布程序本身使用 Python，并支持 macOS 文件锁，不需要安装 PowerShell。需要 GitHub CLI 已登录，且 Git 能正常推送。首次配置可以检查：
