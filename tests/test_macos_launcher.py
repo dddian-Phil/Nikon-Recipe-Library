@@ -32,8 +32,7 @@ class MacLauncherTests(unittest.TestCase):
             port = probe.getsockname()[1]
         (self.root / 'local/runtime.json').write_text(json.dumps({'port': port}), encoding='utf-8')
         (self.root / '.venv').symlink_to(ROOT / '.venv', target_is_directory=True)
-        for name in ('open-library.command', 'update-photos.command', 'stop-library.command'):
-            shutil.copy2(ROOT / name, self.root / name)
+        shutil.copytree(ROOT / 'scripts/macos', self.root / 'scripts/macos')
         self.launcher = Launcher(self.root)
         self.addCleanup(self.cleanup_server)
 
@@ -46,7 +45,7 @@ class MacLauncherTests(unittest.TestCase):
                 pass
 
     def command(self, name, *args):
-        return subprocess.run(['/bin/bash', str(self.root / name), *args],
+        return subprocess.run(['/bin/bash', str(self.root / 'scripts/macos' / name), *args],
             cwd='/private/tmp', capture_output=True, text=True, timeout=35)
 
     def test_open_reuses_service_rebuilds_viewer_updates_and_stops_from_other_directory(self):

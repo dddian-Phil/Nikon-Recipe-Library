@@ -2,27 +2,27 @@
 
 本地浏览尼康云创色彩方案、作者头像、官方样片与拍摄参数，并将自己的 JPG / NEF 照片关联到使用的方案。
 
-支持按作者和器材筛选、方案收藏、照片喜欢、自动增量扫描、可搜索的手动关联及个人记录备份。官方方案由网页手动同步，提供新增标记与发布排序。界面使用中文，文件和目录使用英文。
+支持按作者和器材筛选、方案收藏、照片喜欢、自动增量扫描、可搜索的手动关联及个人记录备份。官方方案由网页手动同步，提供新增标记与发布排序。界面使用中文，文件和目录使用英文。启动脚本按系统收在 `scripts/macos/` 和 `scripts/windows/`。
 
 ## 日常使用
 
-1. Mac 双击桌面的「尼康云创资料库」替身或 `open-library.command`，Windows 双击 `open-library.cmd` 打开资料库。
+1. Mac 双击桌面的「尼康云创资料库」替身或 `scripts/macos/open-library.command`，Windows 双击 `scripts/windows/open-library.cmd` 打开资料库。
 2. 将照片放进 `photos/`，也可以建立子文件夹；服务运行时每 8 秒自动检查。
-3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 Mac 的 `update-photos.command` / Windows 的 `update-photos.cmd`。
+3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 Mac 的 `scripts/macos/update-photos.command` / Windows 的 `scripts/windows/update-photos.cmd`。
 
-Mac 关闭浏览器后服务仍在后台运行；双击 `stop-library.command` 可停止。再次打开会复用同一个资料库服务。
+Mac 关闭浏览器后服务仍在后台运行；双击 `scripts/macos/stop-library.command` 可停止。再次打开会复用同一个资料库服务。
 
 完整使用说明请打开根目录的 `guide.html`，也可以阅读 [文档源码](docs/guide.md)。已有的本地官方素材下载完成后，日常浏览无需联网。
 
-更新公开网页时，在本地页面的 **资料与备份** 菜单点击 **同步到 GitHub 网页**。本地已有的云创方案、实拍展示图、收藏和关联状态会一起发布，页面显示进度和完成结果，无需另开程序。只更新实拍时点击这个按钮即可；要获取新的官方方案，先点 **同步云创**，完成后再发布。原始 JPG 保留在本地。`sync-website.cmd` 仍可作为备用入口；首次部署需安装并登录 GitHub CLI。详情见部署目录 `local/worktrees/static-deploy/docs/deployment.md`。
+更新公开网页时，在本地页面的 **资料与备份** 菜单点击 **同步到 GitHub 网页**。本地已有的云创方案、实拍展示图、收藏和关联状态会一起发布，页面显示进度和完成结果，无需另开程序。只更新实拍时点击这个按钮即可；要获取新的官方方案，先点 **同步云创**，完成后再发布。原始 JPG 保留在本地。`scripts/windows/sync-website.cmd` 仍可作为备用入口；首次部署需安装并登录 GitHub CLI。详情见部署目录 `local/worktrees/static-deploy/docs/deployment.md`。
 
 ## 首次安装
 
 Mac 已安装 uv 时，在项目根目录执行一次：
 
 ```bash
-./setup-mac.command
-./open-library.command
+./scripts/macos/setup-mac.command
+./scripts/macos/open-library.command
 ```
 
 安装脚本为项目准备 Python 3.12 和 `.venv`，下载与缓存保存在忽略目录 `local/`，并配置本机解释器路径。之后直接双击启动入口即可。完整说明与迁移、分支安排见 [Mac 使用说明](docs/macos.md)。
@@ -31,7 +31,7 @@ Windows 需要 Python 3.11 或更新版本。以下命令在项目根目录执�
 
 ```powershell
 python -m pip install -r requirements.txt
-.\open-library.cmd
+.\scripts\windows\open-library.cmd
 ```
 
 首次打开可以没有官方素材，在网页点击「同步云创」下载。后续也只有这个按钮会发起官方同步；打开页面、刷新、本地照片扫描和服务重启均不会联系官方接口，没有新增后台定时任务。
@@ -61,13 +61,8 @@ python app/library_server.py --port 8765
 
 | 路径 | 用途 |
 |---|---|
-| `open-library.cmd` | 打开资料库 |
-| `open-library.command` | Mac 打开资料库 |
-| `setup-mac.command` | Mac 安装或更新运行依赖 |
-| `stop-library.command` | Mac 停止本项目的后台服务 |
-| `update-photos.cmd` | 立即更新照片索引 |
-| `update-photos.command` | Mac 立即更新照片索引 |
-| `sync-website.command` | Mac 发布网页；加 `--prepare-only` 仅在本地准备 |
+| `scripts/macos/` | Mac 启动、停止、安装、更新照片与网页同步入口 |
+| `scripts/windows/` | Windows 启动、更新照片、网页同步等入口 |
 | `guide.html` | 可直接阅读的使用说明 |
 | `photos/` | 自己的原始照片，保留原文件名 |
 | `app/` | 前端、照片解析、采集器及本地服务 |
@@ -97,4 +92,4 @@ python app/build_guide.py
 
 当前本地界面采用深灰摄影画廊布局：宋体风格中文标题、无外壳图片卡片和少量尼康黄状态提示。常驻操作为「更新照片库」和「资料与备份」；云创同步、网页发布、备份与快捷帮助集中在后者，进度和错误仍显示在页面上。页签、搜索、筛选与排序集中在浏览区；收藏图标始终可见，完整图片不裁切。手机「舒展」显示单列大图，「紧凑」显示双列；桌面保留三列／四列布局。详情、专注看图与原有快捷键保持可用，字体无需联网加载。
 
-主项目和展示分支的固定恢复标签为 `v1`、`v1-web`，两个标签均已上传 GitHub；成对恢复工具为 `restore-v1.cmd`，完整步骤见 [版本恢复说明](docs/versions.md)。本次画廊改版仅应用于当前本地版本，不修改线上分支。
+主项目和展示分支的固定恢复标签为 `v1`、`v1-web`，两个标签均已上传 GitHub；成对恢复工具为 `scripts/windows/restore-v1.cmd`，完整步骤见 [版本恢复说明](docs/versions.md)。本次画廊改版仅应用于当前本地版本，不修改线上分支。

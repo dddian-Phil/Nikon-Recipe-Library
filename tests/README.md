@@ -2,7 +2,7 @@
 
 Run from the project root with the existing Python runtime and requirements:
 
-On macOS, run `./setup-mac.command` once, then:
+On macOS, run `./scripts/macos/setup-mac.command` once, then:
 
 ```bash
 ./.venv/bin/python -B -m unittest discover -s tests -v
