@@ -42,7 +42,7 @@ function setup(sheet,title,note,headers,rows,widths,tableName){
  return end;
 }
 const mainHeaders=['方案名称','作者','相机型号','镜头型号','发布日期','焦距','光圈 F 值','快门（秒）','ISO','曝光补偿 EV','白平衡','基础优化校准','优化校准名称','本地详情路径','原始数据路径','官网来源','方案 ID'];
-const mainRows=recipes.map(r=>[r.name,r.authors.join(' / '),r.camera,r.lens,new Date(r.publicDate.slice(0,10)+'T00:00:00Z'),r.exif.focalLength||'',numeric(r.exif.fNumber),r.exif.exposureTime||'',numeric(r.exif.iso),numeric(r.exif.exposureBiasValue),r.exif.whiteBalance||'',r.pictureControl.baseName||'',r.pictureControlName,'双击最外层的 open-library.cmd','data/catalog/raw/details/'+r.id+'.json',r.source,r.id]);
+const mainRows=recipes.map(r=>[r.name,r.authors.join(' / '),r.camera,r.lens,new Date(r.publicDate.slice(0,10)+'T00:00:00Z'),r.exif.focalLength||'',numeric(r.exif.fNumber),r.exif.exposureTime||'',numeric(r.exif.iso),numeric(r.exif.exposureBiasValue),r.exif.whiteBalance||'',r.pictureControl.baseName||'',r.pictureControlName,'运行 scripts/windows/open-library.cmd','data/catalog/raw/details/'+r.id+'.json',r.source,r.id]);
 const end=setup(sheets[0],'尼康云创公开色彩方案',`${stats.recipeCount} 个方案 · ${stats.authorCount} 位作者 · 中国站 · 2026-10-24。从「打开资料库」查看介绍、样片与我的实拍。`,mainHeaders,mainRows,[45,24,20,44,15,13,14,16,12,16,18,25,34,46,70,80,31],'RecipesTable');
 sheets[0].tabColor='#344A36';
 sheets[0].getRange(`E6:E${end}`).setNumberFormat('yyyy-mm-dd');

@@ -166,7 +166,7 @@ function acceptState(next){
  $('library-alert').hidden=!next.scanError;$('library-alert').textContent=next.scanError?'照片扫描未完成：'+next.scanError+'。请检查 photos 文件夹的权限和可用磁盘空间。':'';if(next.catalogSync)renderCatalogStatus(next.catalogSync);if(next.websiteSync)renderWebsiteStatus(next.websiteSync);
  if(changed){populateFilters();update();if(activeRecipe&&$('modal').open)renderRecipePhotos(recipeById.get(activeRecipe));if(activePhoto&&$('photo-modal').open)openPhoto(activePhoto)}
 }
-async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-status').textContent='本地服务已断开';$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请重新双击最外层的 open-library.cmd。收藏记录仍保存在本地文件中。'}}}
+async function refresh(){try{const next=await api('/api/state');connectionFailures=0;acceptState(next)}catch(error){if(++connectionFailures>=2){$('library-status').textContent='本地服务已断开';$('library-alert').hidden=false;$('library-alert').textContent='本地服务已断开，请从 scripts 文件夹运行对应系统的 open-library 启动脚本。收藏记录仍保存在本地文件中。'}}}
 function mutate(body){writeQueue=writeQueue.then(async()=>{acceptState(await api('/api/records',body))}).catch(error=>toast('保存失败：'+error.message));return writeQueue}
 function switchPane(next){if(pane===next)return;pane=next;restorePaneFilters();update()}
 $('view-recipes').onclick=()=>switchPane('recipes');$('view-photos').onclick=()=>switchPane('photos');
