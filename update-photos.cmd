@@ -1,4 +1,0 @@
-@echo off
-chcp 65001 >nul
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0app\launch.ps1" -Action update
-if errorlevel 1 pause
