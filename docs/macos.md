@@ -2,25 +2,25 @@
 
 ## 日常使用
 
-在 Finder 中打开项目，双击 `open-library.command`。照片放在 `photos/`，收藏和关联保存在 `local/personal-records.json`。网页操作、8 秒自动扫描、云创手动同步和 GitHub 网页发布沿用原来的功能。
+在 Finder 中打开项目，双击 `scripts/macos/open-library.command`。照片放在 `photos/`，收藏和关联保存在 `local/personal-records.json`。网页操作、8 秒自动扫描、云创手动同步和 GitHub 网页发布沿用原来的功能。
 
-本机桌面已建立名为「尼康云创资料库」的 Finder 替身，指向 `open-library.command`，双击即可启动。替身使用独立设计的深灰摄影图标，PNG、Mac ICNS 和生成提示词保存在 `app/assets/library-icon-macos-v1.*`。替身留在本机桌面；换电脑后需重新建立。
+本机桌面已建立名为「尼康云创资料库」的 Finder 替身，指向 `scripts/macos/open-library.command`，双击即可启动。替身使用独立设计的深灰摄影图标，PNG、Mac ICNS 和生成提示词保存在 `app/assets/library-icon-macos-v1.*`。替身留在本机桌面；换电脑后需重新建立。
 
-- `setup-mac.command`：首次安装或更新 Python 依赖，需要联网并已安装 uv。
-- `open-library.command`：启动本项目服务并打开浏览器；已有服务时重新生成页面后复用。
-- `update-photos.command`：立即扫描本地照片。
-- `stop-library.command`：停止本项目启动的后台服务；扫描、同步或发布期间会提示等待。
-- `sync-website.command`：备用网页发布入口，等同于在本地网页主动发布。
+- `scripts/macos/setup-mac.command`：首次安装或更新 Python 依赖，需要联网并已安装 uv。
+- `scripts/macos/open-library.command`：启动本项目服务并打开浏览器；已有服务时重新生成页面后复用。
+- `scripts/macos/update-photos.command`：立即扫描本地照片。
+- `scripts/macos/stop-library.command`：停止本项目启动的后台服务；扫描、同步或发布期间会提示等待。
+- `scripts/macos/sync-website.command`：备用网页发布入口，等同于在本地网页主动发布。
 
-运行 `setup-mac.command` 后无需激活 Python 环境。脚本使用项目内的 `.venv`，不会使用从 Windows 复制的 Conda 路径。端口从 `local/runtime.json` 读取，默认 8765。日志在 `local/runtime.log`。关闭浏览器不会停止后台服务。
+运行 `scripts/macos/setup-mac.command` 后无需激活 Python 环境。脚本使用项目内的 `.venv`，不会使用从 Windows 复制的 Conda 路径。端口从 `local/runtime.json` 读取，默认 8765。日志在 `local/runtime.log`。关闭浏览器不会停止后台服务。
 
 这些入口也可以在终端使用，路径包含空格或中文、终端当前目录不是项目目录时同样有效。例如在项目根目录执行：
 
 ```bash
-./setup-mac.command
-./open-library.command
-./update-photos.command
-./stop-library.command
+./scripts/macos/setup-mac.command
+./scripts/macos/open-library.command
+./scripts/macos/update-photos.command
+./scripts/macos/stop-library.command
 ```
 
 ## 分支与目录
@@ -54,7 +54,7 @@ gh auth status
 只在本地导出、校验，不提交或上传：
 
 ```bash
-./sync-website.command --prepare-only
+./scripts/macos/sync-website.command --prepare-only
 ```
 
 这个操作会在部署 worktree 生成公开快照与 `dist/`。完整部署规则见该目录的 `docs/deployment.md`。

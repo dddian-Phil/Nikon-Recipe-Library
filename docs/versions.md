@@ -21,7 +21,7 @@ v2 保留深色图库、手机横滑切换、自托管中文字体和只读网�
 
 本地使用电脑已安装的 Noto Sans SC，未安装时回退到系统中文字体；网页版包含自托管的分片 WOFF2 和 OFL 许可证，不要求访客安装字体，也不需要实时连接外部字体服务。
 
-备份目录被 Git 忽略。原始照片、个人记录、运行配置和下载缓存不包含在源码备份中，也不会因为保存标签而改变。需要恢复 v2 时，应成对使用 v2 和 v2-web；现有 `restore-v1.cmd` 仍然只恢复 v1，不会自动改为恢复 v2。
+备份目录被 Git 忽略。原始照片、个人记录、运行配置和下载缓存不包含在源码备份中，也不会因为保存标签而改变。需要恢复 v2 时，应成对使用 v2 和 v2-web；现有 `scripts/windows/restore-v1.cmd` 仍然只恢复 v1，不会自动改为恢复 v2。
 
 ## v1 历史版本
 
@@ -36,13 +36,13 @@ GitHub 地址：https://github.com/dddian-Phil/Nikon-Recipe-Library/tree/v1 和 
 
 ## 本机恢复
 
-关闭本地资料库服务与其他正在编辑本项目的程序，再双击根目录的 `restore-v1.cmd`。它会：
+关闭本地资料库服务与其他正在编辑本项目的程序，再双击项目内的 `scripts/windows/restore-v1.cmd`。它会：
 
 1. 核对两个标签的完整提交，以及所有恢复文件的路径。
 2. 先把即将覆盖的两个目录中的现有文件备份到 `local/versions/before-v1-restore-日期时间/current-both-projects.zip`，核验备份后才恢复。
 3. 从 `v1` 恢复主项目，从 `v1-web` 恢复 `local/worktrees/static-deploy`，并重新生成本地浏览页。
 
-原始照片、个人收藏、关联记录和运行配置不参与回退。v1 之后新增、但 v1 中不存在的文件会保留；不会删除任何用户文件。工具不会切换分支、重置 Git 历史、推送或发布。重新打开 `open-library.cmd` 查看本地 v1。
+原始照片、个人收藏、关联记录和运行配置不参与回退。v1 之后新增、但 v1 中不存在的文件会保留；不会删除任何用户文件。工具不会切换分支、重置 Git 历史、推送或发布。重新打开 `scripts/windows/open-library.cmd` 查看本地 v1。
 
 只核验恢复点、不恢复：`powershell -NoProfile -File app/restore-v1.ps1 -CheckOnly`。
 

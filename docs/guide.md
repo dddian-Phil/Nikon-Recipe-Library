@@ -1,8 +1,8 @@
 # 尼康云创资料库
 
-Mac 双击同一层的 **open-library.command**，Windows 双击 **open-library.cmd**，即可在浏览器使用。Mac 首次使用先运行 **setup-mac.command**。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。
+Mac 双击项目内的 **scripts/macos/open-library.command**，Windows 双击 **scripts/windows/open-library.cmd**，即可在浏览器使用。Mac 首次使用先运行 **scripts/macos/setup-mac.command**。资料与照片都在本机。下载完成后的日常浏览无需登录或联网；官方同步需要联网。
 
-Mac 关闭浏览器后服务仍在后台运行；双击 **stop-library.command** 可停止本项目的服务，正在扫描、同步或发布时请等待完成。再次打开资料库会复用已有服务。
+Mac 关闭浏览器后服务仍在后台运行；双击 **scripts/macos/stop-library.command** 可停止本项目的服务，正在扫描、同步或发布时请等待完成。再次打开资料库会复用已有服务。
 
 ## 网页手动同步云创
 
@@ -33,7 +33,7 @@ Mac 关闭浏览器后服务仍在后台运行；双击 **stop-library.command**
 
 带 MPF 内嵌预览、被图片库识别为 MPO 的相机 JPEG 也支持导入；主图和内嵌图均检查可读性，并完整保留原文件与拍摄信息，无需重新导出。
 
-仍可把新照片复制到 **photos** 文件夹，按日期或主题建立子文件夹。资料库每 8 秒检查一次变化，也可以点击 **更新照片库**，或双击 Mac **update-photos.command** / Windows **update-photos.cmd**。
+仍可把新照片复制到 **photos** 文件夹，按日期或主题建立子文件夹。资料库每 8 秒检查一次变化，也可以点击 **更新照片库**，或双击 Mac **scripts/macos/update-photos.command** / Windows **scripts/windows/update-photos.cmd**。
 
 JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增加拍摄张数。更新会跳过未变化的文件，不会修改原照片。正在复制的文件会留到后续检查。
 
@@ -86,16 +86,16 @@ JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增�
 
 ## 文件夹说明
 
-| 最外层入口 | 用途 |
+| 项目内路径 | 用途 |
 |---|---|
-| open-library.cmd | 日常浏览、收藏、反查和管理实拍 |
-| open-library.command | Mac 日常打开资料库 |
-| setup-mac.command | Mac 安装或更新项目环境 |
-| stop-library.command | Mac 停止后台服务 |
+| scripts/windows/open-library.cmd | 日常浏览、收藏、反查和管理实拍 |
+| scripts/macos/open-library.command | Mac 日常打开资料库 |
+| scripts/macos/setup-mac.command | Mac 安装或更新项目环境 |
+| scripts/macos/stop-library.command | Mac 停止后台服务 |
 | photos | 放入新照片，可自由建立子文件夹 |
-| update-photos.cmd | 立即检查新增、移动或移除的照片 |
-| update-photos.command | Mac 立即更新照片索引 |
-| sync-website.command | Mac 网页发布备用入口 |
+| scripts/windows/update-photos.cmd | 立即检查新增、移动或移除的照片 |
+| scripts/macos/update-photos.command | Mac 立即更新照片索引 |
+| scripts/macos/sync-website.command | Mac 网页发布备用入口 |
 | recipes.xlsx | 直接用 Excel 查看公开方案总表 |
 | guide.html | 本说明，双击即可阅读 |
 | README.md | 项目介绍与安装说明 |
@@ -119,7 +119,7 @@ JPG＋NEF 会尽量识别为同一次拍摄；重复复制相同文件不会增�
 
 ## 无法打开时
 
-请再次双击 Mac **open-library.command** / Windows **open-library.cmd**。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。Mac 缺少环境时重新运行 **setup-mac.command**。
+请再次双击 Mac **scripts/macos/open-library.command** / Windows **scripts/windows/open-library.cmd**。如果提示端口被其他程序占用，可以在「local/runtime.json」调整端口后重启本地服务；没有该文件时可从「app/runtime.example.json」复制。个人记录不受影响。启动错误会写入「local/runtime.log」。Mac 缺少环境时重新运行 **scripts/macos/setup-mac.command**。
 
 ## 收起筛选条件
 

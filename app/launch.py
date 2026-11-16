@@ -77,7 +77,7 @@ class Launcher:
         try:
             for _ in range(80):
                 if process.poll() is not None:
-                    raise ValueError('资料库启动失败，请查看 local/runtime.log；缺少依赖时重新运行 setup-mac.command。')
+                    raise ValueError('资料库启动失败，请查看 local/runtime.log；缺少依赖时重新运行 scripts/macos/setup-mac.command。')
                 state = self.health()
                 if state:
                     if state.get('pid') != process.pid:
@@ -149,7 +149,7 @@ class Launcher:
         self.config.update(python=sys.executable, port=self.port)
         path = self.local / 'runtime.json'
         path.write_text(json.dumps(self.config, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-        print('Mac 运行环境已配置。双击 open-library.command 打开资料库。')
+        print('Mac 运行环境已配置。双击 scripts/macos/open-library.command 打开资料库。')
 
     def sync(self, prepare_only=False):
         deployment = self.local / 'worktrees/static-deploy'
@@ -169,7 +169,7 @@ def main():
     parser.add_argument('--prepare-only', action='store_true')
     args = parser.parse_args()
     if sys.version_info < (3, 11):
-        raise ValueError('需要 Python 3.11 或更新版本，请先运行 setup-mac.command。')
+        raise ValueError('需要 Python 3.11 或更新版本，请先运行 scripts/macos/setup-mac.command。')
     launcher = Launcher()
     with launcher.locked():
         if args.action == 'open':
