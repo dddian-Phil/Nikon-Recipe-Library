@@ -2,15 +2,17 @@
 
 本地浏览尼康云创色彩方案、作者头像、官方样片与拍摄参数，并将自己的 JPG / NEF 照片关联到使用的方案。
 
-支持按作者和器材筛选、方案收藏、照片喜欢、自动增量扫描、可搜索的手动关联及个人记录备份。官方方案由网页手动同步，提供新增标记与发布排序。界面使用中文，文件和目录使用英文。启动脚本按系统收在 `scripts/macos/` 和 `scripts/windows/`。
+支持按作者和器材筛选、方案收藏、照片喜欢、自动增量扫描、可搜索的手动关联及个人记录备份。官方方案由网页手动同步，提供新增标记与发布排序。界面使用中文，文件和目录使用英文。启动脚本按系统收在 `scripts/macos/` 和 `scripts/windows/`，`.command` 用于 macOS，`.cmd` 用于 Windows。
 
 ## 日常使用
 
 1. Mac 双击桌面的「尼康云创资料库」替身或 `scripts/macos/open-library.command`，Windows 双击 `scripts/windows/open-library.cmd` 打开资料库。
-2. 将照片放进 `photos/`，也可以建立子文件夹；服务运行时每 8 秒自动检查。
+2. 打开「我的实拍」，点击「添加照片」多选 JPEG（`.jpg` / `.jpeg`），也可以拖到添加区域。导入后自动扫描并显示；重复内容跳过，同名不同内容另存，不覆盖已有照片。也可继续把照片放进 `photos/`，服务每 8 秒自动检查。
 3. 需要立即刷新时，点击页面上的「更新照片库」，或双击 Mac 的 `scripts/macos/update-photos.command` / Windows 的 `scripts/windows/update-photos.cmd`。
 
 Mac 关闭浏览器后服务仍在后台运行；双击 `scripts/macos/stop-library.command` 可停止。再次打开会复用同一个资料库服务。
+
+实拍列表末尾并排提供「添加照片」和「删除照片」。点击「删除照片」后勾选一张或多张实拍，再点击「删除所选」确认；「全选」仅选择当前筛选可见的照片。同一实拍的多个文件会列出并一起处理。原文件移至本地 `local/deleted-photos/`，底部可以撤销最近一批删除，喜欢和关联记录保留。删除不会自动更新已发布网页，需要之后手动同步。
 
 完整使用说明请打开根目录的 `guide.html`，也可以阅读 [文档源码](docs/guide.md)。已有的本地官方素材下载完成后，日常浏览无需联网。
 
@@ -62,7 +64,7 @@ python app/library_server.py --port 8765
 | 路径 | 用途 |
 |---|---|
 | `scripts/macos/` | Mac 启动、停止、安装、更新照片与网页同步入口 |
-| `scripts/windows/` | Windows 启动、更新照片、网页同步等入口 |
+| `scripts/windows/` | Windows 启动、更新照片、网页同步与版本恢复入口 |
 | `guide.html` | 可直接阅读的使用说明 |
 | `photos/` | 自己的原始照片，保留原文件名 |
 | `app/` | 前端、照片解析、采集器及本地服务 |
@@ -74,6 +76,8 @@ python app/library_server.py --port 8765
 照片和 `local/` 全部内容均由 `.gitignore` 排除。下载的官方素材、Excel 导出及生成的 `app/viewer.html` 也不提交；新电脑按首次安装步骤重新生成资料库。复制现有照片库到其他电脑时，请另外保留 `photos/` 和 `local/`。
 
 ## 维护
+
+分支与发布约定见 [AGENTS.md](AGENTS.md)：探索性改动在 UI Polish 分支尝试，确认后合入 macOS；明确要做的改动直接在 macOS 分支开发。修改先通过本地测试，再整合并发布网页。
 
 ```powershell
 # 从已有本地素材重新生成目录，保持离线

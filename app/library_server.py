@@ -12,6 +12,8 @@ from urllib.parse import parse_qs, quote, unquote, urlparse
 from photo_library import PhotoLibrary, WORKSPACE, INTERNAL, PHOTO_ROOT, CATALOG_ROOT, PREVIEWS
 from catalog_sync import CatalogSync
 from website_sync import WebsiteSync
+from photo_import import import_photo, MAX_FILE_BYTES
+from photo_trash import delete_photo, restore_photo
 
 LIBRARY = None
 CATALOG = None
@@ -61,6 +63,8 @@ class Handler(BaseHTTPRequestHandler):
                 state = LIBRARY.state()
                 state['catalogSync'] = CATALOG.status()
                 state['websiteSync'] = WEBSITE.status() if WEBSITE else None
+                state['photoImport'] = {'maxFileBytes': MAX_FILE_BYTES}
+                state['photoDelete'] = True
                 self.send_json(state)
             elif path == '/api/catalog':
                 self.send_json(CATALOG.payload())
@@ -94,6 +98,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
+            if urlparse(self.path).path == '/api/photos':
+                self.receive_photo()
+                return
             length = int(self.headers.get('Content-Length', '0'))
             if length < 0 or length > 8 * 1024 * 1024:
                 raise ValueError('请求过大')
@@ -131,6 +138,14 @@ class Handler(BaseHTTPRequestHandler):
                 if not started:
                     status['error'] = '网页同步已在进行，请稍候。'
                 self.send_json(status, 202 if started else 409)
+            elif self.path in {'/api/photos/delete', '/api/photos/restore'}:
+                with SYNC_ACTION_LOCK:
+                    if WEBSITE and WEBSITE.status()['running']:
+                        self.send_json({'error': '正在发布网页，请完成后再删除或恢复照片。'}, 409)
+                        return
+                    result = (delete_photo(LIBRARY, incoming.get('id'), incoming.get('files'))
+                              if self.path.endswith('/delete') else restore_photo(LIBRARY, incoming.get('token')))
+                self.send_json(result)
             elif self.path == '/api/scan':
                 LIBRARY.start_scan()
                 self.send_json(LIBRARY.state())
@@ -144,6 +159,25 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json({'error': str(error)}, 400)
         except Exception as error:
             self.send_json({'error': str(error)}, 500)
+
+    def receive_photo(self):
+        # Reject before reading large bodies; this endpoint never accepts forms.
+        self.close_connection = True
+        if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
+            self.send_json({'error': '不允许跨站写入'}, 403)
+            return
+        if self.headers.get('Transfer-Encoding') or self.headers.get('Content-Type', '').split(';')[0] != 'application/octet-stream':
+            self.send_json({'error': '需要照片文件请求'}, 400)
+            return
+        length = int(self.headers.get('Content-Length', '0'))
+        if length <= 0 or length > MAX_FILE_BYTES:
+            self.send_json({'error': '照片不能为空，单个文件不能超过 256 MB。'}, 413)
+            return
+        name = parse_qs(urlparse(self.path).query).get('name', [''])[0]
+        self.connection.settimeout(60)
+        result = import_photo(PHOTO_ROOT, name, self.rfile, length)
+        LIBRARY.start_scan()
+        self.send_json(result, 201 if result['status'] == 'added' else 200)
 
 
 def main():
