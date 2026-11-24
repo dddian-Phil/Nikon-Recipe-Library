@@ -35,7 +35,7 @@ p{margin:10px 0 16px}.muted{color:var(--muted);font-size:13px}.nowrap{white-spac
 .library-actions{display:flex;align-items:center;gap:12px;font-size:13px}
 .library-actions>button{color:var(--muted)}.library-actions>button:hover{color:var(--ink)}
 .library-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:40px 0 46px}
-.library-intro h1{font:400 52px/1.3 var(--serif);letter-spacing:0;text-wrap:balance}
+.library-intro h1{font:400 clamp(34px,4.2vw,52px)/1.3 var(--serif);letter-spacing:-.04em;text-wrap:balance}
 .library-meta{text-align:right;flex-shrink:0;padding-bottom:5px}
 #summary{font-size:13px;margin:0 0 7px;color:var(--muted)}
 #library-status{font-size:12px;color:var(--muted)}
@@ -198,7 +198,7 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
 @media(min-width:1440px){:root{--image-height:355px}body[data-density="compact"]{--image-height:265px}}
 @media(max-width:1150px){
   :root{--image-height:290px}body[data-density="compact"]{--image-height:245px}
-  .library-intro{padding:32px 0 38px}.library-intro h1{font-size:44px}.library-meta{max-width:340px;flex-shrink:1}.browse-secondary{flex-wrap:wrap}.countbar{margin-left:auto}
+  .library-intro{padding:32px 0 38px}.library-meta{max-width:340px;flex-shrink:1}.browse-secondary{flex-wrap:wrap}.countbar{margin-left:auto}
   .grid{gap:34px 22px}body[data-density="compact"] .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .card h3{font-size:18px}.detailimage{padding:22px}.detail>div:not(.detailimage){padding:28px}.author-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
@@ -212,7 +212,7 @@ kbd{display:inline-block;padding:1px 7px;border:1px solid #53534c;border-radius:
   :root{--image-height:340px}body[data-density="compact"]{--image-height:190px}
   .masthead{min-height:72px;gap:8px}.brand{font-size:14px;gap:7px}.brand::before{width:6px;height:6px}
   .library-actions{gap:4px;font-size:12px}.library-actions>button{padding:8px}.utility-menu>summary{padding:8px}.utility-menu>summary::after{margin-left:4px;width:12px}
-  .library-intro{padding:24px 0 30px;gap:18px}.library-intro h1{font-size:34px}#summary{font-size:12px}#library-status{font-size:11px}
+  .library-intro{padding:24px 0 30px;gap:18px}.library-intro h1{font-size:34px;letter-spacing:-.04em}#summary{font-size:12px}#library-status{font-size:11px}
   .browse-controls{position:relative}.browse-main{display:block;padding-bottom:14px}.view-tabs{gap:26px;margin-bottom:20px;border-bottom:1px solid var(--line)}
   .view-tabs button{font-size:15px;padding:8px 0 13px}.view-tabs button[aria-pressed="true"]::after{bottom:-1px}
   .filter-toolbar{gap:10px;justify-content:space-between}#q{background-color:var(--surface);font-size:14px;height:44px}.search-field>kbd{display:none}
